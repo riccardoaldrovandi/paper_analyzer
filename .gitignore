@@ -1,0 +1,28 @@
+# Ambiente virtuale Python
+venv/
+env/
+ENV/
+.venv/
+
+# Variabili d'ambiente e chiavi API
+.env
+
+# Cache di Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# File di dati esportati dalle ricerche (JSON e CSV generati dinamicamente)
+*.json
+*.csv
+
+# Cartelle dei download locali (PDF e sorgenti LaTeX)
+downloaded_pdfs/
+downloaded_latex/
+
+# IDE e configurazioni di sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,54 +1,84 @@
 import argparse
+import os
 from src.api.semantic_scholar import fetch_semantic_scholar
 from src.api.inspire_hep import fetch_inspire_hep
-from src.utils.helpers import sanitize_filename, export_results
+from src.utils.helpers import sanitize_filename, export_results, process_and_print_result
 from src.processing.pdf_extractor import extract_text_from_pdf
-from src.config import PDF_DIR
-import os
+from src.processing.latex_extractor import extract_text_from_latex_tarball
+from src.llm.gemini_client import analyze_with_gemini
+from src.llm.groq_client import analyze_with_groq
+from src.llm.openrouter_client import analyze_with_openrouter
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description=(
-            "👋 Welcome to the Academic Paper Analyzer Framework!\n\n"
-            "Modulized architecture to fetch, download, and analyze literature papers."
-        ),
+        description="📚 Academic Paper Analyzer Framework & Literature Review Assistant",
         formatter_class=argparse.RawTextHelpFormatter
     )
     
-    parser.add_argument("--api", type=str, choices=["semantic", "inspire", "both"], default="semantic",
-                        help="Database to query ('semantic', 'inspire', 'both')")
-    parser.add_argument("--query", type=str, default="Multi-Agent Reinforcement Learning",
-                        help="Search query string")
-    parser.add_argument("--limit", type=int, default=3,
-                        help="Number of papers to fetch per API")
-    parser.add_argument("--latex", action="store_true",
-                        help="Attempt downloading LaTeX source files (.tar.gz) from arXiv")
-    parser.add_argument("--extract-sample", action="store_true",
-                        help="Test text extraction on the first available downloaded PDF")
-                        
+    subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
+    
+    # Subcommand: fetch
+    fetch_parser = subparsers.add_parser("fetch", help="Fetch papers from academic APIs and download PDF/LaTeX.")
+    fetch_parser.add_argument("--api", type=str, choices=["semantic", "inspire", "both"], default="semantic")
+    fetch_parser.add_argument("--query", type=str, default="Multi-Agent Reinforcement Learning")
+    fetch_parser.add_argument("--limit", type=int, default=3)
+    fetch_parser.add_argument("--latex", action="store_true")
+
+    # Subcommand: analyze
+    analyze_parser = subparsers.add_parser("analyze", help="Analyze a local PDF or LaTeX tarball using LLMs.")
+    analyze_parser.add_argument("--pdf", type=str, help="Path to local PDF file")
+    analyze_parser.add_argument("--latex", type=str, help="Path to local LaTeX .tar.gz file")
+    analyze_parser.add_argument("--model", type=str, default="gemini", choices=["gemini", "groq", "openrouter", "all"])
+
     args = parser.parse_args()
 
-    safe_query_name = sanitize_filename(args.query).replace(" ", "_")
+    if args.command == "fetch":
+        safe_query_name = sanitize_filename(args.query).replace(" ", "_")
+        if args.api in ["semantic", "both"]:
+            dataset_s2 = fetch_semantic_scholar(query=args.query, limit=args.limit, fetch_latex=args.latex)
+            export_results(dataset_s2, base_filename=f"{safe_query_name}_semantic")
+        if args.api in ["inspire", "both"]:
+            dataset_inspire = fetch_inspire_hep(query=args.query, limit=args.limit, fetch_latex=args.latex)
+            export_results(dataset_inspire, base_filename=f"{safe_query_name}_inspire")
 
-    if args.api in ["semantic", "both"]:
-        dataset_s2 = fetch_semantic_scholar(query=args.query, limit=args.limit, fetch_latex=args.latex) 
-        export_results(dataset_s2, base_filename=f"{safe_query_name}_semantic")
-        
-    if args.api in ["inspire", "both"]:
-        dataset_inspire = fetch_inspire_hep(query=args.query, limit=args.limit, fetch_latex=args.latex)
-        export_results(dataset_inspire, base_filename=f"{safe_query_name}_inspire")
+    elif args.command == "analyze":
+        if not args.pdf and not args.latex:
+            print("[!] Please specify either --pdf or --latex file to analyze.")
+            exit()
 
-    if args.extract_sample:
-        print("\n--- Running Sample PDF Extraction ---")
-        if os.path.exists(PDF_DIR):
-            files = os.listdir(PDF_DIR)
-            pdf_files = [f for f in files if f.endswith(".pdf")]
-            if pdf_files:
-                sample_pdf = os.path.join(PDF_DIR, pdf_files[0])
-                print(f"[~] Extracting text from: {sample_pdf}\n")
-                extracted_text = extract_text_from_pdf(sample_pdf)
-                print(f"[+] Total characters extracted: {len(extracted_text)}")
-                print("\n--- Preview (First 500 characters) ---\n")
-                print(extracted_text[:500])
+        text_content = ""
+        if args.pdf:
+            if os.path.exists(args.pdf):
+                print(f"\n[~] Extracting text from PDF: {args.pdf}")
+                text_content = extract_text_from_pdf(args.pdf)
             else:
-                print("[!] No PDF files found in downloaded_pdfs/")
+                print(f"[!] PDF not found: {args.pdf}")
+                exit()
+        elif args.latex:
+            if os.path.exists(args.latex):
+                print(f"\n[~] Extracting text from LaTeX tarball: {args.latex}")
+                text_content = extract_text_from_latex_tarball(args.latex)
+            else:
+                print(f"[!] LaTeX tarball not found: {args.latex}")
+                exit()
+
+        providers = ["gemini", "groq", "openrouter"] if args.model.lower() == "all" else [args.model.lower()]
+
+        for provider in providers:
+            print(f"\n--- Running analysis with: {provider.upper()} ---")
+            if provider == "gemini":
+                m_name, raw_res = analyze_with_gemini(text_content)
+            elif provider == "groq":
+                m_name, raw_res = analyze_with_groq(text_content)
+            elif provider == "openrouter":
+                m_name, raw_res = analyze_with_openrouter(text_content)
+            else:
+                continue
+
+            print(f"\n------------ {provider.capitalize()} ------------")
+            print(f"Model used: {m_name}")
+            print("Output JSON:")
+            process_and_print_result(m_name, raw_res)
+            print("-" * 40)
+    else:
+        parser.print_help()

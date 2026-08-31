@@ -111,4 +111,4 @@ python main.py analyze --latex downloaded_latex/paper_id_source.tar.gz --model a
 
 ## 📜 License
 
-Distributed under the MIT License. See **LICENSE** for more information.
+Distributed under the MIT License. See [**LICENSE**](https://github.com/riccardoaldrovandi/paper_analyzer/blob/main/LICENSE) for more information.

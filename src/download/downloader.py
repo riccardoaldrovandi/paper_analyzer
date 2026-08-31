@@ -1,7 +1,10 @@
 import os
 import requests
+import urllib3
 from src.config import PDF_DIR, LATEX_DIR
 from src.utils.helpers import sanitize_filename
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def download_pdf(pdf_url: str, paper_id: str, title: str) -> str:
     if not pdf_url or pdf_url == "N/A":
@@ -16,12 +19,14 @@ def download_pdf(pdf_url: str, paper_id: str, title: str) -> str:
         return filepath
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
 
     try:
         print(f"[~] Attempting to download PDF: {pdf_url}")
-        response = requests.get(pdf_url, headers=headers, stream=True, timeout=15)
+        # Aggiunto verify=False per bypassare server accademici con certificati scaduti
+        response = requests.get(pdf_url, headers=headers, stream=True, timeout=15, verify=False)
+        
         if response.status_code == 200 and 'application/pdf' in response.headers.get('Content-Type', ''):
             with open(filepath, 'wb') as f:
                 for chunk in response.iter_content(chunk_size=8192):
@@ -50,7 +55,7 @@ def download_latex(arxiv_id: str, paper_id: str, title: str) -> str:
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
-    url = f"[https://arxiv.org/e-print/](https://arxiv.org/e-print/){arxiv_id}"
+    url = f"https://arxiv.org/e-print/{arxiv_id}"
 
     try:
         print(f"[~] Attempting to download LaTeX source: {url}")

@@ -9,7 +9,7 @@ def analyze_with_groq(text_content: str) -> tuple[str, str]:
         return "Unknown Groq Model", "{}"
     
     client = Groq(api_key=GROQ_API_KEY)
-    model_id = 'llama-3.3-70b-versatile'
+    model_id = 'groq/compound'
     
     max_chars = 20000
     if len(text_content) > max_chars:

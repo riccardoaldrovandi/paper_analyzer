@@ -14,7 +14,7 @@ def analyze_with_gemini(text_content: str) -> tuple[str, str]:
         return "Unknown Gemini Model", "{}"
     
     client = genai.Client(api_key=GEMINI_API_KEY)
-    model_id = 'gemini-2.5-flash' # Aggiornato al modello corrente stabile
+    model_id = 'gemini-3.6-flash' # Aggiornato al modello corrente stabile
     
     print(f"[~] Sending paper content to Gemini ({model_id})...")
     try:

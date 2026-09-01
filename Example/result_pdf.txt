@@ -1,0 +1,87 @@
+
+[~] Extracting text from PDF: downloaded_pdfs/3111637_Emergent Cooperation in Quantum Multi-Agent Reinfo.pdf
+
+--- Running analysis with: GEMINI ---
+[~] Sending paper content to Gemini (gemini-3.6-flash)...
+
+------------ Gemini ------------
+Model used: gemini-3.6-flash
+Output JSON:
+{
+    "problem_addressed": "Emergent cooperation in Quantum Multi-Agent Reinforcement Learning (QMARL) remains largely unexplored, particularly regarding how explicit communication mechanisms affect cooperative dynamics in Sequential Social Dilemmas.",
+    "main_contributions": [
+        "Adapted and evaluated eight classical multi-agent communication mechanisms (MATE, MEDIATE variants, Gifting variants, RIAL) for quantum Q-Learning agents.",
+        "Empirically demonstrated that token-based communication protocols reliably foster emergent cooperation among quantum agents in classic social dilemmas.",
+        "Analyzed the capabilities and limitations of Variational Quantum Circuits (VQCs) in both simple matrix games and high-dimensional spatial environments."
+    ],
+    "methodology": "The authors replace classical Q-function approximators in multi-agent Q-learning with Variational Quantum Circuits (VQCs) consisting of state embedding (Basis, Angle, or Amplitude), parameterized rotation layers, circular CNOT entanglement, and Z-basis measurements. They integrate eight classical communication mechanisms into quantum Q-learning agents: two MATE variants (MATETD, MATErew), three MEDIATE variants (AutoMATE, MEDIATE-I, MEDIATE-S), two Gifting variants (GiftingZerosum, GiftingBudget), and Reinforced Inter-Agent Learning (RIAL).",
+    "datasets_used": [
+        "Iterated Prisoner's Dilemma",
+        "Iterated Stag Hunt",
+        "Iterated Game of Chicken",
+        "Harvest Game"
+    ],
+    "experiments": "Evaluated communication-enabled quantum agents in three iterated matrix games across 2,000 episodes (50 steps per episode, 15 random seeds) using 4-layer VQCs. Scalability was assessed in the grid-based Harvest Game across 1,000 episodes (250 steps per episode, 3 seeds) by comparing 7-qubit VQCs (1 to 4 variational layers, multiple learning rates) against a classical neural network baseline. Performance was evaluated using collective cumulative reward, mutual cooperation frequency, inequality, token values, and gifting frequency.",
+    "results": "Temporal-difference-based token exchange mechanisms (MATETD, AutoMATE, MEDIATE-I, MEDIATE-S) achieved high cooperation levels (over 87% mutual cooperation for MATETD in the Prisoner's Dilemma), high collective rewards, and low inequality across all matrix games. Unincentivized messaging (RIAL) helped in Stag Hunt but failed in Prisoner's Dilemma, while peer gifting showed limited success. In the Harvest Game, all VQC variants performed worse than classical neural network baselines due to high-dimensional observation encoding issues and optimization challenges like barren plateaus.",
+    "limitations": "VQCs faced optimization challenges (such as barren plateaus) and expressivity limits when scaling to spatial, high-dimensional multi-agent environments like the Harvest Game. Furthermore, unincentivized message passing proved ineffective in strict conflict scenarios.",
+    "future_work": "Future directions include exploring more complex multi-agent environments, investigating alternative VQC architectures, designing communication protocols leveraging inherent quantum features like entanglement, and evaluating scalability to larger multi-agent populations.",
+    "relevant_elements": "Monotonic Improvement Formulas (MI_rew and MI_TD); Fig. 1: Comparison of different VQC architectures; Fig. 2: Iterated Prisoner's Dilemma performance metrics; Fig. 3: Iterated Stag Hunt performance metrics; Fig. 4: Iterated Game of Chicken performance metrics; Fig. 5: Collective cumulative reward in the Harvest Game."
+}
+----------------------------------------
+
+--- Running analysis with: GROQ ---
+[~] Truncating text from 35155 to 20000 chars to fit Groq limits...
+[~] Waiting 15s to ensure Groq TPM budget is clear...
+[~] Sending paper content to Groq (groq/compound)...
+[!] Error during Groq analysis: Error code: 413 - {'error': {'message': 'Request Entity Too Large', 'type': 'invalid_request_error', 'code': 'request_too_large'}}
+
+------------ Groq ------------
+Model used: groq/compound
+Output JSON:
+{}
+----------------------------------------
+
+--- Running analysis with: OPENROUTER ---
+[~] Sending paper content to OpenRouter (openrouter/free alias)...
+
+------------ Openrouter ------------
+Model used: inclusionai/ling-3.0-flash-fin:free
+Output JSON:
+{
+    "problem_addressed": "Emergent cooperation in Quantum Multi-Agent Reinforcement Learning (QMARL) using communication protocols, specifically adapting classical MARL communication mechanisms to quantum Q-learning agents to foster cooperation in Sequential Social Dilemmas (SSDs) where non-stationary environments and self-interested agents often forego cooperative actions.",
+    "main_contributions": [
+        "Adapted eight established classical MARL communication mechanisms (MATE, MEDIATE, Gifting, RIAL) for quantum Q-learning agents using Variational Quantum Circuits",
+        "Empirically evaluated these approaches across three canonical Sequential Social Dilemmas: Iterated Prisoner's Dilemma, Iterated Stag Hunt, and Iterated Game of Chicken",
+        "Demonstrated that communication protocols can foster emergent cooperation among quantum agents",
+        "Showed that temporal-difference-based monotonic improvement methods (MATETD, AutoMATE, MEDIATE-I, MEDIATE-S) achieve the highest cooperation levels across all dilemmas",
+        "Assessed quantum circuit scalability and efficiency in cooperative, visually rich environments via the Harvest Game"
+    ],
+    "methodology": "Applied classical communication mechanisms to quantum Q-Learning agents where each agent uses a Variational Quantum Circuit (VQC) as a function approximator instead of classical networks. For matrix games, used 4-layer VQCs with Basis embedding, parameterized single-qubit rotations, circular CNOT entanglement, and Pauli-Z measurement. For Gifting, added angle embedding for budget. For RIAL, used 6 qubits for message bits. Used PennyLane with lightning.qubit simulator, Adam optimizer with Mean Squared Error loss and adjoint differentiation. Parameters initialized uniformly in [-\u03c0, \u03c0).",
+    "datasets_used": [
+        "Iterated Prisoner's Dilemma",
+        "Iterated Stag Hunt",
+        "Iterated Game of Chicken",
+        "Harvest Game (grid-based spatial social dilemma)"
+    ],
+    "experiments": "Matrix games: 2000 episodes of 50 steps each, 15 random seeds (0-14), \u03f5 linearly decayed from 0.3, learning rate \u03b1=0.001, output-scaling rate \u03b1w=0.1, discount \u03b3=0.9, buffer size 50, batch size 5. Harvest Game: 1000 episodes of 250 steps each, 3 random seeds (0-2), \u03f5 exponentially decayed from 1.0 to 0.02, learning rates {0.0001, 0.001, 0.01}, buffer size 2500, batch size 100, \u03b3=0.99. Tested 1-4 variational layers.",
+    "results": "In matrix games, MATETD achieved highest cooperation (over 87% mutual cooperation in IPD), followed by MEDIATE variants (73-83%) and AutoMATE. Token values converged around 0.7 for MEDIATE. Classical baselines converged to mutual defection in IPD; RIAL failed sustained cooperation in IPD but succeeded in Stag Hunt. Gifting approaches showed limited benefit; GiftingZerosum abandoned gifting quickly. In Harvest Game, classical neural network baseline outperformed all VQC variants; deeper quantum circuits (3-4 layers) performed worse than shallower ones, suggesting barren plateaus and optimization challenges in complex observation spaces.",
+    "limitations": "Quantum agents struggled to match classical baselines in the Harvest Game due to high-dimensional observation spaces requiring flattening/normalization (losing structural information), insufficient representational capacity of VQCs for complex Q-functions, barren plateaus where gradients vanish exponentially with system size (especially with deeper circuits), and amplitude encoding producing quantum states that are difficult to distinguish.",
+    "future_work": "Explore more complex environments; study impact of different VQC architectures; design communication protocols exploiting quantum properties such as entanglement; test scalability to larger agent populations.",
+    "relevant_elements": [
+        "MATE protocol (Mutual Acknowledgment Token Exchange) with two-phase request and response mechanism",
+        "MEDIATE protocol (Mutually Endorsed Distributed Incentive Acknowledgment Token Exchange) with decentralized token derivation and consensus mechanism",
+        "Formula MI_i^rew(r\u0302_{t,i}) = r\u0302_{t,i} - r_{t,i} (reward-based monotonic improvement measure)",
+        "Formula MI_i^TD(r\u0302_{t,i}) = r\u0302_{t,i} + \u03b3[(1-\u03b5) max_{a_{t+1,i}} Q_{\u03b8i}(s_{t+1,i}, a_{t+1,i}) + \u03b5 \u03a3_{a_{t+1,i}} Q_{\u03b8i}(s_{t+1,i}, a_{t+1,i})] - [(1-\u03b5) max_{a_{t,i}} Q_{\u03b8i}(s_{t,i}, a_{t,i}) + \u03b5 \u03a3_{a_{t,i}} Q_{\u03b8i}(s_{t,i}, a_{t,i})] (temporal-difference monotonic improvement measure)",
+        "Formula \u2207T_i^{MEDIATE} = \u03b1_{MEDIATE} |\u1e7c_i - median(V_i)| / \u1e7c_i * r_min^i (MEDIATE token update rule)",
+        "GiftingZerosum and GiftingBudget peer rewarding mechanisms",
+        "RIAL (Reinforced Inter-Agent Learning) discrete k-bit message communication protocol",
+        "VQC architectures: Basis embedding, Angle embedding, Amplitude embedding with Mottonen state preparation, data re-uploading",
+        "Evaluation metrics: Collective reward C = \u03a3_{i,t} r_{t,i}, Mutual cooperation frequency FC = \u03a3_t 1[a_{t,i}, a_{t,j} cooperative], Inequality I = \u03a3_t |r_{t,i} - r_{t,j}|, Gifting frequency FG = 1/|D| \u03a3_{i,t} 1[a_{t,i} is gift]",
+        "Figure 1: VQC architectures comparison (matrix games, Gifting, RIAL)",
+        "Figure 2: IPD performance metrics (collective reward, cooperation frequency, inequality)",
+        "Figure 3: Stag Hunt performance metrics",
+        "Figure 4: Game of Chicken performance metrics",
+        "Figure 5: Harvest Game collective cumulative reward across different VQC depths and learning rates"
+    ]
+}
+----------------------------------------

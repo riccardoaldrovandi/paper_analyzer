@@ -2,10 +2,10 @@ import time
 import requests
 from src.download.downloader import download_pdf, download_latex
 
-def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False) -> list:
+def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0) -> list:
     """
     Interroga le API di INSPIRE HEP (specializzate in Fisica delle Alte Energie e correlati),
-    estrae i metadati e scarica PDF/LaTeX tramite arXiv.
+    estrae i metadati, applica filtri (es. citazioni minime) e scarica PDF/LaTeX tramite arXiv.
     """
     url = "https://inspirehep.net/api/literature"
     params = {"q": query, "size": limit}
@@ -42,6 +42,13 @@ def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False) -> 
         abstract = abstracts[0].get("value", "N/A") if abstracts else "N/A"
         
         citations = metadata.get("citation_count", 0)
+        
+        # --- FILTRO CITAZIONI ---
+        # Salta direttamente al prossimo paper se le citazioni non sono sufficienti
+        if citations < min_citations:
+            print(f"[-] Scartato: '{title}' (Citazioni: {citations} < {min_citations})")
+            continue
+            
         categories = ", ".join([c.get("term", "") for c in metadata.get("inspire_categories", [])])
         
         # Estrazione ArXiv ID per la costruzione dei link di download

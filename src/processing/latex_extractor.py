@@ -3,7 +3,7 @@ import tarfile
 
 def extract_text_from_latex_tarball(tar_path: str) -> str:
     """
-    Estrae il testo esclusivamente dai file .tex presenti in un archivio tar.gz di arXiv.
+    Extracts text exclusively from the .tex files contained in an arXiv tar.gz archive.
     """
     if not os.path.exists(tar_path):
         print(f"[!] File not found: {tar_path}")

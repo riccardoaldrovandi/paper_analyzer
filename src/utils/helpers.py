@@ -31,6 +31,19 @@ def export_results(data: list, base_filename: str):
     print(f" -> {json_file}")
     print(f" -> {csv_file}\n")
 
+def strip_json_fences(text: str) -> str:
+    """
+    Free-tier chat models (used as an OpenRouter fallback for Gemini Vision calls)
+    sometimes ignore the "no markdown" instruction and wrap their JSON in ```
+    fences anyway.
+    """
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.strip("`")
+        if text.lower().startswith("json"):
+            text = text[4:]
+    return text.strip()
+
 def process_and_print_result(model_name: str, raw_json_str: str) -> None:
     """
     Formatta e stampa l'output JSON dell'LLM.

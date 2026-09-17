@@ -25,6 +25,13 @@ downloaded_latex/
 extracted_images/
 outputs/
 
+# Dataset di fine-tuning generato (grande, rigenerabile via export-dataset)
+*.jsonl
+
+# Cache di Unsloth: finisce qui solo se uno script di training viene lanciato
+# per sbaglio da questa cartella invece che dal repo separato di fine-tuning
+unsloth_compiled_cache/
+
 # IDE e configurazioni di sistema
 .vscode/
 .idea/

@@ -59,11 +59,22 @@ def download_latex(arxiv_id: str, paper_id: str, title: str) -> str:
 
     try:
         print(f"[~] Attempting to download LaTeX source: {url}")
-        response = requests.get(url, headers=headers, stream=True, timeout=15)
+        response = requests.get(url, headers=headers, timeout=15)
         if response.status_code == 200:
+            # arXiv's /e-print/ endpoint serves a plain PDF instead of a gzip
+            # tarball when the author submitted no separate LaTeX source (common
+            # for older or non-standard submissions). Saving that under a
+            # .tar.gz name would report a false success -- it looks downloaded
+            # but tarfile.open() will silently fail on it later, and there'd be
+            # no way to tell "genuinely no LaTeX source" from "we broke it".
+            content_type = response.headers.get("Content-Type", "")
+            is_gzip = "gzip" in content_type or response.content[:2] == b"\x1f\x8b"
+            if not is_gzip:
+                print(f"[!] No real LaTeX source for {arxiv_id}: arXiv served a '{content_type or 'non-gzip'}' file (likely a PDF-only submission).")
+                return "N/A"
+
             with open(filepath, 'wb') as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    f.write(chunk)
+                f.write(response.content)
             print(f"[+] Success! Saved LaTeX source to: {filename}")
             return filepath
         else:

@@ -31,7 +31,7 @@ def analyze_with_openrouter(text_content: str) -> tuple[str, str]:
 
     print(f"[~] Sending paper content to OpenRouter ({FREE_MODEL} alias)...")
     try:
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response = requests.post(url, headers=headers, data=json.dumps(payload), timeout=90)
         if response.status_code != 200:
             print(f"[!] OpenRouter API Error [HTTP {response.status_code}]: {response.text}")
             return f"{FREE_MODEL} (Failed)", "{}"
@@ -80,7 +80,7 @@ def analyze_image_with_openrouter(image_path: str, prompt: str) -> str:
     }
 
     print(f"[~] Sending image to OpenRouter ({FREE_MODEL} alias)...")
-    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    response = requests.post(url, headers=headers, data=json.dumps(payload), timeout=90)
     if response.status_code != 200:
         raise RuntimeError(f"OpenRouter API Error [HTTP {response.status_code}]: {response.text}")
 

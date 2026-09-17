@@ -21,6 +21,10 @@ __pycache__/
 downloaded_pdfs/
 downloaded_latex/
 
+# Figure estratte e run di PySR (rigenerabili, non vanno versionati)
+extracted_images/
+outputs/
+
 # IDE e configurazioni di sistema
 .vscode/
 .idea/

@@ -3,10 +3,10 @@ import requests
 from src.config import S2_API_KEY
 from src.download.downloader import download_pdf, download_latex
 
-def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False) -> list:
+def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0) -> list:
     """
-    Interroga le API di Semantic Scholar, estrae i metadati e gestisce il download
-    di PDF e sorgenti LaTeX correlati.
+    Interroga le API di Semantic Scholar, estrae i metadati, applica filtri (es.
+    citazioni minime) e gestisce il download di PDF e sorgenti LaTeX correlati.
     """
     url = "https://api.semanticscholar.org/graph/v1/paper/search"
     fields = "title,authors,abstract,externalIds,year,s2FieldsOfStudy,citationCount,references,openAccessPdf"
@@ -59,6 +59,13 @@ def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False
         year = item.get("year", "N/A")
         abstract = item.get("abstract", "N/A")
         citations = item.get("citationCount", 0)
+
+        # --- FILTRO CITAZIONI ---
+        # Salta direttamente al prossimo paper se le citazioni non sono sufficienti
+        if citations < min_citations:
+            print(f"[-] Scartato: '{title}' (Citazioni: {citations} < {min_citations})")
+            continue
+
         categories = ", ".join([c["category"] for c in item.get("s2FieldsOfStudy", []) if "category" in c])
         
         pdf_url = item.get("openAccessPdf", {}).get("url", "N/A") if item.get("openAccessPdf") else "N/A"

@@ -2,13 +2,16 @@ import time
 import requests
 from src.download.downloader import download_pdf, download_latex
 
-def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0) -> list:
+def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0, sort_by: str = None) -> list:
     """
     Interroga le API di INSPIRE HEP (specializzate in Fisica delle Alte Energie e correlati),
     estrae i metadati, applica filtri (es. citazioni minime) e scarica PDF/LaTeX tramite arXiv.
+    sort_by: None (rilevanza, default INSPIRE), "mostrecent", o "mostcited".
     """
     url = "https://inspirehep.net/api/literature"
     params = {"q": query, "size": limit}
+    if sort_by:
+        params["sort"] = sort_by
     
     print(f"\n======================================")
     print(f" [INSPIRE HEP] Searching for: '{query}'")

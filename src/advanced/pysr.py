@@ -89,7 +89,13 @@ def discover_formula(X: np.ndarray, y: np.ndarray, iterations: int = 40) -> dict
         # few points that kind of stacking is exactly what lets PySR bend a curve into
         # a bump that threads through the noise instead of the real trend.
         nested_constraints={"exp": {"exp": 0, "log": 0}, "log": {"log": 0, "exp": 0}},
-        verbosity=0  # Reduce the verbose logs of Julia/PySR in the terminal
+        verbosity=0,  # Reduce the verbose logs of Julia/PySR in the terminal
+        # We only ever read the equation/metrics back in-memory via model.equations_,
+        # never from disk, so avoid PySR's default of leaving a persistent
+        # outputs/<timestamp>/ directory (hall_of_fame.csv + checkpoint.pkl) behind
+        # for every single curve fit -- with export-dataset running this per curve
+        # across many papers, that clutter adds up fast.
+        temp_equation_file=True,
     )
 
     try:

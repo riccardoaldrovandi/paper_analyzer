@@ -100,13 +100,18 @@ def analyze_figure(image_path: str, iterations: int) -> str:
     return "\n".join(lines)
 
 
-def build_enriched_paper_text(pdf: str = None, latex: str = None, iterations: int = 20) -> str:
+def build_enriched_paper_text(pdf: str = None, latex: str = None, iterations: int = 20, max_figures: int = 0) -> str:
     """
     Extracts a paper's text and figures, runs the visuo-mathematical analysis on
     each figure, and returns the text enriched with the ADVANCED PLOT ANALYSIS
     block. This is the exact input both `full-analyze` and `export-dataset` feed
     to the LLM, kept in one place so the two commands can never drift apart.
     Returns None if the source file doesn't exist.
+
+    max_figures caps how many extracted figures actually get analyzed (0 = no
+    cap): some papers (e.g. LaTeX sources with dozens of repetitive ablation
+    plots) can dump 50+ images, which would otherwise burn through a whole day's
+    API quota analyzing a single paper.
     """
     if pdf:
         if not os.path.exists(pdf):
@@ -128,6 +133,9 @@ def build_enriched_paper_text(pdf: str = None, latex: str = None, iterations: in
         return None
 
     print(f"[+] Found {len(image_paths)} figure(s) to analyze.")
+    if max_figures > 0 and len(image_paths) > max_figures:
+        print(f"[!] Capping analysis to the first {max_figures} figure(s) out of {len(image_paths)} (--max-figures).")
+        image_paths = image_paths[:max_figures]
 
     print(f"\n[3/3] Running visuo-mathematical analysis on each figure...")
     advanced_blocks = []
@@ -189,6 +197,7 @@ if __name__ == "__main__":
     fetch_parser.add_argument("--limit", type=int, default=3)
     fetch_parser.add_argument("--latex", action="store_true")
     fetch_parser.add_argument("--min-citations", type=int, default=0, help="Minimum number of citations")
+    fetch_parser.add_argument("--sort", type=str, default=None, choices=["mostrecent", "mostcited"], help="INSPIRE-only: sort results by date or by citation count instead of relevance")
 
     # Subcommand: analyze
     analyze_parser = subparsers.add_parser("analyze", help="Analyze a local PDF or LaTeX tarball using LLMs.")
@@ -215,6 +224,7 @@ if __name__ == "__main__":
     full_analyze_parser.add_argument("--latex", type=str, help="Path to local LaTeX .tar.gz file")
     full_analyze_parser.add_argument("--model", type=str, default="gemini", choices=["gemini", "groq", "openrouter", "all"])
     full_analyze_parser.add_argument("--iterations", type=int, default=20, help="Number of PySR iterations per continuous curve")
+    full_analyze_parser.add_argument("--max-figures", type=int, default=0, help="Max number of figures to analyze for this paper (0 = no limit)")
 
     # Subcommand: export-dataset
     export_dataset_parser = subparsers.add_parser(
@@ -227,6 +237,7 @@ if __name__ == "__main__":
     export_dataset_parser.add_argument("--model", type=str, default="gemini", choices=["gemini", "groq", "openrouter", "all"], help="Teacher model(s) used to generate the training labels")
     export_dataset_parser.add_argument("--iterations", type=int, default=20, help="Number of PySR iterations per continuous curve")
     export_dataset_parser.add_argument("--limit", type=int, default=0, help="Max number of new papers to process this run (0 = no limit)")
+    export_dataset_parser.add_argument("--max-figures", type=int, default=0, help="Max number of figures to analyze per paper (0 = no limit)")
 
     args = parser.parse_args()
 
@@ -242,10 +253,11 @@ if __name__ == "__main__":
             export_results(dataset_s2, base_filename=f"{safe_query_name}_semantic")
         if args.api in ["inspire", "both"]:
             dataset_inspire = fetch_inspire_hep(
-                query=args.query, 
-                limit=args.limit, 
-                fetch_latex=args.latex, 
-                min_citations=args.min_citations
+                query=args.query,
+                limit=args.limit,
+                fetch_latex=args.latex,
+                min_citations=args.min_citations,
+                sort_by=args.sort
             )
             export_results(dataset_inspire, base_filename=f"{safe_query_name}_inspire")
 
@@ -341,7 +353,7 @@ if __name__ == "__main__":
             print("[!] Please specify either --pdf or --latex file to analyze.")
             exit()
 
-        text_content = build_enriched_paper_text(pdf=args.pdf, latex=args.latex, iterations=args.iterations)
+        text_content = build_enriched_paper_text(pdf=args.pdf, latex=args.latex, iterations=args.iterations, max_figures=args.max_figures)
         if text_content is None:
             exit()
 
@@ -366,9 +378,9 @@ if __name__ == "__main__":
             for i, (source_path, kind) in enumerate(pending, 1):
                 print(f"\n========== Paper {i}/{len(pending)}: {os.path.basename(source_path)} ==========")
                 if kind == "pdf":
-                    text_content = build_enriched_paper_text(pdf=source_path, iterations=args.iterations)
+                    text_content = build_enriched_paper_text(pdf=source_path, iterations=args.iterations, max_figures=args.max_figures)
                 else:
-                    text_content = build_enriched_paper_text(latex=source_path, iterations=args.iterations)
+                    text_content = build_enriched_paper_text(latex=source_path, iterations=args.iterations, max_figures=args.max_figures)
 
                 if not text_content:
                     print(f"[!] Skipping {source_path}: no text could be extracted.")

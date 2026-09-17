@@ -178,4 +178,4 @@ python main.py export-dataset --pdf-dir my_pdfs --latex-dir my_latex --output fi
 
 ## 📜 License
 
-Distributed under the MIT License. See **LICENSE** for more information.
+Distributed under the MIT License. See [**LICENSE**](https://github.com/riccardoaldrovandi/paper_analyzer/blob/main/LICENSE) for more information.

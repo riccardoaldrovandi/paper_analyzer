@@ -28,6 +28,10 @@ outputs/
 # Dataset di fine-tuning generato (grande, rigenerabile via export-dataset)
 *.jsonl
 
+# Checkpoint di ripresa di full-analyze/export-dataset (stato temporaneo,
+# cancellato automaticamente a fine corsa riuscita)
+full_analyze_checkpoints/
+
 # Cache di Unsloth: finisce qui solo se uno script di training viene lanciato
 # per sbaglio da questa cartella invece che dal repo separato di fine-tuning
 unsloth_compiled_cache/

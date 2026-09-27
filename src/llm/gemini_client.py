@@ -3,7 +3,7 @@ import warnings
 from google import genai
 from google.genai import types
 from src.config import GEMINI_API_KEY, SYSTEM_PROMPT
-from src.utils.retry import call_gemini_with_retry, QuotaExceededError
+from src.utils.retry import call_gemini_with_retry, QuotaExceededError, GeminiOverloadedError
 from src.llm.openrouter_client import analyze_with_openrouter
 
 warnings.filterwarnings("ignore")
@@ -28,8 +28,8 @@ def analyze_with_gemini(text_content: str) -> tuple[str, str]:
             )
         ))
         return model_id, response.text
-    except QuotaExceededError as e:
-        print(f"[!] Gemini free-tier quota exhausted ({e}). Falling back to OpenRouter free model...")
+    except (QuotaExceededError, GeminiOverloadedError) as e:
+        print(f"[!] Gemini unavailable ({e}). Falling back to OpenRouter free model...")
         return analyze_with_openrouter(text_content)
     except Exception as e:
         print(f"[!] Error during Gemini analysis: {e}")

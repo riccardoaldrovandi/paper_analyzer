@@ -14,15 +14,74 @@ from src.processing.image_extractor import extract_images_from_pdf, extract_imag
 from src.advanced.digitizer import digitize_plot
 from src.advanced.pysr import discover_formula
 from src.config import SYSTEM_PROMPT, PDF_DIR, LATEX_DIR
+from src.utils.retry import QuotaExceededError
+
+# Directory holding per-paper resume state for `full-analyze`/`export-dataset`
+# (see build_enriched_paper_text / QuotaCheckpointSaved below).
+CHECKPOINT_DIR = "full_analyze_checkpoints"
 
 
-def run_llm_providers(text_content: str, model_arg: str) -> None:
+class QuotaCheckpointSaved(Exception):
+    """
+    Raised when OpenRouter itself confirms quota exhaustion (after Gemini
+    already had) -- i.e. both free providers are genuinely out of quota, not
+    just an unrelated per-image failure. Progress has already been written to
+    disk at `checkpoint_path`, so the caller should stop cleanly (no
+    traceback) instead of grinding through the rest of a paper's figures
+    against a dead quota.
+    """
+    def __init__(self, checkpoint_path: str):
+        self.checkpoint_path = checkpoint_path
+        super().__init__(f"Progress checkpointed to {checkpoint_path}")
+
+
+def _checkpoint_path(source: str) -> str:
+    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+    # The source file's own basename already encodes both the paper identity
+    # and whether it's the PDF or the LaTeX (_source.tar.gz) variant.
+    return os.path.join(CHECKPOINT_DIR, os.path.basename(source) + ".checkpoint.json")
+
+
+def _load_checkpoint(checkpoint_path: str) -> dict:
+    if not os.path.exists(checkpoint_path):
+        return None
+    try:
+        with open(checkpoint_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def _save_checkpoint(checkpoint_path: str, source: str, text_content: str, image_paths: list, advanced_blocks: list, next_index: int) -> None:
+    data = {
+        "source": source,
+        "text_content": text_content,
+        "image_paths": image_paths,
+        "advanced_blocks": advanced_blocks,
+        "next_index": next_index,
+    }
+    with open(checkpoint_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+
+
+def _delete_checkpoint(checkpoint_path: str) -> None:
+    if os.path.exists(checkpoint_path):
+        os.remove(checkpoint_path)
+
+
+def run_llm_providers(text_content: str, model_arg: str) -> bool:
     """
     Runs the requested LLM provider(s) (or all of them) over the given text content
     and prints each resulting structured JSON. Shared between `analyze` and
     `full-analyze` so both commands report results the exact same way.
+
+    Returns True only if every requested provider returned valid, non-empty JSON --
+    `full-analyze` uses this to decide whether the paper is really done (and its
+    checkpoint can be removed) or whether the final analysis itself hit a dead
+    quota and should be retried later.
     """
     providers = ["gemini", "groq", "openrouter"] if model_arg.lower() == "all" else [model_arg.lower()]
+    all_succeeded = True
 
     for provider in providers:
         print(f"\n--- Running analysis with: {provider.upper()} ---")
@@ -41,6 +100,15 @@ def run_llm_providers(text_content: str, model_arg: str) -> None:
         process_and_print_result(m_name, raw_res)
         print("-" * 40)
 
+        try:
+            parsed = json.loads(raw_res)
+        except json.JSONDecodeError:
+            parsed = None
+        if not parsed:
+            all_succeeded = False
+
+    return all_succeeded
+
 
 def analyze_figure(image_path: str, iterations: int) -> str:
     """
@@ -53,6 +121,10 @@ def analyze_figure(image_path: str, iterations: int) -> str:
     print(f"\n[~] Analyzing figure: {os.path.basename(image_path)}")
     try:
         plot_data = digitize_plot(image_path)
+    except QuotaExceededError:
+        raise  # both providers exhausted -- let the caller stop and checkpoint
+    except OSError:
+        raise  # network failure -- let the caller stop and checkpoint at this figure
     except Exception as e:
         print(f"[!] Skipping {os.path.basename(image_path)}: unexpected error during digitization: {e}")
         return None
@@ -112,38 +184,91 @@ def build_enriched_paper_text(pdf: str = None, latex: str = None, iterations: in
     cap): some papers (e.g. LaTeX sources with dozens of repetitive ablation
     plots) can dump 50+ images, which would otherwise burn through a whole day's
     API quota analyzing a single paper.
+
+    Resumable via a per-paper checkpoint file (see CHECKPOINT_DIR): if a run gets
+    cut short by both LLM providers running out of quota, the already-analyzed
+    figures are saved to disk and the next call on the same paper picks up where
+    it left off instead of re-spending quota re-analyzing figures already done.
+    Raises QuotaCheckpointSaved if it has to stop early for this reason.
     """
-    if pdf:
-        if not os.path.exists(pdf):
-            print(f"[!] PDF not found: {pdf}")
-            return None
-        print(f"\n[1/3] Extracting text from PDF: {pdf}")
-        text_content = extract_text_from_pdf(pdf)
-        print(f"\n[2/3] Extracting figures...")
-        image_paths = extract_images_from_pdf(pdf)
-    elif latex:
-        if not os.path.exists(latex):
-            print(f"[!] LaTeX tarball not found: {latex}")
-            return None
-        print(f"\n[1/3] Extracting text from LaTeX tarball: {latex}")
-        text_content = extract_text_from_latex_tarball(latex)
-        print(f"\n[2/3] Extracting figures...")
-        image_paths = extract_images_from_latex(latex)
-    else:
+    source = pdf or latex
+    if not source:
+        return None
+    if not os.path.exists(source):
+        print(f"[!] File not found: {source}")
         return None
 
-    print(f"[+] Found {len(image_paths)} figure(s) to analyze.")
-    if max_figures > 0 and len(image_paths) > max_figures:
-        print(f"[!] Capping analysis to the first {max_figures} figure(s) out of {len(image_paths)} (--max-figures).")
-        image_paths = image_paths[:max_figures]
+    checkpoint_path = _checkpoint_path(source)
+    checkpoint = _load_checkpoint(checkpoint_path)
+
+    if checkpoint and checkpoint.get("source") == source:
+        print(f"[~] Resuming '{os.path.basename(source)}' from checkpoint: figure {checkpoint['next_index'] + 1}/{len(checkpoint['image_paths'])}.")
+        text_content = checkpoint["text_content"]
+        image_paths = checkpoint["image_paths"]
+        advanced_blocks = checkpoint["advanced_blocks"]
+        start_index = checkpoint["next_index"]
+
+        # --max-figures also applies on resume: a paper with dozens of figures
+        # can otherwise keep re-checkpointing for days without ever finishing,
+        # since the full (uncapped) list gets baked into the first checkpoint.
+        # Already-analyzed figures (< start_index) are never trimmed away.
+        if max_figures > 0 and len(image_paths) > max(max_figures, start_index):
+            new_len = max(max_figures, start_index)
+            print(f"[!] Capping remaining analysis to figure {new_len}/{len(image_paths)} (--max-figures).")
+            image_paths = image_paths[:new_len]
+    else:
+        if pdf:
+            print(f"\n[1/3] Extracting text from PDF: {pdf}")
+            text_content = extract_text_from_pdf(pdf)
+            print(f"\n[2/3] Extracting figures...")
+            image_paths = extract_images_from_pdf(pdf)
+        else:
+            print(f"\n[1/3] Extracting text from LaTeX tarball: {latex}")
+            text_content = extract_text_from_latex_tarball(latex)
+            print(f"\n[2/3] Extracting figures...")
+            image_paths = extract_images_from_latex(latex)
+
+        print(f"[+] Found {len(image_paths)} figure(s) to analyze.")
+        if max_figures > 0 and len(image_paths) > max_figures:
+            print(f"[!] Capping analysis to the first {max_figures} figure(s) out of {len(image_paths)} (--max-figures).")
+            image_paths = image_paths[:max_figures]
+
+        advanced_blocks = []
+        start_index = 0
 
     print(f"\n[3/3] Running visuo-mathematical analysis on each figure...")
-    advanced_blocks = []
-    for i, image_path in enumerate(image_paths, 1):
-        print(f"\n--- Figure {i}/{len(image_paths)} ---")
-        block = analyze_figure(image_path, iterations)
+    for i in range(start_index, len(image_paths)):
+        print(f"\n--- Figure {i + 1}/{len(image_paths)} ---")
+        try:
+            block = analyze_figure(image_paths[i], iterations)
+        except QuotaExceededError as e:
+            # Precise stop condition: this only ever reaches us when OpenRouter
+            # itself reported quota exhaustion after Gemini already had --
+            # i.e. both free providers are confirmed dead, not just "a few
+            # figures in a row happened to fail for other reasons".
+            _save_checkpoint(checkpoint_path, source, text_content, image_paths, advanced_blocks, next_index=i)
+            print(f"\n[!] Both providers are out of quota ({e}).")
+            print(f"[+] Progress saved to '{checkpoint_path}'. Rerun the same command later to resume from figure {i + 1}/{len(image_paths)}.")
+            raise QuotaCheckpointSaved(checkpoint_path)
+        except OSError as e:
+            # A real network failure (DNS, connection reset, ...) mid-run: we
+            # never actually got a verdict on this figure, so don't let the loop
+            # grind through the rest marking every remaining figure "no data".
+            # Stop here and checkpoint AT this figure (not past it) so a rerun
+            # retries it once connectivity is back, instead of silently losing
+            # it forever.
+            _save_checkpoint(checkpoint_path, source, text_content, image_paths, advanced_blocks, next_index=i)
+            print(f"\n[!] Network error while analyzing figure {i + 1}: {e}")
+            print(f"[+] Progress saved to '{checkpoint_path}'. Rerun the same command later to resume from figure {i + 1}/{len(image_paths)} once your connection is back.")
+            raise QuotaCheckpointSaved(checkpoint_path)
+
         if block:
             advanced_blocks.append(block)
+
+    # The figure loop finished (fresh or resumed): checkpoint the completed state
+    # too, so if the final LLM call afterwards also hits a dead quota, a rerun
+    # skips straight to retrying that instead of redoing this whole figure pass.
+    _save_checkpoint(checkpoint_path, source, text_content, image_paths, advanced_blocks, next_index=len(image_paths))
 
     if advanced_blocks:
         disclaimer = (
@@ -353,11 +478,18 @@ if __name__ == "__main__":
             print("[!] Please specify either --pdf or --latex file to analyze.")
             exit()
 
-        text_content = build_enriched_paper_text(pdf=args.pdf, latex=args.latex, iterations=args.iterations, max_figures=args.max_figures)
+        checkpoint_path = _checkpoint_path(args.pdf or args.latex)
+        try:
+            text_content = build_enriched_paper_text(pdf=args.pdf, latex=args.latex, iterations=args.iterations, max_figures=args.max_figures)
+        except QuotaCheckpointSaved:
+            exit()
         if text_content is None:
             exit()
 
-        run_llm_providers(text_content, args.model)
+        if run_llm_providers(text_content, args.model):
+            _delete_checkpoint(checkpoint_path)
+        else:
+            print(f"\n[!] Final LLM analysis failed (quota exhausted?) -- figures are saved in '{checkpoint_path}', rerun the same command later to retry just the final step.")
     elif args.command == "export-dataset":
         pdf_files = sorted(glob.glob(os.path.join(args.pdf_dir, "*.pdf")))
         latex_files = sorted(glob.glob(os.path.join(args.latex_dir, "*.tar.gz")))
@@ -377,15 +509,21 @@ if __name__ == "__main__":
         with open(args.output, "a", encoding="utf-8") as out_f:
             for i, (source_path, kind) in enumerate(pending, 1):
                 print(f"\n========== Paper {i}/{len(pending)}: {os.path.basename(source_path)} ==========")
-                if kind == "pdf":
-                    text_content = build_enriched_paper_text(pdf=source_path, iterations=args.iterations, max_figures=args.max_figures)
-                else:
-                    text_content = build_enriched_paper_text(latex=source_path, iterations=args.iterations, max_figures=args.max_figures)
+                checkpoint_path = _checkpoint_path(source_path)
+                try:
+                    if kind == "pdf":
+                        text_content = build_enriched_paper_text(pdf=source_path, iterations=args.iterations, max_figures=args.max_figures)
+                    else:
+                        text_content = build_enriched_paper_text(latex=source_path, iterations=args.iterations, max_figures=args.max_figures)
+                except QuotaCheckpointSaved:
+                    print(f"\n[!] Stopping export-dataset early: both providers appear out of quota. Progress on '{source_path}' is saved -- rerun the same command later to resume.")
+                    break
 
                 if not text_content:
                     print(f"[!] Skipping {source_path}: no text could be extracted.")
                     continue
 
+                paper_fully_done = True
                 for provider in providers:
                     print(f"\n[~] Generating training label with {provider.upper()}...")
                     if provider == "gemini":
@@ -404,6 +542,7 @@ if __name__ == "__main__":
 
                     if not parsed:
                         print(f"[!] Skipping {provider}: empty or invalid JSON output.")
+                        paper_fully_done = False
                         continue
 
                     record = {
@@ -419,6 +558,11 @@ if __name__ == "__main__":
                     out_f.flush()
                     written += 1
                     print(f"[+] Wrote training example ({provider}, {len(text_content)} chars input).")
+
+                if paper_fully_done:
+                    _delete_checkpoint(checkpoint_path)
+                else:
+                    print(f"[~] Keeping checkpoint for '{source_path}' (some provider(s) failed) -- figures won't be redone on the next run.")
 
         print(f"\n[+] Done. {written} training example(s) appended to '{args.output}'.")
     else:

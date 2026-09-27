@@ -28,7 +28,7 @@ def analyze_with_groq(text_content: str) -> tuple[str, str]:
                 {"role": "user", "content": f"--- PAPER CONTENT ---\n{text_content}"}
             ],
             response_format={"type": "json_object"},
-            max_tokens=1500
+            max_tokens=4096
         )
         return model_id, completion.choices[0].message.content
     except Exception as e:

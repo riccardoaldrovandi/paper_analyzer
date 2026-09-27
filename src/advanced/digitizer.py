@@ -3,7 +3,7 @@ import json
 import numpy as np
 from google import genai
 from google.genai import types
-from src.utils.retry import call_gemini_with_retry, QuotaExceededError
+from src.utils.retry import call_gemini_with_retry, QuotaExceededError, GeminiOverloadedError
 from src.utils.helpers import strip_json_fences
 from src.llm.openrouter_client import analyze_image_with_openrouter
 
@@ -34,7 +34,7 @@ def digitize_plot(image_path: str) -> dict:
         print(f"[!] Image not found: {image_path}")
         return None
 
-    print(f"[~] Computer vision analysis in progress with Gemini: {os.path.basename(image_path)}")
+    print(f"[~] Computer vision analysis in progress: {os.path.basename(image_path)}")
 
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not api_key:
@@ -76,6 +76,7 @@ def digitize_plot(image_path: str) -> dict:
     """
 
     raw_output = ""
+    provider_used = "Gemini"
     try:
         with open(image_path, "rb") as f:
             image_bytes = f.read()
@@ -93,8 +94,9 @@ def digitize_plot(image_path: str) -> dict:
                 )
             ))
             raw_output = response.text.strip()
-        except QuotaExceededError as e:
-            print(f"[!] Gemini free-tier quota exhausted ({e}). Falling back to OpenRouter free model...")
+        except (QuotaExceededError, GeminiOverloadedError) as e:
+            print(f"[!] Gemini unavailable ({e}). Falling back to OpenRouter free model...")
+            provider_used = "OpenRouter"
             raw_output = strip_json_fences(analyze_image_with_openrouter(image_path, vision_prompt))
 
         data = json.loads(raw_output)
@@ -114,7 +116,7 @@ def digitize_plot(image_path: str) -> dict:
                 parsed_series.append({"label": entry.get("label", f"curve{len(parsed_series) + 1}"), "X": X, "y": y})
 
             if not parsed_series:
-                print("[-] Gemini did not find enough points in any curve.")
+                print(f"[-] {provider_used} did not find enough points in any curve.")
                 return None
 
             data["series"] = parsed_series
@@ -123,7 +125,7 @@ def digitize_plot(image_path: str) -> dict:
         else:
             all_points = [entry["points"][0] for entry in raw_series if entry.get("points")]
             if len(all_points) < 1:
-                print("[-] Gemini did not find any data points in the graph.")
+                print(f"[-] {provider_used} did not find any data points in the graph.")
                 return None
 
             data_matrix = np.array(all_points)
@@ -134,8 +136,21 @@ def digitize_plot(image_path: str) -> dict:
 
         return data
 
+    except QuotaExceededError:
+        # OpenRouter itself is out of quota (and we only ever reach it after
+        # Gemini already raised this) -- both free providers are genuinely
+        # dead. Let this propagate instead of swallowing it like any other
+        # failure, so the caller can stop and checkpoint precisely on this
+        # condition rather than on unrelated per-image failures.
+        raise
+    except OSError:
+        # DNS/connection failure: we never actually got a verdict on this
+        # figure, so this is not a "no data in the chart" result. Propagate
+        # instead of swallowing it, so the caller can stop and checkpoint AT
+        # this figure and a rerun retries it once connectivity is back.
+        raise
     except json.JSONDecodeError:
-        print(f"[-] Error: Gemini returned a non-JSON output. Raw response:\n{raw_output}")
+        print(f"[-] Error: {provider_used} returned a non-JSON output. Raw response:\n{raw_output}")
         return None
     except Exception as e:
         print(f"[-] Error during Vision API call: {e}")

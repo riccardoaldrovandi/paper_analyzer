@@ -167,6 +167,10 @@ def extract_images_from_pdf(pdf_path: str, base_output_dir: str = "extracted_ima
     saved_images = []
 
     print(f"[~] Scanning PDF and applying smart filtering & cropping to charts...")
+    if not os.environ.get("GEMINI_API_KEY", "").strip():
+        print("[!] WARNING: GEMINI_API_KEY is not set, so smart filtering and cropping are DISABLED: "
+              "every page that mentions a figure will be kept as a FULL-PAGE render (text included), "
+              "not as cropped plots. On CINECA use --figures-dir with pre-cropped figures instead.")
     for page_index in range(len(doc)):
         page = doc[page_index]
 

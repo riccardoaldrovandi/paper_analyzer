@@ -24,7 +24,7 @@ def download_pdf(pdf_url: str, paper_id: str, title: str) -> str:
 
     try:
         print(f"[~] Attempting to download PDF: {pdf_url}")
-        # Aggiunto verify=False per bypassare server accademici con certificati scaduti
+        # verify=False added to get past academic servers with expired certificates
         response = requests.get(pdf_url, headers=headers, stream=True, timeout=15, verify=False)
         
         if response.status_code == 200 and 'application/pdf' in response.headers.get('Content-Type', ''):

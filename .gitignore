@@ -1,42 +1,42 @@
-# Ambiente virtuale Python
+# Python virtual environment
 venv/
 env/
 ENV/
 .venv/
 
-# Variabili d'ambiente e chiavi API
+# Environment variables and API keys
 .env
 
-# Cache di Python
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
 .ipynb_checkpoints/
 
-# File di dati esportati dalle ricerche (JSON e CSV generati dinamicamente)
+# Data files exported by searches (dynamically generated JSON and CSV)
 *.json
 *.csv
 
-# Cartelle dei download locali (PDF e sorgenti LaTeX)
+# Local download folders (PDFs and LaTeX sources)
 downloaded_pdfs/
 downloaded_latex/
 
-# Figure estratte e run di PySR (rigenerabili, non vanno versionati)
+# Extracted figures and PySR runs (regenerable, not to be versioned)
 extracted_images/
 outputs/
 
-# Dataset di fine-tuning generato (grande, rigenerabile via export-dataset)
+# Generated fine-tuning dataset (large, regenerable via export-dataset)
 *.jsonl
 
-# Checkpoint di ripresa di full-analyze/export-dataset (stato temporaneo,
-# cancellato automaticamente a fine corsa riuscita)
+# full-analyze/export-dataset resume checkpoints (temporary state,
+# deleted automatically at the end of a successful run)
 full_analyze_checkpoints/
 
-# Cache di Unsloth: finisce qui solo se uno script di training viene lanciato
-# per sbaglio da questa cartella invece che dal repo separato di fine-tuning
+# Unsloth cache: only ends up here if a training script is launched from
+# this folder by mistake instead of from the separate fine-tuning repo
 unsloth_compiled_cache/
 
-# IDE e configurazioni di sistema
+# IDE and system settings
 .vscode/
 .idea/
 .DS_Store

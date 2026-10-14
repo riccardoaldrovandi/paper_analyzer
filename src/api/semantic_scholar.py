@@ -5,8 +5,8 @@ from src.download.downloader import download_pdf, download_latex
 
 def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0) -> list:
     """
-    Interroga le API di Semantic Scholar, estrae i metadati, applica filtri (es.
-    citazioni minime) e gestisce il download di PDF e sorgenti LaTeX correlati.
+    Queries the Semantic Scholar API, extracts the metadata, applies filters (e.g.
+    minimum citations) and handles downloading the related PDFs and LaTeX sources.
     """
     url = "https://api.semanticscholar.org/graph/v1/paper/search"
     fields = "title,authors,abstract,externalIds,year,s2FieldsOfStudy,citationCount,references,openAccessPdf"
@@ -19,7 +19,7 @@ def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False
     print(f"======================================\n")
     
     session = requests.Session()
-    time.sleep(1.5)  # Pausa iniziale per cortesia verso il server
+    time.sleep(1.5)  # Initial pause, out of courtesy towards the server
     
     max_retries = 5
     response = None
@@ -50,7 +50,7 @@ def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False
         paper_id = item.get("paperId", "unknown")
         title = item.get("title", "Unknown Title")
         
-        # Estrazione ID esterni (qui si trova l'ArXiv ID)
+        # Extract the external IDs (this is where the ArXiv ID is)
         external_ids = item.get("externalIds", {})
         doi = external_ids.get("DOI", "N/A")
         arxiv_id = external_ids.get("ArXiv", "N/A")
@@ -60,20 +60,20 @@ def fetch_semantic_scholar(query: str, limit: int = 5, fetch_latex: bool = False
         abstract = item.get("abstract", "N/A")
         citations = item.get("citationCount", 0)
 
-        # --- FILTRO CITAZIONI ---
-        # Salta direttamente al prossimo paper se le citazioni non sono sufficienti
+        # --- CITATION FILTER ---
+        # Skip straight to the next paper if it doesn't have enough citations
         if citations < min_citations:
-            print(f"[-] Scartato: '{title}' (Citazioni: {citations} < {min_citations})")
+            print(f"[-] Discarded: '{title}' (Citations: {citations} < {min_citations})")
             continue
 
         categories = ", ".join([c["category"] for c in item.get("s2FieldsOfStudy", []) if "category" in c])
         
         pdf_url = item.get("openAccessPdf", {}).get("url", "N/A") if item.get("openAccessPdf") else "N/A"
         
-        # 1. Download del PDF
+        # 1. Download the PDF
         local_pdf_path = download_pdf(pdf_url, paper_id, title)
         
-        # 2. Download del LaTeX (se richiesto e se l'ArXiv ID è disponibile)
+        # 2. Download the LaTeX source (if requested and the ArXiv ID is available)
         local_latex_path = "N/A"
         if fetch_latex and arxiv_id != "N/A":
             time.sleep(2) 

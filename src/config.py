@@ -16,6 +16,10 @@ LATEX_DIR = "downloaded_latex"
 os.makedirs(PDF_DIR, exist_ok=True)
 os.makedirs(LATEX_DIR, exist_ok=True)
 
+# Header of the block that build_enriched_paper_text() appends to the paper text
+# with the figure analysis; shared by main.py, the local client and the metrics.
+ADVANCED_HEADER = "--- ADVANCED PLOT ANALYSIS ---"
+
 # Common System Prompt for LLM Paper Analysis
 SYSTEM_PROMPT = """
 You are an expert AI research assistant. Your task is to analyze the provided text extracted from a scientific paper (which may be raw PDF text or LaTeX source code) and extract specific structured information.
@@ -35,8 +39,8 @@ JSON Schema:
   "limitations": "Any limits acknowledged by the authors",
   "future_work": "Future directions mentioned in the paper",
   "relevant_elements": "List of crucial formulas, algorithms, or tables mentioned (e.g., 'Algorithm 1: PPO Update', 'Table 3: Baseline Comparison'), taken only from the paper itself",
-  "visual_analysis_findings": ["If an ADVANCED PLOT ANALYSIS section is present, one entry per curve/formula found there, each clearly worded as an AI-generated curve-fit approximation of the paper's own figure (e.g. 'AI curve-fit approximation of Figure 1, curve GQA: y = ... (not derived or stated by the paper's authors)'). Otherwise an empty list."]
+  "visual_analysis_findings": ["If an ADVANCED PLOT ANALYSIS section is present, one entry per curve/formula found there, each entry a single plain JSON string that starts with 'AI curve-fit approximation of', names the figure and the curve, then gives 'y = ' followed by that curve's formula copied EXACTLY, character by character, from the ADVANCED PLOT ANALYSIS section, and ends with '(not derived or stated by the paper's authors)'. Never shorten or round a formula and never write placeholders instead of it. Otherwise an empty list."]
 }
 
-If any information is completely missing from the text, use "Not specified" or an empty list []. Do not include markdown code block syntax (like ```json) in your response if possible, just return the raw JSON object string.
+If any information is completely missing from the text, use "Not specified" or an empty list []. The output must be strictly valid JSON: no comments, no "..." placeholders, no trailing text. Do not include markdown code block syntax (like ```json) in your response if possible, just return the raw JSON object string.
 """

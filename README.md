@@ -31,10 +31,12 @@ paper_analyzer/
 │   ├── api/              # Semantic Scholar and INSPIRE HEP connectors
 │   ├── download/         # PDF and LaTeX downloader logic
 │   ├── processing/       # PDF/LaTeX text extraction + figure extraction (image_extractor.py)
-│   ├── llm/              # LLM clients (Gemini, Groq, OpenRouter)
+│   ├── llm/              # LLM clients (Gemini, Groq, OpenRouter, local vLLM) + JSON schemas
 │   ├── advanced/         # Plot digitization (Gemini Vision) and symbolic regression (PySR)
 │   ├── utils/            # Helpers for sanitization, export, and API retry/fallback logic
+│   ├── evaluation/       # Offline dataset quality metrics (Level 1 structure, Level 2 grounding)
 │   └── config.py         # Global configuration and system prompts
+├── scripts/              # SLURM/vLLM scripts for CINECA Leonardo, probes and A/B tests
 ├── main.py               # Unified CLI entry point
 ├── requirements.txt      # Project dependencies
 └── .env                  # Environment variables template
@@ -173,6 +175,87 @@ python main.py export-dataset --pdf-dir my_pdfs --latex-dir my_latex --output fi
 ---
 
 `images`, `advanced`, `full-analyze`, and `export-dataset` all automatically retry on a transient Gemini overload (HTTP 503) and fall back to a free OpenRouter model if the Gemini free-tier quota is exhausted (HTTP 429), so a long batch of extractions doesn't need to be restarted by hand.
+
+---
+
+## 🖥️ Local Open-Weight Pipeline (branch `cineca-local-pipeline`)
+
+This branch adds a **fully local backend** to the pipeline: the cloud LLM calls (Gemini / Groq / OpenRouter) can be replaced by open-weight models served with [vLLM](https://github.com/vllm-project/vllm) on GPUs. It was built and tested on the **CINECA Leonardo** supercomputer (A100 64 GB nodes) to generate the fine-tuning dataset without API rate limits or quotas.
+
+### How it works
+
+The local run uses **two models on two dedicated GPUs**:
+
+| Role | Where it runs | Used for |
+|---|---|---|
+| **Text model** (e.g. Qwen2.5-14B-Instruct) | loaded in-process by `src/llm/local_client.py` (GPU 0) | structured JSON extraction from the paper text |
+| **Vision model** (e.g. Qwen2.5-VL-7B-Instruct) | OpenAI-compatible `vllm serve` server (GPU 1), called over HTTP by `src/advanced/digitizer.py` | digitizing chart images into (X, Y) points |
+
+The pipeline itself is unchanged: text extraction → figure digitization → PySR symbolic regression → structured extraction. Select it with `--model local` on `analyze`, `full-analyze` and `export-dataset`.
+
+### What the local backend adds
+
+- **Model families:** `scripts/run_dual_model.sbatch` takes a `FAMILY` that picks the text + vision pair:
+  - `qwen`: Qwen2.5-14B + Qwen2.5-VL-7B
+  - `llama`: Llama-3.1-8B + LLaVA-NeXT-Llama3-8B
+  - `mistral`: Mistral-Nemo-12B + Pixtral-12B
+  - `velvet`: Velvet-14B (Almawave, text only) + Qwen2.5-VL-7B
+- **Guided JSON decoding:** the text model's output is constrained to the answer JSON schema (`src/llm/schemas.py`), so it always parses. If guided decoding fails, the call is retried unconstrained. The same option is available for the vision model, enabled per family.
+- **Context-aware truncation:** papers longer than the model's context are trimmed token-aware (head 70% / tail 30% of the body). The ADVANCED PLOT ANALYSIS block is always kept whole, and the record notes when the input was truncated.
+- **Deterministic `visual_analysis_findings`:** this field is rebuilt from the PySR results instead of relying on the model copying formulas correctly. The model's own version is kept as `llm_visual_analysis_findings`.
+- **Robust answer handling:** JSON fence stripping, backslash repair, salvaging answers whose only invalid part is the findings field, and normalizing placeholder values ("None mentioned", empty strings) to `[]` / `"Not specified"`.
+- **Data-quality gates before PySR:** synthetic-looking, identity or degenerate point sets are skipped, and curves with fewer than 4 points are reported as raw points instead of fitted.
+- **Pre-cropped figures:** figure filtering and cropping still uses Gemini Vision. Offline, pass `--figures-dir <dir>` to use already-cropped figures from `<dir>/<paper name>/`. `comparison_figures/` holds the figures used for the model comparison, so every model receives the same images.
+- **Resumable, reproducible runs:** per-paper checkpoints (`CHECKPOINT_DIR`, `KEEP_CHECKPOINTS`), per-paper error isolation (failures go to `<output>.rejected.jsonl` and the batch continues), a fixed sampling seed, and a `generation` metadata block in each record (prompt hash, code version, settings).
+
+### Evaluating the generated dataset
+
+The new `evaluate` subcommand scores an `export-dataset` JSONL offline. It needs no GPU and no API calls.
+
+- **Level 1 (structural gate):** is the answer a well-formed, non-degenerate instance of the schema?
+- **Level 2 (grounding score, 0-1):** are the numbers, references and datasets it cites actually in the paper, and are the PySR formulas kept out of the paper's own fields?
+
+```
+python main.py evaluate --input training_data_qwen.jsonl --report eval_qwen.jsonl
+python main.py evaluate --input training_data_qwen.jsonl --filtered-output clean.jsonl --min-l2 0.8
+```
+
+### Running on CINECA Leonardo
+
+Requirements: a Python 3.11 venv at `$WORK/venv_vllm` with `torch==2.5.1+cu121`, `vllm==0.7.3` and `transformers==4.49.0` (the node driver supports up to CUDA 12.2), plus the models downloaded under `$WORK/models/` with `hf download`. Compute nodes have no internet access, so install packages and download models from a login node.
+
+```bash
+# one family on the comparison set, using pre-cropped figures
+sbatch --export=ALL,FAMILY=qwen,PDF_DIR=comparison_pdfs,LATEX_DIR=none,\
+OUTPUT=training_data_qwen.jsonl,EXTRA_ARGS="--figures-dir comparison_figures" \
+    scripts/run_dual_model.sbatch
+```
+
+Each job requests 2 GPUs, 16 CPUs and 240 GB of RAM. The script starts the vision server, waits until it is ready, runs `export-dataset --model local`, and always stops the server at the end. Logs are written to `logs/`.
+
+**Main environment variables:**
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `LOCAL_MODEL_PATH` | `$WORK/models/qwen2.5-14b` | text model directory |
+| `LOCAL_VISION_MODEL_PATH` / `LOCAL_VISION_SERVER_URL` | Qwen2.5-VL-7B / `http://localhost:8001/v1` | vision model and its server |
+| `LOCAL_TEMPERATURE`, `LOCAL_MAX_MODEL_LEN`, `LOCAL_SEED` | `0.2`, `32768`, `0` | text sampling settings |
+| `LOCAL_GUIDED_JSON` / `LOCAL_VISION_GUIDED_JSON` | `1` / `0` | guided JSON decoding for text / vision |
+| `CHECKPOINT_DIR`, `KEEP_CHECKPOINTS` | `full_analyze_checkpoints`, `0` | resume checkpoints |
+| `SEED_CHECKPOINT_DIR` (sbatch only) | — | reuse another run's figure analysis, so only the text model changes |
+
+### Other scripts
+
+- `scripts/vllm_server.sh`: helpers to start, wait for and stop the vision server, with per-model `vllm serve` flags.
+- `scripts/probe_vision_models.sbatch` + `vision_probe.py`: compare vision models on `scripts/probe_figures/` (`chat_templates/` holds a fixed Idefics3 template).
+- `scripts/test_guided_json.*`: A/B test of free vs guided JSON decoding.
+- `scripts/diagnose_text_model.*`: single-paper diagnostics for a text model.
+
+### Known limitations
+
+- Figure filtering and cropping (`images`) still requires Gemini. A fully local cropper is future work.
+- No vision model tested returns the requested 15-30 points per curve; they typically read 4-9 points at the tick marks.
+- The Llama vision models (LLaVA-NeXT, Idefics3) mostly fail to digitize charts, and Velvet-14B was not suitable as a text teacher in our tests.
 
 ---
 

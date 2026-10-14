@@ -72,7 +72,16 @@ def discover_formula(X: np.ndarray, y: np.ndarray, iterations: int = 40) -> dict
         X = X.reshape(-1, 1)
     y = np.asarray(y, dtype=float).reshape(-1)
 
-    print(f"[~] Starting PySR (Symbolic Regression) with {iterations} iterations...")
+    n = len(y)
+    # Below this many points there's no holdout check (see use_holdout below),
+    # and PySR happily threads complexity-25+ formulas through 4-6 points with
+    # R^2 = 1.000 (2026-10-08 comparison run). Capping the size keeps the result
+    # to simple, readable trends like a*exp(-b*x) + c (complexity ~8).
+    few_points = n < 8
+    size_kwargs = {"maxsize": 10} if few_points else {}  # otherwise PySR's default
+
+    cap_note = " (max complexity 10: too few points)" if few_points else ""
+    print(f"[~] Starting PySR (Symbolic Regression) with {iterations} iterations{cap_note}...")
 
     # Trig/exponential-of-exponential operators are deliberately excluded from the
     # default set: with only ~15-30 noisy, visually-estimated points, high-frequency
@@ -85,6 +94,7 @@ def discover_formula(X: np.ndarray, y: np.ndarray, iterations: int = 40) -> dict
         unary_operators=["exp", "log"],
         model_selection="best",
         parsimony=0.01,  # penalize complexity more heavily to curb overfitting on sparse data
+        **size_kwargs,
         # Forbid nesting exp/log inside themselves (e.g. exp(exp(exp(...)))): with so
         # few points that kind of stacking is exactly what lets PySR bend a curve into
         # a bump that threads through the noise instead of the real trend.
@@ -99,11 +109,10 @@ def discover_formula(X: np.ndarray, y: np.ndarray, iterations: int = 40) -> dict
     )
 
     try:
-        n = len(y)
         # With too few points a held-out split would leave nothing meaningful to fit
         # or validate on, so below this size we fall back to PySR's own in-sample
         # "best" pick and flag the result as unvalidated.
-        use_holdout = n >= 8
+        use_holdout = not few_points
 
         if use_holdout:
             rng = np.random.default_rng(42)

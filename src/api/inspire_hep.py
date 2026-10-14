@@ -4,9 +4,9 @@ from src.download.downloader import download_pdf, download_latex
 
 def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False, min_citations: int = 0, sort_by: str = None) -> list:
     """
-    Interroga le API di INSPIRE HEP (specializzate in Fisica delle Alte Energie e correlati),
-    estrae i metadati, applica filtri (es. citazioni minime) e scarica PDF/LaTeX tramite arXiv.
-    sort_by: None (rilevanza, default INSPIRE), "mostrecent", o "mostcited".
+    Queries the INSPIRE HEP API (specialized in High Energy Physics and related fields),
+    extracts the metadata, applies filters (e.g. minimum citations) and downloads PDF/LaTeX via arXiv.
+    sort_by: None (relevance, INSPIRE's default), "mostrecent", or "mostcited".
     """
     url = "https://inspirehep.net/api/literature"
     params = {"q": query, "size": limit}
@@ -46,24 +46,24 @@ def fetch_inspire_hep(query: str, limit: int = 5, fetch_latex: bool = False, min
         
         citations = metadata.get("citation_count", 0)
         
-        # --- FILTRO CITAZIONI ---
-        # Salta direttamente al prossimo paper se le citazioni non sono sufficienti
+        # --- CITATION FILTER ---
+        # Skip straight to the next paper if it doesn't have enough citations
         if citations < min_citations:
-            print(f"[-] Scartato: '{title}' (Citazioni: {citations} < {min_citations})")
+            print(f"[-] Discarded: '{title}' (Citations: {citations} < {min_citations})")
             continue
             
         categories = ", ".join([c.get("term", "") for c in metadata.get("inspire_categories", [])])
         
-        # Estrazione ArXiv ID per la costruzione dei link di download
+        # Extract the ArXiv ID to build the download links
         arxiv_eprints = metadata.get("arxiv_eprints", [{}])
         arxiv_id = arxiv_eprints[0].get("value", "N/A") if arxiv_eprints else "N/A"
         
         pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf" if arxiv_id != "N/A" else "N/A"
         
-        # 1. Download del PDF
+        # 1. Download the PDF
         local_pdf_path = download_pdf(pdf_url, paper_id, title)
         
-        # 2. Download del LaTeX
+        # 2. Download the LaTeX source
         local_latex_path = "N/A"
         if fetch_latex and arxiv_id != "N/A":
             time.sleep(2)

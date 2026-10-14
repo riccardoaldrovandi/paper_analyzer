@@ -6,9 +6,11 @@ from src.utils.helpers import repair_json_backslashes, strip_json_fences, extrac
 _llm = None
 
 # Overridable via the LOCAL_MODEL_PATH environment variable; default = where
-# Qwen2.5-14B-Instruct was downloaded on CINECA ($WORK/models/qwen2.5-14b).
+# Qwen2.5-14B-Instruct was downloaded on CINECA ($MODELS_DIR, i.e.
+# $WORK/models unless set, + qwen2.5-14b).
 # The model comparison (Qwen vs Llama vs Mistral) just points this elsewhere.
-MODEL_PATH = os.environ.get("LOCAL_MODEL_PATH", "/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b")
+MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(os.environ.get("WORK", "."), "models"))
+MODEL_PATH = os.environ.get("LOCAL_MODEL_PATH", os.path.join(MODELS_DIR, "qwen2.5-14b"))
 # Derived from the model directory so dataset records are never mislabeled
 # when a different text model is loaded.
 MODEL_NAME = f"{os.path.basename(MODEL_PATH.rstrip('/'))} (local/vLLM)"

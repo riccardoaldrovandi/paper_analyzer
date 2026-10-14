@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=guided_json_test
-#SBATCH --account=IscrC_MultLLM
+# No --account here: set it once in your shell (sbatch reads it from the
+# environment), e.g. in ~/.bashrc:  export SBATCH_ACCOUNT=<your_project>
 #SBATCH --partition=boost_usr_prod
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

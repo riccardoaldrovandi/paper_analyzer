@@ -14,7 +14,9 @@ from src.llm.openrouter_client import analyze_image_with_openrouter
 # dedicated GPU, isolated from the text model (see scripts/run_dual_model.sbatch
 # for the 2-GPU split) -- digitize_plot_local() below just talks to it over HTTP.
 VISION_SERVER_URL = os.environ.get("LOCAL_VISION_SERVER_URL", "http://localhost:8001/v1")
-VISION_MODEL_PATH = os.environ.get("LOCAL_VISION_MODEL_PATH", "/leonardo_work/IscrC_MultLLM/models/qwen2.5-vl-7b")
+# Default: $MODELS_DIR (i.e. $WORK/models unless set) + qwen2.5-vl-7b.
+MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(os.environ.get("WORK", "."), "models"))
+VISION_MODEL_PATH = os.environ.get("LOCAL_VISION_MODEL_PATH", os.path.join(MODELS_DIR, "qwen2.5-vl-7b"))
 # Human-readable label for logs and dataset records, derived from the model
 # directory so it can never go stale when a different vision model is served.
 VISION_MODEL_NAME = os.path.basename(VISION_MODEL_PATH.rstrip("/"))

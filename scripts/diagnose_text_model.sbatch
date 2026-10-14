@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=diagnose_text
-#SBATCH --account=IscrC_MultLLM
+# No --account here: set it once in your shell (sbatch reads it from the
+# environment), e.g. in ~/.bashrc:  export SBATCH_ACCOUNT=<your_project>
 #SBATCH --partition=boost_usr_prod
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -22,5 +23,5 @@ mkdir -p logs
 
 TEXT_MODEL="${TEXT_MODEL:-velvet-14b}"
 INPUTS="${INPUTS:-training_data_qwen_v7.jsonl}"
-LOCAL_MODEL_PATH="/leonardo_work/IscrC_MultLLM/models/$TEXT_MODEL" \
+LOCAL_MODEL_PATH="${MODELS_DIR:-$WORK/models}/$TEXT_MODEL" \
     python scripts/diagnose_text_model.py --inputs "$INPUTS"

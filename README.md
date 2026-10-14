@@ -224,6 +224,12 @@ python main.py evaluate --input training_data_qwen.jsonl --filtered-output clean
 
 Requirements: a Python 3.11 venv at `$WORK/venv_vllm` with `torch==2.5.1+cu121`, `vllm==0.7.3` and `transformers==4.49.0` (the node driver supports up to CUDA 12.2), plus the models downloaded under `$WORK/models/` with `hf download`. Compute nodes have no internet access, so install packages and download models from a login node.
 
+The SLURM scripts don't hardcode a project account: set yours once on the login node (e.g. in `~/.bashrc`), and `sbatch` picks it up from the environment:
+
+```bash
+export SBATCH_ACCOUNT=<your_project_account>
+```
+
 ```bash
 # one family on the comparison set, using pre-cropped figures
 sbatch --export=ALL,FAMILY=qwen,PDF_DIR=comparison_pdfs,LATEX_DIR=none,\
@@ -237,6 +243,8 @@ Each job requests 2 GPUs, 16 CPUs and 240 GB of RAM. The script starts the visio
 
 | Variable | Default | Meaning |
 |---|---|---|
+| `SBATCH_ACCOUNT` | — | your SLURM project account (required by `sbatch`) |
+| `MODELS_DIR` | `$WORK/models` | directory holding the downloaded models |
 | `LOCAL_MODEL_PATH` | `$WORK/models/qwen2.5-14b` | text model directory |
 | `LOCAL_VISION_MODEL_PATH` / `LOCAL_VISION_SERVER_URL` | Qwen2.5-VL-7B / `http://localhost:8001/v1` | vision model and its server |
 | `LOCAL_TEMPERATURE`, `LOCAL_MAX_MODEL_LEN`, `LOCAL_SEED` | `0.2`, `32768`, `0` | text sampling settings |

@@ -2,7 +2,7 @@
 # Sourced (not executed) by run_dual_model.sbatch and probe_vision_models.sbatch,
 # so both start, wait for and stop the server in exactly the same way.
 
-MODELS_DIR="${MODELS_DIR:-/leonardo_work/IscrC_MultLLM/models}"
+MODELS_DIR="${MODELS_DIR:-$WORK/models}"
 
 # Model-specific `vllm serve` flags, keyed by the directory name under $MODELS_DIR.
 vision_server_args() {

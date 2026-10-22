@@ -18,6 +18,7 @@ import zlib
 from difflib import SequenceMatcher
 
 from src.config import ADVANCED_HEADER as ADVANCED_MARKER, SYSTEM_PROMPT
+from src.evaluation import formulas as formula_eq
 
 STRING_FIELDS = ["problem_addressed", "methodology", "experiments", "results", "limitations", "future_work"]
 LIST_FIELDS = ["main_contributions", "datasets_used", "visual_analysis_findings"]
@@ -330,7 +331,7 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
 
     if not advanced_text:
         # No plot analysis was given: any finding is invented.
-        return {"score": 0.0 if findings else None, "formulas": 0, "covered": 0, "leaked": [],
+        return {"score": 0.0 if findings else None, "formulas": 0, "covered": 0, "covered_by_equivalence": 0, "leaked": [],
                 "unframed": len(findings), "low_confidence_formulas": 0,
                 "note": "findings without ADVANCED section" if findings else ""}
 
@@ -339,17 +340,23 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
     paper_fields_text = "\n".join(_as_text(parsed.get(k)) for k in PAPER_FIELDS)
     findings_text = "\n".join(findings)
 
-    covered, leaked = 0, []
+    covered, by_equivalence, leaked = 0, 0, []
+    found = None  # formulas parsed from the findings, only if a fingerprint misses
     for label, equation in formulas:
         constants = _fingerprints(equation)
-        if not constants:
+        if constants:
+            hit = any(c in findings_text for c in constants)
+            if any(c in paper_fields_text for c in constants):
+                leaked.append(label)
+        else:
             # A formula with no float constant (e.g. "y = x0*x0") has no fingerprint.
-            covered += 1 if equation.replace(" ", "") in findings_text.replace(" ", "") else 0
-            continue
-        if any(c in findings_text for c in constants):
-            covered += 1
-        if any(c in paper_fields_text for c in constants):
-            leaked.append(label)
+            hit = equation.replace(" ", "") in findings_text.replace(" ", "")
+        if not hit:
+            # Rounded constants, LaTeX or reordered terms: compare numerically.
+            found = formula_eq.candidates(findings_text) if found is None else found
+            hit = formula_eq.reported(equation, found)
+            by_equivalence += hit
+        covered += hit
 
     framing_words = ("approximation", "not derived", "not stated", "ai-generated", "curve-fit", "curve fit")
     unframed = sum(1 for f in findings if not any(w in f.lower() for w in framing_words))
@@ -364,8 +371,8 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
         coverage = covered / len(formulas)
         framing = 1 - unframed / len(findings) if findings else 1.0
         score = round(coverage * framing, 3)
-    return {"score": score, "formulas": len(formulas), "covered": covered, "leaked": leaked,
-            "unframed": unframed, "low_confidence_formulas": low_conf, "note": ""}
+    return {"score": score, "formulas": len(formulas), "covered": covered, "covered_by_equivalence": by_equivalence,
+            "leaked": leaked, "unframed": unframed, "low_confidence_formulas": low_conf, "note": ""}
 
 
 def level2(raw_answer: str, user_content: str) -> dict:
@@ -440,7 +447,7 @@ def coverage(parsed: dict, user_content: str, visual: dict) -> dict:
     }
 
 
-def evaluate_record(record: dict) -> dict:
+def evaluate_record(record: dict, rubric: dict = None) -> dict:
     messages = record.get("messages", [])
     user_content = next((m["content"] for m in messages if m.get("role") == "user"), "")
     raw_answer = next((m["content"] for m in messages if m.get("role") == "assistant"), "")
@@ -453,10 +460,16 @@ def evaluate_record(record: dict) -> dict:
     except (json.JSONDecodeError, TypeError):
         parsed = None
     cov = coverage(parsed, user_content, l2.get("visual", {})) if isinstance(parsed, dict) else None
-    return {
+    result = {
         "source_file": record.get("source_file"),
         "provider": record.get("provider"),
         "level1": level1(raw_answer),
         "level2": l2,
         "coverage": cov,
     }
+    if rubric is not None:
+        # Imported here: rubric.py builds on this module's helpers.
+        from src.evaluation.rubric import score_rubric
+        # An unparsable answer contains none of the facts.
+        result["rubric"] = score_rubric(parsed if isinstance(parsed, dict) else {}, rubric)
+    return result

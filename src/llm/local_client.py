@@ -1,3 +1,4 @@
+import json
 import os
 
 from src.config import ADVANCED_HEADER
@@ -11,15 +12,24 @@ _llm = None
 # The model comparison (Qwen vs Llama vs Mistral) just points this elsewhere.
 MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(os.environ.get("WORK", "."), "models"))
 MODEL_PATH = os.environ.get("LOCAL_MODEL_PATH", os.path.join(MODELS_DIR, "qwen2.5-14b"))
+# Optional label of the run configuration (e.g. "ctx128k", "think"), appended
+# to MODEL_NAME so `evaluate` treats each configuration of the same model as a
+# separate provider instead of pooling them as repeated runs. Empty = no tag.
+RUN_TAG = os.environ.get("LOCAL_RUN_TAG", "").strip()
 # Derived from the model directory so dataset records are never mislabeled
 # when a different text model is loaded.
-MODEL_NAME = f"{os.path.basename(MODEL_PATH.rstrip('/'))} (local/vLLM)"
+MODEL_NAME = f"{os.path.basename(MODEL_PATH.rstrip('/'))}{f' [{RUN_TAG}]' if RUN_TAG else ''} (local/vLLM)"
+# If set (e.g. http://localhost:20001/v1), the text model is NOT loaded in this
+# process: requests go to a running vLLM OpenAI-compatible server instead.
+# Needed for models the in-process vLLM 0.7.3 can't load (Qwen3.8, served from
+# the vLLM 0.19.1 container, see scripts/qwen38/); unset = in-process as before.
+TEXT_SERVER_URL = os.environ.get("LOCAL_TEXT_SERVER_URL", "").rstrip("/")
 
 # Per-model tuning knobs: Mistral-Nemo recommends temperature ~0.3, and models
 # with a long default context (Mistral-Nemo: 128k) need a cap to fit the A100.
 TEMPERATURE = float(os.environ.get("LOCAL_TEMPERATURE", "0.2"))
 MAX_MODEL_LEN = int(os.environ.get("LOCAL_MAX_MODEL_LEN", "32768"))
-MAX_NEW_TOKENS = 4096
+MAX_NEW_TOKENS = int(os.environ.get("LOCAL_MAX_NEW_TOKENS", "4096"))
 # Fixed sampling seed, so a rerun with the same inputs and settings gives the
 # same answer and model comparisons can be reproduced.
 SEED = int(os.environ.get("LOCAL_SEED", "0"))
@@ -27,6 +37,24 @@ SEED = int(os.environ.get("LOCAL_SEED", "0"))
 # job 59806387: valid JSON 3/3 for both Qwen and Mistral-Nemo (Mistral free:
 # 2/3), same or better L1/L2, +13-33% generation time. Set to 0 to disable.
 GUIDED_JSON = os.environ.get("LOCAL_GUIDED_JSON", "1") != "0"
+
+# Optional sampling overrides, all unset by default (= the settings every
+# earlier comparison used). The Qwen3.8 "think" configuration sets them to the
+# model card's thinking-mode values.
+_OPTIONAL_SAMPLING = {
+    name: float(os.environ[var]) if name != "top_k" else int(os.environ[var])
+    for name, var in [("top_p", "LOCAL_TOP_P"), ("top_k", "LOCAL_TOP_K"), ("presence_penalty", "LOCAL_PRESENCE_PENALTY")]
+    if os.environ.get(var, "").strip()
+}
+# Hybrid thinking models (Qwen3.x): "1" = think before answering, "0" = answer
+# directly, unset = the chat template's default (and no flag sent at all, as
+# for every model before Qwen3.8). HTTP mode only.
+ENABLE_THINKING = {"1": True, "0": False}.get(os.environ.get("LOCAL_ENABLE_THINKING", "").strip())
+
+# Extra fields merged into every HTTP request body (JSON), e.g. Gemma 4 needs
+# {"skip_special_tokens": false} for the server to split its thought channel
+# from the answer. Unset = nothing added.
+EXTRA_BODY = json.loads(os.environ.get("LOCAL_EXTRA_BODY", "") or "{}")
 
 # Saved in every export-dataset record, so each label can be traced back to
 # the exact settings that produced it.
@@ -36,8 +64,14 @@ GENERATION_SETTINGS = {
     "max_new_tokens": MAX_NEW_TOKENS,
     "seed": SEED,
     "guided_json": GUIDED_JSON,
-    "repetition_penalty": 1.15,
-    "frequency_penalty": 0.3,
+    "repetition_penalty": float(os.environ.get("LOCAL_REPETITION_PENALTY", "1.15")),
+    "frequency_penalty": float(os.environ.get("LOCAL_FREQUENCY_PENALTY", "0.3")),
+    **_OPTIONAL_SAMPLING,
+    # Only recorded when used, so records of the earlier models are unchanged.
+    **({"text_server": True} if TEXT_SERVER_URL else {}),
+    **({"enable_thinking": ENABLE_THINKING} if ENABLE_THINKING is not None else {}),
+    **({"run_tag": RUN_TAG} if RUN_TAG else {}),
+    **({"extra_body": EXTRA_BODY} if EXTRA_BODY else {}),
 }
 
 USER_PREFIX = "--- PAPER CONTENT ---\n"
@@ -62,6 +96,31 @@ def _get_llm():
     return _llm
 
 
+class _ServerTokenizer:
+    """
+    encode/decode through the server's /tokenize and /detokenize endpoints, so
+    fit_to_context() counts tokens with exactly the served model's tokenizer
+    without loading it (or vLLM) in this process.
+    """
+
+    def _post(self, endpoint: str, payload: dict) -> dict:
+        import requests
+        base = TEXT_SERVER_URL[:-3] if TEXT_SERVER_URL.endswith("/v1") else TEXT_SERVER_URL
+        response = requests.post(f"{base}/{endpoint}", json={"model": MODEL_PATH, **payload}, timeout=120)
+        response.raise_for_status()
+        return response.json()
+
+    def encode(self, text: str, add_special_tokens: bool = False) -> list:
+        return self._post("tokenize", {"prompt": text, "add_special_tokens": add_special_tokens})["tokens"]
+
+    def decode(self, ids: list) -> str:
+        return self._post("detokenize", {"tokens": list(ids)})["prompt"]
+
+
+def _get_tokenizer():
+    return _ServerTokenizer() if TEXT_SERVER_URL else _get_llm().get_tokenizer()
+
+
 def fit_to_context(text_content: str, tokenizer=None) -> tuple[str, bool]:
     """
     Makes the paper text fit the model's context window. About half of the
@@ -74,7 +133,7 @@ def fit_to_context(text_content: str, tokenizer=None) -> tuple[str, bool]:
     """
     from src.config import SYSTEM_PROMPT
 
-    tokenizer = tokenizer or _get_llm().get_tokenizer()
+    tokenizer = tokenizer or _get_tokenizer()
 
     def count(text: str) -> int:
         return len(tokenizer.encode(text, add_special_tokens=False))
@@ -113,11 +172,42 @@ def fit_to_context(text_content: str, tokenizer=None) -> tuple[str, bool]:
     return fitted, True
 
 
+def _chat_via_server(messages: list, sampling_kwargs: dict, schema: dict = None) -> str:
+    """
+    One chat completion against TEXT_SERVER_URL with the same sampling settings
+    as the in-process path. Returns the answer text only: with a reasoning
+    parser on the server, a thinking model's reasoning comes back in a separate
+    field and never reaches the JSON parsing.
+    """
+    import requests
+    payload = {"model": MODEL_PATH, "messages": messages, **sampling_kwargs}
+    if ENABLE_THINKING is not None:
+        payload["chat_template_kwargs"] = {"enable_thinking": ENABLE_THINKING}
+    payload.update(EXTRA_BODY)
+    if schema is not None:
+        payload["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": schema}}
+    # A 128k-token prompt plus a long thinking phase can take several minutes.
+    response = requests.post(f"{TEXT_SERVER_URL}/chat/completions", json=payload, timeout=1800)
+    response.raise_for_status()
+    body = response.json()
+    choice = body["choices"][0]
+    message = choice["message"]
+    reasoning = message.get("reasoning") or message.get("reasoning_content") or ""
+    if reasoning:
+        print(f"[~] Model reasoning: {len(reasoning)} characters (not part of the answer).")
+    # "length" = cut by max_tokens (reasoning included): tells a truncated
+    # answer apart from one the model ended itself (e.g. after a loop).
+    finish = choice.get("finish_reason")
+    tokens = (body.get("usage") or {}).get("completion_tokens")
+    print(f"[~] Generation ended: finish_reason={finish}, {tokens} completion token(s) (max {sampling_kwargs.get('max_tokens')}).")
+    if finish == "length":
+        print("[!] Answer cut by max_tokens: it is likely truncated, invalid JSON.")
+    return message.get("content") or ""
+
+
 def analyze_with_local(text_content: str) -> tuple[str, str]:
-    from vllm import SamplingParams
     from src.config import SYSTEM_PROMPT
 
-    llm = _get_llm()
     # No-op when the caller already passed the text through fit_to_context().
     text_content, _ = fit_to_context(text_content)
     messages = [
@@ -135,9 +225,26 @@ def analyze_with_local(text_content: str) -> tuple[str, str]:
         repetition_penalty=GENERATION_SETTINGS["repetition_penalty"],
         frequency_penalty=GENERATION_SETTINGS["frequency_penalty"],
         seed=SEED,
+        **_OPTIONAL_SAMPLING,
     )
 
-    print(f"[~] Generating with local {MODEL_NAME} (temperature={TEMPERATURE}, seed={SEED}, guided JSON={GUIDED_JSON})...")
+    print(f"[~] Generating with local {MODEL_NAME} (temperature={TEMPERATURE}, seed={SEED}, guided JSON={GUIDED_JSON}"
+          f"{f', thinking={ENABLE_THINKING}' if ENABLE_THINKING is not None else ''}{', via server' if TEXT_SERVER_URL else ''})...")
+    if TEXT_SERVER_URL:
+        raw_text = None
+        if GUIDED_JSON:
+            from src.llm.schemas import ANSWER_SCHEMA
+            try:
+                raw_text = _chat_via_server(messages, sampling_kwargs, ANSWER_SCHEMA)
+            except Exception as e:
+                # Same policy as in-process: a guided failure must not cost the paper.
+                print(f"[!] Guided JSON generation failed ({type(e).__name__}: {e}); retrying without the schema constraint.")
+        if raw_text is None:
+            raw_text = _chat_via_server(messages, sampling_kwargs)
+        return MODEL_NAME, repair_json_backslashes(extract_json_object(strip_json_fences(raw_text)))
+
+    from vllm import SamplingParams
+    llm = _get_llm()
     outputs = None
     if GUIDED_JSON:
         from vllm.sampling_params import GuidedDecodingParams

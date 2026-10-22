@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import pymupdf
 import tarfile
@@ -8,12 +9,75 @@ from src.utils.retry import call_gemini_with_retry, QuotaExceededError, GeminiOv
 from src.utils.helpers import strip_json_fences
 from src.llm.openrouter_client import analyze_image_with_openrouter
 
+# LOCAL_FIGURE_CROP=1: the filter and crop steps below ask the local vLLM
+# vision server (LOCAL_VISION_SERVER_URL, see src/advanced/digitizer.py)
+# instead of Gemini, so figures can be cropped on CINECA with no cloud access
+# (scripts/qwen38/crop_figures.sbatch). Unset = Gemini/OpenRouter as before.
+LOCAL_FIGURE_CROP = os.environ.get("LOCAL_FIGURE_CROP", "0") == "1"
+
+_FILTER_PROMPT = (
+    "Analyze this document page image. Does this page contain a primary data plot, "
+    "statistical chart, bar chart, line graph, or mathematical curve with coordinate axes? "
+    "Answer ONLY with 'YES' if it features a data plot/chart, or 'NO' if it is just text, "
+    "tables, or architectural block diagrams without plotted data curves."
+)
+
+# Qwen-VL models are trained to ground objects as {"bbox_2d": [x1, y1, x2, y2]}
+# on a 0-1000 relative scale, so the local prompt asks for that native format
+# rather than Gemini's [ymin, xmin, ymax, xmax].
+_LOCAL_CROP_PROMPT = (
+    "Locate every distinct data plot, statistical chart, bar chart, or line graph on this document page "
+    "(not tables, plain text or block diagrams). Each box must include the plot's axes, tick labels and legend. "
+    'Return ONLY a JSON array like [{"bbox_2d": [x1, y1, x2, y2], "label": "fig5"}], '
+    "with coordinates relative to the image and scaled from 0 to 1000."
+)
+
+
+def _is_actual_plot_local(image_path: str) -> bool:
+    from src.advanced.digitizer import call_local_vision_server
+    try:
+        return "YES" in call_local_vision_server(image_path, _FILTER_PROMPT, max_tokens=10).strip().upper()
+    except Exception as e:
+        # Same policy as the Gemini path: never drop a page on an error.
+        print(f"[!] Error during local smart filtering: {e}")
+        return True
+
+
+def _local_plot_boxes(page_filepath: str) -> list:
+    """
+    Asks the local vision server for the plots on a page and converts its
+    answer to the Gemini format used by _crop_individual_plots:
+    [{"box_2d": [ymin, xmin, ymax, xmax] (0-1000), "label": ...}].
+    Boxes outside the 0-1000 scale or too small are dropped instead of
+    cropping a wrong area; no valid box at all means "keep the full page".
+    """
+    from src.advanced.digitizer import call_local_vision_server
+    items = json.loads(strip_json_fences(call_local_vision_server(page_filepath, _LOCAL_CROP_PROMPT, max_tokens=1024)))
+    if isinstance(items, dict):
+        items = [items]
+    boxes = []
+    for i, item in enumerate(items if isinstance(items, list) else []):
+        box = item.get("bbox_2d") if isinstance(item, dict) else None
+        if not box or len(box) != 4:
+            continue
+        x1, y1, x2, y2 = (float(v) for v in box)
+        if not all(0 <= v <= 1000 for v in (x1, y1, x2, y2)) or x2 - x1 < 30 or y2 - y1 < 30:
+            print(f"[!] Ignoring implausible box {box} on {os.path.basename(page_filepath)}.")
+            continue
+        # The label ends up in the file name: keep it path-safe and unique per page.
+        label = re.sub(r"[^A-Za-z0-9_-]+", "_", str(item.get("label") or "plot"))[:40]
+        boxes.append({"box_2d": [y1, x1, y2, x2], "label": f"{i + 1}_{label}"})
+    return boxes
+
+
 def _is_actual_plot(image_path: str) -> bool:
     """
     Smart support function: uses Gemini Vision to verify whether the rendered image actually
     contains a graph or plot with curves or numerical data, discarding pages consisting solely of text
     or logic diagrams.
     """
+    if LOCAL_FIGURE_CROP:
+        return _is_actual_plot_local(image_path)
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not api_key:
         # If the key is not configured, for safety reasons we skip the filter and keep the image.
@@ -24,12 +88,7 @@ def _is_actual_plot(image_path: str) -> bool:
         with open(image_path, "rb") as f:
             image_bytes = f.read()
 
-        prompt = (
-            "Analyze this document page image. Does this page contain a primary data plot, "
-            "statistical chart, bar chart, line graph, or mathematical curve with coordinate axes? "
-            "Answer ONLY with 'YES' if it features a data plot/chart, or 'NO' if it is just text, "
-            "tables, or architectural block diagrams without plotted data curves."
-        )
+        prompt = _FILTER_PROMPT
 
         try:
             response = call_gemini_with_retry(lambda: client.models.generate_content(
@@ -74,42 +133,45 @@ def _crop_individual_plots(page, page_filepath: str, output_dir: str, base_name:
     the full page render.
     """
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not api_key:
+    if not api_key and not LOCAL_FIGURE_CROP:
         return [page_filepath]  # Fallback to the full page if the API key is missing
 
     try:
-        client = genai.Client(api_key=api_key)
+        if LOCAL_FIGURE_CROP:
+            boxes = _local_plot_boxes(page_filepath)
+        else:
+            client = genai.Client(api_key=api_key)
 
-        # Prompt to request normalized bounding box coordinates for each distinct plot
-        prompt = (
-            "Analyze this document page. Locate every distinct data plot, statistical chart, "
-            "bar chart, or line graph present on the page. "
-            "For each plot, provide its bounding box coordinates [ymin, xmin, ymax, xmax] scaled from 0 to 1000. "
-            "You MUST return ONLY a valid JSON array of objects. Example: "
-            '[{"box_2d": [100, 100, 300, 400], "label": "fig5"}]'
-        )
+            # Prompt to request normalized bounding box coordinates for each distinct plot
+            prompt = (
+                "Analyze this document page. Locate every distinct data plot, statistical chart, "
+                "bar chart, or line graph present on the page. "
+                "For each plot, provide its bounding box coordinates [ymin, xmin, ymax, xmax] scaled from 0 to 1000. "
+                "You MUST return ONLY a valid JSON array of objects. Example: "
+                '[{"box_2d": [100, 100, 300, 400], "label": "fig5"}]'
+            )
 
-        with open(page_filepath, "rb") as f:
-            image_bytes = f.read()
+            with open(page_filepath, "rb") as f:
+                image_bytes = f.read()
 
-        try:
-            response = call_gemini_with_retry(lambda: client.models.generate_content(
-                model='gemini-3.6-flash',
-                contents=[
-                    types.Part.from_bytes(data=image_bytes, mime_type="image/png"),
-                    prompt
-                ],
-                config=types.GenerateContentConfig(
-                    temperature=0.0,
-                    response_mime_type="application/json",
-                )
-            ))
-            raw_output = response.text.strip()
-        except (QuotaExceededError, GeminiOverloadedError) as e:
-            print(f"[!] Gemini unavailable during smart cropping ({e}). Falling back to OpenRouter free model...")
-            raw_output = strip_json_fences(analyze_image_with_openrouter(page_filepath, prompt))
+            try:
+                response = call_gemini_with_retry(lambda: client.models.generate_content(
+                    model='gemini-3.6-flash',
+                    contents=[
+                        types.Part.from_bytes(data=image_bytes, mime_type="image/png"),
+                        prompt
+                    ],
+                    config=types.GenerateContentConfig(
+                        temperature=0.0,
+                        response_mime_type="application/json",
+                    )
+                ))
+                raw_output = response.text.strip()
+            except (QuotaExceededError, GeminiOverloadedError) as e:
+                print(f"[!] Gemini unavailable during smart cropping ({e}). Falling back to OpenRouter free model...")
+                raw_output = strip_json_fences(analyze_image_with_openrouter(page_filepath, prompt))
 
-        boxes = json.loads(raw_output)
+            boxes = json.loads(raw_output)
         cropped_images = []
         rect = page.rect # Original PDF page dimensions
 
@@ -167,7 +229,9 @@ def extract_images_from_pdf(pdf_path: str, base_output_dir: str = "extracted_ima
     saved_images = []
 
     print(f"[~] Scanning PDF and applying smart filtering & cropping to charts...")
-    if not os.environ.get("GEMINI_API_KEY", "").strip():
+    if LOCAL_FIGURE_CROP:
+        print("[~] Smart filtering & cropping via the LOCAL vision server (LOCAL_FIGURE_CROP=1).")
+    elif not os.environ.get("GEMINI_API_KEY", "").strip():
         print("[!] WARNING: GEMINI_API_KEY is not set, so smart filtering and cropping are DISABLED: "
               "every page that mentions a figure will be kept as a FULL-PAGE render (text included), "
               "not as cropped plots. On CINECA use --figures-dir with pre-cropped figures instead.")
@@ -201,7 +265,7 @@ def extract_images_from_pdf(pdf_path: str, base_output_dir: str = "extracted_ima
             pix.save(page_filepath)
 
             # --- SMART FILTER ---
-            print(f"[~] Visual page analysis {page_index+1} via Gemini Vision...")
+            print(f"[~] Visual page analysis {page_index+1} via {'local vision server' if LOCAL_FIGURE_CROP else 'Gemini Vision'}...")
             if _is_actual_plot(page_filepath):
                 print(f"[+] Found valid chart(s) at page {page_index+1}. Cropping individual plots...")
                 # --- SMART CROP ---

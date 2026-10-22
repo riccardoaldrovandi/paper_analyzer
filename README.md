@@ -220,6 +220,22 @@ python main.py evaluate --input training_data_qwen.jsonl --report eval_qwen.json
 python main.py evaluate --input training_data_qwen.jsonl --filtered-output clean.jsonl --min-l2 0.8
 ```
 
+Level 2 measures precision only: a terse answer scores high. `--rubrics gold/rubrics.jsonl` adds a completeness score against a held-out gold set. Each paper there has 8-20 weighted atomic facts (`name`, `number`, `text` with keyword groups) that a good answer must contain. The report gets `recall` (weighted share of facts found) and `strict` (every fact found) columns. Every fact is first checked against the paper text, to catch annotation typos. Papers with a rubric are left out of `--filtered-output`, so the gold set never ends up in training. The file format is documented in `src/evaluation/rubric.py`.
+
+```
+python main.py evaluate --input training_data_qwen.jsonl --rubrics gold/rubrics.jsonl
+```
+
+A PySR formula counts as reported if its constant fingerprints appear in the findings. It also counts if a formula in the findings is numerically equivalent: parsed with sympy (LaTeX and rounded constants accepted) and within 1% on at least 90% of a fixed grid of x values.
+
+`--input` accepts several files. Records of the same provider on the same paper count as repeated runs (export-dataset rerun with a different `LOCAL_SEED`). After the table, `evaluate` prints each provider's per-paper means with a 95% bootstrap confidence interval over papers, plus the run-to-run noise. For every pair of providers it also prints a paired bootstrap of the difference on their common papers, flagged as indicative below 10 papers. `gold_pdfs/` holds the 10 gold-set PDFs.
+
+```
+# 3 runs of the same model, then compare it with another one
+for s in 1 2 3; do LOCAL_SEED=$s python main.py export-dataset --model local --pdf-dir gold_pdfs --output qwen_seed$s.jsonl ...; done
+python main.py evaluate --input qwen_seed*.jsonl llama_seed*.jsonl --rubrics gold/rubrics.jsonl
+```
+
 ### Running on CINECA Leonardo
 
 Requirements: a Python 3.11 venv at `$WORK/venv_vllm` with `torch==2.5.1+cu121`, `vllm==0.7.3` and `transformers==4.49.0` (the node driver supports up to CUDA 12.2), plus the models downloaded under `$WORK/models/` with `hf download`. Compute nodes have no internet access, so install packages and download models from a login node.

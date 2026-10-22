@@ -470,7 +470,16 @@ def _log_rejected(rejected_path: str, source_path: str, provider, model_name, ra
         "error": error,
     }
     with open(rejected_path, "a", encoding="utf-8") as rej_f:
-        rej_f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        rej_f.write(_jsonl_line(entry))
+
+
+def _jsonl_line(obj) -> str:
+    """
+    One JSONL line. A model can emit a lone UTF-16 surrogate (e.g. "\\ud8ee" in
+    its JSON): json.loads accepts it but UTF-8 cannot encode it, which crashed
+    the whole export run (job 61447923). It is replaced with "?" instead.
+    """
+    return json.dumps(obj, ensure_ascii=False).encode("utf-8", "replace").decode("utf-8") + "\n"
 
 
 def already_exported_sources(output_path: str) -> set:
@@ -557,10 +566,12 @@ if __name__ == "__main__":
 
     # Subcommand: evaluate
     evaluate_parser = subparsers.add_parser("evaluate", help="Score an export-dataset JSONL (structural + grounding metrics) and optionally write a filtered copy.")
-    evaluate_parser.add_argument("--input", type=str, default="finetune_dataset.jsonl", help="Dataset JSONL produced by export-dataset (read-only)")
+    evaluate_parser.add_argument("--input", type=str, nargs="+", default=["finetune_dataset.jsonl"], help="Dataset JSONL file(s) produced by export-dataset (read-only); same provider + paper in several files = repeated runs")
     evaluate_parser.add_argument("--report", type=str, default="evaluation_report.jsonl", help="Per-record metrics output")
     evaluate_parser.add_argument("--filtered-output", type=str, default=None, help="If set, write records that pass both levels here")
     evaluate_parser.add_argument("--min-l2", type=float, default=0.8, help="Minimum Level 2 grounding score to keep a record")
+    evaluate_parser.add_argument("--rubrics", type=str, default=None, help="Gold rubric JSONL: adds rubric recall (completeness) and holds those papers out of the filtered output")
+    evaluate_parser.add_argument("--bootstrap", type=int, default=10000, help="Bootstrap resamples for the confidence intervals")
 
     args = parser.parse_args()
 
@@ -694,6 +705,14 @@ if __name__ == "__main__":
         all_sources = [(p, "pdf") for p in pdf_files] + [(p, "latex") for p in latex_files]
 
         already_done = already_exported_sources(args.output)
+        rejected_path = os.path.splitext(args.output)[0] + ".rejected.jsonl"
+        if os.environ.get("EXPORT_SKIP_REJECTED") == "1":
+            # Resuming a crashed run: papers already rejected keep their
+            # rejection instead of being retried until they pass, which
+            # would make the rejection rate look better than it is.
+            rejected = already_exported_sources(rejected_path)
+            print(f"[~] EXPORT_SKIP_REJECTED=1: {len(rejected - already_done)} paper(s) already rejected, not retried.")
+            already_done |= rejected
         pending = [(p, kind) for p, kind in all_sources if p not in already_done]
         print(f"[+] {len(all_sources)} paper(s) found, {len(already_done)} already in '{args.output}', {len(pending)} pending.")
 
@@ -703,7 +722,6 @@ if __name__ == "__main__":
 
         providers = ["gemini", "groq", "openrouter"] if args.model.lower() == "all" else [args.model.lower()]
         written = 0
-        rejected_path = os.path.splitext(args.output)[0] + ".rejected.jsonl"
         # Same for every record of this run: enough to reproduce or compare runs.
         run_metadata = {
             "prompt_sha256": hashlib.sha256(SYSTEM_PROMPT.encode("utf-8")).hexdigest()[:12],
@@ -794,7 +812,7 @@ if __name__ == "__main__":
                             {"role": "assistant", "content": raw_res},
                         ],
                     }
-                    out_f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    out_f.write(_jsonl_line(record))
                     out_f.flush()
                     written += 1
                     print(f"[+] Wrote training example ({provider}, {len(model_input)} chars input{', truncated' if truncated else ''}).")
@@ -806,6 +824,6 @@ if __name__ == "__main__":
 
         print(f"\n[+] Done. {written} training example(s) appended to '{args.output}'.")
     elif args.command == "evaluate":
-        run_evaluation(args.input, args.report, args.filtered_output, args.min_l2)
+        run_evaluation(args.input, args.report, args.filtered_output, args.min_l2, args.rubrics, args.bootstrap)
     else:
         parser.print_help()

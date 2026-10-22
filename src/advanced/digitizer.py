@@ -27,6 +27,18 @@ VISION_MODEL_NAME = os.path.basename(VISION_MODEL_PATH.rstrip("/"))
 # guided request fails or its output can't be parsed, the figure is retried
 # unconstrained.
 VISION_GUIDED_JSON = os.environ.get("LOCAL_VISION_GUIDED_JSON", "0") == "1"
+# How the schema constraint is sent: "guided_json" (vLLM 0.7.3's field, used
+# by every earlier model) or "response_format" (OpenAI-style json_schema, what
+# recent vLLM releases such as the Qwen3.8 container accept).
+VISION_JSON_MODE = os.environ.get("LOCAL_VISION_JSON_MODE", "guided_json")
+# Extra fields merged into every local vision request, as a JSON object, e.g.
+# '{"chat_template_kwargs": {"enable_thinking": false}}' so a hybrid thinking
+# model (Qwen3.8) answers directly. Unset = nothing added.
+VISION_EXTRA_BODY = json.loads(os.environ.get("LOCAL_VISION_EXTRA_BODY", "") or "{}")
+# Per-request timeout (s). A timeout counts as "server down" and stops the run
+# at a checkpoint, so slower models (Qwen3.8-27B: ~30 tok/s, up to 4096
+# tokens per figure) need more than the default.
+VISION_TIMEOUT = float(os.environ.get("LOCAL_VISION_TIMEOUT", "180"))
 
 # Shared by both digitize_plot() (cloud) and digitize_plot_local() so the two
 # paths always ask for, and get parsed as, the exact same output schema.
@@ -268,6 +280,7 @@ def call_local_vision_server(image_path: str, prompt: str, max_tokens: int = Non
             ],
         }],
         "temperature": 0.0,
+        **VISION_EXTRA_BODY,
     }
     if max_tokens:
         payload["max_tokens"] = max_tokens
@@ -275,9 +288,10 @@ def call_local_vision_server(image_path: str, prompt: str, max_tokens: int = Non
         # vLLM-specific request fields, e.g. {"guided_json": schema} to force
         # schema-valid JSON (tested by scripts/test_guided_json.py).
         payload.update(extra_body)
-    response = requests.post(f"{VISION_SERVER_URL}/chat/completions", json=payload, timeout=180)
+    response = requests.post(f"{VISION_SERVER_URL}/chat/completions", json=payload, timeout=VISION_TIMEOUT)
     response.raise_for_status()
-    return response.json()["choices"][0]["message"]["content"]
+    # `or ""`: a thinking model can return content=None if it never got past reasoning.
+    return response.json()["choices"][0]["message"]["content"] or ""
 
 
 def digitize_plot_local(image_path: str) -> dict:
@@ -303,7 +317,10 @@ def digitize_plot_local(image_path: str) -> dict:
         extra_body = None
         if VISION_GUIDED_JSON:
             from src.llm.schemas import VISION_SCHEMA
-            extra_body = {"guided_json": VISION_SCHEMA}
+            if VISION_JSON_MODE == "response_format":
+                extra_body = {"response_format": {"type": "json_schema", "json_schema": {"name": "plot", "schema": VISION_SCHEMA}}}
+            else:
+                extra_body = {"guided_json": VISION_SCHEMA}
         if extra_body is not None:
             # Guided decoding can break for a single model/tokenizer: HTTP 500
             # (Pixtral + outlines) or unparseable garbage (Pixtral + xgrammar).

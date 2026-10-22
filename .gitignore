@@ -27,6 +27,7 @@ outputs/
 
 # Generated fine-tuning dataset (large, regenerable via export-dataset)
 *.jsonl
+!gold/*.jsonl
 
 # full-analyze/export-dataset resume checkpoints (temporary state,
 # deleted automatically at the end of a successful run)
@@ -41,3 +42,4 @@ unsloth_compiled_cache/
 .idea/
 .DS_Store
 Thumbs.db
+config.json

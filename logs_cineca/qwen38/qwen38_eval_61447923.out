@@ -1,0 +1,34 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+index, name, memory.total [MiB], driver_version
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+[~] torch 2.10.0+cu129 CUDA 12.9, visible GPUs: 2
+[+] CUDA works on all GPUs
+[~] Starting Qwen3.8 vLLM server (TP=2, max_model_len=131072, port 27923), log: logs/qwen38_server_61447923.log
+[+] Vision server ready after 240s.
+
+################ 0. Vision probe ################
+[+] Probe done: logs/probe_qwen3.8-27b_61447923.json
+
+################ 1. Figures + ctx32k seed 0 ################
+[+] 18:01 qwen38_gold_ctx32k_s0.jsonl: 2 record(s), 2 rejected
+
+################ 2. Other configurations (max 4 in parallel) ################
+[~] 18:01 starting ctx32k seed 1
+[~] 18:01 starting ctx32k seed 2
+[~] 18:01 starting ctx128k seed 0
+[+] 18:03 qwen38_gold_ctx32k_s1.jsonl: 2 record(s), 0 rejected
+[~] 18:04 starting ctx128k seed 1
+[+] 18:25 qwen38_gold_ctx128k_s0.jsonl: 10 record(s), 0 rejected
+[~] 18:26 starting ctx128k seed 2
+[+] 18:28 qwen38_gold_ctx32k_s2.jsonl: 7 record(s), 3 rejected
+[~] 18:28 starting think seed 0
+[+] 18:29 qwen38_gold_ctx128k_s1.jsonl: 9 record(s), 1 rejected
+[~] 18:29 starting think seed 1
+[+] 18:54 qwen38_gold_ctx128k_s2.jsonl: 8 record(s), 2 rejected
+[~] 18:54 starting think seed 2
+[+] 19:38 qwen38_gold_think_s1.jsonl: 7 record(s), 3 rejected
+[+] 19:44 qwen38_gold_think_s0.jsonl: 6 record(s), 4 rejected
+[+] 20:03 qwen38_gold_think_s2.jsonl: 8 record(s), 2 rejected
+[~] Stopping vision server (process group 114824)...

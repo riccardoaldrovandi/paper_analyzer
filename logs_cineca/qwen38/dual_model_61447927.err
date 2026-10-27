@@ -1,0 +1,1 @@
+scripts/vllm_server.sh: riga 60: 133750 Terminated              CUDA_VISIBLE_DEVICES="$gpu" setsid vllm serve "$MODELS_DIR/$model" --dtype bfloat16 --port "$port" $extra > "logs/vision_server_${model}_${SLURM_JOB_ID}.log" 2>&1

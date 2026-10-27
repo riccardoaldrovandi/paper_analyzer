@@ -1,0 +1,61 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[+] torch 2.5.1+cu121, CUDA works
+[~] 1/2 control claims
+[~] 771 claims, 0 already scored, 771 to do
+[~] Loading judge bespoke-minicheck-7b (cache: /leonardo_work/IscrC_MultLLM/hf_nli)
+INFO 10-22 16:12:26 __init__.py:207] Automatically detected platform cuda.
+INFO 10-22 16:12:27 config.py:208] Replacing legacy 'type' key with 'rope_type'
+INFO 10-22 16:12:41 config.py:549] This model supports multiple tasks: {'classify', 'embed', 'score', 'reward', 'generate'}. Defaulting to 'generate'.
+INFO 10-22 16:12:41 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='bespokelabs/Bespoke-MiniCheck-7B', speculative_config=None, tokenizer='bespokelabs/Bespoke-MiniCheck-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir='/leonardo_work/IscrC_MultLLM/hf_nli', load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=2024, served_model_name=bespokelabs/Bespoke-MiniCheck-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-22 16:12:44 cuda.py:229] Using Flash Attention backend.
+INFO 10-22 16:12:45 model_runner.py:1110] Starting to load model bespokelabs/Bespoke-MiniCheck-7B...
+INFO 10-22 16:12:48 weight_utils.py:254] Using model weights format ['*.safetensors', '*.bin', '*.pt']
+INFO 10-22 16:13:41 model_runner.py:1115] Loading model weights took 14.4302 GB
+INFO 10-22 16:13:49 worker.py:267] Memory profiling takes 8.45 seconds
+INFO 10-22 16:13:49 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-22 16:13:49 worker.py:267] model weights take 14.43GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.63GiB; the rest of the memory reserved for KV Cache is 38.91GiB.
+INFO 10-22 16:13:50 executor_base.py:111] # cuda blocks: 19923, # CPU blocks: 2048
+INFO 10-22 16:13:50 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 9.73x
+INFO 10-22 16:13:51 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-22 16:14:05 model_runner.py:1562] Graph capturing finished in 14 secs, took 1.11 GiB
+INFO 10-22 16:14:05 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 24.11 seconds
+[+] Loaded in 192s
+[~] qwen38_gold_think_s0: 64/771 claims, 75s
+[~] qwen38_gold_think_s0: 128/771 claims, 162s
+[~] qwen38_gold_think_s0: 192/771 claims, 203s
+[~] qwen38_gold_think_s0: 198/771 claims, 209s
+[~] qwen38_gold_think_s1: 262/771 claims, 276s
+[~] qwen38_gold_think_s1: 326/771 claims, 344s
+[~] qwen38_gold_think_s1: 370/771 claims, 377s
+[~] qwen38_gold_think_s2: 434/771 claims, 440s
+[~] qwen38_gold_think_s2: 498/771 claims, 525s
+[~] qwen38_gold_think_s2: 554/771 claims, 561s
+[~] qwen_baseline_gold_s0: 618/771 claims, 629s
+[~] qwen_baseline_gold_s0: 633/771 claims, 641s
+[~] qwen_baseline_gold_s1: 697/771 claims, 702s
+[~] qwen_baseline_gold_s1: 703/771 claims, 708s
+[~] qwen_baseline_gold_s2: 767/771 claims, 776s
+[~] qwen_baseline_gold_s2: 771/771 claims, 780s
+[+] Done: 771 claims in 780s -> logs/groundedness/controls_scores.jsonl
+[~] 2/2 SciFact dev (oracle abstracts)
+[~] 300 SciFact dev claims: SUPPORTED 124, CONTRADICTED 64, NOT_ENOUGH_INFO 112
+INFO 10-22 16:27:27 __init__.py:207] Automatically detected platform cuda.
+INFO 10-22 16:27:27 config.py:208] Replacing legacy 'type' key with 'rope_type'
+INFO 10-22 16:27:37 config.py:549] This model supports multiple tasks: {'embed', 'classify', 'score', 'reward', 'generate'}. Defaulting to 'generate'.
+INFO 10-22 16:27:37 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='bespokelabs/Bespoke-MiniCheck-7B', speculative_config=None, tokenizer='bespokelabs/Bespoke-MiniCheck-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir='/leonardo_work/IscrC_MultLLM/hf_nli', load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=2024, served_model_name=bespokelabs/Bespoke-MiniCheck-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-22 16:27:38 cuda.py:229] Using Flash Attention backend.
+INFO 10-22 16:27:39 model_runner.py:1110] Starting to load model bespokelabs/Bespoke-MiniCheck-7B...
+INFO 10-22 16:27:39 weight_utils.py:254] Using model weights format ['*.safetensors', '*.bin', '*.pt']
+INFO 10-22 16:27:50 model_runner.py:1115] Loading model weights took 14.4302 GB
+INFO 10-22 16:27:53 worker.py:267] Memory profiling takes 2.20 seconds
+INFO 10-22 16:27:53 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-22 16:27:53 worker.py:267] model weights take 14.43GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.63GiB; the rest of the memory reserved for KV Cache is 38.91GiB.
+INFO 10-22 16:27:53 executor_base.py:111] # cuda blocks: 19923, # CPU blocks: 2048
+INFO 10-22 16:27:53 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 9.73x
+INFO 10-22 16:27:54 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-22 16:28:07 model_runner.py:1562] Graph capturing finished in 13 secs, took 1.11 GiB
+INFO 10-22 16:28:07 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 16.79 seconds
+[+] judged in 11s
+[+] binary accuracy 0.877 [0.837, 0.913], balanced 0.857, macro-F1 0.867, kappa 0.737
+    accuracy by gold class: {'CONTRADICTED': 0.953, 'NOT_ENOUGH_INFO': 0.982, 'SUPPORTED': 0.742}

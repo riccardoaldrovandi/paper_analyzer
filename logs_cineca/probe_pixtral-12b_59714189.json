@@ -1,0 +1,154 @@
+{
+  "model": "pixtral-12b",
+  "figures": {
+    "flux_tube.png": {
+      "digitization": {
+        "seconds": 5.4,
+        "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"1\", \"points\": [[0.0, 6.0], [0.5, 4.8], [1.0, 3.6], [1.5, 2.8], [2.0, 2.3], [2.5, 1.9], [3.0, 1.6], [3.5, 1.4], [4.0, 1.3]]},\n        {\"label\": \"2\", \"points\": [[0.0, 1.0], [0.5, 0.8], [1.0, 0.6], [1.5, 0.5], [2.0, 0.4], [2.5, 0.3], [3.0, 0.3], [3.5, 0.3], [4.0, 0.3]]}\n    ],\n    \"summary\": \"\"\n}\n```",
+        "plot_type": "continuous",
+        "series": [
+          {
+            "label": "1",
+            "n_points": 9,
+            "x_range": [
+              0.0,
+              4.0
+            ],
+            "y_range": [
+              1.3,
+              6.0
+            ],
+            "synthetic_suspect": false
+          },
+          {
+            "label": "2",
+            "n_points": 9,
+            "x_range": [
+              0.0,
+              4.0
+            ],
+            "y_range": [
+              0.3,
+              1.0
+            ],
+            "synthetic_suspect": false
+          }
+        ]
+      },
+      "questions": [
+        {
+          "q": "What are the minimum and maximum values shown on the x axis and on the y axis?",
+          "expected": "x: 0 to ~5 (ticks 2, 4); y: 0 to 6",
+          "answer": "The minimum value on the x-axis is 0, and the maximum value on the x-axis is approximately 5. The minimum value on the y-axis is 0, and the maximum value on the y-axis is 6."
+        },
+        {
+          "q": "How many curves are drawn in this plot, and how is each one labeled?",
+          "expected": "2 curves, labeled '1' (upper) and '2' (lower)",
+          "answer": "There are two curves drawn in this plot, labeled as '1' and '2'."
+        },
+        {
+          "q": "What is the y value of the upper curve at x = 2?",
+          "expected": "~1.55",
+          "answer": "The y value of the upper curve at x = 2 is approximately 2."
+        },
+        {
+          "q": "What value does the upper curve approach at the right end of the plot?",
+          "expected": "~0.6",
+          "answer": "The upper curve approaches a value of 1 at the right end of the plot."
+        }
+      ]
+    },
+    "gqa_bars.png": {
+      "digitization": {
+        "seconds": 2.6,
+        "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"Mean\", \"points\": [[54.4, 55.6]]},\n        {\"label\": \"First\", \"points\": [[54.4, 55.6]]},\n        {\"label\": \"Random\", \"points\": [[54.4, 55.6]]}\n    ],\n    \"summary\": \"The plot compares three different methods (Mean, First, Random) with similar performance metrics.\"\n}\n```",
+        "plot_type": "discrete",
+        "points": [
+          [
+            "Mean",
+            54.4,
+            55.6
+          ],
+          [
+            "First",
+            54.4,
+            55.6
+          ],
+          [
+            "Random",
+            54.4,
+            55.6
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "List every bar label in this chart together with its numerical value.",
+          "expected": "Mean ~55.55, First ~55.45, Random ~55.23",
+          "answer": "Sure, here are the bar labels along with their numerical values:\n\n1. Mean: 55.6\n2. First: 55.4\n3. Random: 55.2"
+        },
+        {
+          "q": "What is the range of the numerical axis?",
+          "expected": "~54.3 to ~55.7 (ticks 54.4 ... 55.6)",
+          "answer": "The range of the numerical axis is from 54.4 to 55.6."
+        }
+      ]
+    },
+    "net_proton.png": {
+      "digitization": {
+        "seconds": 23.3,
+        "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"0%-5%\", \"points\": [[10, 0.8], [20, 0.7], [30, 0.6], [40, 0.5], [50, 0.4], [60, 0.3], [70, 0.2], [80, 0.1], [90, 0.1], [100, 0.1], [110, 0.1], [120, 0.1], [130, 0.1], [140, 0.1], [150, 0.1], [160, 0.1], [170, 0.1], [180, 0.1], [190, 0.1], [200, 0.1]]},\n        {\"label\": \"70%-80%\", \"points\": [[10, 0.75], [20, 0.65], [30, 0.55], [40, 0.45], [50, 0.35], [60, 0.25], [70, 0.15], [80, 0.05], [90, 0.05], [100, 0.05], [110, 0.05], [120, 0.05], [130, 0.05], [140, 0.05], [150, 0.05], [160, 0.05], [170, 0.05], [180, 0.05], [190, 0.05], [200, 0.05]]},\n        {\"label\": \"Stat. uncertainty\", \"points\": [[10, 0.05], [20, 0.05], [30, 0.05], [40, 0.05], [50, 0.05], [60, 0.05], [70, 0.05], [80, 0.05], [90, 0.05], [100, 0.05], [110, 0.05], [120, 0.05], [130, 0.05], [140, 0.05], [150, 0.05], [160, 0.05], [170, 0.05], [180, 0.05], [190, 0.05], [200, 0.05]]},\n        {\"label\": \"Syst. uncertainty\", \"points\": [[10, 0.1], [20, 0.1], [30, 0.1], [40, 0.1], [50, 0.1], [60, 0.1], [70, 0.1], [80, 0.1], [90, 0.1], [100, 0.1], [110, 0.1], [120, 0.1], [130, 0.1], [140, 0.1], [150, 0.1], [160, 0.1], [170, 0.1], [180, 0.1], [190, 0.1], [200, 0.1]]},\n        {\"label\": \"Projected BES-II stat. uncertainty\", \"points\": [[10, 0.1], [20, 0.1], [30, 0.1], [40, 0.1], [50, 0.1], [60, 0.1], [70, 0.1], [80, 0.1], [90, 0.1], [100, 0.1], [110, 0.1], [120, 0.1], [130, 0.1], [140, 0.1], [150, 0.1], [160, 0.1], [170, 0.1], [180, 0.1], [190, 0.1], [200, 0.1]]}\n    ],\n    \"summary\": \"The net-proton high moments and their uncertainties vary significantly with collision energy, showing distinct trends for different centrality classes and uncertainties.\"\n}\n```",
+        "plot_type": "discrete",
+        "points": [
+          [
+            "0%-5%",
+            10.0,
+            0.8
+          ],
+          [
+            "70%-80%",
+            10.0,
+            0.75
+          ],
+          [
+            "Stat. uncertainty",
+            10.0,
+            0.05
+          ],
+          [
+            "Syst. uncertainty",
+            10.0,
+            0.1
+          ],
+          [
+            "Projected BES-II stat. uncertainty",
+            10.0,
+            0.1
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "How many panels does this figure have, and what is the y-axis label of the left panel?",
+          "expected": "2 panels; 'Net-proton High Moments'",
+          "answer": "This figure has two panels. The y-axis label of the left panel is 'Net-proton High Moments'."
+        },
+        {
+          "q": "Is the x axis linear or logarithmic? What is its label?",
+          "expected": "logarithmic; 'Collision Energy sqrt(s_NN) (GeV)'",
+          "answer": "The x axis is logarithmic. Its label is \"Collision Energy √sNN (GeV)\"."
+        },
+        {
+          "q": "In the left panel, what is the y value of the red circle at the highest collision energy (200 GeV)?",
+          "expected": "~0.12",
+          "answer": "The y value of the red circle at the highest collision energy (200 GeV) in the left panel is approximately 0.2."
+        },
+        {
+          "q": "List the legend entries of the left panel.",
+          "expected": "UrQMD 0%-5%, HRG GCE, HRG CE, HRG EV (r=0.5fm)",
+          "answer": "The legend entries of the left panel are:\n\n- UrQMD 0%-5%\n- HRG GCE\n- HRG CE\n- HRG EV (r=0.5fm)"
+        }
+      ]
+    }
+  }
+}

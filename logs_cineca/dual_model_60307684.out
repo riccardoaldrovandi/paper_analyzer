@@ -1,0 +1,209 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Family: qwen | text: qwen2.5-14b | vision: qwen2.5-vl-7b | temperature: 0.2 | vision guided JSON: 1
+[~] Checkpoints: full_analyze_checkpoints/v8_qwen | output: training_data_qwen_v8.jsonl | vision port: 27684
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-6e580a9f-e114-b5ce-8bf4-df07fa054d40)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-2a065ca1-9617-7665-4390-b636652f74eb)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: qwen2.5-vl-7b on GPU 1, port 27684 (--max-model-len 8192)
+[+] Vision server ready after 155s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[+] 3 paper(s) found, 0 already in 'training_data_qwen_v8.jsonl', 3 pending.
+
+========== Paper 1/3: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Using 1 pre-cropped figure(s) from 'comparison_figures/1482468_Flux tube in turbulent flow and quantum chromodyna' (--figures-dir).
+[+] Found 1 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/1 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -4.9641247/(x0 + exp(x0)/(-1.2072552))
+    -> Complexity: 8 | Score: 0.6910 | R^2: 0.9963
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*1.1997442 + 14.593751/(x0 + 7.2300363)
+    -> Complexity: 7 | Score: 0.3173 | R^2: 0.9935
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/qwen2.5-14b (first call only, max_model_len=32768)...
+INFO 10-13 13:32:36 __init__.py:207] Automatically detected platform cuda.
+INFO 10-13 13:32:47 config.py:549] This model supports multiple tasks: {'score', 'generate', 'reward', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 10-13 13:32:47 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-13 13:32:48 cuda.py:229] Using Flash Attention backend.
+INFO 10-13 13:32:49 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/qwen2.5-14b...
+INFO 10-13 13:34:02 model_runner.py:1115] Loading model weights took 27.5681 GB
+INFO 10-13 13:34:07 worker.py:267] Memory profiling takes 4.07 seconds
+INFO 10-13 13:34:07 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-13 13:34:07 worker.py:267] model weights take 27.57GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.79GiB; the rest of the memory reserved for KV Cache is 25.62GiB.
+INFO 10-13 13:34:07 executor_base.py:111] # cuda blocks: 8744, # CPU blocks: 1365
+INFO 10-13 13:34:07 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 4.27x
+INFO 10-13 13:34:09 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-13 13:34:25 model_runner.py:1562] Graph capturing finished in 17 secs, took 1.28 GiB
+INFO 10-13 13:34:25 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 22.80 seconds
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=0, guided JSON=True)...
+INFO 10-13 13:34:25 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[+] Wrote training example (local, 23099 chars input).
+
+========== Paper 2/3: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Using 5 pre-cropped figure(s) from 'comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe' (--figures-dir).
+[+] Found 5 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[+] Success: detected 'discrete' plot with 9 data points.
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'poly5 (χ²/ndf = 0.72)': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Net-proton 0%-5% - Au+Au collisions': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.80808717*x0 + 0.80808717*log(x0 - 2.3235803 + 2.1747694/x0**2) + 0.40306
+    -> Complexity: 16 | R^2 (fit): 0.9938 | R^2 (holdout): 0.9805
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 1.0702803*x0 + log(x0**2)/(-0.35946473*x0*(x0**2 - 1.88868612794035*x0) - 0.8485196)
+    -> Complexity: 22 | R^2 (fit): 0.9950 | R^2 (holdout): 0.9910
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.4117831 + 3.2529373/log(x0 + 4.904798)
+    -> Complexity: 10 | Score: 0.4108 | R^2: 0.9997
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(1.6618555/(-0.63374764 - 79.95088/x0))
+    -> Complexity: 8 | Score: 0.4042 | R^2: 0.9959
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*(-0.13282867) + 18.970284/(x0 - 1*(-23.056658))
+    -> Complexity: 7 | Score: 0.9954 | R^2: 0.9948
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 24.232904/(x0 + 29.731783)
+    -> Complexity: 5 | Score: 4.6942 | R^2: 0.9987
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 5/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=0, guided JSON=True)...
+[+] Wrote training example (local, 61622 chars input).
+
+========== Paper 3/3: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Using 4 pre-cropped figure(s) from 'comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M' (--figures-dir).
+[+] Found 4 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 2/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 3/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.11442189 - 0.5773482/(log(x0) - 4.4244056)
+    -> Complexity: 8 | Score: 0.6350 | R^2: 0.9973
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'MQA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/(x0 + 0.053558215) + 56.805542
+    -> Complexity: 7 | Score: 1.0024 | R^2: 0.9895
+    -> [!] Only 4 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + x0/(x0 + 0.071209885) + 56.7019
+    -> Complexity: 9 | Score: 1.3570 | R^2: 0.9989
+    -> [!] Only 4 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (54.956356 - exp(x0*12.367745))*exp(x0)
+    -> Complexity: 9 | Score: 0.7599 | R^2: 0.9959
+    -> [!] Only 4 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 4/4 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=0, guided JSON=True)...
+[+] Wrote training example (local, 25582 chars input).
+
+[+] Done. 3 training example(s) appended to 'training_data_qwen_v8.jsonl'.
+[~] Stopping vision server (process group 110118)...

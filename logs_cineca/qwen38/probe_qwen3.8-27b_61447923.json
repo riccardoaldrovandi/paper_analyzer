@@ -1,0 +1,181 @@
+{
+  "model": "qwen3.8-27b",
+  "figures": {
+    "flux_tube.png": {
+      "digitization": {
+        "seconds": 19.3,
+        "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\n            \"label\": \"1\",\n            \"points\": [\n                [0.0, 5.9],\n                [0.2, 5.6],\n                [0.4, 5.1],\n                [0.6, 4.6],\n                [0.8, 4.1],\n                [1.0, 3.6],\n                [1.2, 3.1],\n                [1.4, 2.7],\n                [1.6, 2.3],\n                [1.8, 2.0],\n                [2.0, 1.7],\n                [2.2, 1.5],\n                [2.4, 1.35],\n                [2.6, 1.25],\n                [2.8, 1.15],\n                [3.0, 1.05],\n                [3.2, 0.98],\n                [3.4, 0.92],\n                [3.6, 0.88],\n                [3.8, 0.85],\n                [4.0, 0.82],\n                [4.2, 0.8],\n                [4.4, 0.78],\n                [4.6, 0.77],\n                [4.8, 0.76],\n                [5.0, 0.75]\n            ]\n        },\n        {\n            \"label\": \"2\",\n            \"points\": [\n                [0.0, 0.9],\n                [0.2, 0.85],\n                [0.4, 0.78],\n                [0.6, 0.7],\n                [0.8, 0.62],\n                [1.0, 0.55],\n                [1.2, 0.48],\n                [1.4, 0.42],\n                [1.6, 0.36],\n                [1.8, 0.31],\n                [2.0, 0.26],\n                [2.2, 0.22],\n                [2.4, 0.19],\n                [2.6, 0.16],\n                [2.8, 0.14],\n                [3.0, 0.12],\n                [3.2, 0.1],\n                [3.4, 0.09],\n                [3.6, 0.08],\n                [3.8, 0.07],\n                [4.0, 0.06],\n                [4.2, 0.05],\n                [4.4, 0.05],\n                [4.6, 0.04],\n                [4.8, 0.04],\n                [5.0, 0.04]\n            ]\n        }\n    ],\n    \"summary\": \"\"\n}\n```",
+        "plot_type": "continuous",
+        "series": [
+          {
+            "label": "1",
+            "n_points": 26,
+            "x_range": [
+              0.0,
+              5.0
+            ],
+            "y_range": [
+              0.75,
+              5.9
+            ],
+            "synthetic_suspect": false
+          },
+          {
+            "label": "2",
+            "n_points": 26,
+            "x_range": [
+              0.0,
+              5.0
+            ],
+            "y_range": [
+              0.04,
+              0.9
+            ],
+            "synthetic_suspect": false
+          }
+        ]
+      },
+      "questions": [
+        {
+          "q": "What are the minimum and maximum values shown on the x axis and on the y axis?",
+          "expected": "x: 0 to ~5 (ticks 2, 4); y: 0 to 6",
+          "answer": "Based on the provided image:\n\n*   **X-axis:** The minimum value shown is **0** (at the origin) and the maximum value shown is **4** (the last labeled tick mark, though the axis extends slightly further).\n*   **Y-axis:** The minimum value shown is **0** and the maximum value shown is **6**."
+        },
+        {
+          "q": "How many curves are drawn in this plot, and how is each one labeled?",
+          "expected": "2 curves, labeled '1' (upper) and '2' (lower)",
+          "answer": "There are two curves drawn in the plot. They are labeled with the numbers **1** and **2**, indicated by arrows pointing to each respective curve."
+        },
+        {
+          "q": "What is the y value of the upper curve at x = 2?",
+          "expected": "~1.55",
+          "answer": "1.5"
+        },
+        {
+          "q": "What value does the upper curve approach at the right end of the plot?",
+          "expected": "~0.6",
+          "answer": "0.5"
+        }
+      ]
+    },
+    "gqa_bars.png": {
+      "digitization": {
+        "seconds": 5.0,
+        "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\n            \"label\": \"Mean\",\n            \"points\": [\n                [\n                    55.55,\n                    1\n                ]\n            ]\n        },\n        {\n            \"label\": \"First\",\n            \"points\": [\n                [\n                    55.42,\n                    2\n                ]\n            ]\n        },\n        {\n            \"label\": \"Random\",\n            \"points\": [\n                [\n                    55.22,\n                    3\n                ]\n            ]\n        }\n    ],\n    \"summary\": \"The 'Mean' category has the highest value at approximately 55.55, followed by 'First' at 55.42, and 'Random' at 55.22.\"\n}\n```",
+        "plot_type": "discrete",
+        "points": [
+          [
+            "Mean",
+            55.55,
+            1.0
+          ],
+          [
+            "First",
+            55.42,
+            2.0
+          ],
+          [
+            "Random",
+            55.22,
+            3.0
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "List every bar label in this chart together with its numerical value.",
+          "expected": "Mean ~55.55, First ~55.45, Random ~55.23",
+          "answer": "```json\n[\n\t{\"label\": \"Mean\", \"value\": 55.55},\n\t{\"label\": \"First\", \"value\": 55.4},\n\t{\"label\": \"Random\", \"value\": 55.2}\n]\n```"
+        },
+        {
+          "q": "What is the range of the numerical axis?",
+          "expected": "~54.3 to ~55.7 (ticks 54.4 ... 55.6)",
+          "answer": "54.4 to 55.6"
+        }
+      ]
+    },
+    "net_proton.png": {
+      "digitization": {
+        "seconds": 17.1,
+        "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\n            \"label\": \"HRG GCE\",\n            \"points\": [\n                [6, 0.99],\n                [10, 0.98],\n                [20, 0.92],\n                [30, 0.82],\n                [40, 0.65],\n                [50, 0.5],\n                [60, 0.4],\n                [80, 0.3],\n                [100, 0.25],\n                [150, 0.2],\n                [200, 0.15]\n            ]\n        },\n        {\n            \"label\": \"HRG CE\",\n            \"points\": [\n                [8, 0.82],\n                [10, 0.8],\n                [15, 0.78],\n                [20, 0.75],\n                [30, 0.6],\n                [40, 0.48],\n                [50, 0.38],\n                [60, 0.32],\n                [80, 0.25],\n                [100, 0.2],\n                [150, 0.15],\n                [200, 0.12]\n            ]\n        },\n        {\n            \"label\": \"HRG EV (r=0.5fm)\",\n            \"points\": [\n                [8, 0.9],\n                [10, 0.88],\n                [15, 0.85],\n                [20, 0.8],\n                [30, 0.68],\n                [40, 0.55],\n                [50, 0.45],\n                [60, 0.38],\n                [80, 0.3],\n                [100, 0.25],\n                [150, 0.2],\n                [200, 0.15]\n            ]\n        },\n        {\n            \"label\": \"UrQMD 0%-5%\",\n            \"points\": [\n                [8, 0.85],\n                [10, 0.83],\n                [15, 0.8],\n                [20, 0.78],\n                [30, 0.75],\n                [40, 0.65],\n                [50, 0.55],\n                [60, 0.5],\n                [80, 0.45],\n                [100, 0.4],\n                [150, 0.35],\n                [200, 0.28]\n            ]\n        }\n    ],\n    \"summary\": \"\"\n}\n```",
+        "plot_type": "continuous",
+        "series": [
+          {
+            "label": "HRG GCE",
+            "n_points": 11,
+            "x_range": [
+              6.0,
+              200.0
+            ],
+            "y_range": [
+              0.15,
+              0.99
+            ],
+            "synthetic_suspect": false
+          },
+          {
+            "label": "HRG CE",
+            "n_points": 12,
+            "x_range": [
+              8.0,
+              200.0
+            ],
+            "y_range": [
+              0.12,
+              0.82
+            ],
+            "synthetic_suspect": false
+          },
+          {
+            "label": "HRG EV (r=0.5fm)",
+            "n_points": 12,
+            "x_range": [
+              8.0,
+              200.0
+            ],
+            "y_range": [
+              0.15,
+              0.9
+            ],
+            "synthetic_suspect": false
+          },
+          {
+            "label": "UrQMD 0%-5%",
+            "n_points": 12,
+            "x_range": [
+              8.0,
+              200.0
+            ],
+            "y_range": [
+              0.28,
+              0.85
+            ],
+            "synthetic_suspect": false
+          }
+        ]
+      },
+      "questions": [
+        {
+          "q": "How many panels does this figure have, and what is the y-axis label of the left panel?",
+          "expected": "2 panels; 'Net-proton High Moments'",
+          "answer": "The figure has 2 panels. The y-axis label of the left panel is \"Net-proton High Moments\"."
+        },
+        {
+          "q": "Is the x axis linear or logarithmic? What is its label?",
+          "expected": "logarithmic; 'Collision Energy sqrt(s_NN) (GeV)'",
+          "answer": "The x axis is logarithmic. Its label is \"Collision Energy $\\sqrt{s_{NN}}$ (GeV)\"."
+        },
+        {
+          "q": "In the left panel, what is the y value of the red circle at the highest collision energy (200 GeV)?",
+          "expected": "~0.12",
+          "answer": "Based on the left panel of the provided image:\n\n1.  Locate the x-axis value for the highest collision energy, which is **200** GeV.\n2.  Find the red circle data point at this x-value.\n3.  Trace horizontally to the left to read the corresponding y-axis value.\n4.  The point lies slightly above the 0.0 line and well below the 0.2 line. It appears to be at approximately **0.1**.\n\nAnswer: **0.1**"
+        },
+        {
+          "q": "List the legend entries of the left panel.",
+          "expected": "UrQMD 0%-5%, HRG GCE, HRG CE, HRG EV (r=0.5fm)",
+          "answer": "The legend entries of the left panel are:\n\n*   UrQMD 0%-5%\n*   HRG GCE\n*   HRG CE\n*   HRG EV (r=0.5fm)"
+        }
+      ]
+    }
+  }
+}

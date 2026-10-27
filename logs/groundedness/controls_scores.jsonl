@@ -1,0 +1,771 @@
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|22#2", "p_supported": 0.0046089464964015016, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|20#2", "p_supported": 0.0015010616980759108, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|20#3", "p_supported": 0.0075740990054332415, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.014060086166551947, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|4#0", "p_supported": 0.5618992895021127, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|13#0", "p_supported": 0.20170175313801317, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|19#0", "p_supported": 0.047416083536254296, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#0", "p_supported": 0.0010321694455983476, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#3", "p_supported": 0.0028005613225715333, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|3#0", "p_supported": 0.0031723155058482225, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#2", "p_supported": 0.0035931654860045623, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#4", "p_supported": 0.0017006175645071855, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|18#1", "p_supported": 0.01798232658187545, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|14#2", "p_supported": 0.006691986450645776, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5#1", "p_supported": 0.0052198022889811315, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|17#3", "p_supported": 0.0031723987042242903, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|11#0", "p_supported": 0.02032943517946541, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|9#0", "p_supported": 0.0015010588350306635, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|7#0", "p_supported": 0.02297346176610763, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#10", "p_supported": 0.0013249621530775058, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|7#2", "p_supported": 0.017981211913028643, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#0", "p_supported": 0.002800644119320975, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|15#3", "p_supported": 0.022974907818845633, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|6#0", "p_supported": 0.11917486505875781, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#0", "p_supported": 0.0040689716905045826, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|20#2", "p_supported": 0.003591702578870837, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#2", "p_supported": 0.025947686122251658, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2#0", "p_supported": 0.008569794970154117, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|2#1", "p_supported": 0.008573032007527888, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5#4", "p_supported": 0.00460724797425214, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|1#0", "p_supported": 0.005218923747444286, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#0", "p_supported": 0.22253478827345474, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|0#3", "p_supported": 0.004068669024805815, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|14#1", "p_supported": 0.00668943095747847, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|8#0", "p_supported": 0.005217928411662476, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#4", "p_supported": 0.02030807151721983, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#2", "p_supported": 0.20165919846853195, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#4", "p_supported": 0.08504763060062664, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|15#0", "p_supported": 0.24490993156196417, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#2", "p_supported": 0.5618191493221345, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|21#3", "p_supported": 0.08506188648077127, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#0", "p_supported": 0.37713686204917574, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|21#4", "p_supported": 0.119135007582023, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#1", "p_supported": 0.6787260539303964, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|15#0", "p_supported": 0.7544873747578367, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|10#4", "p_supported": 0.222555030221301, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|17#0", "p_supported": 0.10662859486268032, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|21#0", "p_supported": 0.18233258060893384, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|21#3", "p_supported": 0.029303512384953496, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#1", "p_supported": 0.007576226543563453, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#1", "p_supported": 0.4996911338091088, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|5#1", "p_supported": 0.009705234748287292, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|6#0", "p_supported": 0.015901305216851947, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#8", "p_supported": 0.03731265167103303, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8#0", "p_supported": 0.2940141416816294, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|12#1", "p_supported": 0.7054481011299706, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#1", "p_supported": 0.14798756818672829, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#0", "p_supported": 0.37730753957263996, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|19#1", "p_supported": 0.01798346704535898, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5#3", "p_supported": 0.22260284354655382, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|12#1", "p_supported": 0.01589754482429411, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#2", "p_supported": 0.2686359479011717, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|6#1", "p_supported": 0.012424945098122416, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#2", "p_supported": 0.01797828837921406, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#0", "p_supported": 0.01242501026972396, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#2", "p_supported": 0.0027996947744677305, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#2", "p_supported": 0.00970492006186328, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|6#0", "p_supported": 0.02594678292204494, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|11#0", "p_supported": 0.1327591831708766, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#4", "p_supported": 0.017980440259687577, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|22#2", "p_supported": 0.2939675299182958, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|16#1", "p_supported": 0.01589377016351856, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|20#2", "p_supported": 0.025924546897831323, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|17#0", "p_supported": 0.0035927166150815115, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|13#6", "p_supported": 0.015896445683978612, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#1", "p_supported": 0.3483335175561939, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|24#1", "p_supported": 0.22243403040556595, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.3205107963203706, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|13#1", "p_supported": 0.4374126763413744, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.6219799780777974, "label": "SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|19#0", "p_supported": 0.320506096787513, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#0", "p_supported": 0.7052708069252469, "label": "SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|16#0", "p_supported": 0.29389454303586715, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#3", "p_supported": 0.1479189057887171, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#2", "p_supported": 0.37722478809126575, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#1", "p_supported": 0.08505491033191907, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|24#0", "p_supported": 0.20161730171180633, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|0#1", "p_supported": 0.6506350575358628, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#3", "p_supported": 0.9042409961271836, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#2", "p_supported": 0.880286097134286, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|13#1", "p_supported": 0.3772119722297622, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.34836918900635666, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#0", "p_supported": 0.09529925553265897, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#0", "p_supported": 0.1328794212022546, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#1", "p_supported": 0.060064247500676266, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#2", "p_supported": 0.18231191109432315, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|25#3", "p_supported": 0.1328696004791163, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#1", "p_supported": 0.4375044066465297, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#0", "p_supported": 0.2225235936487249, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#2", "p_supported": 0.49964446459767453, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|0#3", "p_supported": 0.015902078633645796, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#0", "p_supported": 0.002472242224505831, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#1", "p_supported": 0.002472370723253462, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#2", "p_supported": 0.0024718355523072606, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#0", "p_supported": 0.009702037453820717, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|19#3", "p_supported": 0.0028002114665599412, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|3#5", "p_supported": 0.00247210901725853, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#2", "p_supported": 0.003593150065844277, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|16#0", "p_supported": 0.025944351861259294, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#3", "p_supported": 0.14794932637212493, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#1", "p_supported": 0.10662968802452125, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#0", "p_supported": 0.09530080058087383, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#2", "p_supported": 0.09529487045872181, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#3", "p_supported": 0.16445482027956312, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|9#1", "p_supported": 0.8515852178568041, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|18#1", "p_supported": 0.11915690907834132, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|16#2", "p_supported": 0.004069220048406694, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|15#0", "p_supported": 0.015898788081481454, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|0#0", "p_supported": 0.0024716186878216153, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|8#0", "p_supported": 0.02032341620217537, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|6#6", "p_supported": 0.005217726879279878, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|8#8", "p_supported": 0.0075755040527480605, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|9#1", "p_supported": 0.007574185684613519, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#3", "p_supported": 0.012421681030730486, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|29#1", "p_supported": 0.10663319638705841, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|11#0", "p_supported": 0.16439936838033853, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|19#1", "p_supported": 0.10663573875088239, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|20#0", "p_supported": 0.3204800786695341, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2#1", "p_supported": 0.13289190407212778, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|24#2", "p_supported": 0.015903253995888336, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#0", "p_supported": 0.0024724615016236693, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|20#3", "p_supported": 0.0024724485330810024, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|16#1", "p_supported": 0.1644197122923024, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|20#1", "p_supported": 0.0028006548029508166, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|3#0", "p_supported": 0.00757611094040272, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|3#4", "p_supported": 0.0474151904595191, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|13#0", "p_supported": 0.002472292915874656, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|19#1", "p_supported": 0.00460883661186395, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|13#1", "p_supported": 0.14799619512818388, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#0", "p_supported": 0.002800562657983554, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|13#5", "p_supported": 0.042076362473486686, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#3", "p_supported": 0.0011694433894945792, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|1#3", "p_supported": 0.0021825379461487874, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|19#0", "p_supported": 0.0019265183612911243, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3#2", "p_supported": 0.0010321610786275912, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#3", "p_supported": 0.04740867942110064, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#0", "p_supported": 0.32064879461801, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#1", "p_supported": 0.03732224282320296, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#0", "p_supported": 0.0850799784625348, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#1", "p_supported": 0.34844527815599674, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.4375098307574602, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#0", "p_supported": 0.1644593293861049, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#1", "p_supported": 0.06753274105941155, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#0", "p_supported": 0.07583797211714079, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|3#1", "p_supported": 0.01242803223752034, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|9#2", "p_supported": 0.004608568504587059, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|3#1", "p_supported": 0.005219217407764565, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#1", "p_supported": 0.01406037445748336, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#1", "p_supported": 0.00247223043596437, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#4", "p_supported": 0.004069460659580203, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|9#5", "p_supported": 0.0013249267732433627, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|19#1", "p_supported": 0.0017005599903288783, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#1", "p_supported": 0.05338145429960529, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|23#0", "p_supported": 0.0009109710397892024, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|2#0", "p_supported": 0.0028006227521835568, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|11#1", "p_supported": 0.004608772880032575, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|21#6", "p_supported": 0.002800474522156046, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|19#0", "p_supported": 0.005910311240500747, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|27#0", "p_supported": 0.00460917506463169, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#2", "p_supported": 0.4069909193125515, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|15#1", "p_supported": 0.5922587286349555, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|14#4", "p_supported": 0.29390827706095424, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|17#0", "p_supported": 0.5923539793928695, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#2", "p_supported": 0.3484909313140125, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|8#0", "p_supported": 0.0953209566661323, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|9#0", "p_supported": 0.1191603466436609, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#0", "p_supported": 0.022974004025218216, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6#1", "p_supported": 0.006691724794761515, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#2", "p_supported": 0.014051379884596012, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#0", "p_supported": 0.0013247751560829604, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|9#2", "p_supported": 0.01798020877014276, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|13#2", "p_supported": 0.002800510577386589, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|12#0", "p_supported": 0.001500937876358152, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|0#3", "p_supported": 0.0031722640752161672, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|20#0", "p_supported": 0.0028004171018212727, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#2", "p_supported": 0.16440415034527023, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|21#4", "p_supported": 0.01798204362093207, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|13#0", "p_supported": 0.11911657481264509, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|8#3", "p_supported": 0.037315009193296854, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|15#0", "p_supported": 0.029301109126893425, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#0", "p_supported": 0.10662269706656027, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|12#0", "p_supported": 0.06006845785540499, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|22#0", "p_supported": 0.029307522911396933, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|13#0", "p_supported": 0.49976562892674253, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#0", "p_supported": 0.033079654886211736, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|12#0", "p_supported": 0.8351661718232641, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|1#3", "p_supported": 0.1328966250569248, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#1", "p_supported": 0.015904459780325515, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|1#1", "p_supported": 0.07582896822326463, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|6#7", "p_supported": 0.006692286410221599, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#5", "p_supported": 0.3205967373271823, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|20#0", "p_supported": 0.0019265293849491506, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#2", "p_supported": 0.004069497528678289, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|15#3", "p_supported": 0.0040695072311280394, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|4#5", "p_supported": 0.029305398801152082, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#2", "p_supported": 0.010984704766280653, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8#2", "p_supported": 0.014058101812621468, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|3#1", "p_supported": 0.16444272472180346, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|13#0", "p_supported": 0.13291519377840802, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|0#0", "p_supported": 0.0293082915418526, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|7#1", "p_supported": 0.18236051317084342, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|13#1", "p_supported": 0.0052194687742139634, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#1", "p_supported": 0.0013249236143755415, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#0", "p_supported": 0.004069503350145363, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#2", "p_supported": 0.017981512009382472, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#3", "p_supported": 0.004069600375822634, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|4#6", "p_supported": 0.0007096436036375433, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|9#1", "p_supported": 0.005910212602363289, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#0", "p_supported": 0.05339333003314435, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#0", "p_supported": 0.004608786065856415, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|8#3", "p_supported": 0.005219297047309662, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2#0", "p_supported": 0.0028007562994669818, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#0", "p_supported": 0.0019265789921908657, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|11#3", "p_supported": 0.008576327520587866, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|17#4", "p_supported": 0.007576396338903859, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#0", "p_supported": 0.06007390024775995, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#1", "p_supported": 0.07584135337346629, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12#3", "p_supported": 0.053393941074811, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|18#2", "p_supported": 0.9240028808453388, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|1#1", "p_supported": 0.2017285888335765, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|11#2", "p_supported": 0.06752746011816795, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#5", "p_supported": 0.012419661411324244, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|13#1", "p_supported": 0.037310178656818564, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|18#2", "p_supported": 0.00669051237665562, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|7#7", "p_supported": 0.03730716322459381, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|15#1", "p_supported": 0.003589410062758394, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|4#0", "p_supported": 0.0046067075668185095, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|2#0", "p_supported": 0.0203167450713309, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|22#1", "p_supported": 0.007571632676181211, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#3", "p_supported": 0.005909122056112982, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|23#2", "p_supported": 0.20161641243152148, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12#2", "p_supported": 0.18226332197105577, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|23#2", "p_supported": 0.49967639098989675, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12#2", "p_supported": 0.49963341592029986, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0#0", "p_supported": 0.05338403796961662, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|23#0", "p_supported": 0.05337644004570987, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|10#0", "p_supported": 0.5307902841428898, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|10#1", "p_supported": 0.5617959767747003, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|19#0", "p_supported": 0.6786660817085518, "label": "SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|14#2", "p_supported": 0.006690547469881651, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|8#0", "p_supported": 0.0028005840246624887, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|7#1", "p_supported": 0.005219010848358012, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6#1", "p_supported": 0.18228913604649005, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|7#0", "p_supported": 0.18232760319300945, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#3", "p_supported": 0.0533918279187724, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#1", "p_supported": 0.053391000500940124, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#6", "p_supported": 0.40712465440310397, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6#1", "p_supported": 0.3773191667105131, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|10#1", "p_supported": 0.07583173436604941, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|1#1", "p_supported": 0.029293872598406368, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|15#0", "p_supported": 0.02595161479027578, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0#4", "p_supported": 0.01798012303403063, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#1", "p_supported": 0.4996781481919799, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#2", "p_supported": 0.4068822797731591, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.40700222395346264, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#1", "p_supported": 0.14793671650165974, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#0", "p_supported": 0.2939392860849128, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#0", "p_supported": 0.2686583335402736, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#0", "p_supported": 0.4373356930108853, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|19#1", "p_supported": 0.08504467021960548, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#1", "p_supported": 0.8351132531895321, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|21#2", "p_supported": 0.37723099382277103, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|17#2", "p_supported": 0.20159074516683745, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#0", "p_supported": 0.2939815477166605, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|19#0", "p_supported": 0.22254120819384782, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|17#1", "p_supported": 0.20162383924403637, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#3", "p_supported": 0.3482830688315079, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|19#1", "p_supported": 0.776837762671495, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|13#1", "p_supported": 0.5617852614690074, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#2", "p_supported": 0.244872243021378, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.08506762600895239, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|4#1", "p_supported": 0.1479509137047078, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#1", "p_supported": 0.4682567800755947, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|18#0", "p_supported": 0.05338823829118939, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#0", "p_supported": 0.07582609371120676, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#2", "p_supported": 0.0035928485293433435, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|10#2", "p_supported": 0.0031717679637029046, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|17#0", "p_supported": 0.010978750870605129, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|16#1", "p_supported": 0.008573894606307678, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|20#3", "p_supported": 0.002800170074274651, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#0", "p_supported": 0.002472116090029279, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|12#1", "p_supported": 0.004069134673668058, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|18#0", "p_supported": 0.2225513690248847, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|5#3", "p_supported": 0.18226386515889328, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|10#3", "p_supported": 0.20165667432110235, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|5#0", "p_supported": 0.053387347286270544, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|10#1", "p_supported": 0.13286880851694272, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|10#0", "p_supported": 0.1479405434396573, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|10#1", "p_supported": 0.835059163381381, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|8#3", "p_supported": 0.09531497984002663, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|17#2", "p_supported": 0.09531802502018633, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|18#0", "p_supported": 0.20171579574487072, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|14#0", "p_supported": 0.004607959827117766, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|17#2", "p_supported": 0.004607568733843919, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#0", "p_supported": 0.012425448705746718, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|6#2", "p_supported": 0.22237172605656969, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|9#0", "p_supported": 0.005908031711089128, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|18#2", "p_supported": 0.10664250173372172, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#0", "p_supported": 0.22250399114822944, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|10#4", "p_supported": 0.0028005466330813314, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|16#1", "p_supported": 0.003593158632591821, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|21#0", "p_supported": 0.005910361969326739, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|14#2", "p_supported": 0.0017006175645071855, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|3#1", "p_supported": 0.0040695576842396395, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#2", "p_supported": 0.003172389627931777, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#1", "p_supported": 0.0059105113400650935, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|12#6", "p_supported": 0.004608990450950086, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|4#1", "p_supported": 0.0024724190593733717, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|13#0", "p_supported": 0.003172274663807546, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|11#1", "p_supported": 0.005219319446150671, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|15#1", "p_supported": 0.0059103506962166685, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|18#2", "p_supported": 0.004069856534725717, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#3", "p_supported": 0.005219842113064086, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#5", "p_supported": 0.047417451445892225, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#4", "p_supported": 0.042080726526936604, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#1", "p_supported": 0.7770199637350244, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|18#1", "p_supported": 0.03732113055026435, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#4", "p_supported": 0.13291921839969728, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|23#1", "p_supported": 0.005909761706126764, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0#2", "p_supported": 0.022971385963152294, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|15#2", "p_supported": 0.7545370469607173, "label": "SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|5#2", "p_supported": 0.0015010223316824335, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12#3", "p_supported": 0.003171901059175701, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|9#0", "p_supported": 0.006691124939398542, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|17#0", "p_supported": 0.754582944083023, "label": "SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#3", "p_supported": 0.43737357034878416, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|5#5", "p_supported": 0.0017005729646214615, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|7#5", "p_supported": 0.03731753591081679, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#1", "p_supported": 0.6504723145750441, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#0", "p_supported": 0.7978348906762375, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|17#1", "p_supported": 0.01590358766293606, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#1", "p_supported": 0.776907544635813, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#1", "p_supported": 0.7054429291059071, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|12#2", "p_supported": 0.2017020176301362, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|9#0", "p_supported": 0.08507304139588927, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#0", "p_supported": 0.24496938089344222, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|6#1", "p_supported": 0.10664593423871585, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#4", "p_supported": 0.13291712684901497, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8#1", "p_supported": 0.0021821414696766824, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|23#0", "p_supported": 0.0028005733413026443, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|14#1", "p_supported": 0.0031717694761200874, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6#1", "p_supported": 0.0035927817150209857, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|25#0", "p_supported": 0.025949888577841685, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|6#2", "p_supported": 0.00091099449687266, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|12#3", "p_supported": 0.004608164175570359, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|4#3", "p_supported": 0.002182225753921474, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|14#1", "p_supported": 0.006691083462026082, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|11#0", "p_supported": 0.009705100542535056, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#1", "p_supported": 0.09530845802774898, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|7#10", "p_supported": 0.037311913307899, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|15#0", "p_supported": 0.033073282962095586, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|10#0", "p_supported": 0.05338907839516148, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|12#0", "p_supported": 0.11911657481264509, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#0", "p_supported": 0.1479619020405631, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#1", "p_supported": 0.04207785723623343, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|12#0", "p_supported": 0.49976562892674253, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#0", "p_supported": 0.017983458470175705, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#1", "p_supported": 0.6220422451226433, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|3#1", "p_supported": 0.24492233998034305, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|13#3", "p_supported": 0.09531348001093103, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#2", "p_supported": 0.01242805001597578, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|7#2", "p_supported": 0.8351737506627726, "label": "SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|15#0", "p_supported": 0.0028004424734519246, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|5#4", "p_supported": 0.0017004975529302535, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|9#0", "p_supported": 0.04741200265190581, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|20#5", "p_supported": 0.0075761506787902595, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|15#0", "p_supported": 0.004069369458509529, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|12#1", "p_supported": 0.007576208480453312, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|24#0", "p_supported": 0.004608891553805244, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#0", "p_supported": 0.6509276474184181, "label": "SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#0", "p_supported": 0.02930767663587542, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|14#0", "p_supported": 0.3773418822689001, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|24#2", "p_supported": 0.7545946156135299, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|11#0", "p_supported": 0.46856260910063946, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|24#3", "p_supported": 0.29407229408270436, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|19#3", "p_supported": 0.16445111506281102, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|17#0", "p_supported": 0.3773569292679031, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|9#1", "p_supported": 0.46852719709087315, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|2#0", "p_supported": 0.007575330665204757, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|8#2", "p_supported": 0.007575417358480343, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|16#0", "p_supported": 0.0046089135307651515, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|15#0", "p_supported": 0.006691858812350959, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|15#7", "p_supported": 0.00317209314998846, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#3", "p_supported": 0.002472411985735822, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|16#0", "p_supported": 0.004069536338616086, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#0", "p_supported": 0.001926565212273371, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|13#0", "p_supported": 0.14800300529808003, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#3", "p_supported": 0.053395252291989846, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12#2", "p_supported": 0.8517540546536814, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#0", "p_supported": 0.05339410656646579, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|2#1", "p_supported": 0.5309491284890449, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12#4", "p_supported": 0.04741618528024082, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|2#0", "p_supported": 0.2688258206291354, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|14#1", "p_supported": 0.03732315936101526, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|6#1", "p_supported": 0.03308149256265956, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12#3", "p_supported": 0.34846725240539217, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#2", "p_supported": 0.015901623678034906, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#3", "p_supported": 0.0035924408100027976, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#0", "p_supported": 0.020310792803244156, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|21#0", "p_supported": 0.01586357486679815, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#1", "p_supported": 0.05997258082930422, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|12#0", "p_supported": 0.005218182204254194, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|22#1", "p_supported": 0.005213600909417186, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|20#2", "p_supported": 0.24483949285789214, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|7#1", "p_supported": 0.10663848457189555, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|11#0", "p_supported": 0.24488564207812283, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|20#2", "p_supported": 0.561826784417042, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|11#0", "p_supported": 0.5618095051400342, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|6#2", "p_supported": 0.16440097541860943, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|24#3", "p_supported": 0.03307157189948523, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|25#2", "p_supported": 0.014055889856303662, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12#0", "p_supported": 0.07582101386515686, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|13#1", "p_supported": 0.0124216928769743, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|2#2", "p_supported": 0.01242329222360437, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|12#1", "p_supported": 0.025946690129284116, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#0", "p_supported": 0.00857490857744201, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|9#1", "p_supported": 0.010983390128187675, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|7#0", "p_supported": 0.3772302743124369, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6#1", "p_supported": 0.3772224047577484, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|7#0", "p_supported": 0.8667637580015243, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4#1", "p_supported": 0.1066558255561431, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8#0", "p_supported": 0.3483796129020296, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|15#0", "p_supported": 0.13291113759049072, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5#0", "p_supported": 0.2687666692340361, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|10#2", "p_supported": 0.20168867323298786, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|7#0", "p_supported": 0.8172826192117766, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|14#0", "p_supported": 0.11916492074797538, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2#0", "p_supported": 0.002800119336178988, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|3#0", "p_supported": 0.010984228126320146, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|4#0", "p_supported": 0.003592709762524923, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|11#0", "p_supported": 0.0031721082757433542, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8#0", "p_supported": 0.004068215068469829, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#13", "p_supported": 0.0035926892049335775, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|21#1", "p_supported": 0.004068651564010103, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|16#0", "p_supported": 0.00460805211239357, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|7#0", "p_supported": 0.04739053010137644, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#4", "p_supported": 0.004069090046676651, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|0#3", "p_supported": 0.005218774434974111, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#3", "p_supported": 0.022971024496852965, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|13#4", "p_supported": 0.022963402168889632, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|14#1", "p_supported": 0.43738113056804995, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#3", "p_supported": 0.22249701530285157, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#2", "p_supported": 0.20163991959100916, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#1", "p_supported": 0.10661774011956218, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#0", "p_supported": 0.053386647221409025, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.705117260961732, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.20161932063295968, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|9#2", "p_supported": 0.4995635855931248, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#1", "p_supported": 0.095311980205436, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|25#1", "p_supported": 0.06751933020805266, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|14#1", "p_supported": 0.43740462022095994, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|22#2", "p_supported": 0.5921466220916926, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#0", "p_supported": 0.4069637506443406, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|23#1", "p_supported": 0.6220744840678827, "label": "SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#1", "p_supported": 0.40704385490910244, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.14795165446574127, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#2", "p_supported": 0.042075730475680174, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#2", "p_supported": 0.09530654928906265, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.26873661787850806, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#1", "p_supported": 0.003172258024608391, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|10#1", "p_supported": 0.00590833597318115, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#9", "p_supported": 0.002800515918941704, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22#0", "p_supported": 0.0035925504442687536, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|0#2", "p_supported": 0.002800330305875754, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#1", "p_supported": 0.0024722033225323334, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|17#3", "p_supported": 0.003593114085727628, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|19#3", "p_supported": 0.006691788612326512, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|24#4", "p_supported": 0.16442790544569483, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#0", "p_supported": 0.0035926754999380315, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|7#3", "p_supported": 0.24494321673801497, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|4#0", "p_supported": 0.20166761252148485, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|4#1", "p_supported": 0.022972946905666546, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|20#4", "p_supported": 0.04204944577149936, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|8#1", "p_supported": 0.00757328643635834, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3#2", "p_supported": 0.006690470903080353, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|7#1", "p_supported": 0.008574381133944334, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|16#2", "p_supported": 0.06749447968218276, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|17#1", "p_supported": 0.0019264154768579096, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|4#1", "p_supported": 0.01242269392538837, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#3", "p_supported": 0.11907861059257543, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#3", "p_supported": 0.6787253869932198, "label": "SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#1", "p_supported": 0.037310178656818564, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#0", "p_supported": 0.06005693020539535, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|21#1", "p_supported": 0.02930586693064436, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|18#0", "p_supported": 0.2938065834174474, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|20#4", "p_supported": 0.0007096310835237357, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|8#5", "p_supported": 0.0024723212091836296, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|21#11", "p_supported": 0.0011693313104191659, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|26#0", "p_supported": 0.0013249558351806907, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|20#1", "p_supported": 0.0017004813357991695, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|6#2", "p_supported": 0.0159037696660946, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|14#2", "p_supported": 0.0046090959435769715, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|14#0", "p_supported": 0.0015010624138380758, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|18#1", "p_supported": 0.0011694049133772345, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|12#4", "p_supported": 0.0019264191512073396, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|16#1", "p_supported": 0.053392069781791424, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|10#1", "p_supported": 0.00591035351449217, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|13#2", "p_supported": 0.0046085860849142644, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|14#0", "p_supported": 0.007575569074099941, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|12#1", "p_supported": 0.24497849228215018, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|12#2", "p_supported": 0.2017398676241714, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|16#0", "p_supported": 0.017984607581172245, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|6#0", "p_supported": 0.20171978748621888, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|20#0", "p_supported": 0.03731993823048784, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|3#1", "p_supported": 0.05339450120248178, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|21#1", "p_supported": 0.03308223397175795, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|13#1", "p_supported": 0.04741728186817448, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|2#1", "p_supported": 0.002800308941132533, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|14#1", "p_supported": 0.02594560757159441, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|23#1", "p_supported": 0.0024721314144353205, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|6#1", "p_supported": 0.003592800559960462, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|20#2", "p_supported": 0.022966851616024377, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|21#0", "p_supported": 0.075830613433284, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|11#1", "p_supported": 0.0474119235246557, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|13#1", "p_supported": 0.34826326503323984, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|18#1", "p_supported": 0.561863990245774, "label": "SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|15#4", "p_supported": 0.24482063869014323, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#14", "p_supported": 0.24496070786709825, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#13", "p_supported": 0.22258925736183793, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#12", "p_supported": 0.24496018223900703, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|7#4", "p_supported": 0.13291250020231202, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|9#0", "p_supported": 0.09531859316158171, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|10#0", "p_supported": 0.11915875569201188, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|19#1", "p_supported": 0.09531547978830313, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|7#0", "p_supported": 0.20172144672724912, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|0#0", "p_supported": 0.002471844981629568, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5#14", "p_supported": 0.00192641639544461, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#1", "p_supported": 0.1479558345439432, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|6#1", "p_supported": 0.0007096145031724438, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#0", "p_supported": 0.017983595673598796, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|10#2", "p_supported": 0.0066893448342631836, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|4#3", "p_supported": 0.001501073150311508, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|21#1", "p_supported": 0.002182177888395385, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#3", "p_supported": 0.14798298146966482, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12#4", "p_supported": 0.008574123557050659, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|17#0", "p_supported": 0.006690821841448569, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen38_gold_think_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#1", "p_supported": 0.012429721304347288, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|10#0", "p_supported": 0.029301109126893425, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#0", "p_supported": 0.14796186676370082, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|16#1", "p_supported": 0.015904353606956245, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|4#1", "p_supported": 0.02297422860092108, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|9#0", "p_supported": 0.017983458470175705, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#1", "p_supported": 0.24492233998034305, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen38_gold_think_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|13#0", "p_supported": 0.01590428535302171, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|2#0", "p_supported": 0.0035931346457501673, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|1#3", "p_supported": 0.002472349502816396, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|5#2", "p_supported": 0.002800502565073019, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|4#0", "p_supported": 0.08507216923163305, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|10#0", "p_supported": 0.037319057361985784, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|9#1", "p_supported": 0.26880733041430893, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|0#1", "p_supported": 0.04741768885571592, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#1", "p_supported": 0.01098603003881668, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#0", "p_supported": 0.0021825879010496855, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#2", "p_supported": 0.005219204964195415, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|8#0", "p_supported": 0.0015010602665526047, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|8#0", "p_supported": 0.0019265716428892698, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|9#1", "p_supported": 0.0021826014306987793, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#3", "p_supported": 0.003593170626072697, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#1", "p_supported": 0.08508387320401209, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#0", "p_supported": 0.20174325859921732, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|2#0", "p_supported": 0.08508119555009458, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#1", "p_supported": 0.004064226699630608, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|6#2", "p_supported": 0.005907679575452231, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|1#0", "p_supported": 0.005216308908536116, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3#1", "p_supported": 0.40700734268169975, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|0#1", "p_supported": 0.004069002734413368, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#1", "p_supported": 0.003171140372819872, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|1#2", "p_supported": 0.06750857769198723, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|0#0", "p_supported": 0.10657550103029316, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|1#1", "p_supported": 0.002800294252966121, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#1", "p_supported": 0.008570407951577772, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#0", "p_supported": 0.3483910338629234, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#1", "p_supported": 0.2686842442840539, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#1", "p_supported": 0.10661499483269533, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|4#0", "p_supported": 0.29393637775494325, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#2", "p_supported": 0.2686764611899207, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.3482684130821226, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|11#0", "p_supported": 0.14792061622945027, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#1", "p_supported": 0.46844979151278143, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|0#1", "p_supported": 0.16441116675869097, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#1", "p_supported": 0.07582594908454851, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#0", "p_supported": 0.1328828427859678, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.11912589024716055, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#0", "p_supported": 0.033075088741685764, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#1", "p_supported": 0.05338233247883211, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#0", "p_supported": 0.02595055058839105, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|8#2", "p_supported": 0.005909699710584437, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#2", "p_supported": 0.01798231800723599, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#1", "p_supported": 0.007576208480453312, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|12#0", "p_supported": 0.14794454684019104, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#3", "p_supported": 0.0019265330595158434, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|5#2", "p_supported": 0.06752642973875926, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|1#2", "p_supported": 0.010965278821521878, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|10#0", "p_supported": 0.0040689619893316585, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#0", "p_supported": 0.042070313741006886, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#0", "p_supported": 0.24487049156487442, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#0", "p_supported": 0.007573178100401744, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|7#1", "p_supported": 0.020317040550738557, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|3#1", "p_supported": 0.0010321650160171453, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|3#0", "p_supported": 0.0017005567467711991, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#0", "p_supported": 0.00218244948715016, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.2688094453484673, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#1", "p_supported": 0.32063900934268175, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|2#0", "p_supported": 0.06753298257574591, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|7#1", "p_supported": 0.0758427095346694, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3#1", "p_supported": 0.004608082874562887, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#2", "p_supported": 0.004069194823865664, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|4#0", "p_supported": 0.0024723471450012985, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|10#1", "p_supported": 0.006691418478921259, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#1", "p_supported": 0.012428684130849936, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|3#0", "p_supported": 0.0021825535569324943, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#2", "p_supported": 0.5308978311248042, "label": "SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|8#1", "p_supported": 0.06752907011746972, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|1#2", "p_supported": 0.06006898775088794, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.004068610822444848, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#0", "p_supported": 0.00857601672333464, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|5#0", "p_supported": 0.085049333880243, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|5#0", "p_supported": 0.6787802054096157, "label": "SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#2", "p_supported": 0.07583629058589857, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|3#0", "p_supported": 0.029307571823643533, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#4", "p_supported": 0.08507362960473858, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#1", "p_supported": 0.06752918281885839, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s0|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|0#2", "p_supported": 0.3772494767148867, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|1#1", "p_supported": 0.02032506857802872, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#1", "p_supported": 0.004069375279793398, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|5#0", "p_supported": 0.002472378975694843, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|4#0", "p_supported": 0.08507216923163305, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|3#1", "p_supported": 0.047418028014668885, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|1#2", "p_supported": 0.0040699341618189964, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|3#3", "p_supported": 0.0011694300063536578, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#0", "p_supported": 0.005910361969326739, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#3", "p_supported": 0.0040697012849809444, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|3#2", "p_supported": 0.037321219530879586, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.007568946988364525, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|4#2", "p_supported": 0.015885988702827234, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|4#0", "p_supported": 0.008572549644152614, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#3", "p_supported": 0.3205778963529519, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#1", "p_supported": 0.13289608641259965, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#2", "p_supported": 0.11914690945217289, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|6#1", "p_supported": 0.4995043342501679, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#0", "p_supported": 0.0040695305171018215, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12#0", "p_supported": 0.005216381041602425, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#0", "p_supported": 0.07583737544049678, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#1", "p_supported": 0.11914932405777225, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#0", "p_supported": 0.13290312064568732, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|4#0", "p_supported": 0.29393637775494325, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#1", "p_supported": 0.08504343337860405, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.13284555861124034, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|0#0", "p_supported": 0.18227731500602046, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#1", "p_supported": 0.5617815111602991, "label": "SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.2448107160271352, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2#0", "p_supported": 0.08505712073576502, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#0", "p_supported": 0.025950631020729874, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#1", "p_supported": 0.042077265343963326, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|10#0", "p_supported": 0.0046085421342219966, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|5#2", "p_supported": 0.009706340859471705, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|2#4", "p_supported": 0.005219448863558679, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#0", "p_supported": 0.0017005372855550414, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|4#2", "p_supported": 0.04741599309733844, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|4#1", "p_supported": 0.04741545046746575, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|10#1", "p_supported": 0.007576013401607909, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|10#0", "p_supported": 0.007575959213931185, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|2#1", "p_supported": 0.0075755654617879736, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|6#1", "p_supported": 0.005909040343697861, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|9#0", "p_supported": 0.005216179568983999, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8#0", "p_supported": 0.0024724650385107476, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2#2", "p_supported": 0.3484670447027861, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2#1", "p_supported": 0.001324949517314002, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|13#1", "p_supported": 0.004069745918675994, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|6#0", "p_supported": 0.24495463401127465, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|1#0", "p_supported": 0.001032175351736188, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|3#1", "p_supported": 0.005910336604859317, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.18235568716178036, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#1", "p_supported": 0.29404961362880183, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1#3", "p_supported": 0.0420820007152595, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|11#0", "p_supported": 0.03308010443711236, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|2#0", "p_supported": 0.06753298257574591, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|10#0", "p_supported": 0.10666464969059644, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3#0", "p_supported": 0.001700475659839828, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|1#0", "p_supported": 0.0031713747597038686, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#0", "p_supported": 0.004069709047327529, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5#1", "p_supported": 0.40707631836404223, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#2", "p_supported": 0.00359250590494469, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#1", "p_supported": 0.5309611228504824, "label": "SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|7#0", "p_supported": 0.20172671310440005, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|4#2", "p_supported": 0.006690665512083723, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|3056128_Simulating twistronics without a twist.pdf|4#0", "p_supported": 0.008574859511561932, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|3#1", "p_supported": 0.00218246405662095, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|8#0", "p_supported": 0.0021820988085220782, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|5#1", "p_supported": 0.0024722280782628232, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#0", "p_supported": 0.00857601672333464, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|5#0", "p_supported": 0.07581759736297708, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|1#0", "p_supported": 0.009706632449522969, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|4#0", "p_supported": 0.004608408087199304, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.00521916265628222, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|3#1", "p_supported": 0.001926572561550436, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|14#2", "p_supported": 0.002472245761079231, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|2#5", "p_supported": 0.37730648257787275, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|4#0", "p_supported": 0.1329175388185162, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|0#0", "p_supported": 0.07583921972893015, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|5#0", "p_supported": 0.1644529186499557, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#1", "p_supported": 0.10665613070134419, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|4#2", "p_supported": 0.003172149115641837, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|4#0", "p_supported": 0.001032157633424052, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.0028005372852640464, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#0", "p_supported": 0.0040695479816695995, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|6#0", "p_supported": 0.0021825410682965963, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|1#1", "p_supported": 0.0035932203137770814, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.015875765703500567, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|9#0", "p_supported": 0.005216978043197354, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#2", "p_supported": 0.40700734268169975, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|3#0", "p_supported": 0.007574008715675268, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|1#1", "p_supported": 0.0075731492110750545, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#2", "p_supported": 0.029302792784105285, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|7#0", "p_supported": 0.002471623402064636, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2#3", "p_supported": 0.04207878020350573, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|0#0", "p_supported": 0.004606523051968877, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|9#0", "p_supported": 0.20150523523642136, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6#2", "p_supported": 0.014052257640837484, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|3#0", "p_supported": 0.0028002395068427726, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|5#2", "p_supported": 0.009701015097165167, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.09528628266014663, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.20165552043565746, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.18228689781271593, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.49960452969725255, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#1", "p_supported": 0.06751923362094513, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|0#0", "p_supported": 0.18227731500602046, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#0", "p_supported": 0.34831861054695284, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10#0", "p_supported": 0.07582367125106758, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7#1", "p_supported": 0.09530211843591041, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5#1", "p_supported": 0.2687479267896075, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#1", "p_supported": 0.042077265343963326, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#0", "p_supported": 0.022971966511839526, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|10#0", "p_supported": 0.00590905161430863, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|2#2", "p_supported": 0.008576024902065426, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|0#0", "p_supported": 0.04206519857634202, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#1", "p_supported": 0.002182451568497175, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|14#2", "p_supported": 0.025953477248587934, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|8#0", "p_supported": 0.05335543366166909, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2#0", "p_supported": 0.8170092343714068, "label": "SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2#1", "p_supported": 0.8514570994118406, "label": "SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2#0", "p_supported": 0.06006364604552079, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|5#0", "p_supported": 0.053386481752874, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1#1", "p_supported": 0.005910136511210606, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|6#1", "p_supported": 0.002800716234613309, "label": "NOT_SUPPORTED"}
+{"id": "flip|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|4#2", "p_supported": 0.2940415163943723, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|3#0", "p_supported": 0.08508105355564881, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|9#0", "p_supported": 0.03308010443711236, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|2#0", "p_supported": 0.1644493899110077, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|5#2", "p_supported": 0.047394654336565166, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|8#2", "p_supported": 0.025950309292870344, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|4#4", "p_supported": 0.09530607211036395, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|3#0", "p_supported": 0.0035929239110961604, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|0#2", "p_supported": 0.0010321532038935423, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1473712_Sachdev\u2013Ye\u2013Kitaev model as Liouville quantum mecha.pdf|0#0", "p_supported": 0.0017004967420700262, "label": "NOT_SUPPORTED"}
+{"id": "neg|qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|6#0", "p_supported": 0.06006144076147769, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#0", "p_supported": 0.009706900905251144, "label": "NOT_SUPPORTED"}
+{"id": "number|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|4#1", "p_supported": 0.3484173242611923, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#2", "p_supported": 0.08507338620748008, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#1", "p_supported": 0.06007276876243467, "label": "NOT_SUPPORTED"}
+{"id": "negate|qwen_baseline_gold_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|2#0", "p_supported": 0.017984281706416173, "label": "NOT_SUPPORTED"}

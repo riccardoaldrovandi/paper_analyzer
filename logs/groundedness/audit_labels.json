@@ -1,0 +1,902 @@
+[
+ {
+  "id": "qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|19",
+  "status": "DOUBTFUL",
+  "p": 0.7976253208552921,
+  "field": "main_contributions",
+  "claim": "Applies the method to a harmonic oscillator, a one-dimensional box, a circular billiard, and a stadium billiard.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|20",
+  "status": "VERIFIED",
+  "p": 0.939694233382316,
+  "field": "main_contributions",
+  "claim": "Proposes Transformer-XL, a self-attentive language model that can learn dependencies beyond a fixed-length context without disrupting temporal coherence.",
+  "source_file": "c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|8",
+  "status": "UNSUPPORTED",
+  "p": 0.29401463237107617,
+  "field": "limitations",
+  "claim": "Higher collision energies beyond √N₂N = 62.4 GeV could not be included due to fitting convergence issues and lack of agreement with predictions for a critical point at higher baryon chemical potentials.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|15",
+  "status": "DOUBTFUL",
+  "p": 0.7770229582662711,
+  "field": "main_contributions",
+  "claim": "Identified zero-bias anomaly ($\\epsilon^{1/2}$ scaling) as a manifestation of Mermin-Wagner theorem constraints on symmetry breaking",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|5",
+  "status": "UNSUPPORTED",
+  "p": 0.11915523294609397,
+  "field": "methodology",
+  "claim": "The single-particle Hamiltonian is diagonalized numerically, and perturbative analysis treats the intralayer tunneling as a perturbation to large Raman on-site energies, yielding effective Lieb and super-Lieb lattice models.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2",
+  "status": "DOUBTFUL",
+  "p": 0.7053327727983446,
+  "field": "methodology",
+  "claim": "In the Mott regime, they derive the SU(4) Kugel-Khomskii Hamiltonian H(xi, eta) with xi = t'/t and eta = JH/U.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|8",
+  "status": "DOUBTFUL",
+  "p": 0.6510092259792692,
+  "field": "limitations",
+  "claim": "Additionally, LFWT could not diagnose the characteristics of an unidentified unstable region in the phase diagram where bosonic modes exhibit negative frequencies.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|19",
+  "status": "UNSUPPORTED",
+  "p": 0.3772751563965061,
+  "field": "limitations",
+  "claim": "The non-monotonicity test uses 7.7-62.4 GeV and excludes the 200 GeV point from the polynomial fit.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|10",
+  "status": "DOUBTFUL",
+  "p": 0.6222468489441186,
+  "field": "limitations",
+  "claim": "For large numbers of particles ($N > 20000$), the asymptotic computational complexity increases to $O(N^{3/2})$ due to worst-case scenarios in nearest-neighbor graph determination, although it remains comparable to kt for typical collider event sizes ($N \\lesssim 20000$).",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|16",
+  "status": "VERIFIED",
+  "p": 0.9239239842395138,
+  "field": "main_contributions",
+  "claim": "Introduced Grouped-Query Attention (GQA), a generalized form of multi-query attention that uses an intermediate number of shared key-value heads per group of query heads.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|7",
+  "status": "UNSUPPORTED",
+  "p": 0.4635682344600046,
+  "field": "results",
+  "claim": "For the illustrated numerical case, Fig. 1 gives profiles of v(x) and phi(x) with a pronounced core that becomes laminar far from the axis.",
+  "source_file": "1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|23",
+  "status": "UNSUPPORTED",
+  "p": 0.11916159669200106,
+  "field": "future_work",
+  "claim": "They also indicate a useful comparison would be between uptraining and training a comparable model from scratch.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|10",
+  "status": "UNSUPPORTED",
+  "p": 0.1822750334596311,
+  "field": "future_work",
+  "claim": "Investigation of less negative values of the parameter $p$ to extend hard-adaptability to softer momenta, and further phenomenological studies in contexts with significant pileup or multi-scale processes.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|0",
+  "status": "VERIFIED",
+  "p": 0.8667050883784567,
+  "field": "problem_addressed",
+  "claim": "Addressing the memory bandwidth bottleneck in autoregressive decoder inference caused by loading attention keys and values, where multi-query attention (MQA) improves speed but often degrades quality.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|16",
+  "status": "UNSUPPORTED",
+  "p": 0.16440070104510965,
+  "field": "main_contributions",
+  "claim": "Demonstrated that single-particle chaotic billiards do not display exponential OTOC growth comparable to strongly coupled many-body systems like SYK.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s2|3056128_Simulating twistronics without a twist.pdf|11",
+  "status": "DOUBTFUL",
+  "p": 0.7544977540757767,
+  "field": "limitations",
+  "claim": "The current proposal focuses on single-particle band structure; realizing strongly correlated regimes requires careful tuning of interaction strengths relative to bandwidths.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|21",
+  "status": "UNSUPPORTED",
+  "p": 0.46840539798079794,
+  "field": "main_contributions",
+  "claim": "Comparison of central and peripheral data with Skellam, HRG, UrQMD, and JAM baselines, showing monotonic behavior in non-critical cases and qualitative consistency of the central non-monotonic signal with QCD critical-point expectations.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|5",
+  "status": "VERIFIED",
+  "p": 0.8927653435124614,
+  "field": "experiments",
+  "claim": "Statistical significance assessed via bootstrapping and delta theorem approaches.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|4",
+  "status": "UNSUPPORTED",
+  "p": 0.46855945318987813,
+  "field": "experiments",
+  "claim": "Analyses included dijet events for area distributions and back-reaction measurements, as well as top-quark pair production events for mass reconstruction comparisons against $k_t$, Cambridge/Aachen, and SISCone algorithms.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3",
+  "status": "UNSUPPORTED",
+  "p": 0.3205406380515543,
+  "field": "methodology",
+  "claim": "Numerical evaluations are performed for various systems, including finite-element methods for the stadium billiard.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0",
+  "status": "UNSUPPORTED",
+  "p": 0.18196945594393357,
+  "field": "problem_addressed",
+  "claim": "Investigating whether out-of-time-order correlators (OTOCs) exhibit exponential growth indicative of quantum chaos in single-particle quantum mechanical systems, specifically comparing integrable systems (harmonic oscillator, particle in a box, circle billiard) with a chaotic system (stadium billiard).",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|7",
+  "status": "DOUBTFUL",
+  "p": 0.7767837417905701,
+  "field": "results",
+  "claim": "The QSOL remains robust against tetramerization instabilities.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|8",
+  "status": "VERIFIED",
+  "p": 0.9239097636839205,
+  "field": "results",
+  "claim": "The area distribution in LHC dijet events is sharply peaked near pi R^2, unlike the broader distributions of kt, Cambridge/Aachen and SISCone.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2",
+  "status": "UNSUPPORTED",
+  "p": 0.4685841983345749,
+  "field": "experiments",
+  "claim": "Numerical evaluations were performed on honeycomb lattices with up to N=648 sites (L=18).",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|10",
+  "status": "DOUBTFUL",
+  "p": 0.730650769684524,
+  "field": "results",
+  "claim": "In top-mass reconstruction, all four algorithms perform similarly, with Cambridge/Aachen and anti-kt marginally better.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|8",
+  "status": "DOUBTFUL",
+  "p": 0.6789173734229673,
+  "field": "results",
+  "claim": "Exact diagonalization supports these findings, though finite size effects limit precise verification of the exponent near the many-body level spacing.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|10",
+  "status": "DOUBTFUL",
+  "p": 0.835141134008663,
+  "field": "results",
+  "claim": "Three topological regimes are identified based on Chern number triplets: trivial (0,0,0), standard non-trivial (-1,0,1), and non-standard non-trivial (-1,1,0).",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|4",
+  "status": "UNSUPPORTED",
+  "p": 0.4681354698091155,
+  "field": "experiments",
+  "claim": "Numerical simulations of OTOCs for four systems: harmonic oscillator, particle in a 1D box, circle billiard, and stadium billiard.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|1",
+  "status": "DOUBTFUL",
+  "p": 0.8173208850392619,
+  "field": "methodology",
+  "claim": "Proposes uptraining existing multi-head language model checkpoints into models with multi-query attention (MQA) and introduces grouped-query attention (GQA), an interpolation between multi-head and multi-query attention.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|13",
+  "status": "UNSUPPORTED",
+  "p": 0.14796181384842325,
+  "field": "future_work",
+  "claim": "Investigate applying GQA to decoder-only language models where it is expected to provide stronger advantages over MQA due to lack of separate cross-attention mechanisms.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12",
+  "status": "UNSUPPORTED",
+  "p": 0.222470015803226,
+  "field": "limitations",
+  "claim": "The absence of observed exponential growth might be due to insufficient simulation times or lack of environmental decoherence effects present in many-body systems like the SYK model.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|14",
+  "status": "UNSUPPORTED",
+  "p": 0.37732553142708963,
+  "field": "limitations",
+  "claim": "Strongly correlated many-body physics is discussed only qualitatively, and the authors note that accessing the strongly interacting regime may require opening a hard gap between quasi-flat and dispersive bands through additional mechanisms such as lattice dimerization or spin-orbit coupling.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0",
+  "status": "DOUBTFUL",
+  "p": 0.5302339761683976,
+  "field": "problem_addressed",
+  "claim": "Measuring quantum chaos through out-of-time-order correlators (OTOCs) in various quantum mechanical systems.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|13",
+  "status": "DOUBTFUL",
+  "p": 0.7051812729129883,
+  "field": "results",
+  "claim": "Dimerized lattices also support topological phases.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|779080_The anti-$k_t$ jet clustering algorithm.pdf|20",
+  "status": "VERIFIED",
+  "p": 0.9044575950208615,
+  "field": "main_contributions",
+  "claim": "Shows that anti-kt jet boundaries are insensitive to soft radiation, giving conical jets for isolated hard particles and preserving cone-like properties that are absent in other IRC-safe algorithms.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|3",
+  "status": "UNSUPPORTED",
+  "p": 0.4995195185979438,
+  "field": "methodology",
+  "claim": "The Hamiltonian includes real nearest-neighbor hopping, complex next-to-nearest-neighbor hopping with staggered or uniform phases, synthetic interlayer hopping, and staggered or dimerized onsite potentials.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|3056128_Simulating twistronics without a twist.pdf|14",
+  "status": "DOUBTFUL",
+  "p": 0.7978139905117474,
+  "field": "future_work",
+  "claim": "Future work includes extending the approach to other lattice structures, studying interacting regimes at partial filling to investigate unconventional superconductivity and topological order, and exploring methods to open hard gaps between quasi-flat and dispersive bands.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|3",
+  "status": "UNSUPPORTED",
+  "p": 0.43605103497010805,
+  "field": "experiments",
+  "claim": "Numerical evaluations of OTOCs for different systems under varying temperatures and energies.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|3056128_Simulating twistronics without a twist.pdf|6",
+  "status": "DOUBTFUL",
+  "p": 0.6510483213505913,
+  "field": "experiments",
+  "claim": "No physical experiment is performed. The authors evaluate the proposed simulator by calculating single-particle band structures and density of states for a synthetic square bilayer with different supercell periodicities, Raman-coupling strengths, artificial fluxes, and modulation phases, and by comparing exact numerical bands with second-order perturbative effective-model predictions.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|779080_The anti-$k_t$ jet clustering algorithm.pdf|17",
+  "status": "DOUBTFUL",
+  "p": 0.7767018285502383,
+  "field": "main_contributions",
+  "claim": "Show that anti-kt strongly suppresses pileup and underlying-event back-reaction",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|1",
+  "status": "DOUBTFUL",
+  "p": 0.7049550715334244,
+  "field": "methodology",
+  "claim": "Formulating the calculation of OTOCs for general quantum mechanics, evaluating them for specific systems including harmonic oscillator, particle in a box, circle billiard, and stadium billiard.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|6",
+  "status": "UNSUPPORTED",
+  "p": 0.10665330814154522,
+  "field": "limitations",
+  "claim": "Acknowledges limitations related to finite size effects and the necessity of considering higher-order corrections involving massive modes for precise descriptions outside specific regimes.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|12",
+  "status": "VERIFIED",
+  "p": 0.8516529678813098,
+  "field": "future_work",
+  "claim": "Exploring implications of these universal long-time behaviors within the context of AdS$_2$/CFT$_1$ holographic correspondence remains a direction for future investigation.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|8",
+  "status": "VERIFIED",
+  "p": 0.94647812246053,
+  "field": "main_contributions",
+  "claim": "Establishes a novel analogy linking concepts from turbulence studies with aspects of quantum chromodynamics through mathematical correspondences.",
+  "source_file": "1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5",
+  "status": "DOUBTFUL",
+  "p": 0.6509570466920526,
+  "field": "results",
+  "claim": "Phase boundaries agreed with previous works but extended understanding via advanced simulations.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|10",
+  "status": "UNSUPPORTED",
+  "p": 0.4992473124570725,
+  "field": "future_work",
+  "claim": "Explores extending methods to other lattice types besides squares.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|12",
+  "status": "DOUBTFUL",
+  "p": 0.7055508527189187,
+  "field": "limitations",
+  "claim": "The derivation relies on strong and unverified assumptions: all velocity correlations are expressed through one function, higher-order correlations are decomposed into lower-order ones, some derivative terms are neglected, and special ansatz forms are imposed.",
+  "source_file": "1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|0",
+  "status": "VERIFIED",
+  "p": 0.8926165918501853,
+  "field": "problem_addressed",
+  "claim": "Develop a controllable twistronics platform without a physical twist that can host topological quantum anomalous Hall states in a synthetic bilayer realized with ultracold atoms in optical lattices.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|2",
+  "status": "DOUBTFUL",
+  "p": 0.7978170235133372,
+  "field": "methodology",
+  "claim": "Two internal states per spin flavor form a synthetic bilayer, and laser-induced Raman coupling between them is spatially modulated to create a moiré-like supercell, with the smallest magic configuration Θ(4,4).",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|7",
+  "status": "VERIFIED",
+  "p": 0.9045115140274449,
+  "field": "experiments",
+  "claim": "They report dev-set performance and inference time per sample per TPUv4 chip.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|4",
+  "status": "DOUBTFUL",
+  "p": 0.7979545275764508,
+  "field": "experiments",
+  "claim": "Energies were computed via Metropolis sampling with Gutzwiller projection, and phase boundaries were determined by comparing the ground state energies of different competing phases.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|12",
+  "status": "UNSUPPORTED",
+  "p": 0.40698883308266964,
+  "field": "results",
+  "claim": "Dimerization alone opens a trivial gap with Chern numbers (0,0,0); adding staggered next-to-nearest-neighbor hopping yields standard nontrivial topology, while uniform complex next-to-nearest-neighbor hopping yields only trivial or standard nontrivial topology and cannot reach the nonstandard topology.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|1",
+  "status": "DOUBTFUL",
+  "p": 0.7769030991479025,
+  "field": "methodology",
+  "claim": "The authors define the thermal OTOC C_T(t) = -< [x(t), p(0)]^2 > and rewrite it in an energy-eigenbasis as a thermal average of microcanonical OTOCs c_n(t) = -< n | [x(t), p] | n >.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|0",
+  "status": "DOUBTFUL",
+  "p": 0.8351704278387141,
+  "field": "problem_addressed",
+  "claim": "Reducing the memory bandwidth overhead for inference in large language models while maintaining or improving their quality.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|9",
+  "status": "UNSUPPORTED",
+  "p": 0.34812421347534134,
+  "field": "limitations",
+  "claim": "Limited exploration of interaction effects beyond mean-field theories.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|3",
+  "status": "DOUBTFUL",
+  "p": 0.7768818678140859,
+  "field": "methodology",
+  "claim": "The Hamiltonian is diagonalized after a gauge and Fourier transform, and band structures are computed for various supercell periodicities Theta(lx,ly), Raman strengths, and fluxes.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|1519859_Out-of-time-order correlators in quantum mechanics.pdf|6",
+  "status": "UNSUPPORTED",
+  "p": 0.22249529126830814,
+  "field": "results",
+  "claim": "Lack of observed exponential growth indicative of chaos within examined time scales.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|8",
+  "status": "UNSUPPORTED",
+  "p": 0.3422526676637682,
+  "field": "results",
+  "claim": "Chaotic stadium billiards do not show clear exponential growth in OTOCs within the simulated time scales ($T \\lesssim 400$); instead, they saturate to constant values. 3.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf|6",
+  "status": "DOUBTFUL",
+  "p": 0.8167553161390162,
+  "field": "experiments",
+  "claim": "Analyzed evaluation speed improvements and generated text quality.",
+  "source_file": "c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|12",
+  "status": "UNSUPPORTED",
+  "p": 0.29399367365141416,
+  "field": "limitations",
+  "claim": "Exponential growth associated with quantum Lyapunov exponents was not observed in these simple chaotic systems, possibly due to lack of environmental decoherence effects present in many-body systems like the SYK model.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|3056128_Simulating twistronics without a twist.pdf|4",
+  "status": "UNSUPPORTED",
+  "p": 0.2016775896391939,
+  "field": "experiments",
+  "claim": "The evaluation involves numerical simulations of the tight-binding Hamiltonian for a synthetic square bilayer lattice.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|11",
+  "status": "DOUBTFUL",
+  "p": 0.5920840832053887,
+  "field": "limitations",
+  "claim": "Longer-range exchange couplings are likely important in twisted bilayer graphene.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|12",
+  "status": "UNSUPPORTED",
+  "p": 0.08506644967833953,
+  "field": "future_work",
+  "claim": "Investigate application of GQA to decoder-only language models where it is expected to provide stronger advantages over MQA; explore root causes of training instability observed in pure MQA setups during fine-tuning on long-input tasks.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|6",
+  "status": "VERIFIED",
+  "p": 0.892988522079039,
+  "field": "results",
+  "claim": "The QSOL persists over a wide parameter range despite symmetry-breaking perturbations.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1482468_Flux tube in turbulent flow and quantum chromodyna.pdf|5",
+  "status": "DOUBTFUL",
+  "p": 0.5309617874536298,
+  "field": "limitations",
+  "claim": "Assumptions made regarding simplifications of correlation/green functions limit applicability outside specialized contexts.",
+  "source_file": "1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|13",
+  "status": "UNSUPPORTED",
+  "p": 0.49937969118087755,
+  "field": "limitations",
+  "claim": "Lattice QCD calculations at finite baryon chemical potential face numerical challenges ('sign problem').",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7",
+  "status": "UNSUPPORTED",
+  "p": 0.3484251743855657,
+  "field": "results",
+  "claim": "Models predicting no critical point showed similar but opposite trends, suggesting sensitivity to physical phenomena indicative of a critical point.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_think_s1|3056128_Simulating twistronics without a twist.pdf|6",
+  "status": "UNSUPPORTED",
+  "p": 0.37725687462254853,
+  "field": "experiments",
+  "claim": "No laboratory experiments are reported. The proposal is evaluated theoretically by numerical diagonalization of the single-particle Hamiltonian and by perturbative analytic calculations for different magic and non-magic supercells, Raman coupling strengths, fluxes, and modulation phase shifts.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|13",
+  "status": "UNSUPPORTED",
+  "p": 0.3484287879943269,
+  "field": "future_work",
+  "claim": "The authors suggest applying the methodology to similar Kugel-Khomskii models in trilayer graphene/hBN, tiny-angle twisted bilayer graphene under an electric field, and alpha-ZrCl3, developing more realistic Hamiltonians for Ba3CuSb2O9 and twisted bilayer graphene, and exploring possible proximity between spin-polarized phases and quantum spin-orbital liquids.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|2",
+  "status": "UNSUPPORTED",
+  "p": 0.4376246916621122,
+  "field": "experiments",
+  "claim": "Numerical evaluations were performed using VMC on honeycomb lattices with up to 648 sites (L=18).",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s2|3056128_Simulating twistronics without a twist.pdf|3",
+  "status": "VERIFIED",
+  "p": 0.9044135972018589,
+  "field": "methodology",
+  "claim": "Spatially dependent Raman coupling, modulated by a 'modulation laser' creating a periodic potential, generates tunable supercell structures and interlayer tunneling patterns that mimic the effects of physical twisting.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|12",
+  "status": "DOUBTFUL",
+  "p": 0.5619517736155265,
+  "field": "results",
+  "claim": "Appendix A reports that MQA from scratch suffers loss spikes and unstable fine-tuning, uptrained MQA is more stable but variable, and uptrained GQA appears stable.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|4",
+  "status": "VERIFIED",
+  "p": 0.9144818675789667,
+  "field": "methodology",
+  "claim": "Ratios of cumulants ($S\\sigma = C_3/C_2$ and $\\kappa\\sigma^2 = C_4/C_2$) were analyzed against collision energy to identify non-monotonic behaviors indicative of a critical point.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|7",
+  "status": "UNSUPPORTED",
+  "p": 0.3480493146832248,
+  "field": "limitations",
+  "claim": "Higher collision energies beyond √sNN = 200 GeV might reveal clearer signals since the critical point is expected at higher baryon chemical potentials.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "F"
+ },
+ {
+  "id": "qwen38_gold_think_s1|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|6",
+  "status": "DOUBTFUL",
+  "p": 0.8172963568403872,
+  "field": "methodology",
+  "claim": "An exact diagonalization study of N=24 fermions is used for comparison.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf|0",
+  "status": "VERIFIED",
+  "p": 0.9044908385946973,
+  "field": "problem_addressed",
+  "claim": "Autoregressive Transformer decoder inference is slowed by memory bandwidth overhead from loading attention keys and values at every decoding step.",
+  "source_file": "5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|7",
+  "status": "DOUBTFUL",
+  "p": 0.834000322263613,
+  "field": "results",
+  "claim": "Identification of regimes where these topologies emerge.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|3056128_Simulating twistronics without a twist.pdf|8",
+  "status": "DOUBTFUL",
+  "p": 0.6508648553805692,
+  "field": "results",
+  "claim": "The flatness $F$ is quantified as approximately 0.02 for $ rac{\bar{\beta}_0 \bar{\beta}}{h}=20\bar{\beta}$ and $\bar{\beta}=0.2$.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|15",
+  "status": "DOUBTFUL",
+  "p": 0.797790070305251,
+  "field": "future_work",
+  "claim": "Future work includes incorporating interactions using mean-field Hartree-Fock or slave-boson/fractionalization methods, performing ab-initio tensor-network calculations enabled by the small supercell, and studying the origins of unconventional superconductivity, the coexistence of superconducting and correlated insulating states, and the role of topology in interacting flat-band systems.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s1|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|19",
+  "status": "VERIFIED",
+  "p": 0.8665667164525296,
+  "field": "main_contributions",
+  "claim": "Identification of parameter regimes yielding trivial (0,0,0), standard (-1,0,1), and non-standard (-1,1,0) Chern number triplets.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s2|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|3",
+  "status": "DOUBTFUL",
+  "p": 0.8351303765210943,
+  "field": "experiments",
+  "claim": "The ground state energies of competing phases (QSOL, FM AFOxz, NCD) were calculated as functions of the hopping ratio xi = t'/t and Hund's coupling eta = J_H/U.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|22",
+  "status": "DOUBTFUL",
+  "p": 0.705030078718491,
+  "field": "main_contributions",
+  "claim": "Derived explicit analytic OTOCs for a harmonic oscillator and a particle in a 1D box, and computed OTOCs for a circle billiard.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "P"
+ },
+ {
+  "id": "qwen38_gold_think_s2|3056128_Simulating twistronics without a twist.pdf|5",
+  "status": "UNSUPPORTED",
+  "p": 0.29405515212535493,
+  "field": "experiments",
+  "claim": "The work is a theoretical proposal evaluated mainly by exact numerical band-structure calculations and density-of-states plots for synthetic square bilayers, with comparisons to perturbative effective models for different supercell periodicities, Raman strengths, and artificial fluxes.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|10",
+  "status": "UNSUPPORTED",
+  "p": 0.46783669564051633,
+  "field": "limitations",
+  "claim": "Challenges in precise implementation of complex tunneling phases experimentally.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s0|1519859_Out-of-time-order correlators in quantum mechanics.pdf|0",
+  "status": "UNSUPPORTED",
+  "p": 0.18196945594393357,
+  "field": "problem_addressed",
+  "claim": "Investigating whether out-of-time-order correlators (OTOCs) exhibit exponential growth indicative of quantum chaos in single-particle quantum mechanical systems, specifically comparing integrable systems (harmonic oscillator, particle in a box, circle billiard) with a chaotic system (stadium billiard).",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|779080_The anti-$k_t$ jet clustering algorithm.pdf|5",
+  "status": "UNSUPPORTED",
+  "p": 0.08505783051065181,
+  "field": "future_work",
+  "claim": "Exploring variations of p-value closer to zero for balancing hard adaptability with soft resilience; investigating applicability in diverse collider environments with varying levels of background activity.",
+  "source_file": "779080_The anti-$k_t$ jet clustering algorithm.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf|5",
+  "status": "DOUBTFUL",
+  "p": 0.6508295726768706,
+  "field": "experiments",
+  "claim": "No physical experiments were performed. The model was evaluated numerically: mean-field energy minimization, LFWT diagonalization of 12x12 matrices in momentum space, and VMC simulations on honeycomb lattices with L = 6, 12, and 18 sites using Metropolis color-exchange moves, approximately 10^3 exchange attempts per sweep and approximately 10^5 sweeps with half discarded for equilibration.",
+  "source_file": "1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2",
+  "status": "VERIFIED",
+  "p": 0.8929333880229036,
+  "field": "methodology",
+  "claim": "Corrections for finite volume fluctuations and tracking efficiencies were applied.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|2",
+  "status": "DOUBTFUL",
+  "p": 0.8351243429503408,
+  "field": "methodology",
+  "claim": "Events were selected around the nominal interaction point and classified by centrality using charged-particle multiplicity excluding protons and antiprotons, with central 0-5% and peripheral 70-80% used.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|3",
+  "status": "DOUBTFUL",
+  "p": 0.6219837595246488,
+  "field": "methodology",
+  "claim": "The single-particle Hamiltonian includes nearest-neighbor hopping, next-to-nearest-neighbor complex hopping with staggered or uniform phases, synthetic interlayer hopping, and an optional staggered chemical potential.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|5",
+  "status": "VERIFIED",
+  "p": 0.8517123747367557,
+  "field": "methodology",
+  "claim": "Averaging over soft modes is then interpreted as an expectation value in Euclidean Liouville quantum mechanics with a time-dependent exponential potential.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|1",
+  "status": "VERIFIED",
+  "p": 0.9142465637815734,
+  "field": "methodology",
+  "claim": "Measurements of net-proton cumulant ratios using the STAR detector at RHIC over a broad range of collision energies.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|21",
+  "status": "VERIFIED",
+  "p": 0.8803000422419582,
+  "field": "limitations",
+  "claim": "Peripheral systems may not be hot and dense enough to approach the QCD critical point.",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s0|3056128_Simulating twistronics without a twist.pdf|0",
+  "status": "VERIFIED",
+  "p": 0.9145843677891885,
+  "field": "problem_addressed",
+  "claim": "Proposing a method to simulate twisted bilayer graphene (TwBLG) systems using ultracold atoms in optical lattices.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx32k_s0|1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf|10",
+  "status": "DOUBTFUL",
+  "p": 0.8350104003542314,
+  "field": "results",
+  "claim": "In contrast, peripheral collisions showed monotonic variation consistent with models lacking a critical point (such as UrQMD and HRG).",
+  "source_file": "1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_think_s2|3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf|13",
+  "status": "UNSUPPORTED",
+  "p": 0.4683966872909375,
+  "field": "results",
+  "claim": "For µ < µc the lower, middle, and upper groups have Chern numbers -1, 0, and 1, respectively; for µ > µc they become -1, 1, and 0.",
+  "source_file": "3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s1|1519859_Out-of-time-order correlators in quantum mechanics.pdf|11",
+  "status": "UNSUPPORTED",
+  "p": 0.3479689149719097,
+  "field": "future_work",
+  "claim": "Exploration of effects arising from environmental couplings or randomized potentials on emergent classical properties captured by OTOCs.",
+  "source_file": "1519859_Out-of-time-order correlators in quantum mechanics.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen_baseline_gold_s2|3056128_Simulating twistronics without a twist.pdf|11",
+  "status": "UNSUPPORTED",
+  "p": 0.46829298110679224,
+  "field": "future_work",
+  "claim": "Investigates effects of interactions within simulated systems.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|3056128_Simulating twistronics without a twist.pdf|0",
+  "status": "DOUBTFUL",
+  "p": 0.8349847191720373,
+  "field": "problem_addressed",
+  "claim": "The paper addresses the challenge of simulating the electronic properties of twisted bilayer graphene (TwBLG), specifically the flat band physics and strongly correlated phenomena arising from Moiré patterns, in a controllable quantum simulator environment.",
+  "source_file": "3056128_Simulating twistronics without a twist.pdf",
+  "audit": "T"
+ },
+ {
+  "id": "qwen38_gold_ctx128k_s2|1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf|10",
+  "status": "DOUBTFUL",
+  "p": 0.730721411490531,
+  "field": "limitations",
+  "claim": "Replica off-diagonal fluctuations are neglected based on evidence of self-averaging properties.",
+  "source_file": "1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf",
+  "audit": "T"
+ }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "source_file": "comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+    "mode": "free",
+    "seconds": 6.3,
+    "output_tokens": 205,
+    "finish_reason": "stop",
+    "valid_json": false,
+    "answer_chars": 887,
+    "error": null
+  },
+  {
+    "source_file": "comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf",
+    "mode": "guided",
+    "seconds": 15.9,
+    "output_tokens": 465,
+    "finish_reason": "stop",
+    "valid_json": true,
+    "answer_chars": 2016,
+    "error": null
+  },
+  {
+    "source_file": "comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+    "mode": "free",
+    "seconds": 15.5,
+    "output_tokens": 454,
+    "finish_reason": "stop",
+    "valid_json": true,
+    "answer_chars": 1515,
+    "error": null
+  },
+  {
+    "source_file": "comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf",
+    "mode": "guided",
+    "seconds": 17.0,
+    "output_tokens": 584,
+    "finish_reason": "stop",
+    "valid_json": true,
+    "answer_chars": 2704,
+    "error": null
+  },
+  {
+    "source_file": "comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+    "mode": "free",
+    "seconds": 14.7,
+    "output_tokens": 614,
+    "finish_reason": "stop",
+    "valid_json": true,
+    "answer_chars": 2378,
+    "error": null
+  },
+  {
+    "source_file": "comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf",
+    "mode": "guided",
+    "seconds": 15.9,
+    "output_tokens": 644,
+    "finish_reason": "stop",
+    "valid_json": true,
+    "answer_chars": 2387,
+    "error": null
+  }
+]

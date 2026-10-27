@@ -1,0 +1,214 @@
+[
+  {
+    "figure": "comparison_figures/1482468_Flux tube in turbulent flow and quantum chromodyna/1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png",
+    "mode": "free",
+    "seconds": 12.9,
+    "raw_chars": 270,
+    "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"upper line\", \"points\": [[0, 6], [1, 4], [2, 1], [3, 0.5], [4, 0.3]]},\n        {\"label\": \"lower line\", \"points\": [[0, 0.8], [1, 0.6], [2, 0.4], [3, 0.2], [4, 0.1]]}\n    ],\n    \"summary\": \"\"\n}\n```",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 2,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/1482468_Flux tube in turbulent flow and quantum chromodyna/1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png",
+    "mode": "guided",
+    "seconds": 6.8,
+    "raw_chars": 135,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"upper line\", \"points\": [[0, 6], [1, 4], [2, 1], [3, 0.5], [4, 0.3]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 1,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png",
+    "mode": "free",
+    "seconds": 17.2,
+    "raw_chars": 1711,
+    "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"7.7 GeV\", \"points\": [[0.05, 0.8], [0.1, 0.6], [0.15, 0.4], [0.2, 0.2], [0.25, 0.0], [0.3, 0.2], [0.35, 0.4], [0.4, 0.6], [0.45, 0.8], [0.5, 1.0]]},\n        {\"label\": \"11.5 GeV\", \"points\": [[0.05, 0.6], [0.1, 0.8], [0.15, 1.0], [0.2, 1.2], [0.25, 1.4], [0.3, 1.6], [0.35, 1.8], [0.4, 2.0], [0.45, 2.2], [0.5, 2.4]]},\n        {\"label\": \"14.5 GeV\", \"points\": [[0.05, 0.4], [0.1, 0.6], [0.15, 0.8], [0.2, 1.0], [0.25, 1.2], [0.3, 1.4], [0.35, 1.6], [0.4, 1.8], [0.45, 2.0], [0.5, 2.2]]},\n        {\"label\": \"19.6 GeV\", \"points\": [[0.05, 0.2], [0.1, 0.4], [0.15, 0.6], [0.2, 0.8], [0.25, 1.0], [0.3, 1.2], [0.35, 1.4], [0.4, 1.6], [0.45, 1.8], [0.5, 2.0]]},\n        {\"label\": \"27 GeV\", \"points\": [[0.05, 0.8], [0.1, 1.0], [0.15, 1.2], [0.2, 1.4], [0.25, 1.6], [0.3, 1.8], [0.35, 2.0], [0.4, 2.2], [0.45, 2.4], [0.5, 2.6]]},\n        {\"label\": \"39 GeV\", \"points\": [[0.05, 0.6], [0.1, 0.8], [0.15, 1.0], [0.2, 1.2], [0.25, 1.4], [0.3, 1.6], [0.35, 1.8], [0.4, 2.0], [0.45, 2.2], [0.5, 2.4]]},\n        {\"label\": \"54.4 GeV\", \"points\": [[0.05, 0.4], [0.1, 0.6], [0.15, 0.8], [0.2, 1.0], [0.25, 1.2], [0.3, 1.4], [0.35, 1.6], [0.4, 1.8], [0.45, 2.0], [0.5, 2.2]]},\n        {\"label\": \"62.4 GeV\", \"points\": [[0.05, 0.2], [0.1, 0.4], [0.15, 0.6], [0.2, 0.8], [0.25, 1.0], [0.3, 1.2], [0.35, 1.4], [0.4, 1.6], [0.45, 1.8], [0.5, 2.0]]},\n        {\"label\": \"200 GeV\", \"points\": [[0.05, 0.8], [0.1, 1.0], [0.15, 1.2], [0.2, 1.4], [0.25, 1.6], [0.3, 1.8], [0.35, 2.0], [0.4, 2.2], [0.45, 2.4], [0.5, 2.6]]}\n    ],\n    \"summary\": \"The plot shows the net-proton C4/C2 ratio for different collision energies at RHIC, with a rapidity acceptance cut y_max.\"\n}\n```",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 9
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png",
+    "mode": "guided",
+    "seconds": 19.1,
+    "raw_chars": 1638,
+    "raw": "{\"plot_type\": \"discrete\", \"series\": [{\"label\": \"7.7 GeV\", \"points\": [[0.05, 0.6], [0.1, 0.7], [0.15, 0.8], [0.2, 0.9], [0.25, 1.0], [0.3, 1.1], [0.35, 1.2], [0.4, 1.3], [0.45, 1.4], [0.5, 1.5]]}, {\"label\": \"11.5 GeV\", \"points\": [[0.05, 0.5], [0.1, 0.6], [0.15, 0.7], [0.2, 0.8], [0.25, 0.9], [0.3, 1.0], [0.35, 1.1], [0.4, 1.2], [0.45, 1.3], [0.5, 1.4]]}, {\"label\": \"14.5 GeV\", \"points\": [[0.05, 0.4], [0.1, 0.5], [0.15, 0.6], [0.2, 0.7], [0.25, 0.8], [0.3, 0.9], [0.35, 1.0], [0.4, 1.1], [0.45, 1.2], [0.5, 1.3]]}, {\"label\": \"19.6 GeV\", \"points\": [[0.05, 0.3], [0.1, 0.4], [0.15, 0.5], [0.2, 0.6], [0.25, 0.7], [0.3, 0.8], [0.35, 0.9], [0.4, 1.0], [0.45, 1.1], [0.5, 1.2]]}, {\"label\": \"27 GeV\", \"points\": [[0.05, 0.2], [0.1, 0.3], [0.15, 0.4], [0.2, 0.5], [0.25, 0.6], [0.3, 0.7], [0.35, 0.8], [0.4, 0.9], [0.45, 1.0], [0.5, 1.1]]}, {\"label\": \"39 GeV\", \"points\": [[0.05, 0.1], [0.1, 0.2], [0.15, 0.3], [0.2, 0.4], [0.25, 0.5], [0.3, 0.6], [0.35, 0.7], [0.4, 0.8], [0.45, 0.9], [0.5, 1.0]]}, {\"label\": \"54.4 GeV\", \"points\": [[0.05, 0.0], [0.1, 0.1], [0.15, 0.2], [0.2, 0.3], [0.25, 0.4], [0.3, 0.5], [0.35, 0.6], [0.4, 0.7], [0.45, 0.8], [0.5, 0.9]]}, {\"label\": \"62.4 GeV\", \"points\": [[0.05, -0.1], [0.1, -0.2], [0.15, -0.3], [0.2, -0.4], [0.25, -0.5], [0.3, -0.6], [0.35, -0.7], [0.4, -0.8], [0.45, -0.9], [0.5, -1.0]]}, {\"label\": \"200 GeV\", \"points\": [[0.05, -0.2], [0.1, -0.3], [0.15, -0.4], [0.2, -0.5], [0.25, -0.6], [0.3, -0.7], [0.35, -0.8], [0.4, -0.9], [0.45, -1.0], [0.5, -1.1]]}], \"summary\": \"The plot shows the relationship between the rapidity acceptance cut and the net-proton C4/C2 ratio for different collision energies.\"}",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 9
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png",
+    "mode": "free",
+    "seconds": 13.7,
+    "raw_chars": 1368,
+    "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"Skellam and HRG GCE expectation\", \"points\": [[10, 0.5], [20, 1], [30, 0.5], [40, -1], [50, -1.5], [60, -1], [70, -0.5], [80, 0], [90, 0.5], [100, 1], [110, 1.5], [120, 2], [130, 1.5], [140, 1], [150, 0.5], [160, 0], [170, -0.5], [180, -1], [190, -1.5], [200, -1]]},\n        {\"label\": \"Peripheral data(70-80%)\", \"points\": [[10, 0.5], [20, 1], [30, 0.5], [40, -1], [50, -1.5], [60, -1], [70, -0.5], [80, 0], [90, 0.5], [100, 1], [110, 1.5], [120, 2], [130, 1.5], [140, 1], [150, 0.5], [160, 0], [170, -0.5], [180, -1], [190, -1.5], [200, -1]]},\n        {\"label\": \"UrQMD expectation(0-5%)\", \"points\": [[10, 0.5], [20, 1], [30, 0.5], [40, -1], [50, -1.5], [60, -1], [70, -0.5], [80, 0], [90, 0.5], [100, 1], [110, 1.5], [120, 2], [130, 1.5], [140, 1], [150, 0.5], [160, 0], [170, -0.5], [180, -1], [190, -1.5], [200, -1]]},\n        {\"label\": \"HRG CE expectation\", \"points\": [[10, 0.5], [20, 1], [30, 0.5], [40, -1], [50, -1.5], [60, -1], [70, -0.5], [80, 0], [90, 0.5], [100, 1], [110, 1.5], [120, 2], [130, 1.5], [140, 1], [150, 0.5], [160, 0], [170, -0.5], [180, -1], [190, -1.5], [200, -1]]}\n    ],\n    \"summary\": \"The plot shows the comparison of different models (Skellam and HRG GCE, Peripheral data, UrQMD, and HRG CE) for net-proton data across various center-of-mass energies (sNN).\"\n}\n```",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 4
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png",
+    "mode": "guided",
+    "seconds": 14.2,
+    "raw_chars": 1297,
+    "raw": "{\"plot_type\": \"discrete\", \"series\": [{\"label\": \"Skellam and HRG GCE expectation\", \"points\": [[10, 0.5], [20, 0.5], [30, 0.5], [40, 0.5], [50, 0.5], [60, 0.5], [70, 0.5], [80, 0.5], [90, 0.5], [100, 0.5], [110, 0.5], [120, 0.5], [130, 0.5], [140, 0.5], [150, 0.5], [160, 0.5], [170, 0.5], [180, 0.5], [190, 0.5], [200, 0.5]]}, {\"label\": \"Peripheral data(70-80%)\", \"points\": [[10, 0.5], [20, 0.5], [30, 0.5], [40, 0.5], [50, 0.5], [60, 0.5], [70, 0.5], [80, 0.5], [90, 0.5], [100, 0.5], [110, 0.5], [120, 0.5], [130, 0.5], [140, 0.5], [150, 0.5], [160, 0.5], [170, 0.5], [180, 0.5], [190, 0.5], [200, 0.5]]}, {\"label\": \"UrQMD expectation(0-5%)\", \"points\": [[10, 0.5], [20, 0.5], [30, 0.5], [40, 0.5], [50, 0.5], [60, 0.5], [70, 0.5], [80, 0.5], [90, 0.5], [100, 0.5], [110, 0.5], [120, 0.5], [130, 0.5], [140, 0.5], [150, 0.5], [160, 0.5], [170, 0.5], [180, 0.5], [190, 0.5], [200, 0.5]]}, {\"label\": \"HRG CE expectation\", \"points\": [[10, 0.5], [20, 0.5], [30, 0.5], [40, 0.5], [50, 0.5], [60, 0.5], [70, 0.5], [80, 0.5], [90, 0.5], [100, 0.5], [110, 0.5], [120, 0.5], [130, 0.5], [140, 0.5], [150, 0.5], [160, 0.5], [170, 0.5], [180, 0.5], [190, 0.5], [200, 0.5]]}], \"summary\": \"The plot shows the comparison of different models' expectations for net-proton data across various collision energies.\"}",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 4
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png",
+    "mode": "free",
+    "seconds": 6.4,
+    "raw_chars": 970,
+    "raw": "{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"poly5 (χ²/ndf = 0.72)\", \"points\": [\n            [0.05, 0.8],\n            [0.1, 0.75],\n            [0.15, 0.7],\n            [0.2, 0.65],\n            [0.25, 0.6],\n            [0.3, 0.55],\n            [0.35, 0.5],\n            [0.4, 0.45],\n            [0.45, 0.4],\n            [0.5, 0.35],\n            [0.55, 0.3],\n            [0.6, 0.25],\n            [0.65, 0.2],\n            [0.7, 0.15],\n            [0.75, 0.1]\n        ]},\n        {\"label\": \"Net-proton 0%-5% - Au+Au collisions\", \"points\": [\n            [0.05, 0.8],\n            [0.1, 0.75],\n            [0.15, 0.7],\n            [0.2, 0.65],\n            [0.25, 0.6],\n            [0.3, 0.55],\n            [0.35, 0.5],\n            [0.4, 0.45],\n            [0.45, 0.4],\n            [0.5, 0.35],\n            [0.55, 0.3],\n            [0.6, 0.25],\n            [0.65, 0.2],\n            [0.7, 0.15],\n            [0.75, 0.1]\n        ]}\n    ],\n    \"summary\": \"\"\n}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 2,
+    "synthetic_series": 2
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png",
+    "mode": "guided",
+    "seconds": 6.9,
+    "raw_chars": 580,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"poly5 (χ²/ndf = 0.72)\", \"points\": [[0.05, 0.8], [0.1, 0.75], [0.15, 0.7], [0.2, 0.65], [0.25, 0.6], [0.3, 0.55], [0.35, 0.5], [0.4, 0.45], [0.45, 0.4], [0.5, 0.35], [0.55, 0.3], [0.6, 0.25], [0.65, 0.2], [0.7, 0.15], [0.75, 0.1], [0.8, 0.05]]}, {\"label\": \"Net-proton 0%-5% - Au+Au collisions\", \"points\": [[0.05, 0.8], [0.1, 0.75], [0.15, 0.7], [0.2, 0.65], [0.25, 0.6], [0.3, 0.55], [0.35, 0.5], [0.4, 0.45], [0.45, 0.4], [0.5, 0.35], [0.55, 0.3], [0.6, 0.25], [0.65, 0.2], [0.7, 0.15], [0.75, 0.1], [0.8, 0.05]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 2,
+    "synthetic_series": 2
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png",
+    "mode": "free",
+    "seconds": 10.1,
+    "raw_chars": 804,
+    "raw": "{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"Poisson baseline\", \"points\": [[0.5, 2.5], [0.6, 2.2], [0.7, 1.8], [0.8, 1.5], [0.9, 1.2], [1.0, 1.0], [1.1, 0.8], [1.2, 0.6], [1.3, 0.4], [1.4, 0.2], [1.5, 0.0], [1.6, 0.0], [1.7, 0.2], [1.8, 0.4], [1.9, 0.6], [2.0, 0.8], [2.1, 1.0], [2.2, 1.2], [2.3, 1.4], [2.4, 1.6], [2.5, 1.8], [2.6, 2.0], [2.7, 2.2], [2.8, 2.4], [2.9, 2.6], [3.0, 2.8]]},\n        {\"label\": \"poly4 (χ²/ndf = 1.3)\", \"points\": [[0.5, 2.5], [0.6, 2.2], [0.7, 1.8], [0.8, 1.5], [0.9, 1.2], [1.0, 1.0], [1.1, 0.8], [1.2, 0.6], [1.3, 0.4], [1.4, 0.2], [1.5, 0.0], [1.6, 0.0], [1.7, 0.2], [1.8, 0.4], [1.9, 0.6], [2.0, 0.8], [2.1, 1.0], [2.2, 1.2], [2.3, 1.4], [2.4, 1.6], [2.5, 1.8], [2.6, 2.0], [2.7, 2.2], [2.8, 2.4], [2.9, 2.6], [3.0, 2.8]]}\n    ],\n    \"summary\": \"\"\n}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 2,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png",
+    "mode": "guided",
+    "seconds": 9.8,
+    "raw_chars": 768,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"Poisson baseline\", \"points\": [[0.5, 2.5], [0.6, 2.2], [0.7, 1.8], [0.8, 1.5], [0.9, 1.2], [1.0, 1.0], [1.1, 0.8], [1.2, 0.6], [1.3, 0.4], [1.4, 0.2], [1.5, 0.0], [1.6, 0.0], [1.7, 0.2], [1.8, 0.4], [1.9, 0.6], [2.0, 0.8], [2.1, 1.0], [2.2, 1.2], [2.3, 1.4], [2.4, 1.6], [2.5, 1.8], [2.6, 2.0], [2.7, 2.2], [2.8, 2.4], [2.9, 2.6], [3.0, 2.8]]}, {\"label\": \"poly4 (χ²/ndf = 1.3)\", \"points\": [[0.5, 2.5], [0.6, 2.2], [0.7, 1.8], [0.8, 1.5], [0.9, 1.2], [1.0, 1.0], [1.1, 0.8], [1.2, 0.6], [1.3, 0.4], [1.4, 0.2], [1.5, 0.0], [1.6, 0.0], [1.7, 0.2], [1.8, 0.4], [1.9, 0.6], [2.0, 0.8], [2.1, 1.0], [2.2, 1.2], [2.3, 1.4], [2.4, 1.6], [2.5, 1.8], [2.6, 2.0], [2.7, 2.2], [2.8, 2.4], [2.9, 2.6], [3.0, 2.8]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 2,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png",
+    "mode": "free",
+    "seconds": 5.3,
+    "raw_chars": 486,
+    "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"UrQMD 0%-5%\", \"points\": [[5, 1.0], [10, 0.8], [20, 0.6], [50, 0.4], [200, 0.2]]},\n        {\"label\": \"HRG GCE\", \"points\": [[5, 0.9], [10, 0.8], [20, 0.7], [50, 0.5], [200, 0.2]]},\n        {\"label\": \"HRG CE\", \"points\": [[5, 0.8], [10, 0.7], [20, 0.6], [50, 0.4], [200, 0.2]]},\n        {\"label\": \"HRG EV (r=0.5fm)\", \"points\": [[5, 0.7], [10, 0.6], [20, 0.5], [50, 0.3], [200, 0.1]]}\n    ],\n    \"summary\": \"\"\n}\n```",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 4,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png",
+    "mode": "guided",
+    "seconds": 5.8,
+    "raw_chars": 422,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"UrQMD 0%-5%\", \"points\": [[5, 1.0], [10, 0.8], [20, 0.6], [50, 0.4], [200, 0.2]]}, {\"label\": \"HRG GCE\", \"points\": [[5, 0.9], [10, 0.8], [20, 0.7], [50, 0.5], [200, 0.1]]}, {\"label\": \"HRG CE\", \"points\": [[5, 0.8], [10, 0.7], [20, 0.6], [50, 0.4], [200, 0.2]]}, {\"label\": \"HRG EV (r=0.5fm)\", \"points\": [[5, 0.7], [10, 0.6], [20, 0.5], [50, 0.3], [200, 0.1]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 4,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png",
+    "mode": "free",
+    "seconds": 3.1,
+    "raw_chars": 413,
+    "raw": "{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"GQA-XXL\", \"points\": [[0.2, 47.5]]},\n        {\"label\": \"MQA-XXL\", \"points\": [[0.3, 46.5]]},\n        {\"label\": \"MHA-Large\", \"points\": [[0.8, 46]]},\n        {\"label\": \"MHA-XXL\", \"points\": [[1.5, 47.5]]}\n    ],\n    \"summary\": \"The models GQA-XXL and MHA-XXL have higher performance but also higher time per sample compared to MQA-XXL and MHA-Large.\"\n}",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 4
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png",
+    "mode": "guided",
+    "seconds": 3.4,
+    "raw_chars": 364,
+    "raw": "{\"plot_type\": \"discrete\", \"series\": [{\"label\": \"GQA-XXL\", \"points\": [[0.2, 47.5]]}, {\"label\": \"MQA-XXL\", \"points\": [[0.3, 46.5]]}, {\"label\": \"MHA-Large\", \"points\": [[0.8, 46]]}, {\"label\": \"MHA-XXL\", \"points\": [[1.5, 47.5]]}], \"summary\": \"The models GQA-XXL and MHA-XXL have higher performance but take longer to process samples compared to MQA-XXL and MHA-Large.\"}",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 4
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png",
+    "mode": "free",
+    "seconds": 3.6,
+    "raw_chars": 406,
+    "raw": "```json\n{\n    \"plot_type\": \"discrete\",\n    \"series\": [\n        {\"label\": \"Mean\", \"points\": [[54.4, 55.5], [55.6, 55.5]]},\n        {\"label\": \"First\", \"points\": [[54.4, 55.4], [55.6, 55.4]]},\n        {\"label\": \"Random\", \"points\": [[54.4, 55.2], [55.6, 55.2]]}\n    ],\n    \"summary\": \"The plot shows the mean, first, and random values for a given metric, with the mean consistently at the highest value.\"\n}\n```",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 3
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png",
+    "mode": "guided",
+    "seconds": 6.5,
+    "raw_chars": 517,
+    "raw": "{\"plot_type\": \"discrete\", \"series\": [{\"label\": \"Mean\", \"points\": [[54.4, 55.5], [54.6, 55.5], [54.8, 55.5], [55, 55.5], [55.2, 55.5], [55.4, 55.5], [55.6, 55.5]]}, {\"label\": \"First\", \"points\": [[54.4, 55.4], [54.6, 55.4], [54.8, 55.4], [55, 55.4], [55.2, 55.4], [55.4, 55.4], [55.6, 55.4]]}, {\"label\": \"Random\", \"points\": [[54.4, 55.2], [54.6, 55.2], [54.8, 55.2], [55, 55.2], [55.2, 55.2], [55.4, 55.2], [55.6, 55.2]]}], \"summary\": \"The 'Mean' category has the highest value, followed by 'First' and then 'Random'.\"}",
+    "parsed": true,
+    "plot_type": "discrete",
+    "n_points": 3
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png",
+    "mode": "free",
+    "seconds": 3.4,
+    "raw_chars": 389,
+    "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"MHA\", \"points\": [[1, 2.3], [4, 2.3], [8, 2.3], [16, 2.3], [32, 2.3], [64, 2.3]]},\n        {\"label\": \"GQA\", \"points\": [[1, 0.3], [4, 0.3], [8, 0.3], [16, 0.5], [32, 0.7], [64, 2.3]]},\n        {\"label\": \"MQA\", \"points\": [[1, 0.3], [4, 0.3], [8, 0.3], [16, 0.3], [32, 0.3], [64, 0.3]]}\n    ],\n    \"summary\": \"\"\n}\n```",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 3,
+    "synthetic_series": 2
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png",
+    "mode": "guided",
+    "seconds": 5.9,
+    "raw_chars": 333,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"MHA\", \"points\": [[1, 2.3], [4, 2.3], [8, 2.3], [16, 2.3], [32, 2.3], [64, 2.3]]}, {\"label\": \"GQA\", \"points\": [[1, 0.3], [4, 0.3], [8, 0.3], [16, 0.5], [32, 0.7], [64, 2.3]]}, {\"label\": \"MQA\", \"points\": [[1, 0.3], [4, 0.3], [8, 0.3], [16, 0.3], [32, 0.3], [64, 0.3]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 3,
+    "synthetic_series": 2
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png",
+    "mode": "free",
+    "seconds": 4.0,
+    "raw_chars": 356,
+    "raw": "```json\n{\n    \"plot_type\": \"continuous\",\n    \"series\": [\n        {\"label\": \"MHA\", \"points\": [[0, 56.8], [0.04, 57.2], [0.08, 57.4], [0.1, 57.5]]},\n        {\"label\": \"GQA\", \"points\": [[0, 56.8], [0.04, 57.2], [0.08, 57.4], [0.1, 57.5]]},\n        {\"label\": \"MQA\", \"points\": [[0, 54.0], [0.04, 55.5], [0.08, 56.5], [0.1, 57.0]]}\n    ],\n    \"summary\": \"\"\n}\n```",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 3,
+    "synthetic_series": 0
+  },
+  {
+    "figure": "comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png",
+    "mode": "guided",
+    "seconds": 3.4,
+    "raw_chars": 303,
+    "raw": "{\"plot_type\": \"continuous\", \"series\": [{\"label\": \"MHA\", \"points\": [[0, 56.8], [0.04, 57.2], [0.08, 57.4], [0.12, 57.5]]}, {\"label\": \"GQA\", \"points\": [[0, 56.7], [0.04, 57.1], [0.08, 57.3], [0.12, 57.4]]}, {\"label\": \"MQA\", \"points\": [[0, 54.0], [0.04, 55.5], [0.08, 56.5], [0.12, 57.0]]}], \"summary\": \"\"}",
+    "parsed": true,
+    "plot_type": "continuous",
+    "n_series": 3,
+    "synthetic_series": 0
+  }
+]

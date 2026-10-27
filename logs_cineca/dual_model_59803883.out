@@ -1,0 +1,182 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Family: mistral | text: mistral-nemo-12b | vision: pixtral-12b | temperature: 0.3
+[~] Checkpoints: full_analyze_checkpoints/v4_mistral | output: training_data_mistral_v4.jsonl | vision port: 23883
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-e2090460-5b26-6b03-9415-1bbdeb0a9940)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-60e896ab-cf9c-f135-2e4f-3f9f86dafb0b)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: pixtral-12b on GPU 1, port 23883 (--tokenizer-mode mistral --config-format mistral --load-format mistral --max-model-len 16384)
+[+] Vision server ready after 325s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[+] 3 paper(s) found, 0 already in 'training_data_mistral_v4.jsonl', 3 pending.
+
+========== Paper 1/3: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Using 1 pre-cropped figure(s) from 'comparison_figures/1482468_Flux tube in turbulent flow and quantum chromodyna' (--figures-dir).
+[+] Found 1 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/1 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*(-1.0082254) + 5.44075/exp(x0*0.72931945)
+    -> Complexity: 8 | R^2 (fit): 0.9997 | R^2 (holdout): 0.9817
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.42452562))
+    -> Complexity: 4 | R^2 (fit): 0.9071 | R^2 (holdout): 0.9759
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b (first call only, max_model_len=32768)...
+INFO 10-09 15:08:54 __init__.py:207] Automatically detected platform cuda.
+INFO 10-09 15:09:08 config.py:549] This model supports multiple tasks: {'reward', 'score', 'classify', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 10-09 15:09:08 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-09 15:09:09 cuda.py:229] Using Flash Attention backend.
+INFO 10-09 15:09:10 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b...
+INFO 10-09 15:10:12 model_runner.py:1115] Loading model weights took 22.8446 GB
+INFO 10-09 15:10:15 worker.py:267] Memory profiling takes 3.67 seconds
+INFO 10-09 15:10:15 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-09 15:10:15 worker.py:267] model weights take 22.84GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.57GiB; the rest of the memory reserved for KV Cache is 30.56GiB.
+INFO 10-09 15:10:16 executor_base.py:111] # cuda blocks: 12517, # CPU blocks: 1638
+INFO 10-09 15:10:16 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 6.11x
+INFO 10-09 15:10:17 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-09 15:10:35 model_runner.py:1562] Graph capturing finished in 18 secs, took 1.08 GiB
+INFO 10-09 15:10:35 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 23.39 seconds
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+INFO 10-09 15:10:35 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[+] Wrote training example (local, 23029 chars input).
+
+========== Paper 2/3: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Using 5 pre-cropped figure(s) from 'comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe' (--figures-dir).
+[+] Found 5 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[+] Success: detected 'discrete' plot with 9 data points.
+[!] Discarding the data points of 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png: all 9 points are identical (likely vision-model placeholders).
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((0.56719893 - x0)*0.60828567) - 0.579799
+    -> Complexity: 8 | R^2 (fit): 0.9952 | R^2 (holdout): 0.9964
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'Poisson baseline': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1.5041794*x0 + 1.5041794*log(3.4786203*x0*(2*x0 - 2.4828897) + 5.6545615/x0)
+    -> Complexity: 18 | R^2 (fit): 0.9893 | R^2 (holdout): 0.8361
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[+] Success: detected 'discrete' plot with 5 data points.
+
+[+] Enriched paper content with analysis of 5/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'training_data_mistral_v4.rejected.jsonl').
+[~] Keeping checkpoint for 'comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/3: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Using 4 pre-cropped figure(s) from 'comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M' (--figures-dir).
+[+] Found 4 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 2/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[+] Success: detected 'discrete' plot with 3 data points.
+[!] Discarding the data points of 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png: all 3 points are identical (likely vision-model placeholders).
+
+--- Figure 3/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.0006269275*(x0 - 8.944197) + 0.29653087
+    -> Complexity: 9 | Score: 0.3224 | R^2: 0.9983
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'MQA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 56.802265 - (-7.352282)*x0/exp(x0 + x0)
+    -> Complexity: 10 | Score: 0.8323 | R^2: 0.9997
+    -> [!] Only 3 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(2*x0 + 0.01119946) + 58.726135
+    -> Complexity: 8 | Score: 3.3343 | R^2: 0.9966
+    -> [!] Only 3 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 4/4 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'training_data_mistral_v4.rejected.jsonl').
+[~] Keeping checkpoint for 'comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+[+] Done. 1 training example(s) appended to 'training_data_mistral_v4.jsonl'.
+[~] Stopping vision server (process group 3283274)...

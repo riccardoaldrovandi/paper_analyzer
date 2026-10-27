@@ -1,0 +1,57 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+index, name, memory.total [MiB]
+0, NVIDIA A100-SXM-64GB, 65536 MiB
+[+] torch 2.5.1+cu121, CUDA works
+[~] 1757 claims, 0 already scored, 1757 to do
+[~] Loading judge bespoke-minicheck-7b (cache: /leonardo_work/IscrC_MultLLM/hf_nli)
+INFO 10-21 17:39:49 __init__.py:207] Automatically detected platform cuda.
+INFO 10-21 17:39:50 config.py:208] Replacing legacy 'type' key with 'rope_type'
+INFO 10-21 17:40:07 config.py:549] This model supports multiple tasks: {'classify', 'reward', 'score', 'generate', 'embed'}. Defaulting to 'generate'.
+INFO 10-21 17:40:07 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='bespokelabs/Bespoke-MiniCheck-7B', speculative_config=None, tokenizer='bespokelabs/Bespoke-MiniCheck-7B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir='/leonardo_work/IscrC_MultLLM/hf_nli', load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=2024, served_model_name=bespokelabs/Bespoke-MiniCheck-7B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-21 17:40:10 cuda.py:229] Using Flash Attention backend.
+INFO 10-21 17:40:11 model_runner.py:1110] Starting to load model bespokelabs/Bespoke-MiniCheck-7B...
+INFO 10-21 17:40:13 weight_utils.py:254] Using model weights format ['*.safetensors', '*.bin', '*.pt']
+INFO 10-21 17:44:43 model_runner.py:1115] Loading model weights took 14.4302 GB
+INFO 10-21 17:44:50 worker.py:267] Memory profiling takes 5.92 seconds
+INFO 10-21 17:44:50 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-21 17:44:50 worker.py:267] model weights take 14.43GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.63GiB; the rest of the memory reserved for KV Cache is 38.91GiB.
+INFO 10-21 17:44:50 executor_base.py:111] # cuda blocks: 19923, # CPU blocks: 2048
+INFO 10-21 17:44:50 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 9.73x
+INFO 10-21 17:44:51 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-21 17:45:05 model_runner.py:1562] Graph capturing finished in 14 secs, took 1.11 GiB
+INFO 10-21 17:45:05 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 21.57 seconds
+[+] Loaded in 391s
+[~] qwen38_gold_ctx128k_s0: 64/1757 claims, 68s
+[~] qwen38_gold_ctx128k_s0: 128/1757 claims, 144s
+[~] qwen38_gold_ctx128k_s0: 161/1757 claims, 166s
+[~] qwen38_gold_ctx128k_s1: 225/1757 claims, 246s
+[~] qwen38_gold_ctx128k_s1: 289/1757 claims, 316s
+[~] qwen38_gold_ctx128k_s1: 299/1757 claims, 325s
+[~] qwen38_gold_ctx128k_s2: 363/1757 claims, 390s
+[~] qwen38_gold_ctx128k_s2: 427/1757 claims, 451s
+[~] qwen38_gold_ctx32k_s0: 491/1757 claims, 534s
+[~] qwen38_gold_ctx32k_s0: 520/1757 claims, 556s
+[~] qwen38_gold_ctx32k_s1: 584/1757 claims, 637s
+[~] qwen38_gold_ctx32k_s1: 637/1757 claims, 683s
+[~] qwen38_gold_ctx32k_s2: 701/1757 claims, 741s
+[~] qwen38_gold_ctx32k_s2: 748/1757 claims, 786s
+[~] qwen38_gold_think_s0: 812/1757 claims, 859s
+[~] qwen38_gold_think_s0: 876/1757 claims, 942s
+[~] qwen38_gold_think_s0: 940/1757 claims, 1005s
+[~] qwen38_gold_think_s0: 978/1757 claims, 1036s
+[~] qwen38_gold_think_s1: 1042/1757 claims, 1102s
+[~] qwen38_gold_think_s1: 1106/1757 claims, 1185s
+[~] qwen38_gold_think_s1: 1170/1757 claims, 1240s
+[~] qwen38_gold_think_s1: 1200/1757 claims, 1266s
+[~] qwen38_gold_think_s2: 1264/1757 claims, 1331s
+[~] qwen38_gold_think_s2: 1328/1757 claims, 1415s
+[~] qwen38_gold_think_s2: 1392/1757 claims, 1476s
+[~] qwen38_gold_think_s2: 1420/1757 claims, 1499s
+[~] qwen_baseline_gold_s0: 1484/1757 claims, 1572s
+[~] qwen_baseline_gold_s0: 1535/1757 claims, 1619s
+[~] qwen_baseline_gold_s1: 1599/1757 claims, 1692s
+[~] qwen_baseline_gold_s1: 1645/1757 claims, 1733s
+[~] qwen_baseline_gold_s2: 1709/1757 claims, 1807s
+[~] qwen_baseline_gold_s2: 1757/1757 claims, 1853s
+[+] Done: 1757 claims in 1853s -> logs/groundedness/scores.jsonl

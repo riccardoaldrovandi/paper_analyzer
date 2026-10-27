@@ -1,0 +1,556 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Family: mistral | text: mistral-nemo-12b | vision: pixtral-12b | temperature: 0.3
+[~] Checkpoints: full_analyze_checkpoints/pixtral-12b | output: training_data_mistral.jsonl | vision port: 27082
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-5376ffbb-4120-64ff-6860-cf000efd046e)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-dd301529-5e24-59e3-e497-54816368a40e)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: pixtral-12b on GPU 1, port 27082 (--tokenizer-mode mistral --config-format mistral --load-format mistral --max-model-len 16384)
+[+] Vision server ready after 285s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[+] 3 paper(s) found, 0 already in 'training_data_mistral.jsonl', 3 pending.
+
+========== Paper 1/3: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[~] Visual page analysis 5 via Gemini Vision...
+[+] Found valid chart(s) at page 5. Cropping individual plots...
+[+] Found 2 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/2 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page4_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page4_full_render.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + 1.0
+    -> Complexity: 3 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+
+--- Figure 2/2 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_full_render.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(2.3655894 - 0.3649524*x0) - 4.225428
+    -> Complexity: 8 | R^2 (fit): 0.9932 | R^2 (holdout): 0.9898
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-2.8990476))
+    -> Complexity: 6 | R^2 (fit): 0.9891 | R^2 (holdout): 0.9853
+
+[+] Enriched paper content with analysis of 2/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b (first call only, max_model_len=32768)...
+INFO 10-08 16:53:06 __init__.py:207] Automatically detected platform cuda.
+INFO 10-08 16:53:17 config.py:549] This model supports multiple tasks: {'reward', 'generate', 'embed', 'score', 'classify'}. Defaulting to 'generate'.
+INFO 10-08 16:53:17 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-08 16:53:20 cuda.py:229] Using Flash Attention backend.
+INFO 10-08 16:53:22 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b...
+INFO 10-08 16:54:23 model_runner.py:1115] Loading model weights took 22.8446 GB
+INFO 10-08 16:54:31 worker.py:267] Memory profiling takes 8.43 seconds
+INFO 10-08 16:54:31 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-08 16:54:31 worker.py:267] model weights take 22.84GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.57GiB; the rest of the memory reserved for KV Cache is 30.56GiB.
+INFO 10-08 16:54:32 executor_base.py:111] # cuda blocks: 12517, # CPU blocks: 1638
+INFO 10-08 16:54:32 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 6.11x
+INFO 10-08 16:54:35 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-08 16:54:53 model_runner.py:1562] Graph capturing finished in 18 secs, took 1.08 GiB
+INFO 10-08 16:54:53 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 30.60 seconds
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+INFO 10-08 16:54:54 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[!] Skipping local: empty or invalid JSON output.
+[~] Keeping checkpoint for 'comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/3: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[~] Visual page analysis 5 via Gemini Vision...
+[+] Found valid chart(s) at page 5. Cropping individual plots...
+[~] Visual page analysis 6 via Gemini Vision...
+[+] Found valid chart(s) at page 6. Cropping individual plots...
+[~] Visual page analysis 8 via Gemini Vision...
+[+] Found valid chart(s) at page 8. Cropping individual plots...
+[~] Visual page analysis 9 via Gemini Vision...
+[+] Found valid chart(s) at page 9. Cropping individual plots...
+[~] Visual page analysis 10 via Gemini Vision...
+[+] Found valid chart(s) at page 10. Cropping individual plots...
+[~] Visual page analysis 11 via Gemini Vision...
+[+] Found valid chart(s) at page 11. Cropping individual plots...
+[+] Found 7 figure(s) to analyze.
+[!] Capping analysis to the first 5 figure(s) out of 7 (--max-figures).
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_full_render.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.32830640000000E-10
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1.16415320000000E-10
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 4.10622650000000E-11
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.33194800000000E-10
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_full_render.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 3.39946360000000E-13
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -3.96003230000000E-11
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {
+            "label": "HRG GC",
+            "points": [
+                [5.0, 0.999],
+                [6.0, 0.998],
+                [7.0, 0.997],
+                [8.0, 0.996],
+                [9.0, 0.995],
+                [10.0, 0.994],
+                [11.0, 0.993],
+                [12.0, 0.992],
+                [13.0, 0.991],
+                [14.0, 0.990],
+                [15.0, 0.989],
+                [16.0, 0.988],
+                [17.0, 0.987],
+                [18.0, 0.986],
+                [19.0, 0.985],
+                [20.0, 0.984],
+                [21.0, 0.983],
+                [22.0, 0.982],
+                [23.0, 0.981],
+                [24.0, 0.980],
+                [25.0, 0.979],
+                [26.0, 0.978],
+                [27.0, 0.977],
+                [28.0, 0.976],
+                [29.0, 0.975],
+                [30.0, 0.974],
+                [31.0, 0.973],
+                [32.0, 0.972],
+                [33.0, 0.971],
+                [34.0, 0.970],
+                [35.0, 0.969],
+                [36.0, 0.968],
+                [37.0, 0.967],
+                [38.0, 0.966],
+                [39.0, 0.965],
+                [40.0, 0.964],
+                [41.0, 0.963],
+                [42.0, 0.962],
+                [43.0, 0.961],
+                [44.0, 0.960],
+                [45.0, 0.959],
+                [46.0, 0.958],
+                [47.0, 0.957],
+                [48.0, 0.956],
+                [49.0, 0.955],
+                [50.0, 0.954],
+                [51.0, 0.953],
+                [52.0, 0.952],
+                [53.0, 0.951],
+                [54.0, 0.950],
+                [55.0, 0.949],
+                [56.0, 0.948],
+                [57.0, 0.947],
+                [58.0, 0.946],
+                [59.0, 0.945],
+                [60.0, 0.944],
+                [61.0, 0.943],
+                [62.0, 0.942],
+                [63.0, 0.941],
+                [64.0, 0.940],
+                [65.0, 0.939],
+                [66.0, 0.938],
+                [67.0, 0.937],
+                [68.0, 0.936],
+                [69.0, 0.935],
+                [70.0, 0.934],
+                [71.0, 0.933],
+                [72.0, 0.932],
+                [73.0, 0.931],
+                [74.0, 0.930],
+                [75.0, 0.929],
+                [76.0, 0.928],
+                [77.0, 0.927],
+                [78.0, 0.926],
+                [79.0, 0.925],
+                [80.0, 0.924],
+                [81.0, 0.923],
+                [82.0, 0.922],
+                [83.0, 0.921],
+                [84.0, 0.920],
+                [85.0, 0.919],
+                [86.0, 0.918],
+                [87.0, 0.917],
+                [88.0, 0.916],
+                [89.0, 0.915],
+                [90.0, 0.914],
+                [91.0, 0.913],
+                [92.0, 0.912],
+                [93.0, 0.911],
+                [94.0, 0.910],
+                [95.0, 0.909],
+                [96.0, 0.908],
+                [97.0, 0.907],
+                [98.0, 0.906],
+                [99.0, 0.905],
+                [100.0, 0.904],
+                [101.0, 0.903],
+                [102.0, 0.902],
+                [103.0, 0.901],
+                [104.0, 0.900],
+                [105.0, 0.899],
+                [106.0, 0.898],
+                [107.0, 0.897],
+                [108.0, 0.896],
+                [109.0, 0.895],
+                [110.0, 0.894],
+                [111.0, 0.893],
+                [112.0, 0.892],
+                [113.0, 0.891],
+                [114.0, 0.890],
+                [115.0, 0.889],
+                [116.0, 0.888],
+                [117.0, 0.887],
+                [118.0, 0.886],
+                [119.0, 0.885],
+                [120.0, 0.884],
+                [121.0, 0.883],
+                [122.0, 0.882],
+                [123.0, 0.881],
+                [124.0, 0.880],
+                [125.0, 0.879],
+                [126.0, 0.878],
+                [127.0, 0.877],
+                [128.0, 0.876],
+                [129.0, 0.875],
+                [130.0, 0.874],
+                [131.0, 0.873],
+                [132.0, 0.872],
+                [133.0, 0.871],
+                [134.0, 0.870],
+                [135.0, 0.869],
+                [136.0, 0.868],
+                [137.0, 0.867],
+                [138.0, 0.866],
+                [139.0, 0.865],
+                [140.0, 0.864],
+                [141.0, 0.863],
+                [142.0, 0.862],
+                [143.0, 0.861],
+                [144.0, 0.860],
+                [145.0, 0.859],
+                [146.0, 0.858],
+                [147.0, 0.857],
+                [148.0, 0.856],
+                [149.0, 0.855],
+                [150.0, 0.854],
+                [151.0, 0.853],
+                [152.0, 0.852],
+                [153.0, 0.851],
+                [154.0, 0.850],
+                [155.0, 0.849],
+                [156.0, 0.848],
+                [157.0, 0.847],
+                [158.0, 0.846],
+                [159.0, 0.845],
+                [160.0, 0.844],
+                [161.0, 0.843],
+                [162.0, 0.842],
+                [163.0, 0.841],
+                [164.0, 0.840],
+                [165.0, 0.839],
+                [166.0, 0.838],
+                [167.0, 0.837],
+                [168.0, 0.836],
+                [169.0, 0.835],
+                [170.0, 0.834],
+                [171.0, 0.833],
+                [172.0, 0.832],
+                [173.0, 0.831],
+                [174.0, 0.830],
+                [175.0, 0.829],
+                [176.0, 0.828],
+                [177.0, 0.827],
+                [178.0, 0.826],
+                [179.0, 0.825],
+                [180.0, 0.824],
+                [181.0, 0.823],
+                [182.0, 0.822],
+                [183.0, 0.821],
+                [184.0, 0.820],
+                [185.0, 0.819],
+                [186.0, 0.818],
+                [187.0, 0.817],
+                [188.0, 0.816],
+                [189.0, 0.815],
+                [190.0, 0.814],
+                [191.0, 0.813],
+                [192.0, 0.812],
+                [193.0, 0.811],
+                [194.0, 0.810],
+                [195.0, 0.809],
+                [196.0, 0.808],
+                [197.0, 0.807],
+                [198.0, 0.806],
+                [199.0, 0.805],
+                [200.0, 0.804]
+            ]
+        },
+        {
+            "label": "HRG EV",
+            "points": [
+                [5.0, 0.999],
+                [6.0, 0.998],
+                [7.0, 0.997],
+                [8.0, 0.996],
+                [9.0, 0.995],
+                [10.0, 0.994],
+                [11.0, 0.993],
+                [12.0, 0.992],
+                [13.0, 0.991],
+                [14.0, 0.990],
+                [15.0, 0.989],
+                [16.0, 0.988],
+                [17.0, 0.987],
+                [18.0, 0.986],
+                [19.0, 0.985],
+                [20.0, 0.984],
+                [21.0, 0.983],
+                [22.0, 0.982],
+                [23.0, 0.981],
+                [24.0, 0.980],
+                [25.0, 0.979],
+                [26.0, 0.978],
+                [27.0, 0.977],
+                [28.0, 0.976],
+                [29.0, 0.975],
+                [30.0, 0.974],
+                [31.0, 0.973],
+                [32.0, 0.972],
+                [33.0, 0.971],
+                [34.0, 0.970],
+                [35.0, 0.969],
+                [36.0, 0.968],
+                [37.0, 0.967],
+                [38.0, 0.966],
+                [39.0, 0.965],
+                [40.0, 0.964],
+                [41.0, 0.963],
+                [42.0, 0.962],
+                [43.0, 0.961],
+                [44.0, 0.960],
+                [45.0, 0.959],
+                [46.0, 0.958],
+                [47.0, 0.957],
+                [48.0, 0.956],
+                [49.0, 0.955],
+                [50.0, 0.954],
+                [51.0, 0.953],
+                [52.0, 0.952],
+                [53.0, 0.951],
+                [54.0, 0.950],
+                [55.0, 0.949],
+                [56.0, 0.948],
+                [57.0, 0.947],
+                [58.0, 0.946],
+                [59.0, 0.945],
+                [60.0, 0.944],
+                [61.0, 0.943],
+                [62.0, 0.942],
+                [63.0, 0.941],
+                [64.0, 0.940],
+                [65.0, 0.939],
+                [66.0, 0.938],
+                [67.0, 0.937],
+                [68.0, 0.936],
+                [69.0, 0.935],
+                [70.0, 0.934],
+                [71.0, 0.933],
+                [72.0, 0.932],
+                [73.0, 0.931],
+                [74.0, 0.930],
+                [75.0, 0.929],
+                [76.0, 0.928],
+                [77.0, 0.927],
+                [78.0, 0.926],
+                [79.0, 0.925],
+                [80.0, 0.924],
+                [81.0, 0.923],
+                [82.0, 0.922],
+                [83.0, 0.921],
+                [84.0, 0.920],
+                [85.0, 0.919],
+                [86.0, 0.918],
+                [87.0, 0.917],
+                [88.0, 0.916],
+                [89.0, 0.915],
+                [90.0, 0.914],
+                [91
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png: could not extract data from this image.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_full_render.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_full_render.png
+[+] Success: detected 'discrete' plot with 9 data points.
+
+[+] Enriched paper content with analysis of 4/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+[!] Skipping local: empty or invalid JSON output.
+[~] Keeping checkpoint for 'comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/3: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 1 via Gemini Vision...
+[+] Found valid chart(s) at page 1. Cropping individual plots...
+[~] Visual page analysis 2 via Gemini Vision...
+[+] Found valid chart(s) at page 2. Cropping individual plots...
+[~] Visual page analysis 3 via Gemini Vision...
+[+] Found valid chart(s) at page 3. Cropping individual plots...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[+] Found 6 figure(s) to analyze.
+[!] Capping analysis to the first 5 figure(s) out of 6 (--max-figures).
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_raster1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_raster1.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_full_render.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_raster1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_raster1.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_full_render.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_full_render.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_full_render.png
+[+] Success: detected 'discrete' plot with 6 data points.
+
+[+] Enriched paper content with analysis of 5/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3)...
+[!] Skipping local: empty or invalid JSON output.
+[~] Keeping checkpoint for 'comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+[+] Done. 0 training example(s) appended to 'training_data_mistral.jsonl'.
+[~] Stopping vision server (process group 2346480)...

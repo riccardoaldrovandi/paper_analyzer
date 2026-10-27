@@ -1,0 +1,87 @@
+[~] Probing vision model: qwen3.8-27b
+
+===== flux_tube.png =====
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[digitization] 20.3s, type=continuous, error=None
+   curve '1': 26 pts, x [0.0, 5.0], y [0.75, 5.9]
+   curve '2': 26 pts, x [0.0, 5.0], y [0.04, 0.9]
+
+ Q: What are the minimum and maximum values shown on the x axis and on the y axis?
+   expected: x: 0 to ~5 (ticks 2, 4); y: 0 to 6
+   model:    Based on the provided image:
+
+*   **X-axis:** The minimum value shown is **0** (at the origin) and the maximum value shown is **4** (the last labeled tick mark, though the axis extends slightly further).
+*   **Y-axis:** The minimum value shown is **0** and the maximum value shown is **6**.
+
+ Q: How many curves are drawn in this plot, and how is each one labeled?
+   expected: 2 curves, labeled '1' (upper) and '2' (lower)
+   model:    There are two curves drawn in the plot. They are labeled with the numbers **1** and **2**, indicated by arrows pointing to each respective curve.
+
+ Q: What is the y value of the upper curve at x = 2?
+   expected: ~1.55
+   model:    1.5
+
+ Q: What value does the upper curve approach at the right end of the plot?
+   expected: ~0.6
+   model:    0.5
+
+===== gqa_bars.png =====
+[+] Success: detected 'discrete' plot with 3 data points.
+[digitization] 4.9s, type=discrete, error=None
+   point ['Mean', 55.55, 1.0]
+   point ['First', 55.42, 2.0]
+   point ['Random', 55.22, 3.0]
+
+ Q: List every bar label in this chart together with its numerical value.
+   expected: Mean ~55.55, First ~55.45, Random ~55.23
+   model:    ```json
+[
+  {"label": "Mean", "value": 55.55},
+  {"label": "First", "value": 55.42},
+  {"label": "Random", "value": 55.22}
+]
+```
+
+ Q: What is the range of the numerical axis?
+   expected: ~54.3 to ~55.7 (ticks 54.4 ... 55.6)
+   model:    54.4 to 55.6
+
+===== net_proton.png =====
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[digitization] 23.4s, type=continuous, error=None
+   curve 'HRG GCE': 11 pts, x [6.0, 200.0], y [0.15, 0.99]
+   curve 'HRG CE': 12 pts, x [8.0, 200.0], y [0.12, 0.82]
+   curve 'HRG EV (r=0.5fm)': 12 pts, x [8.0, 200.0], y [0.15, 0.9]
+   curve 'UrQMD 0%-5%': 12 pts, x [8.0, 200.0], y [0.28, 0.85]
+   curve 'STAR 0%-5%': 9 pts, x [8.0, 200.0], y [0.12, 0.8]
+   curve 'STAR 70%-80%': 9 pts, x [8.0, 200.0], y [0.1, 0.92]
+
+ Q: How many panels does this figure have, and what is the y-axis label of the left panel?
+   expected: 2 panels; 'Net-proton High Moments'
+   model:    The figure has 2 panels. The y-axis label of the left panel is "Net-proton High Moments".
+
+ Q: Is the x axis linear or logarithmic? What is its label?
+   expected: logarithmic; 'Collision Energy sqrt(s_NN) (GeV)'
+   model:    The x axis is logarithmic. Its label is "Collision Energy $\sqrt{s_{NN}}$ (GeV)".
+
+ Q: In the left panel, what is the y value of the red circle at the highest collision energy (200 GeV)?
+   expected: ~0.12
+   model:    Based on the left panel of the provided image:
+
+1.  Locate the x-axis value for the highest collision energy, which is **200** GeV.
+2.  Find the red circle data point at this x-value.
+3.  Trace horizontally to the left to read the corresponding y-axis value.
+4.  The point lies slightly above the 0.0 line and well below the 0.2 line. It appears to be at approximately **0.1**.
+
+Answer: **0.1**
+
+ Q: List the legend entries of the left panel.
+   expected: UrQMD 0%-5%, HRG GCE, HRG CE, HRG EV (r=0.5fm)
+   model:    The legend entries in the left panel are:
+
+*   UrQMD 0%-5%
+*   HRG GCE
+*   HRG CE
+*   HRG EV (r=0.5fm)
+
+[+] Full report (incl. raw outputs) saved to logs/probe_qwen3.8-27b_61494015.json

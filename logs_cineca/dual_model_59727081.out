@@ -1,0 +1,217 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Family: llama | text: llama3.1-8b | vision: llava-next-llama3-8b | temperature: 0.2
+[~] Checkpoints: full_analyze_checkpoints/llava-next-llama3-8b | output: training_data_llama.jsonl | vision port: 27081
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-7c8d4814-d759-f38a-a990-893502841464)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-2d899e2a-8e36-5e80-b1ce-b5585cf25405)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: llava-next-llama3-8b on GPU 1, port 27081 (--max-model-len 8192)
+[+] Vision server ready after 285s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[juliapkg] Waiting for lock on /leonardo_work/IscrC_MultLLM/venv_vllm/julia_env/lock.pid to be freed. This normally means that another process is resolving. If you know that no other process is resolving, delete this file to proceed.
+[+] 3 paper(s) found, 0 already in 'training_data_llama.jsonl', 3 pending.
+
+========== Paper 1/3: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[~] Visual page analysis 5 via Gemini Vision...
+[+] Found valid chart(s) at page 5. Cropping individual plots...
+[+] Found 2 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/2 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page4_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page4_full_render.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "Curve 1", "points": [[0.0, 0.0], [0.1, 0.1], [0.2, 0.2], ...]},
+        {"label": "Curve 2", "points": [[0.0, 0.0], [0.1, 0.1], [0.2, 0.2], ...]},
+        {"label": "Curve 3", "points": [[0.0, 0.0], [0.1, 0.1], [0.2, 0.2], ...]},
+        {"label": "Curve 4", "points": [[0.0, 0.0], [0.1, 0.1], [0.2, 0.2], ...]}
+    ],
+    "summary": "For continuous plots only: a brief 1-sentence analytical summary of what the points show (e.g. 'Model X has higher accuracy but is slower...'). Leave empty for continuous plots."
+}
+[!] Skipping 1482468_Flux tube in turbulent flow and quantum chromodyna_page4_full_render.png: could not extract data from this image.
+
+--- Figure 2/2 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_full_render.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.5
+    -> Complexity: 3 | Score: inf | R^2: 1.0000
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.5
+    -> Complexity: 3 | Score: inf | R^2: 1.0000
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 1/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/llama3.1-8b (first call only, max_model_len=32768)...
+INFO 10-08 16:53:07 __init__.py:207] Automatically detected platform cuda.
+INFO 10-08 16:53:22 config.py:549] This model supports multiple tasks: {'reward', 'embed', 'classify', 'score', 'generate'}. Defaulting to 'generate'.
+INFO 10-08 16:53:22 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/llama3.1-8b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/llama3.1-8b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/llama3.1-8b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-08 16:53:24 cuda.py:229] Using Flash Attention backend.
+INFO 10-08 16:53:25 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/llama3.1-8b...
+INFO 10-08 16:54:09 model_runner.py:1115] Loading model weights took 14.9888 GB
+INFO 10-08 16:54:15 worker.py:267] Memory profiling takes 5.98 seconds
+INFO 10-08 16:54:15 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-08 16:54:15 worker.py:267] model weights take 14.99GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.38GiB; the rest of the memory reserved for KV Cache is 38.60GiB.
+INFO 10-08 16:54:16 executor_base.py:111] # cuda blocks: 19765, # CPU blocks: 2048
+INFO 10-08 16:54:16 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 9.65x
+INFO 10-08 16:54:19 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-08 16:54:38 model_runner.py:1562] Graph capturing finished in 19 secs, took 0.89 GiB
+INFO 10-08 16:54:38 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 28.79 seconds
+[~] Generating with local llama3.1-8b (local/vLLM) (temperature=0.2)...
+INFO 10-08 16:54:38 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[!] Skipping local: empty or invalid JSON output.
+[~] Keeping checkpoint for 'comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/3: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[~] Visual page analysis 5 via Gemini Vision...
+[+] Found valid chart(s) at page 5. Cropping individual plots...
+[~] Visual page analysis 6 via Gemini Vision...
+[+] Found valid chart(s) at page 6. Cropping individual plots...
+[~] Visual page analysis 8 via Gemini Vision...
+[+] Found valid chart(s) at page 8. Cropping individual plots...
+[~] Visual page analysis 9 via Gemini Vision...
+[+] Found valid chart(s) at page 9. Cropping individual plots...
+[~] Visual page analysis 10 via Gemini Vision...
+[+] Found valid chart(s) at page 10. Cropping individual plots...
+[~] Visual page analysis 11 via Gemini Vision...
+[+] Found valid chart(s) at page 11. Cropping individual plots...
+[+] Found 7 figure(s) to analyze.
+[!] Capping analysis to the first 5 figure(s) out of 7 (--max-figures).
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_full_render.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "discrete",
+    "series": [
+        {"label": "Au-Au Collisions", "points": [[0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_full_render.png: could not extract data from this image.
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_full_render.png
+[-] llava-next-llama3-8b (local) did not find any data points in the graph.
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_full_render.png: could not extract data from this image.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "discrete",
+    "series": [
+        {"label": "HRG/EV", "points": [[0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000, 0.000], [0.000
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_full_render.png: could not extract data from this image.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_full_render.png
+[+] Success: detected 'discrete' plot with 26 data points.
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_full_render.png
+[+] Success: detected 'discrete' plot with 6 data points.
+
+[+] Enriched paper content with analysis of 2/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local llama3.1-8b (local/vLLM) (temperature=0.2)...
+[+] Wrote training example (local, 60320 chars input).
+
+========== Paper 3/3: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Extracting figures...
+[~] Scanning PDF and applying smart filtering & cropping to charts...
+[~] Visual page analysis 1 via Gemini Vision...
+[+] Found valid chart(s) at page 1. Cropping individual plots...
+[~] Visual page analysis 2 via Gemini Vision...
+[+] Found valid chart(s) at page 2. Cropping individual plots...
+[~] Visual page analysis 3 via Gemini Vision...
+[+] Found valid chart(s) at page 3. Cropping individual plots...
+[~] Visual page analysis 4 via Gemini Vision...
+[+] Found valid chart(s) at page 4. Cropping individual plots...
+[+] Found 6 figure(s) to analyze.
+[!] Capping analysis to the first 5 figure(s) out of 6 (--max-figures).
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_raster1.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_raster1.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_full_render.png
+[-] Error during local Vision call: too many indices for array: array is 1-dimensional, but 2 were indexed
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page1_full_render.png: could not extract data from this image.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_raster1.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_raster1.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_full_render.png
+[-] Error during local Vision call: too many indices for array: array is 1-dimensional, but 2 were indexed
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page2_full_render.png: could not extract data from this image.
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_full_render.png
+[~] Computer vision analysis in progress (local llava-next-llama3-8b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_full_render.png
+[-] Error during local Vision call: too many indices for array: array is 1-dimensional, but 2 were indexed
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_full_render.png: could not extract data from this image.
+
+[+] Enriched paper content with analysis of 2/5 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local llama3.1-8b (local/vLLM) (temperature=0.2)...
+[+] Wrote training example (local, 24789 chars input).
+
+[+] Done. 2 training example(s) appended to 'training_data_llama.jsonl'.
+[~] Stopping vision server (process group 1809990)...

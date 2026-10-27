@@ -1,0 +1,1645 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Seeded full_analyze_checkpoints/qwen_gold_s1 with 10 figure checkpoint(s) from full_analyze_checkpoints/qwen_gold
+[~] Family: qwen | text: qwen2.5-14b | vision: qwen2.5-vl-7b | temperature: 0.2 | vision guided JSON: 1
+[~] Checkpoints: full_analyze_checkpoints/qwen_gold_s1 | output: qwen_baseline_gold_s1.jsonl | vision port: 29081
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-1affff6d-2eee-0efc-8dae-72de0daa58e4)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-a06a6754-d141-46a8-b260-5cff8fab63d6)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: qwen2.5-vl-7b on GPU 1, port 29081 (--max-model-len 8192)
+[+] Vision server ready after 295s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[+] 41 paper(s) found, 0 already in 'qwen_baseline_gold_s1.jsonl', 41 pending.
+
+========== Paper 1/41: 1321735_Topological Strings from Quantum Mechanics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1321735_Topological Strings from Quantum Mechanics.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1321735_Topological Strings from Quantum Mechanics' (--figures-dir).
+[!] No figures found in 'gold_figures/1321735_Topological Strings from Quantum Mechanics': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/qwen2.5-14b (first call only, max_model_len=32768)...
+INFO 10-20 02:00:15 __init__.py:207] Automatically detected platform cuda.
+INFO 10-20 02:00:26 config.py:549] This model supports multiple tasks: {'generate', 'score', 'embed', 'classify', 'reward'}. Defaulting to 'generate'.
+INFO 10-20 02:00:26 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/qwen2.5-14b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-20 02:00:28 cuda.py:229] Using Flash Attention backend.
+INFO 10-20 02:00:28 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/qwen2.5-14b...
+INFO 10-20 02:01:46 model_runner.py:1115] Loading model weights took 27.5681 GB
+INFO 10-20 02:01:49 worker.py:267] Memory profiling takes 3.70 seconds
+INFO 10-20 02:01:49 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-20 02:01:49 worker.py:267] model weights take 27.57GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.79GiB; the rest of the memory reserved for KV Cache is 25.62GiB.
+INFO 10-20 02:01:50 executor_base.py:111] # cuda blocks: 8744, # CPU blocks: 1365
+INFO 10-20 02:01:50 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 4.27x
+INFO 10-20 02:01:51 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-20 02:02:08 model_runner.py:1562] Graph capturing finished in 17 secs, took 1.28 GiB
+INFO 10-20 02:02:08 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 22.76 seconds
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (38888 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+INFO 10-20 02:02:09 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[+] Wrote training example (local, 82732 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1321735_Topological Strings from Quantum Mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/41: 1377752_New parton distribution functions from a global an.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1377752_New parton distribution functions from a global an.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1377752_New parton distribution functions from a global an' (--figures-dir).
+[!] No figures found in 'gold_figures/1377752_New parton distribution functions from a global an': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (65235 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 75254 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1377752_New parton distribution functions from a global an.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/41: 1450053_Equilibration, thermalisation, and the emergence o.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1450053_Equilibration, thermalisation, and the emergence o.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1450053_Equilibration, thermalisation, and the emergence o' (--figures-dir).
+[!] No figures found in 'gold_figures/1450053_Equilibration, thermalisation, and the emergence o': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (228648 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 84823 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1450053_Equilibration, thermalisation, and the emergence o.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 4/41: 1472091_Calculation of the axion mass based on high-temper.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1472091_Calculation of the axion mass based on high-temper.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1472091_Calculation of the axion mass based on high-temper' (--figures-dir).
+[!] No figures found in 'gold_figures/1472091_Calculation of the axion mass based on high-temper': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (64239 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 83245 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1472091_Calculation of the axion mass based on high-temper.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 5/41: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf
+
+[2/3] Using 2 pre-cropped figure(s) from 'gold_figures/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha' (--figures-dir).
+[+] Found 2 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/2 ---
+
+[~] Analyzing figure: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_1_fig1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_1_fig1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 2/2 ---
+
+[~] Analyzing figure: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_2_fig2.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_2_fig2.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -7.731132*x0 + log(x0) + 6.049795
+    -> Complexity: 10 | Score: 0.9803 | R^2: 0.9725
+    -> [!] Only 4 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.913955290227 - 0.787437*log(x0)
+    -> Complexity: 6 | Score: 0.5557 | R^2: 0.9787
+    -> [!] Only 4 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 2/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 39716 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 6/41: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Using 1 pre-cropped figure(s) from 'gold_figures/1482468_Flux tube in turbulent flow and quantum chromodyna' (--figures-dir).
+[+] Found 1 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/1 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_1_fig1.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_1_fig1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*0.22196814 + 13.516833/(x0*x0 + 2.1762967)
+    -> Complexity: 9 | Score: 1.3717 | R^2: 0.9999
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(1.435817/(0.168300647028312*x0 + 0.63701046))
+    -> Complexity: 10 | Score: 0.2949 | R^2: 0.9949
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 23115 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 7/41: 1509719_From quantum chaos and eigenstate thermalization t.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1509719_From quantum chaos and eigenstate thermalization t.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1509719_From quantum chaos and eigenstate thermalization t' (--figures-dir).
+[!] No figures found in 'gold_figures/1509719_From quantum chaos and eigenstate thermalization t': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (300972 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 87794 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1509719_From quantum chaos and eigenstate thermalization t.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 8/41: 1519859_Out-of-time-order correlators in quantum mechanics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf
+
+[2/3] Using 18 pre-cropped figure(s) from 'gold_figures/1519859_Out-of-time-order correlators in quantum mechanics' (--figures-dir).
+[+] Found 18 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_1_fig3a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_1_fig3a.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[!] Skipping curve 'n = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 10': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 2/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_2_fig3b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_2_fig3b.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[!] Skipping curve 'T = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 400': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 3/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page11_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page11_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 6 data points.
+
+--- Figure 4/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page12_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page12_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[!] Skipping curve 'E_n': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 5/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page13_crop_1_fig7.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page13_crop_1_fig7.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[!] Skipping curve 'n = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 2': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 30': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 45': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 6/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_1_fig8_a_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_1_fig8_a_.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[!] Skipping curve 'T = 400': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 20': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 7/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_2_fig8_b_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_2_fig8_b_.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[!] Skipping curve 'T = 400': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 20': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 8/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[!] Skipping curve 'a/R = 2.0': only 2 points, too few for a formula.
+[!] Skipping curve 'a/R = 1.6': only 2 points, too few for a formula.
+[!] Skipping curve 'a/R = 1.2': only 2 points, too few for a formula.
+[!] Skipping curve 'a/R = 0.8': only 2 points, too few for a formula.
+[!] Skipping curve 'a/R = 0.4': only 2 points, too few for a formula.
+[!] Skipping curve 'a/R = 0': only 2 points, too few for a formula.
+
+--- Figure 9/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 10/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_1_fig10a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_1_fig10a.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0000666664640000000
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 0.9999
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0000571428300000000
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0000600002240000000
+    -> Complexity: 1 | R^2 (fit): 1.0000 | R^2 (holdout): 0.9999
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.0100494865*log(x0) + 0.008712299 - 0.008696848/x0
+    -> Complexity: 10 | Score: 1.5007 | R^2: 1.0000
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 11/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_2_fig10b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_2_fig10b.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.111853145*x0/(0.7762473 - 0.20053194/(x0*(x0*x0*(-0.63517445)*x0 + 0.5308483)))
+    -> Complexity: 19 | R^2 (fit): 0.9620 | R^2 (holdout): 0.9799
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.34944165/(-x0 + exp(x0*(x0*x0 - 0.4484734*0.9881109)/0.37619874)) - 0.17189366
+    -> Complexity: 20 | R^2 (fit): 0.9267 | R^2 (holdout): 0.6240
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (0.9629732 - x0)*0.44371554*exp((x0 - 1*0.4107189)/(x0*((x0*(x0 - 1*0.09997063)))))
+    -> Complexity: 18 | R^2 (fit): 0.9753 | R^2 (holdout): 0.3482
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 - 1*0.28267837)*exp(x0*(0.7129943 - x0)*(x0 + x0/0.8310916)/0.14252973)
+    -> Complexity: 18 | R^2 (fit): 0.9030 | R^2 (holdout): 0.5883
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 12/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_3_fig10c.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_3_fig10c.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-0.23314828/(x0 - 1*0.99570966))
+    -> Complexity: 6 | R^2 (fit): 0.5315 | R^2 (holdout): 0.1891
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/(x0 + log(2*x0)) + 0.44767323 - 1.1666298/(2.89809232203474*x0**2 - 2.52915038916888)
+    -> Complexity: 22 | R^2 (fit): 0.6956 | R^2 (holdout): 0.2072
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*5.3512135
+    -> Complexity: 3 | R^2 (fit): 0.0416 | R^2 (holdout): -0.3048
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(x0) + 3.0220828 - 0.18633384/log(x0 + 0.07416393)
+    -> Complexity: 11 | R^2 (fit): 0.6705 | R^2 (holdout): -0.1752
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 13/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*1.630018 + 48.83512/exp(x0)
+    -> Complexity: 6 | R^2 (fit): 0.8856 | R^2 (holdout): 0.8682
+
+--- Figure 14/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-x0*x0 + x0 + 1.6335886) + 0.8416012
+    -> Complexity: 10 | Score: 1.0610 | R^2: 0.9892
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 15/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page22_crop_1_fig13.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page22_crop_1_fig13.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[!] Skipping curve 'orange line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'purple line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'green line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'blue line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 16/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_1_fig1a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_1_fig1a.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.7186859 - (-0.06524119*(x0/(0.2198692 + x0*(-0.9910575)) + 0.040626213) - 1.2881091)
+    -> Complexity: 17 | R^2 (fit): 0.5036 | R^2 (holdout): 0.4604
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.34587836 - 1*(-1.4434136)
+    -> Complexity: 5 | R^2 (fit): 0.1087 | R^2 (holdout): 0.2942
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + (x0 - 1*(-0.2084364) - (-1)*0.02916352/(x0 - 0.22085117))*(-0.4266653) - 1*(-1.3745011)
+    -> Complexity: 15 | R^2 (fit): 0.5157 | R^2 (holdout): 0.3892
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (-x0 - 0.13704416)/((0.31492054 - x0)/(x0 + (-0.09298808 - 0.3268342/x0)/1.668497 + 0.1198952) - 1*1.1782616) + 1.1731496*1.1096454
+    -> Complexity: 25 | R^2 (fit): 0.5356 | R^2 (holdout): 0.3255
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.34591413 - 1*(-1.4433962)
+    -> Complexity: 5 | R^2 (fit): 0.1087 | R^2 (holdout): 0.2943
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 17/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_2_fig1b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_2_fig1b.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "T = 400", "points": [[0.1, 98.0], [0.2, 97.5], [0.3, 97.0], [0.4, 96.5], [0.5, 96.0], [0.6, 95.5], [0.7, 95.0], [0.8, 94.5], [0.9, 94.0], [1.0, 93.5], [1.1, 93.0], [1.2, 92.5], [1.3, 92.0], [1.4, 91.5], [1.5, 91.0], [1.6, 90.5], [1.7, 90.0], [1.8, 89.5], [1.9, 89.0], [2.0, 88.5], [2.1, 88.0], [2.2, 87.5], [2.3, 87.0], [2.4, 86.5], [2.5, 86.0], [2.6, 85.5], [2.7, 85.0], [2.8, 84.5], [2.9, 84.0], [3.0, 83.5], [3.1, 83.0], [3.2, 82.5], [3.3, 82.0], [3.4, 81.5], [3.5, 81.0], [3.6, 80.5], [3.7, 80.0], [3.8, 79.5], [3.9, 79.0], [4.0, 78.5], [4.1, 78.0], [4.2, 77.5], [4.3, 77.0], [4.4, 76.5], [4.5, 76.0], [4.6, 75.5], [4.7, 75.0], [4.8, 74.5], [4.9, 74.0], [5.0, 73.5], [5.1, 73.0], [5.2, 72.5], [5.3, 72.0], [5.4, 71.5], [5.5, 71.0], [5.6, 70.5], [5.7, 70.0], [5.8, 69.5], [5.9, 69.0], [6.0, 68.5], [6.1, 68.0], [6.2, 67.5], [6.3, 67.0], [6.4, 66.5], [6.5, 66.0], [6.6, 65.5], [6.7, 65.0], [6.8, 64.5], [6.9, 64.0], [7.0, 63.5], [7.1, 63.0], [7.2, 62.5], [7.3, 62.0], [7.4, 61.5], [7.5, 61.0], [7.6, 60.5], [7.7, 60.0], [7.8, 59.5], [7.9, 59.0], [8.0, 58.5], [8.1, 58.0], [8.2, 57.5], [8.3, 57.0], [8.4, 56.5], [8.5, 56.0], [8.6, 55.5], [8.7, 55.0], [8.8, 54.5], [8.9, 54.0], [9.0, 53.5], [9.1, 53.0], [9.2, 52.5], [9.3, 52.0], [9.4, 51.5], [9.5, 51.0], [9.6, 50.5], [9.7, 50.0], [9.8, 49.5], [9.9, 49.0], [10.0, 48.5], [10.1, 48.0], [10.2, 47.5], [10.3, 47.0], [10.4, 46.5], [10.5, 46.0], [10.6, 45.5], [10.7, 45.0], [10.8, 44.5], [10.9, 44.0], [11.0, 43.5], [11.1, 43.0], [11.2, 42.5], [11.3, 42.0], [11.4, 41.5], [11.5, 41.0], [11.6, 40.5], [11.7, 40.0], [11.8, 39.5], [11.9, 39.0], [12.0, 38.5], [12.1, 38.0], [12.2, 37.5], [12.3, 37.0], [12.4, 36.5], [12.5, 36.0], [12.6, 35.5], [12.7, 35.0], [12.8, 34.5], [12.9, 34.0], [13.0, 33.5], [13.1, 33.0], [13.2, 32.5], [13.3, 32.0], [13.4, 31.5], [13.5, 31.0], [13.6, 30.5], [13.7, 30.0], [13.8, 29.5], [13.9, 29.0], [14.0, 28.5], [14.1, 28.0], [14.2, 27.5], [14.3, 27.0], [14.4, 26.5], [14.5, 26.0], [14.6, 25.5], [14.7, 25.0], [14.8, 24.5], [14.9, 24.0], [15.0, 23.5], [15.1, 23.0], [15.2, 22.5], [15.3, 22.0], [15.4, 21.5], [15.5, 21.0], [15.6, 20.5], [15.7, 20.0], [15.8, 19.5], [15.9, 19.0], [16.0, 18.5], [16.1, 18.0], [16.2, 17.5], [16.3, 17.0], [16.4, 16.5], [16.5, 16.0], [16.6, 15.5], [16.7, 15.0], [16.8, 14.5], [16.9, 14.0], [17.0, 13.5], [17.1, 13.0], [17.2, 12.5], [17.3, 12.0], [17.4, 11.5], [17.5, 11.0], [17.6, 10.5], [17.7, 10.0], [17.8, 9.5], [17.9, 9.0], [18.0, 8.5], [18.1, 8.0], [18.2, 7.5], [18.3, 7.0], [18.4, 6.5], [18.5, 6.0], [18.6, 5.5], [18.7, 5.0], [18.8, 4.5], [18.9, 4.0], [19.0, 3.5], [19.1, 3.0], [19.2, 2.5], [19.3, 2.0], [19.4, 1.5], [19.5, 1.0], [19.6, 0.5], [19.7, 0.0], [19.8, -0.5], [19.9, -1.0], [20.0, -1.5], [20.1, -2.0], [20.2, -2.5], [20.3, -3.0], [20.4, -3.5], [20.5, -4.0], [20.6, -4.5], [20.7, -5.0], [20.8, -5.5], [20.9, -6.0], [21.0, -6.5], [21.1, -7.0], [21.2, -7.5], [21.3, -8.0], [21.4, -8.5], [21.5, -9.0], [21.6, -9.5], [21.7, -10.0], [21.8, -10.5], [21.9, -11.0], [22.0, -11.5], [22.1, -12.0], [22.2, -12.5], [22.3, -13.0], [22.4, -13.5], [22.5, -14.0], [22.6, -14.5], [22.7, -15.0], [22.8, -15.5], [22.9, -16.0], [23.0, -16.5], [23.1, -17.0], [23.2, -17.5], [23.3, -18.0], [23.4, -18.5], [23.5, -19.0], [23.6, -19.5], [23.7, -20.0], [23.8, -20.5], [23.9, -21.0], [24.0, -21.5], [24.1, -22.0], [24.2, -22.5], [24.3, -23.0], [24.4, -23.5], [24.5, -24.0], [24.6, -24.5], [24.7, -25.0], [24.8, -25.5], [24.9, -26.0], [25.0, -26.5], [25.1, -27.0], [25.2, -27.5], [25.3, -28.0], [25.4, -28.5], [25.5, -29.0], [25.6, -29.5], [25.7, -30.0], [25.8, -30.5], [25.9, -31.0], [26.0, -31.5], [26.1, -32.0], [26.2, -32.5], [26.3, -33.0], [26.4, -33.5], [26.5, -34.0], [26.6, -34.5], [26.7, -35.0], [26.8, -35.5], [26.9, -36.0], [27.0, -36.5], [27.1, -37.0], [27.2, -37.5], [27.3, -38.0], [27.4, -38.5], [27.5, -39.0], [27.6, -39.5], [27.7, -40.0], [27.8, -40.5], [27.9, -41.0], [28.0, -41.5], [28.1, -42.0], [28.2, -42.5], [28.3, -43.0], [28.4, -43.5], [28.5, -44.0], [28.6, -44.5], [28.7, -45.0], [28.8, -45.5], [28.9, -46.0], [29.0, -46.5], [29.1, -47.0], [29.2, -47.5], [29.3, -48.0], [29.4, -48.5], [29.5, -49.0], [29.6, -49.5], [29.7, -50.0], [29.8, -50.5], [29.9, -51.0], [30.0, -51.5], [30.1, -52.0], [30.2, -52.5], [30.3, -53.0], [30.4, -53.5], [30.5, -54.0], [30.6, -54.5], [30.7, -55.0], [30.8, -55.5], [30.9, -56.0], [31.0, -56.5], [31.1, -57.0], [31.2, -57.5], [31.3, -58.0], [31.4, -58.5], [31.5, -59.0], [31.6, -59.5], [31.7, -60.0], [31.8, -60.5], [31.9, -61.0], [32.0, -61.5], [32.1, -62.0], [32.2, -62.5], [32.3, -63.0], [32.4, -63.5], [32.5, -64.0], [32.6, -64.5], [32.7, -65.0], [32.8, -65.5], [32.9, -66.0], [33.0, -66.5], [33.1, -67.0], [33.2, -67.5], [33.3, -68.0], [33.4, -68.5], [33.5, -69.0], [33.6, -69.5], [33.7, -70.0], [33.8, -70.5], [33.9, -71.0], [34.0, -71.5], [34.1, -72.0], [34.2, -72.5], [34.3, -73.0], [34.4, -73.5], [34.5, -74.0], [34.6, -74.5], [34.7, -75.0], [34.8, -75.5], [34.9, -76.0], [35.0, -76.5], [3
+[!] Skipping 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_2_fig1b.png: could not extract data from this image.
+
+--- Figure 18/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page8_crop_1_fig2.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1519859_Out-of-time-order correlators in quantum mechanics_page8_crop_1_fig2.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[!] Skipping curve 'n = 10': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 5': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 2': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'n = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+[+] Enriched paper content with analysis of 17/18 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 68419 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 9/41: 1644344_Quantum mechanics and the covariance of physical l.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1644344_Quantum mechanics and the covariance of physical l.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1644344_Quantum mechanics and the covariance of physical l' (--figures-dir).
+[!] No figures found in 'gold_figures/1644344_Quantum mechanics and the covariance of physical l': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (8805 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 94955 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1644344_Quantum mechanics and the covariance of physical l.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 10/41: 1663217_Quantum mechanics as classical statistical mechani.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1663217_Quantum mechanics as classical statistical mechani.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1663217_Quantum mechanics as classical statistical mechani' (--figures-dir).
+[!] No figures found in 'gold_figures/1663217_Quantum mechanics as classical statistical mechani': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (1465 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 85019 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1663217_Quantum mechanics as classical statistical mechani.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 11/41: 1675748_A per-cent-level determination of the nucleon axia.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1675748_A per-cent-level determination of the nucleon axia.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1675748_A per-cent-level determination of the nucleon axia' (--figures-dir).
+[!] No figures found in 'gold_figures/1675748_A per-cent-level determination of the nucleon axia': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (65062 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 73074 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1675748_A per-cent-level determination of the nucleon axia.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 12/41: 1737718_Mapping the Phases of Quantum Chromodynamics with.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1737718_Mapping the Phases of Quantum Chromodynamics with.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1737718_Mapping the Phases of Quantum Chromodynamics with' (--figures-dir).
+[!] No figures found in 'gold_figures/1737718_Mapping the Phases of Quantum Chromodynamics with': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (324389 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 88693 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1737718_Mapping the Phases of Quantum Chromodynamics with.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 13/41: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf
+
+[2/3] Using 10 pre-cropped figure(s) from 'gold_figures/1751397_SU(4) Heisenberg model on the honeycomb lattice wi' (--figures-dir).
+[+] Found 10 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page2_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page2_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'FM AFOxz': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'QSOL': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'NCD': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 2/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page5_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page5_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[!] Skipping curve 'FM AFO vortex': only 2 points, too few for a formula.
+[!] Skipping curve 'FM AFOxz': only 2 points, too few for a formula.
+[!] Skipping curve 'AFM AFOxz': only 2 points, too few for a formula.
+[!] Skipping curve 'AFM AFO vortex': only 2 points, too few for a formula.
+
+--- Figure 3/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_1_fig4_a_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_1_fig4_a_.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_2_fig4_b_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_2_fig4_b_.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 5/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_3_fig4_c_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_3_fig4_c_.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[!] Skipping curve 'curve (c)': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 6/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_4_fig4_d_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_4_fig4_d_.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'Classical': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Huse-Elser': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'LFWT': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 7/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'FM AFOxz': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'QSOL': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'NCD': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 8/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -28.397976 + 24.252996/exp(x0)
+    -> Complexity: 6 | Score: 0.7682 | R^2: 0.9973
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*17.886417 - 15.899152) - 5.0892057
+    -> Complexity: 9 | Score: 0.6056 | R^2: 0.9923
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(1.5900929 + x0*(-3.523406)) - 1*10.468656
+    -> Complexity: 8 | Score: 1.0913 | R^2: 0.9936
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 9/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_1_fig8_a_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_1_fig8_a_.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "lower curve", "points": [[-0.4, -5.6], [-0.3, -5.7], [-0.2, -5.8], [-0.1, -5.9], [0, -5.9], [0.1, -5.9], [0.2, -5.9], [0.3, -5.9], [0.4, -5.9], [0.5, -5.9], [0.6, -5.9], [0.7, -5.9], [0.8, -5.9], [0.9, -5.9], [1, -5.9], [1.1, -5.9], [1.2, -5.9], [1.3, -5.9], [1.4, -5.9], [1.5, -5.9], [1.6, -5.9], [1.7, -5.9], [1.8, -5.9], [1.9, -5.9], [2, -5.9], [2.1, -5.9], [2.2, -5.9], [2.3, -5.9], [2.4, -5.9], [2.5, -5.9], [2.6, -5.9], [2.7, -5.9], [2.8, -5.9], [2.9, -5.9], [3, -5.9], [3.1, -5.9], [3.2, -5.9], [3.3, -5.9], [3.4, -5.9], [3.5, -5.9], [3.6, -5.9], [3.7, -5.9], [3.8, -5.9], [3.9, -5.9], [4, -5.9], [4.1, -5.9], [4.2, -5.9], [4.3, -5.9], [4.4, -5.9], [4.5, -5.9], [4.6, -5.9], [4.7, -5.9], [4.8, -5.9], [4.9, -5.9], [5, -5.9], [5.1, -5.9], [5.2, -5.9], [5.3, -5.9], [5.4, -5.9], [5.5, -5.9], [5.6, -5.9], [5.7, -5.9], [5.8, -5.9], [5.9, -5.9], [6, -5.9], [6.1, -5.9], [6.2, -5.9], [6.3, -5.9], [6.4, -5.9], [6.5, -5.9], [6.6, -5.9], [6.7, -5.9], [6.8, -5.9], [6.9, -5.9], [7, -5.9], [7.1, -5.9], [7.2, -5.9], [7.3, -5.9], [7.4, -5.9], [7.5, -5.9], [7.6, -5.9], [7.7, -5.9], [7.8, -5.9], [7.9, -5.9], [8, -5.9], [8.1, -5.9], [8.2, -5.9], [8.3, -5.9], [8.4, -5.9], [8.5, -5.9], [8.6, -5.9], [8.7, -5.9], [8.8, -5.9], [8.9, -5.9], [9, -5.9], [9.1, -5.9], [9.2, -5.9], [9.3, -5.9], [9.4, -5.9], [9.5, -5.9], [9.6, -5.9], [9.7, -5.9], [9.8, -5.9], [9.9, -5.9], [10, -5.9], [10.1, -5.9], [10.2, -5.9], [10.3, -5.9], [10.4, -5.9], [10.5, -5.9], [10.6, -5.9], [10.7, -5.9], [10.8, -5.9], [10.9, -5.9], [11, -5.9], [11.1, -5.9], [11.2, -5.9], [11.3, -5.9], [11.4, -5.9], [11.5, -5.9], [11.6, -5.9], [11.7, -5.9], [11.8, -5.9], [11.9, -5.9], [12, -5.9], [12.1, -5.9], [12.2, -5.9], [12.3, -5.9], [12.4, -5.9], [12.5, -5.9], [12.6, -5.9], [12.7, -5.9], [12.8, -5.9], [12.9, -5.9], [13, -5.9], [13.1, -5.9], [13.2, -5.9], [13.3, -5.9], [13.4, -5.9], [13.5, -5.9], [13.6, -5.9], [13.7, -5.9], [13.8, -5.9], [13.9, -5.9], [14, -5.9], [14.1, -5.9], [14.2, -5.9], [14.3, -5.9], [14.4, -5.9], [14.5, -5.9], [14.6, -5.9], [14.7, -5.9], [14.8, -5.9], [14.9, -5.9], [15, -5.9], [15.1, -5.9], [15.2, -5.9], [15.3, -5.9], [15.4, -5.9], [15.5, -5.9], [15.6, -5.9], [15.7, -5.9], [15.8, -5.9], [15.9, -5.9], [16, -5.9], [16.1, -5.9], [16.2, -5.9], [16.3, -5.9], [16.4, -5.9], [16.5, -5.9], [16.6, -5.9], [16.7, -5.9], [16.8, -5.9], [16.9, -5.9], [17, -5.9], [17.1, -5.9], [17.2, -5.9], [17.3, -5.9], [17.4, -5.9], [17.5, -5.9], [17.6, -5.9], [17.7, -5.9], [17.8, -5.9], [17.9, -5.9], [18, -5.9], [18.1, -5.9], [18.2, -5.9], [18.3, -5.9], [18.4, -5.9], [18.5, -5.9], [18.6, -5.9], [18.7, -5.9], [18.8, -5.9], [18.9, -5.9], [19, -5.9], [19.1, -5.9], [19.2, -5.9], [19.3, -5.9], [19.4, -5.9], [19.5, -5.9], [19.6, -5.9], [19.7, -5.9], [19.8, -5.9], [19.9, -5.9], [20, -5.9], [20.1, -5.9], [20.2, -5.9], [20.3, -5.9], [20.4, -5.9], [20.5, -5.9], [20.6, -5.9], [20.7, -5.9], [20.8, -5.9], [20.9, -5.9], [21, -5.9], [21.1, -5.9], [21.2, -5.9], [21.3, -5.9], [21.4, -5.9], [21.5, -5.9], [21.6, -5.9], [21.7, -5.9], [21.8, -5.9], [21.9, -5.9], [22, -5.9], [22.1, -5.9], [22.2, -5.9], [22.3, -5.9], [22.4, -5.9], [22.5, -5.9], [22.6, -5.9], [22.7, -5.9], [22.8, -5.9], [22.9, -5.9], [23, -5.9], [23.1, -5.9], [23.2, -5.9], [23.3, -5.9], [23.4, -5.9], [23.5, -5.9], [23.6, -5.9], [23.7, -5.9], [23.8, -5.9], [23.9, -5.9], [24, -5.9], [24.1, -5.9], [24.2, -5.9], [24.3, -5.9], [24.4, -5.9], [24.5, -5.9], [24.6, -5.9], [24.7, -5.9], [24.8, -5.9], [24.9, -5.9], [25, -5.9], [25.1, -5.9], [25.2, -5.9], [25.3, -5.9], [25.4, -5.9], [25.5, -5.9], [25.6, -5.9], [25.7, -5.9], [25.8, -5.9], [25.9, -5.9], [26, -5.9], [26.1, -5.9], [26.2, -5.9], [26.3, -5.9], [26.4, -5.9], [26.5, -5.9], [26.6, -5.9], [26.7, -5.9], [26.8, -5.9], [26.9, -5.9], [27, -5.9], [27.1, -5.9], [27.2, -5.9], [27.3, -5.9], [27.4, -5.9], [27.5, -5.9], [27.6, -5.9], [27.7, -5.9], [27.8, -5.9], [27.9, -5.9], [28, -5.9], [28.1, -5.9], [28.2, -5.9], [28.3, -5.9], [28.4, -5.9], [28.5, -5.9], [28.6, -5.9], [28.7, -5.9], [28.8, -5.9], [28.9, -5.9], [29, -5.9], [29.1, -5.9], [29.2, -5.9], [29.3, -5.9], [29.4, -5.9], [29.5, -5.9], [29.6, -5.9], [29.7, -5.9], [29.8, -5.9], [29.9, -5.9], [30, -5.9], [30.1, -5.9], [30.2, -5.9], [30.3, -5.9], [30.4, -5.9], [30.5, -5.9], [30.6, -5.9], [30.7, -5.9], [30.8, -5.9], [30.9, -5.9], [31, -5.9], [31.1, -5.9], [31.2, -5.9], [31.3, -5.9], [31.4, -5.9], [31.5, -5.9], [31.6, -5.9], [31.7, -5.9], [31.8, -5.9], [31.9, -5.9], [32, -5.9], [32.1, -5.9], [32.2, -5.9], [32.3, -5.9], [32.4, -5.9], [32.5, -5.9], [32.6, -5.9], [32.7, -5.9], [32.8, -5.9], [32.9, -5.9], [33, -5.9], [33.1, -5.9], [33.2, -5.9], [33.3, -5.9], [33.4, -5.9], [33.5, -5.9], [33.6, -5.9], [33.7, -5.9], [33.8, -5.9], [33.9, -5.9], [34, -5.9], [34.1, -5.9], [34.2, -5.9], [34.3, -5.9], [34.4, -5.9], [34.5, -5.9], [34.6, -5.9], [34.7, -5.9], [34.8, -5.9], [34.9, -5.9], [35, -5.9], [35.1, -5.9], [35.2, -5.9], [35.3, -5.9], [35.4, -5.9], [35.5, -5.9], [35.6, -5.9], [35.7, -5.9], [35.8, -5.9], [35.9, -5.9], [36, -5.9], [36.1, -5.9], [36.2, -5.9], [36.3, -5.9], [36.4, -5.9], [36.5, -5.9], [36.6, -5.9], [36.7, -5.9], [36.8, -5.9], [36.9, -5.9], [37, -5.9], [37.1, -5.9], [37.2, -5.9], [37.3, -5.9], [37.4, -5.9], [37.5, -5.9], [37.6, -5.9], [37.7, -5.9], [37.8, -5.9], [37.9, -5.9], [38, -5.9], [38.1, -5.9], [38.2,
+[!] Skipping 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_1_fig8_a_.png: could not extract data from this image.
+
+--- Figure 10/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_2_fig8_b_.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_2_fig8_b_.png
+[-] qwen2.5-vl-7b (local, guided) did not find enough points in any curve.
+[!] Guided vision output had no usable data; retrying without the schema constraint.
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[!] Skipping curve 'blue curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+[+] Enriched paper content with analysis of 9/10 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 49709 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 14/41: 1773096_New CTEQ global analysis of quantum chromodynamics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1773096_New CTEQ global analysis of quantum chromodynamics.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1773096_New CTEQ global analysis of quantum chromodynamics' (--figures-dir).
+[!] No figures found in 'gold_figures/1773096_New CTEQ global analysis of quantum chromodynamics': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (325182 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 58999 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1773096_New CTEQ global analysis of quantum chromodynamics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 15/41: 1780928_An algebraic approach to Koopman classical mechani.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1780928_An algebraic approach to Koopman classical mechani.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/1780928_An algebraic approach to Koopman classical mechani' (--figures-dir).
+[!] No figures found in 'gold_figures/1780928_An algebraic approach to Koopman classical mechani': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (8039 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 90421 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/1780928_An algebraic approach to Koopman classical mechani.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 16/41: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Using 12 pre-cropped figure(s) from 'gold_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe' (--figures-dir).
+[+] Found 12 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 9 data points.
+
+--- Figure 2/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 4 data points.
+[!] Discarding the data points of 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_1_fig5.png: all 4 points are identical (likely vision-model placeholders).
+
+--- Figure 3/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 9 distinct curve(s).
+[!] Skipping curve '7.7': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '11.5': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '14.5': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '19.6': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '27': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '39': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '54.4': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '62.4': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve '200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_2_plot.png
+[+] Success: detected 'discrete' plot with 2 data points.
+[!] Discarding the data points of 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_2_plot.png: all 2 points are identical (likely vision-model placeholders).
+
+--- Figure 5/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'poly5 (χ²/ndf = 0.72)': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Poisson baseline': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 4.313196 - log(x0)
+    -> Complexity: 4 | Score: 0.4915 | R^2: 0.8905
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 6/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.00109488 + exp(x0*(-0.017928235))
+    -> Complexity: 8 | Score: 1.2820 | R^2: 0.9954
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.016918465)) + 0.07171312
+    -> Complexity: 6 | Score: 1.1375 | R^2: 0.9988
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((x0 + 5.7498903)/(-54.537304)) + 0.064657114
+    -> Complexity: 8 | Score: 0.6936 | R^2: 0.9970
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.0011048394 + exp(x0*(-0.017858377))
+    -> Complexity: 8 | Score: 1.5301 | R^2: 0.9954
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 7/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_2_fig6.png
+[+] Success: detected 'discrete' plot with 5 data points.
+
+--- Figure 8/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_1_fig5.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "p", "points": [[1.5, 0.8], [1.5, 0.9], [1.5, 1.0], [1.5, 1.1], [1.5, 1.2], [1.5, 1.3], [1.5, 1.4], [1.5, 1.5], [1.5, 1.6], [1.5, 1.7], [1.5, 1.8], [1.5, 1.9], [1.5, 2.0], [1.5, 2.1], [1.5, 2.2], [1.5, 2.3], [1.5, 2.4], [1.5, 2.5], [1.5, 2.6], [1.5, 2.7], [1.5, 2.8], [1.5, 2.9], [1.5, 3.0], [1.5, 3.1], [1.5, 3.2], [1.5, 3.3], [1.5, 3.4], [1.5, 3.5], [1.5, 3.6], [1.5, 3.7], [1.5, 3.8], [1.5, 3.9], [1.5, 4.0], [1.5, 4.1], [1.5, 4.2], [1.5, 4.3], [1.5, 4.4], [1.5, 4.5], [1.5, 4.6], [1.5, 4.7], [1.5, 4.8], [1.5, 4.9], [1.5, 5.0], [1.5, 5.1], [1.5, 5.2], [1.5, 5.3], [1.5, 5.4], [1.5, 5.5], [1.5, 5.6], [1.5, 5.7], [1.5, 5.8], [1.5, 5.9], [1.5, 6.0], [1.5, 6.1], [1.5, 6.2], [1.5, 6.3], [1.5, 6.4], [1.5, 6.5], [1.5, 6.6], [1.5, 6.7], [1.5, 6.8], [1.5, 6.9], [1.5, 7.0], [1.5, 7.1], [1.5, 7.2], [1.5, 7.3], [1.5, 7.4], [1.5, 7.5], [1.5, 7.6], [1.5, 7.7], [1.5, 7.8], [1.5, 7.9], [1.5, 8.0], [1.5, 8.1], [1.5, 8.2], [1.5, 8.3], [1.5, 8.4], [1.5, 8.5], [1.5, 8.6], [1.5, 8.7], [1.5, 8.8], [1.5, 8.9], [1.5, 9.0], [1.5, 9.1], [1.5, 9.2], [1.5, 9.3], [1.5, 9.4], [1.5, 9.5], [1.5, 9.6], [1.5, 9.7], [1.5, 9.8], [1.5, 9.9], [1.5, 10.0], [1.5, 10.1], [1.5, 10.2], [1.5, 10.3], [1.5, 10.4], [1.5, 10.5], [1.5, 10.6], [1.5, 10.7], [1.5, 10.8], [1.5, 10.9], [1.5, 11.0], [1.5, 11.1], [1.5, 11.2], [1.5, 11.3], [1.5, 11.4], [1.5, 11.5], [1.5, 11.6], [1.5, 11.7], [1.5, 11.8], [1.5, 11.9], [1.5, 12.0], [1.5, 12.1], [1.5, 12.2], [1.5, 12.3], [1.5, 12.4], [1.5, 12.5], [1.5, 12.6], [1.5, 12.7], [1.5, 12.8], [1.5, 12.9], [1.5, 13.0], [1.5, 13.1], [1.5, 13.2], [1.5, 13.3], [1.5, 13.4], [1.5, 13.5], [1.5, 13.6], [1.5, 13.7], [1.5, 13.8], [1.5, 13.9], [1.5, 14.0], [1.5, 14.1], [1.5, 14.2], [1.5, 14.3], [1.5, 14.4], [1.5, 14.5], [1.5, 14.6], [1.5, 14.7], [1.5, 14.8], [1.5, 14.9], [1.5, 15.0], [1.5, 15.1], [1.5, 15.2], [1.5, 15.3], [1.5, 15.4], [1.5, 15.5], [1.5, 15.6], [1.5, 15.7], [1.5, 15.8], [1.5, 15.9], [1.5, 16.0], [1.5, 16.1], [1.5, 16.2], [1.5, 16.3], [1.5, 16.4], [1.5, 16.5], [1.5, 16.6], [1.5, 16.7], [1.5, 16.8], [1.5, 16.9], [1.5, 17.0], [1.5, 17.1], [1.5, 17.2], [1.5, 17.3], [1.5, 17.4], [1.5, 17.5], [1.5, 17.6], [1.5, 17.7], [1.5, 17.8], [1.5, 17.9], [1.5, 18.0], [1.5, 18.1], [1.5, 18.2], [1.5, 18.3], [1.5, 18.4], [1.5, 18.5], [1.5, 18.6], [1.5, 18.7], [1.5, 18.8], [1.5, 18.9], [1.5, 19.0], [1.5, 19.1], [1.5, 19.2], [1.5, 19.3], [1.5, 19.4], [1.5, 19.5], [1.5, 19.6], [1.5, 19.7], [1.5, 19.8], [1.5, 19.9], [1.5, 20.0], [1.5, 20.1], [1.5, 20.2], [1.5, 20.3], [1.5, 20.4], [1.5, 20.5], [1.5, 20.6], [1.5, 20.7], [1.5, 20.8], [1.5, 20.9], [1.5, 21.0], [1.5, 21.1], [1.5, 21.2], [1.5, 21.3], [1.5, 21.4], [1.5, 21.5], [1.5, 21.6], [1.5, 21.7], [1.5, 21.8], [1.5, 21.9], [1.5, 22.0], [1.5, 22.1], [1.5, 22.2], [1.5, 22.3], [1.5, 22.4], [1.5, 22.5], [1.5, 22.6], [1.5, 22.7], [1.5, 22.8], [1.5, 22.9], [1.5, 23.0], [1.5, 23.1], [1.5, 23.2], [1.5, 23.3], [1.5, 23.4], [1.5, 23.5], [1.5, 23.6], [1.5, 23.7], [1.5, 23.8], [1.5, 23.9], [1.5, 24.0], [1.5, 24.1], [1.5, 24.2], [1.5, 24.3], [1.5, 24.4], [1.5, 24.5], [1.5, 24.6], [1.5, 24.7], [1.5, 24.8], [1.5, 24.9], [1.5, 25.0], [1.5, 25.1], [1.5, 25.2], [1.5, 25.3], [1.5, 25.4], [1.5, 25.5], [1.5, 25.6], [1.5, 25.7], [1.5, 25.8], [1.5, 25.9], [1.5, 26.0], [1.5, 26.1], [1.5, 26.2], [1.5, 26.3], [1.5, 26.4], [1.5, 26.5], [1.5, 26.6], [1.5, 26.7], [1.5, 26.8], [1.5, 26.9], [1.5, 27.0], [1.5, 27.1], [1.5, 27.2], [1.5, 27.3], [1.5, 27.4], [1.5, 27.5], [1.5, 27.6], [1.5, 27.7], [1.5, 27.8], [1.5, 27.9], [1.5, 28.0], [1.5, 28.1], [1.5, 28.2], [1.5, 28.3], [1.5, 28.4], [1.5, 28.5], [1.5, 28.6], [1.5, 28.7], [1.5, 28.8], [1.5, 28.9], [1.5, 29.0], [1.5, 29.1], [1.5, 29.2], [1.5, 29.3], [1.5, 29.4], [1.5, 29.5], [1.5, 29.6], [1.5, 29.7], [1.5, 29.8], [1.5, 29.9], [1.5, 30.0], [1.5, 30.1], [1.5, 30.2], [1.5, 30.3], [1.5, 30.4], [1.5, 30.5], [1.5, 30.6], [1.5, 30.7], [1.5, 30.8], [1.5, 30.9], [1.5, 31.0], [1.5, 31.1], [1.5, 31.2], [1.5, 31.3], [1.5, 31.4], [1.5, 31.5], [1.5, 31.6], [1.5, 31.7], [1.5, 31.8], [1.5, 31.9], [1.5, 32.0], [1.5, 32.1], [1.5, 32.2], [1.5, 32.3], [1.5, 32.4], [1.5, 32.5], [1.5, 32.6], [1.5, 32.7], [1.5, 32.8], [1.5, 32.9], [1.5, 33.0], [1.5, 33.1], [1.5, 33.2], [1.5, 33.3], [1.5, 33.4], [1.5, 33.5], [1.5, 33.6], [1.5, 33.7], [1.5, 33.8], [1.5, 33.9], [1.5, 34.0], [1.5, 34.1], [1.5, 34.2], [1.5, 34.3], [1.5, 34.4], [1.5, 34.5], [1.5, 34.6], [1.5, 34.7], [1.5, 34.8], [1.5, 34.9], [1.5, 35.0], [1.5, 35.1], [1.5, 35.2], [1.5, 35.3], [1.5, 35.4], [1.5, 35.5], [1.5, 35.6], [1.5, 35.7], [1.5, 35.8], [1.5, 35.9], [1.5, 36.0], [1.5, 36.1], [1.5, 36.2], [1.5, 36.3], [1.5, 36.4], [1.5, 36.5], [1.5, 36.6], [1.5, 36.7], [1.5, 36.8], [1.5, 36.9], [1.5, 37.0], [1.5, 37.1], [1.5, 37.2], [1.5, 37.3], [1.5, 37.4], [1.5, 37.5], [1.5, 37.6], [1.5, 37.7], [1.5, 37.8], [1.5, 37.9], [1.5, 38.0], [1.5, 38.1], [1.5, 38.2], [1.5, 38.3], [1.5, 38.4], [1.5, 38.5], [1.
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_1_fig5.png: could not extract data from this image.
+
+--- Figure 9/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_2_fig5.png
+[-] qwen2.5-vl-7b (local, guided) did not find enough points in any curve.
+[!] Guided vision output had no usable data; retrying without the schema constraint.
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'Au+Au 39 GeV': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Proton': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 10/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 5 data points.
+
+--- Figure 11/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_2_fig6.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "discrete",
+    "series": [
+        {"label": "x1/5", "points": [[0.1, 1.3], [0.2, 1.2], [0.3, 1.1], [0.4, 1.0], [0.5, 0.9], [0.6, 0.8], [0.7, 0.7], [0.8, 0.6], [0.9, 0.5], [1.0, 0.4], [1.1, 0.3], [1.2, 0.2], [1.3, 0.1], [1.4, 0.0], [1.5, -0.1], [1.6, -0.2], [1.7, -0.3], [1.8, -0.4], [1.9, -0.5], [2.0, -0.6], [2.1, -0.7], [2.2, -0.8], [2.3, -0.9], [2.4, -1.0], [2.5, -1.1], [2.6, -1.2], [2.7, -1.3], [2.8, -1.4], [2.9, -1.5], [3.0, -1.6], [3.1, -1.7], [3.2, -1.8], [3.3, -1.9], [3.4, -2.0], [3.5, -2.1], [3.6, -2.2], [3.7, -2.3], [3.8, -2.4], [3.9, -2.5], [4.0, -2.6], [4.1, -2.7], [4.2, -2.8], [4.3, -2.9], [4.4, -3.0], [4.5, -3.1], [4.6, -3.2], [4.7, -3.3], [4.8, -3.4], [4.9, -3.5], [5.0, -3.6], [5.1, -3.7], [5.2, -3.8], [5.3, -3.9], [5.4, -4.0], [5.5, -4.1], [5.6, -4.2], [5.7, -4.3], [5.8, -4.4], [5.9, -4.5], [6.0, -4.6], [6.1, -4.7], [6.2, -4.8], [6.3, -4.9], [6.4, -5.0], [6.5, -5.1], [6.6, -5.2], [6.7, -5.3], [6.8, -5.4], [6.9, -5.5], [7.0, -5.6], [7.1, -5.7], [7.2, -5.8], [7.3, -5.9], [7.4, -6.0], [7.5, -6.1], [7.6, -6.2], [7.7, -6.3], [7.8, -6.4], [7.9, -6.5], [8.0, -6.6], [8.1, -6.7], [8.2, -6.8], [8.3, -6.9], [8.4, -7.0], [8.5, -7.1], [8.6, -7.2], [8.7, -7.3], [8.8, -7.4], [8.9, -7.5], [9.0, -7.6], [9.1, -7.7], [9.2, -7.8], [9.3, -7.9], [9.4, -8.0], [9.5, -8.1], [9.6, -8.2], [9.7, -8.3], [9.8, -8.4], [9.9, -8.5], [10.0, -8.6], [10.1, -8.7], [10.2, -8.8], [10.3, -8.9], [10.4, -9.0], [10.5, -9.1], [10.6, -9.2], [10.7, -9.3], [10.8, -9.4], [10.9, -9.5], [11.0, -9.6], [11.1, -9.7], [11.2, -9.8], [11.3, -9.9], [11.4, -10.0], [11.5, -10.1], [11.6, -10.2], [11.7, -10.3], [11.8, -10.4], [11.9, -10.5], [12.0, -10.6], [12.1, -10.7], [12.2, -10.8], [12.3, -10.9], [12.4, -11.0], [12.5, -11.1], [12.6, -11.2], [12.7, -11.3], [12.8, -11.4], [12.9, -11.5], [13.0, -11.6], [13.1, -11.7], [13.2, -11.8], [13.3, -11.9], [13.4, -12.0], [13.5, -12.1], [13.6, -12.2], [13.7, -12.3], [13.8, -12.4], [13.9, -12.5], [14.0, -12.6], [14.1, -12.7], [14.2, -12.8], [14.3, -12.9], [14.4, -13.0], [14.5, -13.1], [14.6, -13.2], [14.7, -13.3], [14.8, -13.4], [14.9, -13.5], [15.0, -13.6], [15.1, -13.7], [15.2, -13.8], [15.3, -13.9], [15.4, -14.0], [15.5, -14.1], [15.6, -14.2], [15.7, -14.3], [15.8, -14.4], [15.9, -14.5], [16.0, -14.6], [16.1, -14.7], [16.2, -14.8], [16.3, -14.9], [16.4, -15.0], [16.5, -15.1], [16.6, -15.2], [16.7, -15.3], [16.8, -15.4], [16.9, -15.5], [17.0, -15.6], [17.1, -15.7], [17.2, -15.8], [17.3, -15.9], [17.4, -16.0], [17.5, -16.1], [17.6, -16.2], [17.7, -16.3], [17.8, -16.4], [17.9, -16.5], [18.0, -16.6], [18.1, -16.7], [18.2, -16.8], [18.3, -16.9], [18.4, -17.0], [18.5, -17.1], [18.6, -17.2], [18.7, -17.3], [18.8, -17.4], [18.9, -17.5], [19.0, -17.6], [19.1, -17.7], [19.2, -17.8], [19.3, -17.9], [19.4, -18.0], [19.5, -18.1], [19.6, -18.2], [19.7, -18.3], [19.8, -18.4], [19.9, -18.5], [20.0, -18.6], [20.1, -18.7], [20.2, -18.8], [20.3, -18.9], [20.4, -19.0], [20.5, -19.1], [20.6, -19.2], [20.7, -19.3], [20.8, -19.4], [20.9, -19.5], [21.0, -19.6], [21.1, -19.7], [21.2, -19.8], [21.3, -19.9], [21.4, -20.0], [21.5, -20.1], [21.6, -20.2], [21.7, -20.3], [21.8, -20.4], [21.9, -20.5], [22.0, -20.6], [22.1, -20.7], [22.2, -20.8], [22.3, -20.9], [22.4, -21.0], [22.5, -21.1], [22.6, -21.2], [22.7, -21.3], [22.8, -21.4], [22.9, -21.5], [23.0, -21.6], [23.1, -21.7], [23.2, -21.8], [23.3, -21.9], [23.4, -22.0], [23.5, -22.1], [23.6, -22.2], [23.7, -22.3], [23.8, -22.4], [23.9, -22.5], [24.0, -22.6], [24.1, -22.7], [24.2, -22.8], [24.3, -22.9], [24.4, -23.0], [24.5, -23.1], [24.6, -23.2], [24.7, -23.3], [24.8, -23.4], [24.9, -23.5], [25.0, -23.6], [25.1, -23.7], [25.2, -23.8], [25.3, -23.9], [25.4, -24.0], [25.5, -24.1], [25.6, -24.2], [25.7, -24.3], [25.8, -24.4], [25.9, -24.5], [26.0, -24.6], [26.1, -24.7], [26.2, -24.8], [26.3, -24.9], [26.4, -25.0], [26.5, -25.1], [26.6, -25.2], [26.7, -25.3], [26.8, -25.4], [26.9, -25.5], [27.0, -25.6], [27.1, -25.7], [27.2, -25.8], [27.3, -25.9], [27.4, -26.0], [27.5, -26.1], [27.6, -26.2], [27.7, -26.3], [27.8, -26.4], [27.9, -26.5], [28.0, -26.6], [28.1, -26.7], [28.2, -26.8], [28.3, -26.9], [28.4, -27.0], [28.5, -27.1], [28.6, -27.2], [28.7, -27.3], [28.8, -27.4], [28.9, -27.5], [29.0, -27.6], [29.1, -27.7], [29.2, -27.8], [29.3, -27.9], [29.4, -28.0], [29.5, -28.1], [29.6, -28.2], [29.7, -28.3], [29.8, -28.4], [29.9, -28.5], [30.0, -28.6], [30.1, -28.7], [30.2, -28.8], [30.3, -28.9], [30.4, -29.0], [30.5, -29.1], [30.6, -29.2], [30.7, -29.3], [30.8, -29.4], [30.9, -29.5], [31.0, -29.6], [31.1, -29.7], [31.2, -29.8], [31.3, -29.9], [31.4, -30.0], [31.5, -30.1], [31.6, -30.2], [31.7, -30.3], [31.8, -30.4], [31.9, -30.5], [32.0, -30.6], [32.1, -30.7], [32.2, -30.8], [32.3, -30.9], [32.4, -31.0], [32.5, -31.1], [32.6, -31.2], [32.7, -31.3], [32.8, -31.4], [32.9, -31.5], [33.0, -31.6], [33.1, -31.7], [33.2, -31.8], [33.3, -31.9], [33.4, -32.0], [33.5, -32.1], [33.6, -32.2], [33.7, -32.3], [33.8, -32.4], [33.9, -32.5], [34.0, -32.6], [34.1, -32.7], [34.2, -32.8], [34.3, -32.9], [34.4, -33.0], [34.5, -33.1], [34.6, -33.2], [34.7, -33.3], [34.8, -33.4], [34.9, -33.5], [35.0, -33.6], [35.1, -33.7], [35.2, -33.8], [35.3, -33.9], [35.4, -34.0], [35.5, -34.1], [35.6, -34.2], [35.7
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_2_fig6.png: could not extract data from this image.
+
+--- Figure 12/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_3_fig7.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_3_fig7.png
+[+] Success: detected 'discrete' plot with 4 data points.
+[!] Discarding the data points of 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_3_fig7.png: all 4 points are identical (likely vision-model placeholders).
+
+[+] Enriched paper content with analysis of 10/12 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 64044 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 17/41: 2612720_A primer on twistronics a massless Dirac fermion’s.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2612720_A primer on twistronics a massless Dirac fermion’s.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2612720_A primer on twistronics a massless Dirac fermion’s' (--figures-dir).
+[!] No figures found in 'gold_figures/2612720_A primer on twistronics a massless Dirac fermion’s': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (107670 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 75154 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/2612720_A primer on twistronics a massless Dirac fermion’s.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 18/41: 2617065_50 Years of Quantum Chromodynamics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2617065_50 Years of Quantum Chromodynamics.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2617065_50 Years of Quantum Chromodynamics' (--figures-dir).
+[!] No figures found in 'gold_figures/2617065_50 Years of Quantum Chromodynamics': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (3209815 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 86464 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/2617065_50 Years of Quantum Chromodynamics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 19/41: 2689397_Evading Quantum Mechanics à la Sudarshan Quantum-M.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2689397_Evading Quantum Mechanics à la Sudarshan Quantum-M.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2689397_Evading Quantum Mechanics à la Sudarshan Quantum-M' (--figures-dir).
+[!] No figures found in 'gold_figures/2689397_Evading Quantum Mechanics à la Sudarshan Quantum-M': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 13473 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/2689397_Evading Quantum Mechanics à la Sudarshan Quantum-M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 20/41: 2798940_General Resource Theories in Quantum Mechanics and.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2798940_General Resource Theories in Quantum Mechanics and.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2798940_General Resource Theories in Quantum Mechanics and' (--figures-dir).
+[!] No figures found in 'gold_figures/2798940_General Resource Theories in Quantum Mechanics and': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (36839 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 88609 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/2798940_General Resource Theories in Quantum Mechanics and.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 21/41: 2798950_Quantum theory cannot consistently describe the us.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2798950_Quantum theory cannot consistently describe the us.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2798950_Quantum theory cannot consistently describe the us' (--figures-dir).
+[!] No figures found in 'gold_figures/2798950_Quantum theory cannot consistently describe the us': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 61522 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/2798950_Quantum theory cannot consistently describe the us.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 22/41: 2848425_Quantum Machine Learning An Interplay Between Quan.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2848425_Quantum Machine Learning An Interplay Between Quan.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2848425_Quantum Machine Learning An Interplay Between Quan' (--figures-dir).
+[!] No figures found in 'gold_figures/2848425_Quantum Machine Learning An Interplay Between Quan': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 27043 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/2848425_Quantum Machine Learning An Interplay Between Quan.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 23/41: 2992829_Generalization of Classical Statistical Mechanics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/2992829_Generalization of Classical Statistical Mechanics.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/2992829_Generalization of Classical Statistical Mechanics' (--figures-dir).
+[!] No figures found in 'gold_figures/2992829_Generalization of Classical Statistical Mechanics': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 29524 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/2992829_Generalization of Classical Statistical Mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 24/41: 3048237_Quantum Mechanics of Individual Systems.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/3048237_Quantum Mechanics of Individual Systems.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/3048237_Quantum Mechanics of Individual Systems' (--figures-dir).
+[!] No figures found in 'gold_figures/3048237_Quantum Mechanics of Individual Systems': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 36172 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/3048237_Quantum Mechanics of Individual Systems.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 25/41: 3056128_Simulating twistronics without a twist.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/3056128_Simulating twistronics without a twist.pdf
+
+[2/3] Using 9 pre-cropped figure(s) from 'gold_figures/3056128_Simulating twistronics without a twist' (--figures-dir).
+[+] Found 9 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page3_crop_1_fig2a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page3_crop_1_fig2a.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "upper line", "points": [[-12, -4], [-10, -6], [-8, -8], [-6, -10], [-4, -12], [-2, -14], [0, -16], [2, -18], [4, -20], [6, -22], [8, -24], [10, -26], [12, -28], [14, -30], [16, -32], [18, -34], [20, -36], [22, -38], [24, -40], [26, -42], [28, -44], [30, -46], [32, -48], [34, -50], [36, -52], [38, -54], [40, -56], [42, -58], [44, -60], [46, -62], [48, -64], [50, -66], [52, -68], [54, -70], [56, -72], [58, -74], [60, -76], [62, -78], [64, -80], [66, -82], [68, -84], [70, -86], [72, -88], [74, -90], [76, -92], [78, -94], [80, -96], [82, -98], [84, -100], [86, -102], [88, -104], [90, -106], [92, -108], [94, -110], [96, -112], [98, -114], [100, -116], [102, -118], [104, -120], [106, -122], [108, -124], [110, -126], [112, -128], [114, -130], [116, -132], [118, -134], [120, -136], [122, -138], [124, -140], [126, -142], [128, -144], [130, -146], [132, -148], [134, -150], [136, -152], [138, -154], [140, -156], [142, -158], [144, -160], [146, -162], [148, -164], [150, -166], [152, -168], [154, -170], [156, -172], [158, -174], [160, -176], [162, -178], [164, -180], [166, -182], [168, -184], [170, -186], [172, -188], [174, -190], [176, -192], [178, -194], [180, -196], [182, -198], [184, -200], [186, -202], [188, -204], [190, -206], [192, -208], [194, -210], [196, -212], [198, -214], [200, -216], [202, -218], [204, -220], [206, -222], [208, -224], [210, -226], [212, -228], [214, -230], [216, -232], [218, -234], [220, -236], [222, -238], [224, -240], [226, -242], [228, -244], [230, -246], [232, -248], [234, -250], [236, -252], [238, -254], [240, -256], [242, -258], [244, -260], [246, -262], [248, -264], [250, -266], [252, -268], [254, -270], [256, -272], [258, -274], [260, -276], [262, -278], [264, -280], [266, -282], [268, -284], [270, -286], [272, -288], [274, -290], [276, -292], [278, -294], [280, -296], [282, -298], [284, -300], [286, -302], [288, -304], [290, -306], [292, -308], [294, -310], [296, -312], [298, -314], [300, -316], [302, -318], [304, -320], [306, -322], [308, -324], [310, -326], [312, -328], [314, -330], [316, -332], [318, -334], [320, -336], [322, -338], [324, -340], [326, -342], [328, -344], [330, -346], [332, -348], [334, -350], [336, -352], [338, -354], [340, -356], [342, -358], [344, -360], [346, -362], [348, -364], [350, -366], [352, -368], [354, -370], [356, -372], [358, -374], [360, -376], [362, -378], [364, -380], [366, -382], [368, -384], [370, -386], [372, -388], [374, -390], [376, -392], [378, -394], [380, -396], [382, -398], [384, -400], [386, -402], [388, -404], [390, -406], [392, -408], [394, -410], [396, -412], [398, -414], [400, -416], [402, -418], [404, -420], [406, -422], [408, -424], [410, -426], [412, -428], [414, -430], [416, -432], [418, -434], [420, -436], [422, -438], [424, -440], [426, -442], [428, -444], [430, -446], [432, -448], [434, -450], [436, -452], [438, -454], [440, -456], [442, -458], [444, -460], [446, -462], [448, -464], [450, -466], [452, -468], [454, -470], [456, -472], [458, -474], [460, -476], [462, -478], [464, -480], [466, -482], [468, -484], [470, -486], [472, -488], [474, -490], [476, -492], [478, -494], [480, -496], [482, -498], [484, -500], [486, -502], [488, -504], [490, -506], [492, -508], [494, -510], [496, -512], [498, -514], [500, -516], [502, -518], [504, -520], [506, -522], [508, -524], [510, -526], [512, -528], [514, -530], [516, -532], [518, -534], [520, -536], [522, -538], [524, -540], [526, -542], [528, -544], [530, -546], [532, -548], [534, -550], [536, -552], [538, -554], [540, -556], [542, -558], [544, -560], [546, -562], [548, -564], [550, -566], [552, -568], [554, -570], [556, -572], [558, -574], [560, -576], [562, -578], [564, -580], [566, -582], [568, -584], [570, -586], [572, -588], [574, -590], [576, -592], [578, -594], [580, -596], [582, -598], [584, -600], [586, -602], [588, -604], [590, -606], [592, -608], [594, -610], [596, -612], [598, -614], [600, -616], [602, -618], [604, -620], [606, -622], [608, -624], [610, -626], [612, -628], [614, -630], [616, -632], [618, -634], [620, -636], [622, -638], [624, -640], [626, -642], [628, -644], [630, -646], [632, -648], [634, -650], [636, -652], [638, -654], [640, -656], [642, -658], [644, -660], [646, -662], [648, -664], [650, -666], [652, -668], [654, -670], [656, -672], [658, -674], [660, -676], [662, -678], [664, -680], [666, -682], [668, -684], [670, -686], [672, -688], [674, -690], [676, -692], [678, -694], [680, -696], [682, -698], [684, -700], [686, -702], [688, -704], [690, -706], [692, -708], [694, -710], [696, -712], [698, -714], [700, -716], [702, -718], [704, -720], [706, -722], [708, -724], [710, -726], [712, -728], [714, -730], [716, -732], [718, -734], [720, -736], [722, -738], [724, -740], [726, -742], [728, -744], [730, -746], [732, -748], [734, -750], [736, -752], [738, -754], [740, -756], [742, -758], [744, -760], [746, -762], [748, -764], [750, -766], [752, -768], [754, -770], [756, -772], [758, -774], [760, -776], [762, -778], [764, -780], [766, -782], [768, -784], [770, -786], [772, -788], [774, -790], [776, -792], [778, -794], [780, -796], [782, -798], [784, -800], [786, -802], [788, -804], [790, -806], [792, -808], [794, -810], [796, -812], [798, -814], [800, -816], [802, -818], [804, -820], [806, -822], [808, -824], [810, -826], [812, -828], [814, -830], [816, -832], [818, -834], [820, -836], [822, -838], [82
+[!] Skipping 3056128_Simulating twistronics without a twist_page3_crop_1_fig2a.png: could not extract data from this image.
+
+--- Figure 2/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page3_crop_2_fig2b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page3_crop_2_fig2b.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 3/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page8_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page8_crop_2_plot.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "upper line", "points": [[-83, -77], [-82, -78], [-81, -79], [-80, -80], [-79, -81], [-78, -82], [-77, -83], [-76, -84], [-75, -85], [-74, -86], [-73, -87], [-72, -88], [-71, -89], [-70, -90], [-69, -91], [-68, -92], [-67, -93], [-66, -94], [-65, -95], [-64, -96], [-63, -97], [-62, -98], [-61, -99], [-60, -100], [-59, -101], [-58, -102], [-57, -103], [-56, -104], [-55, -105], [-54, -106], [-53, -107], [-52, -108], [-51, -109], [-50, -110], [-49, -111], [-48, -112], [-47, -113], [-46, -114], [-45, -115], [-44, -116], [-43, -117], [-42, -118], [-41, -119], [-40, -120], [-39, -121], [-38, -122], [-37, -123], [-36, -124], [-35, -125], [-34, -126], [-33, -127], [-32, -128], [-31, -129], [-30, -130], [-29, -131], [-28, -132], [-27, -133], [-26, -134], [-25, -135], [-24, -136], [-23, -137], [-22, -138], [-21, -139], [-20, -140], [-19, -141], [-18, -142], [-17, -143], [-16, -144], [-15, -145], [-14, -146], [-13, -147], [-12, -148], [-11, -149], [-10, -150], [-9, -151], [-8, -152], [-7, -153], [-6, -154], [-5, -155], [-4, -156], [-3, -157], [-2, -158], [-1, -159], [0, -160], [1, -161], [2, -162], [3, -163], [4, -164], [5, -165], [6, -166], [7, -167], [8, -168], [9, -169], [10, -170], [11, -171], [12, -172], [13, -173], [14, -174], [15, -175], [16, -176], [17, -177], [18, -178], [19, -179], [20, -180], [21, -181], [22, -182], [23, -183], [24, -184], [25, -185], [26, -186], [27, -187], [28, -188], [29, -189], [30, -190], [31, -191], [32, -192], [33, -193], [34, -194], [35, -195], [36, -196], [37, -197], [38, -198], [39, -199], [40, -200], [41, -201], [42, -202], [43, -203], [44, -204], [45, -205], [46, -206], [47, -207], [48, -208], [49, -209], [50, -210], [51, -211], [52, -212], [53, -213], [54, -214], [55, -215], [56, -216], [57, -217], [58, -218], [59, -219], [60, -220], [61, -221], [62, -222], [63, -223], [64, -224], [65, -225], [66, -226], [67, -227], [68, -228], [69, -229], [70, -230], [71, -231], [72, -232], [73, -233], [74, -234], [75, -235], [76, -236], [77, -237], [78, -238], [79, -239], [80, -240], [81, -241], [82, -242], [83, -243], [84, -244], [85, -245], [86, -246], [87, -247], [88, -248], [89, -249], [90, -250], [91, -251], [92, -252], [93, -253], [94, -254], [95, -255], [96, -256], [97, -257], [98, -258], [99, -259], [100, -260], [101, -261], [102, -262], [103, -263], [104, -264], [105, -265], [106, -266], [107, -267], [108, -268], [109, -269], [110, -270], [111, -271], [112, -272], [113, -273], [114, -274], [115, -275], [116, -276], [117, -277], [118, -278], [119, -279], [120, -280], [121, -281], [122, -282], [123, -283], [124, -284], [125, -285], [126, -286], [127, -287], [128, -288], [129, -289], [130, -290], [131, -291], [132, -292], [133, -293], [134, -294], [135, -295], [136, -296], [137, -297], [138, -298], [139, -299], [140, -300], [141, -301], [142, -302], [143, -303], [144, -304], [145, -305], [146, -306], [147, -307], [148, -308], [149, -309], [150, -310], [151, -311], [152, -312], [153, -313], [154, -314], [155, -315], [156, -316], [157, -317], [158, -318], [159, -319], [160, -320], [161, -321], [162, -322], [163, -323], [164, -324], [165, -325], [166, -326], [167, -327], [168, -328], [169, -329], [170, -330], [171, -331], [172, -332], [173, -333], [174, -334], [175, -335], [176, -336], [177, -337], [178, -338], [179, -339], [180, -340], [181, -341], [182, -342], [183, -343], [184, -344], [185, -345], [186, -346], [187, -347], [188, -348], [189, -349], [190, -350], [191, -351], [192, -352], [193, -353], [194, -354], [195, -355], [196, -356], [197, -357], [198, -358], [199, -359], [200, -360], [201, -361], [202, -362], [203, -363], [204, -364], [205, -365], [206, -366], [207, -367], [208, -368], [209, -369], [210, -370], [211, -371], [212, -372], [213, -373], [214, -374], [215, -375], [216, -376], [217, -377], [218, -378], [219, -379], [220, -380], [221, -381], [222, -382], [223, -383], [224, -384], [225, -385], [226, -386], [227, -387], [228, -388], [229, -389], [230, -390], [231, -391], [232, -392], [233, -393], [234, -394], [235, -395], [236, -396], [237, -397], [238, -398], [239, -399], [240, -400], [241, -401], [242, -402], [243, -403], [244, -404], [245, -405], [246, -406], [247, -407], [248, -408], [249, -409], [250, -410], [251, -411], [252, -412], [253, -413], [254, -414], [255, -415], [256, -416], [257, -417], [258, -418], [259, -419], [260, -420], [261, -421], [262, -422], [263, -423], [264, -424], [265, -425], [266, -426], [267, -427], [268, -428], [269, -429], [270, -430], [271, -431], [272, -432], [273, -433], [274, -434], [275, -435], [276, -436], [277, -437], [278, -438], [279, -439], [280, -440], [281, -441], [282, -442], [283, -443], [284, -444], [285, -445], [286, -446], [287, -447], [288, -448], [289, -449], [290, -450], [291, -451], [292, -452], [293, -453], [294, -454], [295, -455], [296, -456], [297, -457], [298, -458], [299, -459], [300, -460], [301, -461], [302, -462], [303, -463], [304, -464], [305, -465], [306, -466], [307, -467], [308, -468], [309, -469], [310, -470], [311, -471], [312, -472], [313, -473], [314, -474], [315, -475], [316, -476], [317, -477], [318, -478], [319, -479], [320, -480], [321, -481], [322, -482], [323, -483], [324, -484], [325, -485], [326, -486], [327, -487], [328, -488], [329, -489], [330, -490], [331, -491], [332, -492], [333, -493], [334, -494], [335, -495], [336, -496], [337, -497], [338, -498], [339, -499], [340, -500], [341, -501], [342, -502], [343, -503], [344, -504], [345, -505], [3
+[!] Skipping 3056128_Simulating twistronics without a twist_page8_crop_2_plot.png: could not extract data from this image.
+
+--- Figure 5/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_3_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page8_crop_3_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 6/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_4_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page8_crop_4_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 7/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_5_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page8_crop_5_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'green line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'purple dashed line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'orange dashed line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 8/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page9_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page9_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': only 3 points, too few for a formula.
+[!] Skipping curve 'middle line': only 3 points, too few for a formula.
+[!] Skipping curve 'lower line': only 3 points, too few for a formula.
+
+--- Figure 9/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page9_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3056128_Simulating twistronics without a twist_page9_crop_2_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': only 3 points, too few for a formula.
+[!] Skipping curve 'middle line': only 3 points, too few for a formula.
+[!] Skipping curve 'lower line': only 3 points, too few for a formula.
+
+[+] Enriched paper content with analysis of 7/9 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 48304 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/3056128_Simulating twistronics without a twist.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 26/41: 3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf
+
+[2/3] Using 21 pre-cropped figure(s) from 'gold_figures/3057253_Quantum anomalous Hall phase in synthetic bilayers' (--figures-dir).
+[+] Found 21 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_1_fig2a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_1_fig2a.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 2/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_2_fig2b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_2_fig2b.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "upper line", "points": [[-158.0, -158.0], [-159.0, -159.0], [-160.0, -159.0], [-161.0, -159.0], [-162.0, -159.0], [-163.0, -159.0], [-164.0, -159.0], [-165.0, -159.0], [-166.0, -159.0], [-167.0, -159.0], [-168.0, -159.0], [-169.0, -159.0], [-170.0, -159.0], [-171.0, -159.0], [-172.0, -159.0], [-173.0, -159.0], [-174.0, -159.0], [-175.0, -159.0], [-176.0, -159.0], [-177.0, -159.0], [-178.0, -159.0], [-179.0, -159.0], [-180.0, -159.0], [-181.0, -159.0], [-182.0, -159.0], [-183.0, -159.0], [-184.0, -159.0], [-185.0, -159.0], [-186.0, -159.0], [-187.0, -159.0], [-188.0, -159.0], [-189.0, -159.0], [-190.0, -159.0], [-191.0, -159.0], [-192.0, -159.0], [-193.0, -159.0], [-194.0, -159.0], [-195.0, -159.0], [-196.0, -159.0], [-197.0, -159.0], [-198.0, -159.0], [-199.0, -159.0], [-200.0, -159.0], [-201.0, -159.0], [-202.0, -159.0], [-203.0, -159.0], [-204.0, -159.0], [-205.0, -159.0], [-206.0, -159.0], [-207.0, -159.0], [-208.0, -159.0], [-209.0, -159.0], [-210.0, -159.0], [-211.0, -159.0], [-212.0, -159.0], [-213.0, -159.0], [-214.0, -159.0], [-215.0, -159.0], [-216.0, -159.0], [-217.0, -159.0], [-218.0, -159.0], [-219.0, -159.0], [-220.0, -159.0], [-221.0, -159.0], [-222.0, -159.0], [-223.0, -159.0], [-224.0, -159.0], [-225.0, -159.0], [-226.0, -159.0], [-227.0, -159.0], [-228.0, -159.0], [-229.0, -159.0], [-230.0, -159.0], [-231.0, -159.0], [-232.0, -159.0], [-233.0, -159.0], [-234.0, -159.0], [-235.0, -159.0], [-236.0, -159.0], [-237.0, -159.0], [-238.0, -159.0], [-239.0, -159.0], [-240.0, -159.0], [-241.0, -159.0], [-242.0, -159.0], [-243.0, -159.0], [-244.0, -159.0], [-245.0, -159.0], [-246.0, -159.0], [-247.0, -159.0], [-248.0, -159.0], [-249.0, -159.0], [-250.0, -159.0], [-251.0, -159.0], [-252.0, -159.0], [-253.0, -159.0], [-254.0, -159.0], [-255.0, -159.0], [-256.0, -159.0], [-257.0, -159.0], [-258.0, -159.0], [-259.0, -159.0], [-260.0, -159.0], [-261.0, -159.0], [-262.0, -159.0], [-263.0, -159.0], [-264.0, -159.0], [-265.0, -159.0], [-266.0, -159.0], [-267.0, -159.0], [-268.0, -159.0], [-269.0, -159.0], [-270.0, -159.0], [-271.0, -159.0], [-272.0, -159.0], [-273.0, -159.0], [-274.0, -159.0], [-275.0, -159.0], [-276.0, -159.0], [-277.0, -159.0], [-278.0, -159.0], [-279.0, -159.0], [-280.0, -159.0], [-281.0, -159.0], [-282.0, -159.0], [-283.0, -159.0], [-284.0, -159.0], [-285.0, -159.0], [-286.0, -159.0], [-287.0, -159.0], [-288.0, -159.0], [-289.0, -159.0], [-290.0, -159.0], [-291.0, -159.0], [-292.0, -159.0], [-293.0, -159.0], [-294.0, -159.0], [-295.0, -159.0], [-296.0, -159.0], [-297.0, -159.0], [-298.0, -159.0], [-299.0, -159.0], [-300.0, -159.0], [-301.0, -159.0], [-302.0, -159.0], [-303.0, -159.0], [-304.0, -159.0], [-305.0, -159.0], [-306.0, -159.0], [-307.0, -159.0], [-308.0, -159.0], [-309.0, -159.0], [-310.0, -159.0], [-311.0, -159.0], [-312.0, -159.0], [-313.0, -159.0], [-314.0, -159.0], [-315.0, -159.0], [-316.0, -159.0], [-317.0, -159.0], [-318.0, -159.0], [-319.0, -159.0], [-320.0, -159.0], [-321.0, -159.0], [-322.0, -159.0], [-323.0, -159.0], [-324.0, -159.0], [-325.0, -159.0], [-326.0, -159.0], [-327.0, -159.0], [-328.0, -159.0], [-329.0, -159.0], [-330.0, -159.0], [-331.0, -159.0], [-332.0, -159.0], [-333.0, -159.0], [-334.0, -159.0], [-335.0, -159.0], [-336.0, -159.0], [-337.0, -159.0], [-338.0, -159.0], [-339.0, -159.0], [-340.0, -159.0], [-341.0, -159.0], [-342.0, -159.0], [-343.0, -159.0], [-344.0, -159.0], [-345.0, -159.0], [-346.0, -159.0], [-347.0, -159.0], [-348.0, -159.0], [-349.0, -159.0], [-350.0, -159.0], [-351.0, -159.0], [-352.0, -159.0], [-353.0, -159.0], [-354.0, -159.0], [-355.0, -159.0], [-356.0, -159.0], [-357.0, -159.0], [-358.0, -159.0], [-359.0, -159.0], [-360.0, -159.0], [-361.0, -159.0], [-362.0, -159.0], [-363.0, -159.0], [-364.0, -159.0], [-365.0, -159.0], [-366.0, -159.0], [-367.0, -159.0], [-368.0, -159.0], [-369.0, -159.0], [-370.0, -159.0], [-371.0, -159.0], [-372.0, -159.0], [-373.0, -159.0], [-374.0, -159.0], [-375.0, -159.0], [-376.0, -159.0], [-377.0, -159.0], [-378.0, -159.0], [-379.0, -159.0], [-380.0, -159.0], [-381.0, -159.0], [-382.0, -159.0], [-383.0, -159.0], [-384.0, -159.0], [-385.0, -159.0], [-386.0, -159.0], [-387.0, -159.0], [-388.0, -159.0], [-389.0, -159.0], [-390.0, -159.0], [-391.0, -159.0], [-392.0, -159.0], [-393.0, -159.0], [-394.0, -159.0], [-395.0, -159.0], [-396.0, -159.0], [-397.0, -159.0], [-398.0, -159.0], [-399.0, -159.0], [-400.0, -159.0], [-401.0, -159.0], [-402.0, -159.0], [-403.0, -159.0], [-404.0, -159.0], [-405.0, -159.0], [-406.0, -159.0], [-407.0, -159.0], [-408.0, -159.0], [-409.0, -159.0], [-410.0, -159.0], [-411.0, -159.0], [-412.0, -159.0], [-413.0, -159.0], [-414.0, -159.0], [-415.0, -159.0], [-416.0, -159.0], [-417.0, -159.0], [-418.0, -159.0], [-419.0, -159.0], [-420.0, -159.0], [-421.0, -159.0], [-422.0, -159.0], [-423.0, -159.0], [-424.0, -159.0], [-425.0, -159.0], [-426.0, -159.0], [-427.0, -159.0], [-428.0, -159.0], [-429.0, -159.0], [-430.0, -159.0], [-431.0, -159.0], [-432.0, -159.0], [-433.0, -159.0], [-434.0, -159.0], [-435.0, -159.0], [-436.0, -159.0], [-437.0, -159.0], [-438.0, -159.0], [-439.0, -159.0], [-440.0, -159.0], [-441.0, -159.0], [-442.0, -159.0], [-443.0, -159.0], [-444.0, -159.0], [-445.0, -159.0], [-446.0, -159.0], [-447.0, -159.0], [-448.0,
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_2_fig2b.png: could not extract data from this image.
+
+--- Figure 3/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_3_fig2c.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_3_fig2c.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_4_fig2d.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_4_fig2d.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "upper line", "points": [[0, -158.5], [0.5, -159], [1, -159.5], [1.5, -159], [2, -158.5], [2.5, -158], [3, -157.5], [3.5, -157], [4, -156.5], [4.5, -156], [5, -155.5], [5.5, -155], [6, -154.5], [6.5, -154], [7, -153.5], [7.5, -153], [8, -152.5], [8.5, -152], [9, -151.5], [9.5, -151], [10, -150.5], [10.5, -150], [11, -149.5], [11.5, -149], [12, -148.5], [12.5, -148], [13, -147.5], [13.5, -147], [14, -146.5], [14.5, -146], [15, -145.5], [15.5, -145], [16, -144.5], [16.5, -144], [17, -143.5], [17.5, -143], [18, -142.5], [18.5, -142], [19, -141.5], [19.5, -141], [20, -140.5], [20.5, -140], [21, -139.5], [21.5, -139], [22, -138.5], [22.5, -138], [23, -137.5], [23.5, -137], [24, -136.5], [24.5, -136], [25, -135.5], [25.5, -135], [26, -134.5], [26.5, -134], [27, -133.5], [27.5, -133], [28, -132.5], [28.5, -132], [29, -131.5], [29.5, -131], [30, -130.5], [30.5, -130], [31, -129.5], [31.5, -129], [32, -128.5], [32.5, -128], [33, -127.5], [33.5, -127], [34, -126.5], [34.5, -126], [35, -125.5], [35.5, -125], [36, -124.5], [36.5, -124], [37, -123.5], [37.5, -123], [38, -122.5], [38.5, -122], [39, -121.5], [39.5, -121], [40, -120.5], [40.5, -120], [41, -119.5], [41.5, -119], [42, -118.5], [42.5, -118], [43, -117.5], [43.5, -117], [44, -116.5], [44.5, -116], [45, -115.5], [45.5, -115], [46, -114.5], [46.5, -114], [47, -113.5], [47.5, -113], [48, -112.5], [48.5, -112], [49, -111.5], [49.5, -111], [50, -110.5], [50.5, -110], [51, -109.5], [51.5, -109], [52, -108.5], [52.5, -108], [53, -107.5], [53.5, -107], [54, -106.5], [54.5, -106], [55, -105.5], [55.5, -105], [56, -104.5], [56.5, -104], [57, -103.5], [57.5, -103], [58, -102.5], [58.5, -102], [59, -101.5], [59.5, -101], [60, -100.5], [60.5, -100], [61, -99.5], [61.5, -99], [62, -98.5], [62.5, -98], [63, -97.5], [63.5, -97], [64, -96.5], [64.5, -96], [65, -95.5], [65.5, -95], [66, -94.5], [66.5, -94], [67, -93.5], [67.5, -93], [68, -92.5], [68.5, -92], [69, -91.5], [69.5, -91], [70, -90.5], [70.5, -90], [71, -89.5], [71.5, -89], [72, -88.5], [72.5, -88], [73, -87.5], [73.5, -87], [74, -86.5], [74.5, -86], [75, -85.5], [75.5, -85], [76, -84.5], [76.5, -84], [77, -83.5], [77.5, -83], [78, -82.5], [78.5, -82], [79, -81.5], [79.5, -81], [80, -80.5], [80.5, -80], [81, -79.5], [81.5, -79], [82, -78.5], [82.5, -78], [83, -77.5], [83.5, -77], [84, -76.5], [84.5, -76], [85, -75.5], [85.5, -75], [86, -74.5], [86.5, -74], [87, -73.5], [87.5, -73], [88, -72.5], [88.5, -72], [89, -71.5], [89.5, -71], [90, -70.5], [90.5, -70], [91, -69.5], [91.5, -69], [92, -68.5], [92.5, -68], [93, -67.5], [93.5, -67], [94, -66.5], [94.5, -66], [95, -65.5], [95.5, -65], [96, -64.5], [96.5, -64], [97, -63.5], [97.5, -63], [98, -62.5], [98.5, -62], [99, -61.5], [99.5, -61], [100, -60.5], [100.5, -60], [101, -59.5], [101.5, -59], [102, -58.5], [102.5, -58], [103, -57.5], [103.5, -57], [104, -56.5], [104.5, -56], [105, -55.5], [105.5, -55], [106, -54.5], [106.5, -54], [107, -53.5], [107.5, -53], [108, -52.5], [108.5, -52], [109, -51.5], [109.5, -51], [110, -50.5], [110.5, -50], [111, -49.5], [111.5, -49], [112, -48.5], [112.5, -48], [113, -47.5], [113.5, -47], [114, -46.5], [114.5, -46], [115, -45.5], [115.5, -45], [116, -44.5], [116.5, -44], [117, -43.5], [117.5, -43], [118, -42.5], [118.5, -42], [119, -41.5], [119.5, -41], [120, -40.5], [120.5, -40], [121, -39.5], [121.5, -39], [122, -38.5], [122.5, -38], [123, -37.5], [123.5, -37], [124, -36.5], [124.5, -36], [125, -35.5], [125.5, -35], [126, -34.5], [126.5, -34], [127, -33.5], [127.5, -33], [128, -32.5], [128.5, -32], [129, -31.5], [129.5, -31], [130, -30.5], [130.5, -30], [131, -29.5], [131.5, -29], [132, -28.5], [132.5, -28], [133, -27.5], [133.5, -27], [134, -26.5], [134.5, -26], [135, -25.5], [135.5, -25], [136, -24.5], [136.5, -24], [137, -23.5], [137.5, -23], [138, -22.5], [138.5, -22], [139, -21.5], [139.5, -21], [140, -20.5], [140.5, -20], [141, -19.5], [141.5, -19], [142, -18.5], [142.5, -18], [143, -17.5], [143.5, -17], [144, -16.5], [144.5, -16], [145, -15.5], [145.5, -15], [146, -14.5], [146.5, -14], [147, -13.5], [147.5, -13], [148, -12.5], [148.5, -12], [149, -11.5], [149.5, -11], [150, -10.5], [150.5, -10], [151, -9.5], [151.5, -9], [152, -8.5], [152.5, -8], [153, -7.5], [153.5, -7], [154, -6.5], [154.5, -6], [155, -5.5], [155.5, -5], [156, -4.5], [156.5, -4], [157, -3.5], [157.5, -3], [158, -2.5], [158.5, -2], [159, -1.5], [159.5, -1], [160, -0.5], [160.5, 0], [161, 0.5], [161.5, 1], [162, 1.5], [162.5, 2], [163, 2.5], [163.5, 3], [164, 3.5], [164.5, 4], [165, 4.5], [165.5, 5], [166, 5.5], [166.5, 6], [167, 6.5], [167.5, 7], [168, 7.5], [168.5, 8], [169, 8.5], [169.5, 9], [170, 9.5], [170.5, 10], [171, 10.5], [171.5, 11], [172, 11.5], [172.5, 12], [173, 12.5], [173.5, 13], [174, 13.5], [174.5, 14], [175, 14.5], [175.5, 15], [176, 15.5], [176.5, 16], [177, 16.5], [177.5, 17], [178, 17.5], [178.5, 18], [179, 18.5], [179.5, 19], [180, 19.5], [180.5, 20], [181, 20.5], [181.5, 21], [182, 21.5], [182.5, 22], [183, 22.5], [183.5, 23], [184, 23.5], [184.5, 24], [185, 24.5], [185.5, 25], [186, 25.5], [186.5, 26], [187, 26.5], [187.5, 27], [188, 27.5], [188.5, 28], [189, 28.5], [189.5, 29], [190, 29.5], [190.5, 30], [19
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_4_fig2d.png: could not extract data from this image.
+
+--- Figure 5/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'upper line': only 3 points, too few for a formula.
+[!] Skipping curve 'lower line': only 3 points, too few for a formula.
+
+--- Figure 6/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_2_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'upper line': only 3 points, too few for a formula.
+[!] Skipping curve 'lower line': only 3 points, too few for a formula.
+
+--- Figure 7/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_1_fig5.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 8/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_2_fig5.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "upper line", "points": [[0, -158], [0.125, -158.05], [0.25, -158.1], [0.375, -158.15], [0.5, -158.2], [0.625, -158.25], [0.75, -158.3], [0.875, -158.35], [1, -158.4], [1.125, -158.45], [1.25, -158.5], [1.375, -158.55], [1.5, -158.6], [1.625, -158.65], [1.75, -158.7], [1.875, -158.75], [2, -158.8], [2.125, -158.85], [2.25, -158.9], [2.375, -158.95], [2.5, -159], [2.625, -159.05], [2.75, -159.1], [2.875, -159.15], [3, -159.2], [3.125, -159.25], [3.25, -159.3], [3.375, -159.35], [3.5, -159.4], [3.625, -159.45], [3.75, -159.5], [3.875, -159.55], [4, -159.6], [4.125, -159.65], [4.25, -159.7], [4.375, -159.75], [4.5, -159.8], [4.625, -159.85], [4.75, -159.9], [4.875, -159.95], [5, -160], [5.125, -160.05], [5.25, -160.1], [5.375, -160.15], [5.5, -160.2], [5.625, -160.25], [5.75, -160.3], [5.875, -160.35], [6, -160.4], [6.125, -160.45], [6.25, -160.5], [6.375, -160.55], [6.5, -160.6], [6.625, -160.65], [6.75, -160.7], [6.875, -160.75], [7, -160.8], [7.125, -160.85], [7.25, -160.9], [7.375, -160.95], [7.5, -161], [7.625, -161.05], [7.75, -161.1], [7.875, -161.15], [8, -161.2], [8.125, -161.25], [8.25, -161.3], [8.375, -161.35], [8.5, -161.4], [8.625, -161.45], [8.75, -161.5], [8.875, -161.55], [9, -161.6], [9.125, -161.65], [9.25, -161.7], [9.375, -161.75], [9.5, -161.8], [9.625, -161.85], [9.75, -161.9], [9.875, -161.95], [10, -162], [10.125, -162.05], [10.25, -162.1], [10.375, -162.15], [10.5, -162.2], [10.625, -162.25], [10.75, -162.3], [10.875, -162.35], [11, -162.4], [11.125, -162.45], [11.25, -162.5], [11.375, -162.55], [11.5, -162.6], [11.625, -162.65], [11.75, -162.7], [11.875, -162.75], [12, -162.8], [12.125, -162.85], [12.25, -162.9], [12.375, -162.95], [12.5, -163], [12.625, -163.05], [12.75, -163.1], [12.875, -163.15], [13, -163.2], [13.125, -163.25], [13.25, -163.3], [13.375, -163.35], [13.5, -163.4], [13.625, -163.45], [13.75, -163.5], [13.875, -163.55], [14, -163.6], [14.125, -163.65], [14.25, -163.7], [14.375, -163.75], [14.5, -163.8], [14.625, -163.85], [14.75, -163.9], [14.875, -163.95], [15, -164], [15.125, -164.05], [15.25, -164.1], [15.375, -164.15], [15.5, -164.2], [15.625, -164.25], [15.75, -164.3], [15.875, -164.35], [16, -164.4], [16.125, -164.45], [16.25, -164.5], [16.375, -164.55], [16.5, -164.6], [16.625, -164.65], [16.75, -164.7], [16.875, -164.75], [17, -164.8], [17.125, -164.85], [17.25, -164.9], [17.375, -164.95], [17.5, -165], [17.625, -165.05], [17.75, -165.1], [17.875, -165.15], [18, -165.2], [18.125, -165.25], [18.25, -165.3], [18.375, -165.35], [18.5, -165.4], [18.625, -165.45], [18.75, -165.5], [18.875, -165.55], [19, -165.6], [19.125, -165.65], [19.25, -165.7], [19.375, -165.75], [19.5, -165.8], [19.625, -165.85], [19.75, -165.9], [19.875, -165.95], [20, -166], [20.125, -166.05], [20.25, -166.1], [20.375, -166.15], [20.5, -166.2], [20.625, -166.25], [20.75, -166.3], [20.875, -166.35], [21, -166.4], [21.125, -166.45], [21.25, -166.5], [21.375, -166.55], [21.5, -166.6], [21.625, -166.65], [21.75, -166.7], [21.875, -166.75], [22, -166.8], [22.125, -166.85], [22.25, -166.9], [22.375, -166.95], [22.5, -167], [22.625, -167.05], [22.75, -167.1], [22.875, -167.15], [23, -167.2], [23.125, -167.25], [23.25, -167.3], [23.375, -167.35], [23.5, -167.4], [23.625, -167.45], [23.75, -167.5], [23.875, -167.55], [24, -167.6], [24.125, -167.65], [24.25, -167.7], [24.375, -167.75], [24.5, -167.8], [24.625, -167.85], [24.75, -167.9], [24.875, -167.95], [25, -168], [25.125, -168.05], [25.25, -168.1], [25.375, -168.15], [25.5, -168.2], [25.625, -168.25], [25.75, -168.3], [25.875, -168.35], [26, -168.4], [26.125, -168.45], [26.25, -168.5], [26.375, -168.55], [26.5, -168.6], [26.625, -168.65], [26.75, -168.7], [26.875, -168.75], [27, -168.8], [27.125, -168.85], [27.25, -168.9], [27.375, -168.95], [27.5, -169], [27.625, -169.05], [27.75, -169.1], [27.875, -169.15], [28, -169.2], [28.125, -169.25], [28.25, -169.3], [28.375, -169.35], [28.5, -169.4], [28.625, -169.45], [28.75, -169.5], [28.875, -169.55], [29, -169.6], [29.125, -169.65], [29.25, -169.7], [29.375, -169.75], [29.5, -169.8], [29.625, -169.85], [29.75, -169.9], [29.875, -169.95], [30, -170], [30.125, -170.05], [30.25, -170.1], [30.375, -170.15], [30.5, -170.2], [30.625, -170.25], [30.75, -170.3], [30.875, -170.35], [31, -170.4], [31.125, -170.45], [31.25, -170.5], [31.375, -170.55], [31.5, -170.6], [31.625, -170.65], [31.75, -170.7], [31.875, -170.75], [32, -170.8], [32.125, -170.85], [32.25, -170.9], [32.375, -170.95], [32.5, -171], [32.625, -171.05], [32.75, -171.1], [32.875, -171.15], [33, -171.2], [33.125, -171.25], [33.25, -171.3], [33.375, -171.35], [33.5, -171.4], [33.625, -171.45], [33.75, -171.5], [33.875, -171.55], [34, -171.6], [34.125, -171.65], [34.25, -171.7], [34.375, -171.75], [34.5, -171.8], [34.625, -171.85], [34.75, -171.9], [34.875, -171.95], [35, -172], [35.125, -172.05], [35.25, -172.1], [35.375, -172.15], [35.5, -172.2], [35.625, -172.25], [35.75, -172.3], [35.875, -172.35], [3
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_2_fig5.png: could not extract data from this image.
+
+--- Figure 9/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_3_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_3_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -exp(0.10713873 + 321.85547/x0) - 156.43663
+    -> Complexity: 8 | Score: 1.3786 | R^2: 0.9873
+    -> [!] Only 7 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 10/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_4_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_4_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 11/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_1_fig5.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "main peak", "points": [[-160, 0], [-160, 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_1_fig5.png: could not extract data from this image.
+
+--- Figure 12/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_2_fig6.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "purple curve", "points": [[-161.5, 0.0], [-161.0, 0.0], [-160.5, 0.0], [-160.0, 0.0], [-159.5, 0.0], [-159.0, 0.0], [-158.5, 0.0], [-158.0, 0.0], [-157.5, 0.0], [-157.0, 0.0], [-156.5, 0.0], [-156.0, 0.0], [-155.5, 0.0], [-155.0, 0.0], [-154.5, 0.0], [-154.0, 0.0], [-153.5, 0.0], [-153.0, 0.0], [-152.5, 0.0], [-152.0, 0.0], [-151.5, 0.0], [-151.0, 0.0], [-150.5, 0.0], [-150.0, 0.0], [-149.5, 0.0], [-149.0, 0.0], [-148.5, 0.0], [-148.0, 0.0], [-147.5, 0.0], [-147.0, 0.0], [-146.5, 0.0], [-146.0, 0.0], [-145.5, 0.0], [-145.0, 0.0], [-144.5, 0.0], [-144.0, 0.0], [-143.5, 0.0], [-143.0, 0.0], [-142.5, 0.0], [-142.0, 0.0], [-141.5, 0.0], [-141.0, 0.0], [-140.5, 0.0], [-140.0, 0.0], [-139.5, 0.0], [-139.0, 0.0], [-138.5, 0.0], [-138.0, 0.0], [-137.5, 0.0], [-137.0, 0.0], [-136.5, 0.0], [-136.0, 0.0], [-135.5, 0.0], [-135.0, 0.0], [-134.5, 0.0], [-134.0, 0.0], [-133.5, 0.0], [-133.0, 0.0], [-132.5, 0.0], [-132.0, 0.0], [-131.5, 0.0], [-131.0, 0.0], [-130.5, 0.0], [-130.0, 0.0], [-129.5, 0.0], [-129.0, 0.0], [-128.5, 0.0], [-128.0, 0.0], [-127.5, 0.0], [-127.0, 0.0], [-126.5, 0.0], [-126.0, 0.0], [-125.5, 0.0], [-125.0, 0.0], [-124.5, 0.0], [-124.0, 0.0], [-123.5, 0.0], [-123.0, 0.0], [-122.5, 0.0], [-122.0, 0.0], [-121.5, 0.0], [-121.0, 0.0], [-120.5, 0.0], [-120.0, 0.0], [-119.5, 0.0], [-119.0, 0.0], [-118.5, 0.0], [-118.0, 0.0], [-117.5, 0.0], [-117.0, 0.0], [-116.5, 0.0], [-116.0, 0.0], [-115.5, 0.0], [-115.0, 0.0], [-114.5, 0.0], [-114.0, 0.0], [-113.5, 0.0], [-113.0, 0.0], [-112.5, 0.0], [-112.0, 0.0], [-111.5, 0.0], [-111.0, 0.0], [-110.5, 0.0], [-110.0, 0.0], [-109.5, 0.0], [-109.0, 0.0], [-108.5, 0.0], [-108.0, 0.0], [-107.5, 0.0], [-107.0, 0.0], [-106.5, 0.0], [-106.0, 0.0], [-105.5, 0.0], [-105.0, 0.0], [-104.5, 0.0], [-104.0, 0.0], [-103.5, 0.0], [-103.0, 0.0], [-102.5, 0.0], [-102.0, 0.0], [-101.5, 0.0], [-101.0, 0.0], [-100.5, 0.0], [-100.0, 0.0], [-99.5, 0.0], [-99.0, 0.0], [-98.5, 0.0], [-98.0, 0.0], [-97.5, 0.0], [-97.0, 0.0], [-96.5, 0.0], [-96.0, 0.0], [-95.5, 0.0], [-95.0, 0.0], [-94.5, 0.0], [-94.0, 0.0], [-93.5, 0.0], [-93.0, 0.0], [-92.5, 0.0], [-92.0, 0.0], [-91.5, 0.0], [-91.0, 0.0], [-90.5, 0.0], [-90.0, 0.0], [-89.5, 0.0], [-89.0, 0.0], [-88.5, 0.0], [-88.0, 0.0], [-87.5, 0.0], [-87.0, 0.0], [-86.5, 0.0], [-86.0, 0.0], [-85.5, 0.0], [-85.0, 0.0], [-84.5, 0.0], [-84.0, 0.0], [-83.5, 0.0], [-83.0, 0.0], [-82.5, 0.0], [-82.0, 0.0], [-81.5, 0.0], [-81.0, 0.0], [-80.5, 0.0], [-80.0, 0.0], [-79.5, 0.0], [-79.0, 0.0], [-78.5, 0.0], [-78.0, 0.0], [-77.5, 0.0], [-77.0, 0.0], [-76.5, 0.0], [-76.0, 0.0], [-75.5, 0.0], [-75.0, 0.0], [-74.5, 0.0], [-74.0, 0.0], [-73.5, 0.0], [-73.0, 0.0], [-72.5, 0.0], [-72.0, 0.0], [-71.5, 0.0], [-71.0, 0.0], [-70.5, 0.0], [-70.0, 0.0], [-69.5, 0.0], [-69.0, 0.0], [-68.5, 0.0], [-68.0, 0.0], [-67.5, 0.0], [-67.0, 0.0], [-66.5, 0.0], [-66.0, 0.0], [-65.5, 0.0], [-65.0, 0.0], [-64.5, 0.0], [-64.0, 0.0], [-63.5, 0.0], [-63.0, 0.0], [-62.5, 0.0], [-62.0, 0.0], [-61.5, 0.0], [-61.0, 0.0], [-60.5, 0.0], [-60.0, 0.0], [-59.5, 0.0], [-59.0, 0.0], [-58.5, 0.0], [-58.0, 0.0], [-57.5, 0.0], [-57.0, 0.0], [-56.5, 0.0], [-56.0, 0.0], [-55.5, 0.0], [-55.0, 0.0], [-54.5, 0.0], [-54.0, 0.0], [-53.5, 0.0], [-53.0, 0.0], [-52.5, 0.0], [-52.0, 0.0], [-51.5, 0.0], [-51.0, 0.0], [-50.5, 0.0], [-50.0, 0.0], [-49.5, 0.0], [-49.0, 0.0], [-48.5, 0.0], [-48.0, 0.0], [-47.5, 0.0], [-47.0, 0.0], [-46.5, 0.0], [-46.0, 0.0], [-45.5, 0.0], [-45.0, 0.0], [-44.5, 0.0], [-44.0, 0.0], [-43.5, 0.0], [-43.0, 0.0], [-42.5, 0.0], [-42.0, 0.0], [-41.5, 0.0], [-41.0, 0.0], [-40.5, 0.0], [-40.0, 0.0], [-39.5, 0.0], [-39.0, 0.0], [-38.5, 0.0], [-38.0, 0.0], [-37.5, 0.0], [-37.0, 0.0], [-36.5, 0.0], [-36.0, 0.0], [-35.5, 0.0], [-35.0, 0.0], [-34.5, 0.0], [-34.0, 0.0], [-33.5, 0.0], [-33.0, 0.0], [-32.5, 0.0], [-32.0, 0.0], [-31.5, 0.0], [-31.0, 0.0], [-30.5, 0.0], [-30.0, 0.0], [-29.5, 0.0], [-29.0, 0.0], [-28.5, 0.0], [-28.0, 0.0], [-27.5, 0.0], [-27.0, 0.0], [-26.5, 0.0], [-26.0, 0.0], [-25.5, 0.0], [-25.0, 0.0], [-24.5, 0.0], [-24.0, 0.0], [-23.5, 0.0], [-23.0, 0.0], [-22.5, 0.0], [-22.0, 0.0], [-21.5, 0.0], [-21.0, 0.0], [-20.5, 0.0], [-20.0, 0.0], [-19.5, 0.0], [-19.0, 0.0], [-18.5, 0.0], [-18.0, 0.0], [-17.5, 0.0], [-17.0, 0.0], [-16.5, 0.0], [-16.0, 0.0], [-15.5, 0.0], [-15.0, 0.0], [-14.5, 0.0], [-14.0, 0.0], [-13.5, 0.0], [-13.0, 0.0], [-12.5, 0.0], [-12.0, 0.0], [-11.5, 0.0], [-11.0, 0.0], [-10.5, 0.0], [-10.0, 0.0], [-9.5, 0.0], [-9.0, 0.0], [-8.5, 0.0], [-8.0, 0.0], [-7.5, 0.0], [-7.0, 0.0], [-6.5, 0.0], [-6.0, 0.0], [-5.5, 0.0], [-5.0, 0.0], [-4.5, 0.0], [-4.0, 0.0], [-3.5, 0.0], [-3.0, 0.0], [-2.5, 0.0], [-2.0, 0.0], [-1.5, 0.0], [-1.0, 0.0], [0.0, 0.0], [1.0, 0.0], [2.0, 0.0], [3.0, 0.0], [4.0, 0.0], [5.0, 0.0], [6.0, 0.0], [7.0, 0.0], [8.0, 0.0], [9.0, 0.0], [10.0, 0.0], [11.0, 0.0], [12.0, 0.0], [13.0, 0.0], [14.0, 0.0], [15.0, 0.0], [16.0, 0.0], [17.0, 0.0], [18.0, 0.0], [19.0, 0.0], [20.0, 0.0], [21.0, 0.0], [22.0, 0.0], [23.0, 0.0], [24.0, 0.0], [25.0, 0.0], [26.0, 0.0], [27.0, 0.0], [28.0, 0.0], [29.0, 0.0], [30.0, 0.0], [31.0, 0.0], [32.0, 0.0], [33.0, 0.0], [34.0, 0.0], [35.0, 0.0], [36.0, 0.0], [37.0, 0.0], [38.0, 0.0], [39
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_2_fig6.png: could not extract data from this image.
+
+--- Figure 13/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_3_fig7.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_3_fig7.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.0072803465))*x0*0.0001463078
+    -> Complexity: 8 | Score: 0.9869 | R^2: 0.9970
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 14/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_4_fig8.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_4_fig8.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 15/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'upper line': only 2 points, too few for a formula.
+[!] Skipping curve 'lower line': only 2 points, too few for a formula.
+
+--- Figure 16/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_2_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'middle line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 17/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_1_fig9a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_1_fig9a.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(-0.79963267)*x0 - 32.259014
+    -> Complexity: 5 | Score: 0.3466 | R^2: 0.9412
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 18/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_2_fig9b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_2_fig9b.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "blue line", "points": [[-162, -162], [-161.5, -161.5], [-161, -161], [-160.5, -160.5], [-160, -160], [-159.5, -159.5], [-159, -159], [-158.5, -158.5], [-158, -158], [-157.5, -157.5], [-157, -157], [-156.5, -156.5], [-156, -156], [-155.5, -155.5], [-155, -155], [-154.5, -154.5], [-154, -154], [-153.5, -153.5], [-153, -153], [-152.5, -152.5], [-152, -152], [-151.5, -151.5], [-151, -151], [-150.5, -150.5], [-150, -150], [-149.5, -149.5], [-149, -149], [-148.5, -148.5], [-148, -148], [-147.5, -147.5], [-147, -147], [-146.5, -146.5], [-146, -146], [-145.5, -145.5], [-145, -145], [-144.5, -144.5], [-144, -144], [-143.5, -143.5], [-143, -143], [-142.5, -142.5], [-142, -142], [-141.5, -141.5], [-141, -141], [-140.5, -140.5], [-140, -140], [-139.5, -139.5], [-139, -139], [-138.5, -138.5], [-138, -138], [-137.5, -137.5], [-137, -137], [-136.5, -136.5], [-136, -136], [-135.5, -135.5], [-135, -135], [-134.5, -134.5], [-134, -134], [-133.5, -133.5], [-133, -133], [-132.5, -132.5], [-132, -132], [-131.5, -131.5], [-131, -131], [-130.5, -130.5], [-130, -130], [-129.5, -129.5], [-129, -129], [-128.5, -128.5], [-128, -128], [-127.5, -127.5], [-127, -127], [-126.5, -126.5], [-126, -126], [-125.5, -125.5], [-125, -125], [-124.5, -124.5], [-124, -124], [-123.5, -123.5], [-123, -123], [-122.5, -122.5], [-122, -122], [-121.5, -121.5], [-121, -121], [-120.5, -120.5], [-120, -120], [-119.5, -119.5], [-119, -119], [-118.5, -118.5], [-118, -118], [-117.5, -117.5], [-117, -117], [-116.5, -116.5], [-116, -116], [-115.5, -115.5], [-115, -115], [-114.5, -114.5], [-114, -114], [-113.5, -113.5], [-113, -113], [-112.5, -112.5], [-112, -112], [-111.5, -111.5], [-111, -111], [-110.5, -110.5], [-110, -110], [-109.5, -109.5], [-109, -109], [-108.5, -108.5], [-108, -108], [-107.5, -107.5], [-107, -107], [-106.5, -106.5], [-106, -106], [-105.5, -105.5], [-105, -105], [-104.5, -104.5], [-104, -104], [-103.5, -103.5], [-103, -103], [-102.5, -102.5], [-102, -102], [-101.5, -101.5], [-101, -101], [-100.5, -100.5], [-100, -100], [-99.5, -99.5], [-99, -99], [-98.5, -98.5], [-98, -98], [-97.5, -97.5], [-97, -97], [-96.5, -96.5], [-96, -96], [-95.5, -95.5], [-95, -95], [-94.5, -94.5], [-94, -94], [-93.5, -93.5], [-93, -93], [-92.5, -92.5], [-92, -92], [-91.5, -91.5], [-91, -91], [-90.5, -90.5], [-90, -90], [-89.5, -89.5], [-89, -89], [-88.5, -88.5], [-88, -88], [-87.5, -87.5], [-87, -87], [-86.5, -86.5], [-86, -86], [-85.5, -85.5], [-85, -85], [-84.5, -84.5], [-84, -84], [-83.5, -83.5], [-83, -83], [-82.5, -82.5], [-82, -82], [-81.5, -81.5], [-81, -81], [-80.5, -80.5], [-80, -80], [-79.5, -79.5], [-79, -79], [-78.5, -78.5], [-78, -78], [-77.5, -77.5], [-77, -77], [-76.5, -76.5], [-76, -76], [-75.5, -75.5], [-75, -75], [-74.5, -74.5], [-74, -74], [-73.5, -73.5], [-73, -73], [-72.5, -72.5], [-72, -72], [-71.5, -71.5], [-71, -71], [-70.5, -70.5], [-70, -70], [-69.5, -69.5], [-69, -69], [-68.5, -68.5], [-68, -68], [-67.5, -67.5], [-67, -67], [-66.5, -66.5], [-66, -66], [-65.5, -65.5], [-65, -65], [-64.5, -64.5], [-64, -64], [-63.5, -63.5], [-63, -63], [-62.5, -62.5], [-62, -62], [-61.5, -61.5], [-61, -61], [-60.5, -60.5], [-60, -60], [-59.5, -59.5], [-59, -59], [-58.5, -58.5], [-58, -58], [-57.5, -57.5], [-57, -57], [-56.5, -56.5], [-56, -56], [-55.5, -55.5], [-55, -55], [-54.5, -54.5], [-54, -54], [-53.5, -53.5], [-53, -53], [-52.5, -52.5], [-52, -52], [-51.5, -51.5], [-51, -51], [-50.5, -50.5], [-50, -50], [-49.5, -49.5], [-49, -49], [-48.5, -48.5], [-48, -48], [-47.5, -47.5], [-47, -47], [-46.5, -46.5], [-46, -46], [-45.5, -45.5], [-45, -45], [-44.5, -44.5], [-44, -44], [-43.5, -43.5], [-43, -43], [-42.5, -42.5], [-42, -42], [-41.5, -41.5], [-41, -41], [-40.5, -40.5], [-40, -40], [-39.5, -39.5], [-39, -39], [-38.5, -38.5], [-38, -38], [-37.5, -37.5], [-37, -37], [-36.5, -36.5], [-36, -36], [-35.5, -35.5], [-35, -35], [-34.5, -34.5], [-34, -34], [-33.5, -33.5], [-33, -33], [-32.5, -32.5], [-32, -32], [-31.5, -31.5], [-31, -31], [-30.5, -30.5], [-30, -30], [-29.5, -29.5], [-29, -29], [-28.5, -28.5], [-28, -28], [-27.5, -27.5], [-27, -27], [-26.5, -26.5], [-26, -26], [-25.5, -25.5], [-25, -25], [-24.5, -24.5], [-24, -24], [-23.5, -23.5], [-23, -23], [-22.5, -22.5], [-22, -22], [-21.5, -21.5], [-21, -21], [-20.5, -20.5], [-20, -20], [-19.5, -19.5], [-19, -19], [-18.5, -18.5], [-18, -18], [-17.5, -17.5], [-17, -17], [-16.5, -16.5], [-16, -16], [-15.5, -15.5], [-15, -15], [-14.5, -14.5], [-14, -14], [-13.5, -13.5], [-13, -13], [-12.5, -12.5], [-12, -12], [-11.5, -11.5], [-11, -11], [-10.5, -10.5], [-10, -10], [-9.5, -9.5], [-9, -9], [-8.5, -8.5], [-8, -8], [-7.5, -7.5], [-7, -7], [-6.5, -6.5], [-6, -6], [-5.5, -5.5], [-5, -5], [-4.5, -4.5], [-4, -4], [-3.5, -3.5], [-3, -3], [-2.5, -2.5], [-2, -2], [-1.5, -1.5], [-1, -1], [0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10], [11, 11], [12, 12], [13, 13], [14, 14], [15, 15], [16, 16], [17, 17], [18, 18], [19, 19], [20, 20], [21, 21], [22, 22], [23, 23], [24, 24], [25, 25], [26, 26], [27, 27], [28, 28], [29, 29], [30, 30], [31, 31], [32, 32], [33, 33], [34, 34], [35, 35], [36, 36], [37, 37], [38, 38], [39, 39], [40, 40], [41, 41], [42, 42], [43, 43], [44, 44], [45, 45], [46, 46], [47, 47], [48, 48], [49, 49], [50, 50], [51, 51], [52, 52], [53, 53], [54, 54], [55, 55], [56, 56], [57, 57], [58, 58], [59, 59], [60, 60], [61, 61], [62, 62], [63, 63], [64, 64], [65, 65], [66, 66], [67, 67], [68, 68], [69, 69], [70, 70], [71, 71], [72, 72], [73, 73], [74, 74], [75, 75], [76, 76], [77, 77], [78, 78], [79, 79], [80,
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_2_fig9b.png: could not extract data from this image.
+
+--- Figure 19/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_3_fig9c.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_3_fig9c.png
+[!] Guided vision output could not be parsed (JSONDecodeError); retrying without the schema constraint.
+[-] Error: local model returned a non-JSON output. Raw response:
+{
+    "plot_type": "continuous",
+    "series": [
+        {"label": "blue", "points": [[-162, -162], [-161.5, -161.5], [-161, -161], [-160.5, -160.5], [-160, -160], [-159.5, -159.5], [-159, -159], [-158.5, -158.5], [-158, -158], [-157.5, -157.5], [-157, -157], [-156.5, -156.5], [-156, -156], [-155.5, -155.5], [-155, -155], [-154.5, -154.5], [-154, -154], [-153.5, -153.5], [-153, -153], [-152.5, -152.5], [-152, -152], [-151.5, -151.5], [-151, -151], [-150.5, -150.5], [-150, -150], [-149.5, -149.5], [-149, -149], [-148.5, -148.5], [-148, -148], [-147.5, -147.5], [-147, -147], [-146.5, -146.5], [-146, -146], [-145.5, -145.5], [-145, -145], [-144.5, -144.5], [-144, -144], [-143.5, -143.5], [-143, -143], [-142.5, -142.5], [-142, -142], [-141.5, -141.5], [-141, -141], [-140.5, -140.5], [-140, -140], [-139.5, -139.5], [-139, -139], [-138.5, -138.5], [-138, -138], [-137.5, -137.5], [-137, -137], [-136.5, -136.5], [-136, -136], [-135.5, -135.5], [-135, -135], [-134.5, -134.5], [-134, -134], [-133.5, -133.5], [-133, -133], [-132.5, -132.5], [-132, -132], [-131.5, -131.5], [-131, -131], [-130.5, -130.5], [-130, -130], [-129.5, -129.5], [-129, -129], [-128.5, -128.5], [-128, -128], [-127.5, -127.5], [-127, -127], [-126.5, -126.5], [-126, -126], [-125.5, -125.5], [-125, -125], [-124.5, -124.5], [-124, -124], [-123.5, -123.5], [-123, -123], [-122.5, -122.5], [-122, -122], [-121.5, -121.5], [-121, -121], [-120.5, -120.5], [-120, -120], [-119.5, -119.5], [-119, -119], [-118.5, -118.5], [-118, -118], [-117.5, -117.5], [-117, -117], [-116.5, -116.5], [-116, -116], [-115.5, -115.5], [-115, -115], [-114.5, -114.5], [-114, -114], [-113.5, -113.5], [-113, -113], [-112.5, -112.5], [-112, -112], [-111.5, -111.5], [-111, -111], [-110.5, -110.5], [-110, -110], [-109.5, -109.5], [-109, -109], [-108.5, -108.5], [-108, -108], [-107.5, -107.5], [-107, -107], [-106.5, -106.5], [-106, -106], [-105.5, -105.5], [-105, -105], [-104.5, -104.5], [-104, -104], [-103.5, -103.5], [-103, -103], [-102.5, -102.5], [-102, -102], [-101.5, -101.5], [-101, -101], [-100.5, -100.5], [-100, -100], [-99.5, -99.5], [-99, -99], [-98.5, -98.5], [-98, -98], [-97.5, -97.5], [-97, -97], [-96.5, -96.5], [-96, -96], [-95.5, -95.5], [-95, -95], [-94.5, -94.5], [-94, -94], [-93.5, -93.5], [-93, -93], [-92.5, -92.5], [-92, -92], [-91.5, -91.5], [-91, -91], [-90.5, -90.5], [-90, -90], [-89.5, -89.5], [-89, -89], [-88.5, -88.5], [-88, -88], [-87.5, -87.5], [-87, -87], [-86.5, -86.5], [-86, -86], [-85.5, -85.5], [-85, -85], [-84.5, -84.5], [-84, -84], [-83.5, -83.5], [-83, -83], [-82.5, -82.5], [-82, -82], [-81.5, -81.5], [-81, -81], [-80.5, -80.5], [-80, -80], [-79.5, -79.5], [-79, -79], [-78.5, -78.5], [-78, -78], [-77.5, -77.5], [-77, -77], [-76.5, -76.5], [-76, -76], [-75.5, -75.5], [-75, -75], [-74.5, -74.5], [-74, -74], [-73.5, -73.5], [-73, -73], [-72.5, -72.5], [-72, -72], [-71.5, -71.5], [-71, -71], [-70.5, -70.5], [-70, -70], [-69.5, -69.5], [-69, -69], [-68.5, -68.5], [-68, -68], [-67.5, -67.5], [-67, -67], [-66.5, -66.5], [-66, -66], [-65.5, -65.5], [-65, -65], [-64.5, -64.5], [-64, -64], [-63.5, -63.5], [-63, -63], [-62.5, -62.5], [-62, -62], [-61.5, -61.5], [-61, -61], [-60.5, -60.5], [-60, -60], [-59.5, -59.5], [-59, -59], [-58.5, -58.5], [-58, -58], [-57.5, -57.5], [-57, -57], [-56.5, -56.5], [-56, -56], [-55.5, -55.5], [-55, -55], [-54.5, -54.5], [-54, -54], [-53.5, -53.5], [-53, -53], [-52.5, -52.5], [-52, -52], [-51.5, -51.5], [-51, -51], [-50.5, -50.5], [-50, -50], [-49.5, -49.5], [-49, -49], [-48.5, -48.5], [-48, -48], [-47.5, -47.5], [-47, -47], [-46.5, -46.5], [-46, -46], [-45.5, -45.5], [-45, -45], [-44.5, -44.5], [-44, -44], [-43.5, -43.5], [-43, -43], [-42.5, -42.5], [-42, -42], [-41.5, -41.5], [-41, -41], [-40.5, -40.5], [-40, -40], [-39.5, -39.5], [-39, -39], [-38.5, -38.5], [-38, -38], [-37.5, -37.5], [-37, -37], [-36.5, -36.5], [-36, -36], [-35.5, -35.5], [-35, -35], [-34.5, -34.5], [-34, -34], [-33.5, -33.5], [-33, -33], [-32.5, -32.5], [-32, -32], [-31.5, -31.5], [-31, -31], [-30.5, -30.5], [-30, -30], [-29.5, -29.5], [-29, -29], [-28.5, -28.5], [-28, -28], [-27.5, -27.5], [-27, -27], [-26.5, -26.5], [-26, -26], [-25.5, -25.5], [-25, -25], [-24.5, -24.5], [-24, -24], [-23.5, -23.5], [-23, -23], [-22.5, -22.5], [-22, -22], [-21.5, -21.5], [-21, -21], [-20.5, -20.5], [-20, -20], [-19.5, -19.5], [-19, -19], [-18.5, -18.5], [-18, -18], [-17.5, -17.5], [-17, -17], [-16.5, -16.5], [-16, -16], [-15.5, -15.5], [-15, -15], [-14.5, -14.5], [-14, -14], [-13.5, -13.5], [-13, -13], [-12.5, -12.5], [-12, -12], [-11.5, -11.5], [-11, -11], [-10.5, -10.5], [-10, -10], [-9.5, -9.5], [-9, -9], [-8.5, -8.5], [-8, -8], [-7.5, -7.5], [-7, -7], [-6.5, -6.5], [-6, -6], [-5.5, -5.5], [-5, -5], [-4.5, -4.5], [-4, -4], [-3.5, -3.5], [-3, -3], [-2.5, -2.5], [-2, -2], [-1.5, -1.5], [-1, -1], [0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10], [11, 11], [12, 12], [13, 13], [14, 14], [15, 15], [16, 16], [17, 17], [18, 18], [19, 19], [20, 20], [21, 21], [22, 22], [23, 23], [24, 24], [25, 25], [26, 26], [27, 27], [28, 28], [29, 29], [30, 30], [31, 31], [32, 32], [33, 33], [34, 34], [35, 35], [36, 36], [37, 37], [38, 38], [39, 39], [40, 40], [41, 41], [42, 42], [43, 43], [44, 44], [45, 45], [46, 46], [47, 47], [48, 48], [49, 49], [50, 50], [51, 51], [52, 52], [53, 53], [54, 54], [55, 55], [56, 56], [57, 57], [58, 58], [59, 59], [60, 60], [61, 61], [62, 62], [63, 63], [64, 64], [65, 65], [66, 66], [67, 67], [68, 68], [69, 69], [70, 70], [71, 71], [72, 72], [73, 73], [74, 74], [75, 75], [76, 76], [77, 77], [78, 78], [79, 79], [80, 8
+[!] Skipping 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_3_fig9c.png: could not extract data from this image.
+
+--- Figure 20/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_4_fig10a.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_4_fig10a.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'upper line': only 3 points, too few for a formula.
+[!] Skipping curve 'middle line': only 3 points, too few for a formula.
+[!] Skipping curve 'lower line': only 3 points, too few for a formula.
+
+--- Figure 21/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_5_fig10b.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_5_fig10b.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*exp(x0/(-0.20930377) + 2.3436437)
+    -> Complexity: 8 | Score: 2.6606 | R^2: 0.9808
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*(-0.6449645) - 1*(-0.586487)
+    -> Complexity: 7 | Score: 0.2240 | R^2: 0.8902
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'lower line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+[+] Enriched paper content with analysis of 14/21 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 69104 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 27/41: 3082146_Cuprate Twistronics for Quantum Hardware.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/3082146_Cuprate Twistronics for Quantum Hardware.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/3082146_Cuprate Twistronics for Quantum Hardware' (--figures-dir).
+[!] No figures found in 'gold_figures/3082146_Cuprate Twistronics for Quantum Hardware': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (30276 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 102313 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/3082146_Cuprate Twistronics for Quantum Hardware.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 28/41: 3dc535e1_SecFormer Fast and Accurate Privacy-Preserving Inf.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/3dc535e1_SecFormer Fast and Accurate Privacy-Preserving Inf.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/3dc535e1_SecFormer Fast and Accurate Privacy-Preserving Inf' (--figures-dir).
+[!] No figures found in 'gold_figures/3dc535e1_SecFormer Fast and Accurate Privacy-Preserving Inf': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 62254 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/3dc535e1_SecFormer Fast and Accurate Privacy-Preserving Inf.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 29/41: 4fd6510c_Classification of Human Monkeypox Disease Using De.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/4fd6510c_Classification of Human Monkeypox Disease Using De.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/4fd6510c_Classification of Human Monkeypox Disease Using De' (--figures-dir).
+[!] No figures found in 'gold_figures/4fd6510c_Classification of Human Monkeypox Disease Using De': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 20900 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/4fd6510c_Classification of Human Monkeypox Disease Using De.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 30/41: 508264_Georgi-Goldstone realization of chiral symmetry in.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/508264_Georgi-Goldstone realization of chiral symmetry in.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/508264_Georgi-Goldstone realization of chiral symmetry in' (--figures-dir).
+[!] No figures found in 'gold_figures/508264_Georgi-Goldstone realization of chiral symmetry in': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 12496 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/508264_Georgi-Goldstone realization of chiral symmetry in.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 31/41: 527535_Two loop QCD anomalous dimensions of flavor changi.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/527535_Two loop QCD anomalous dimensions of flavor changi.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/527535_Two loop QCD anomalous dimensions of flavor changi' (--figures-dir).
+[!] No figures found in 'gold_figures/527535_Two loop QCD anomalous dimensions of flavor changi': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (4342 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 64532 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/527535_Two loop QCD anomalous dimensions of flavor changi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 32/41: 583354_Nambu quantum mechanics A Nonlinear generalization.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/583354_Nambu quantum mechanics A Nonlinear generalization.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/583354_Nambu quantum mechanics A Nonlinear generalization' (--figures-dir).
+[!] No figures found in 'gold_figures/583354_Nambu quantum mechanics A Nonlinear generalization': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 36611 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/583354_Nambu quantum mechanics A Nonlinear generalization.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 33/41: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Using 4 pre-cropped figure(s) from 'gold_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M' (--figures-dir).
+[+] Found 4 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_1_fig3.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_1_fig3.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 2/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_1_fig4.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_1_fig4.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 3/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*(x0*1.8189847e-5 - 1*0.0005543912)
+    -> Complexity: 9 | Score: 0.7749 | R^2: 0.9988
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0 - 50.522457)*3.505238e-6
+    -> Complexity: 6 | Score: 62.2862 | R^2: 1.0000
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'MQA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_3_fig5.png
+[~] Computer vision analysis in progress (local qwen2.5-vl-7b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_3_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': only 2 points, too few for a formula.
+[!] Skipping curve 'GQA': only 2 points, too few for a formula.
+[!] Skipping curve 'MQA': only 2 points, too few for a formula.
+
+[+] Enriched paper content with analysis of 4/4 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 25550 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 34/41: 701445_Quantum chromodynamics.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/701445_Quantum chromodynamics.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/701445_Quantum chromodynamics' (--figures-dir).
+[!] No figures found in 'gold_figures/701445_Quantum chromodynamics': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 39882 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/701445_Quantum chromodynamics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 35/41: 743602_Is PT-symmetric quantum mechanics just quantum mec.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/743602_Is PT-symmetric quantum mechanics just quantum mec.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/743602_Is PT-symmetric quantum mechanics just quantum mec' (--figures-dir).
+[!] No figures found in 'gold_figures/743602_Is PT-symmetric quantum mechanics just quantum mec': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 32352 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/743602_Is PT-symmetric quantum mechanics just quantum mec.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 36/41: 79e1221b_SMACv2 An Improved Benchmark for Cooperative Multi.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/79e1221b_SMACv2 An Improved Benchmark for Cooperative Multi.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/79e1221b_SMACv2 An Improved Benchmark for Cooperative Multi' (--figures-dir).
+[!] No figures found in 'gold_figures/79e1221b_SMACv2 An Improved Benchmark for Cooperative Multi': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[!] Paper text too long for the 32768-token context: kept the start and end of the body (5697 characters omitted).
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 88886 chars input, truncated).
+[~] Keeping checkpoint for 'downloaded_pdfs/79e1221b_SMACv2 An Improved Benchmark for Cooperative Multi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 37/41: a51ac7a5_DeepSpeed Ulysses System Optimizations for Enablin.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/a51ac7a5_DeepSpeed Ulysses System Optimizations for Enablin.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/a51ac7a5_DeepSpeed Ulysses System Optimizations for Enablin' (--figures-dir).
+[!] No figures found in 'gold_figures/a51ac7a5_DeepSpeed Ulysses System Optimizations for Enablin': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 34357 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/a51ac7a5_DeepSpeed Ulysses System Optimizations for Enablin.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 38/41: bc8b82e8_Reducing Activation Recomputation in Large Transfo.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/bc8b82e8_Reducing Activation Recomputation in Large Transfo.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/bc8b82e8_Reducing Activation Recomputation in Large Transfo' (--figures-dir).
+[!] No figures found in 'gold_figures/bc8b82e8_Reducing Activation Recomputation in Large Transfo': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 55681 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/bc8b82e8_Reducing Activation Recomputation in Large Transfo.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 39/41: c022f75b_DeepSpeed- Inference Enabling Efficient Inference.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/c022f75b_DeepSpeed- Inference Enabling Efficient Inference.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/c022f75b_DeepSpeed- Inference Enabling Efficient Inference' (--figures-dir).
+[!] No figures found in 'gold_figures/c022f75b_DeepSpeed- Inference Enabling Efficient Inference': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 75437 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/c022f75b_DeepSpeed- Inference Enabling Efficient Inference.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 40/41: c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/c4744a7c_Transformer-XL Attentive Language Models beyond a' (--figures-dir).
+[!] No figures found in 'gold_figures/c4744a7c_Transformer-XL Attentive Language Models beyond a': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 44462 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 41/41: fe26607c_Multi-Agent Reinforcement Learning is a Sequence M.pdf ==========
+
+[1/3] Extracting text from PDF: downloaded_pdfs/fe26607c_Multi-Agent Reinforcement Learning is a Sequence M.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/fe26607c_Multi-Agent Reinforcement Learning is a Sequence M' (--figures-dir).
+[!] No figures found in 'gold_figures/fe26607c_Multi-Agent Reinforcement Learning is a Sequence M': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen2.5-14b (local/vLLM) (temperature=0.2, seed=1, guided JSON=True)...
+[+] Wrote training example (local, 65718 chars input).
+[~] Keeping checkpoint for 'downloaded_pdfs/fe26607c_Multi-Agent Reinforcement Learning is a Sequence M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+[+] Done. 41 training example(s) appended to 'qwen_baseline_gold_s1.jsonl'.
+[~] Stopping vision server (process group 878891)...

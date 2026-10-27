@@ -1,0 +1,32 @@
+{
+ "gemma4-31b [ctx128k] (local/vLLM)": {
+  "answers": 26,
+  "papers": 10,
+  "claims_per_answer": 37.30769230769231,
+  "verified": 0.6067125497458027,
+  "doubtful": 0.34003636359860506,
+  "flagged": 0.05325108665559218,
+  "l2": 0.8421,
+  "recall": 0.8662833333333333
+ },
+ "gemma4-31b [ctx32k] (local/vLLM)": {
+  "answers": 28,
+  "papers": 10,
+  "claims_per_answer": 37.214285714285715,
+  "verified": 0.6165698733743772,
+  "doubtful": 0.33675098231593387,
+  "flagged": 0.046679144309688954,
+  "l2": 0.8419,
+  "recall": 0.87895
+ },
+ "gemma4-31b [think] (local/vLLM)": {
+  "answers": 30,
+  "papers": 10,
+  "claims_per_answer": 41.86666666666667,
+  "verified": 0.6044030333856901,
+  "doubtful": 0.3466602375203005,
+  "flagged": 0.04893672909400935,
+  "l2": 0.9728,
+  "recall": 0.8970333333333333
+ }
+}

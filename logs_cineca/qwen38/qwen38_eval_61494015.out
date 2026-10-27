@@ -1,0 +1,46 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+index, name, memory.total [MiB], driver_version
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+[~] torch 2.10.0+cu129 CUDA 12.9, visible GPUs: 2
+[+] CUDA works on all GPUs
+[~] Starting Qwen3.8 vLLM server (TP=2, max_model_len=131072, port 24015), log: logs/qwen38_server_61494015.log
+[+] Vision server ready after 380s.
+
+################ 0. Vision probe ################
+[+] Probe done: logs/probe_qwen3.8-27b_61494015.json
+
+################ 1. Figures + ctx32k seed 0 ################
+[+] 00:00 qwen38_gold_ctx32k_s0.jsonl: 6 record(s), 4 rejected
+
+################ 2. Other configurations (max 4 in parallel) ################
+[~] 00:00 starting ctx32k seed 1
+[~] 00:00 starting ctx32k seed 2
+[~] 00:00 starting think seed 0
+[~] 00:00 starting think seed 1
+[+] 00:01 qwen38_gold_ctx32k_s2.jsonl: 7 record(s), 3 rejected
+[~] 00:01 starting think seed 2
+[+] 00:09 qwen38_gold_ctx32k_s1.jsonl: 8 record(s), 2 rejected
+[+] 00:58 qwen38_gold_think_s0.jsonl: 10 record(s), 0 rejected
+[+] 01:03 qwen38_gold_think_s2.jsonl: 10 record(s), 0 rejected
+[+] 01:06 qwen38_gold_think_s1.jsonl: 10 record(s), 0 rejected
+
+################ Summary ################
+  qwen38_gold_ctx128k_s0.jsonl: 10 record(s), 0 rejected
+  qwen38_gold_ctx128k_s1.jsonl: 9 record(s), 1 rejected
+  qwen38_gold_ctx128k_s2.jsonl: 8 record(s), 2 rejected
+  qwen38_gold_ctx32k_s0.jsonl: 6 record(s), 4 rejected
+  qwen38_gold_ctx32k_s1.jsonl: 8 record(s), 2 rejected
+  qwen38_gold_ctx32k_s2.jsonl: 7 record(s), 3 rejected
+  qwen38_gold_think16k_s0.jsonl: 6 record(s), 4 rejected
+  qwen38_gold_think16k_s1.jsonl: 7 record(s), 3 rejected
+  qwen38_gold_think16k_s2.jsonl: 8 record(s), 2 rejected
+  qwen38_gold_think_s0.jsonl: 10 record(s), 0 rejected
+  qwen38_gold_think_s1.jsonl: 10 record(s), 0 rejected
+  qwen38_gold_think_s2.jsonl: 10 record(s), 0 rejected
+(Worker_TP1 pid=712096) INFO 10-19 23:35:23 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8697 to maintain the same effective KV cache size.
+(Worker_TP0 pid=712095) INFO 10-19 23:35:23 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8697 to maintain the same effective KV cache size.
+(EngineCore pid=711873) INFO 10-19 23:35:23 [kv_cache_utils.py:1319] GPU KV cache size: 214,816 tokens
+(EngineCore pid=711873) INFO 10-19 23:35:23 [kv_cache_utils.py:1324] Maximum concurrency for 131,072 tokens per request: 6.43x
+[~] Stopping vision server (process group 711693)...

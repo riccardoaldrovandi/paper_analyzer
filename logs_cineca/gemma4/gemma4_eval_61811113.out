@@ -1,0 +1,53 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+index, name, memory.total [MiB], driver_version
+0, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+1, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+2, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+3, NVIDIA A100-SXM-64GB, 65536 MiB, 535.274.02
+[~] torch 2.10.0+cu129 CUDA 12.9, visible GPUs: 4
+[+] CUDA works on all GPUs
+[~] Starting Gemma 4 vLLM server (TP=4, max_model_len=131072, port 21113), log: logs/gemma4_server_61811113.log
+[+] Vision server ready after 310s.
+
+################ 0. Vision probe ################
+[+] Probe done: logs/probe_gemma4-31b_61811113.json
+
+################ 1. Figures + ctx32k seed 0 ################
+[+] 17:38 gemma4_gold_ctx32k_s0.jsonl: 9 record(s), 1 rejected
+
+################ 2. Other configurations (max 4 in parallel) ################
+[~] 17:38 starting ctx32k seed 1
+[~] 17:38 starting ctx32k seed 2
+[~] 17:38 starting ctx128k seed 0
+[~] 17:38 starting ctx128k seed 1
+[+] 17:44 gemma4_gold_ctx32k_s1.jsonl: 10 record(s), 0 rejected
+[+] 17:44 gemma4_gold_ctx32k_s2.jsonl: 9 record(s), 1 rejected
+[~] 17:45 starting ctx128k seed 2
+[~] 17:45 starting think seed 0
+[+] 17:45 gemma4_gold_ctx128k_s1.jsonl: 10 record(s), 0 rejected
+[~] 17:45 starting think seed 1
+[+] 17:46 gemma4_gold_ctx128k_s0.jsonl: 7 record(s), 3 rejected
+[~] 17:46 starting think seed 2
+[+] 17:51 gemma4_gold_ctx128k_s2.jsonl: 9 record(s), 1 rejected
+[+] 18:03 gemma4_gold_think_s2.jsonl: 10 record(s), 0 rejected
+[+] 18:05 gemma4_gold_think_s0.jsonl: 10 record(s), 0 rejected
+[+] 18:05 gemma4_gold_think_s1.jsonl: 10 record(s), 0 rejected
+
+################ Summary ################
+  gemma4_gold_ctx128k_s0.jsonl: 7 record(s), 3 rejected
+  gemma4_gold_ctx128k_s1.jsonl: 10 record(s), 0 rejected
+  gemma4_gold_ctx128k_s2.jsonl: 9 record(s), 1 rejected
+  gemma4_gold_ctx32k_s0.jsonl: 9 record(s), 1 rejected
+  gemma4_gold_ctx32k_s1.jsonl: 10 record(s), 0 rejected
+  gemma4_gold_ctx32k_s2.jsonl: 9 record(s), 1 rejected
+  gemma4_gold_think_s0.jsonl: 10 record(s), 0 rejected
+  gemma4_gold_think_s1.jsonl: 10 record(s), 0 rejected
+  gemma4_gold_think_s2.jsonl: 10 record(s), 0 rejected
+(Worker_TP2 pid=82548) INFO 10-22 17:08:29 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8649 to maintain the same effective KV cache size.
+(Worker_TP0 pid=82546) INFO 10-22 17:08:29 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8649 to maintain the same effective KV cache size.
+(Worker_TP1 pid=82547) INFO 10-22 17:08:29 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8649 to maintain the same effective KV cache size.
+(Worker_TP3 pid=82549) INFO 10-22 17:08:29 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.8500 to 0.8649 to maintain the same effective KV cache size.
+(EngineCore pid=82469) INFO 10-22 17:08:29 [kv_cache_utils.py:1319] GPU KV cache size: 161,952 tokens
+(EngineCore pid=82469) INFO 10-22 17:08:29 [kv_cache_utils.py:1324] Maximum concurrency for 131,072 tokens per request: 12.00x
+[~] Stopping vision server (process group 82331)...

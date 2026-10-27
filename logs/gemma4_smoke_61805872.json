@@ -1,0 +1,54 @@
+{
+  "text_no_think": {
+    "ok": true,
+    "seconds": 3.3,
+    "prompt_tokens": 43,
+    "completion_tokens": 38,
+    "tok_per_s": 11.5,
+    "result": {
+      "law": "Energy-momentum relation",
+      "formula": "E^2 = (pc)^2 + (m_0c^2)^2"
+    }
+  },
+  "text_think": {
+    "ok": true,
+    "seconds": 3.6,
+    "prompt_tokens": 32,
+    "completion_tokens": 126,
+    "tok_per_s": 34.9,
+    "result": {
+      "answer": "391",
+      "reasoning_chars": 193
+    }
+  },
+  "image": {
+    "ok": true,
+    "seconds": 3.2,
+    "prompt_tokens": 321,
+    "completion_tokens": 106,
+    "tok_per_s": 33.1,
+    "result": {
+      "chart_type": "line chart",
+      "x_axis": "x",
+      "y_axis": "unlabeled",
+      "description": "A plot showing two decaying curves labeled 1 and 2 as a function of x. Curve 1 starts at a higher value (approximately 6) and asymptotes toward a constant positive value, while curve 2 starts at a lower value (approximately 1) and decays toward zero."
+    }
+  },
+  "guided_json": {
+    "ok": true,
+    "seconds": 2.9,
+    "prompt_tokens": 56,
+    "completion_tokens": 67,
+    "tok_per_s": 23.1,
+    "result": {
+      "title": "The anti-kt jet clustering algorithm",
+      "year": 2008,
+      "keywords": [
+        "anti-kt",
+        "jet clustering algorithm",
+        "sequential recombination",
+        "hadron colliders"
+      ]
+    }
+  }
+}

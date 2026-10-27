@@ -1,0 +1,12 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Seeded full_analyze_checkpoints/qwen_gold_s1 with 10 figure checkpoint(s) from full_analyze_checkpoints/qwen_gold
+[~] Family: qwen | text: qwen2.5-14b | vision: qwen2.5-vl-7b | temperature: 0.2 | vision guided JSON: 1
+[~] Checkpoints: full_analyze_checkpoints/qwen_gold_s1 | output: qwen_baseline_gold_s1.jsonl | vision port: 27927
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-673daac0-27c1-f091-c854-cd87aa2a1d98)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-1d1f6d18-9a92-2c03-e756-43f77f3feb72)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: qwen2.5-vl-7b on GPU 1, port 27927 (--max-model-len 8192)
+[!] Vision server not ready after 900s.
+[!] Aborting before wasting GPU-hours on the main job.
+[~] Stopping vision server (process group 133750)...

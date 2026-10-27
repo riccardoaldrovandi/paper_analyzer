@@ -1,0 +1,111 @@
+[juliapkg] Waiting for lock on /leonardo_work/IscrC_MultLLM/venv_vllm/julia_env/lock.pid to be freed. This normally means that another process is resolving. If you know that no other process is resolving, delete this file to proceed.
+[~] EXPORT_SKIP_REJECTED=1: 0 paper(s) already rejected, not retried.
+[+] 10 paper(s) found, 2 already in 'qwen38_gold_ctx32k_s1.jsonl', 8 pending.
+
+========== Paper 1/8: 1519859_Out-of-time-order correlators in quantum mechanics.pdf ==========
+[~] Resuming '1519859_Out-of-time-order correlators in quantum mechanics.pdf' from checkpoint: figure 19/18.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 18/18 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 1982 completion token(s) (max 4096).
+[+] Wrote training example (local, 69540 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/8: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf ==========
+[~] Resuming '1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' from checkpoint: figure 11/10.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 10/10 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 2399 completion token(s) (max 4096).
+[+] Wrote training example (local, 50574 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/8: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+[~] Resuming '1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' from checkpoint: figure 13/12.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 12/12 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 981 completion token(s) (max 4096).
+[+] Wrote training example (local, 69479 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 4/8: 3056128_Simulating twistronics without a twist.pdf ==========
+[~] Resuming '3056128_Simulating twistronics without a twist.pdf' from checkpoint: figure 10/9.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 9/9 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=length, 4096 completion token(s) (max 4096).
+[!] Answer cut by max_tokens: it is likely truncated, invalid JSON.
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_ctx32k_s1.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/3056128_Simulating twistronics without a twist.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 5/8: 3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf ==========
+[~] Resuming '3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf' from checkpoint: figure 22/21.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 21/21 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=length, 4096 completion token(s) (max 4096).
+[!] Answer cut by max_tokens: it is likely truncated, invalid JSON.
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_ctx32k_s1.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 6/8: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+[~] Resuming '5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' from checkpoint: figure 5/4.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 4/4 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 653 completion token(s) (max 4096).
+[+] Wrote training example (local, 25685 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 7/8: 779080_The anti-$k_t$ jet clustering algorithm.pdf ==========
+[~] Resuming '779080_The anti-$k_t$ jet clustering algorithm.pdf' from checkpoint: figure 10/9.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 8/9 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 2113 completion token(s) (max 4096).
+[+] Wrote training example (local, 39494 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/779080_The anti-$k_t$ jet clustering algorithm.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 8/8: c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf ==========
+[~] Resuming 'c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf' from checkpoint: figure 1/0.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[~] Generation ended: finish_reason=stop, 690 completion token(s) (max 4096).
+[+] Wrote training example (local, 44462 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+[+] Done. 6 training example(s) appended to 'qwen38_gold_ctx32k_s1.jsonl'.

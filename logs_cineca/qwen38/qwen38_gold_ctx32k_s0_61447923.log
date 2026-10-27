@@ -1,0 +1,935 @@
+[+] 10 paper(s) found, 0 already in 'qwen38_gold_ctx32k_s0.jsonl', 10 pending.
+
+========== Paper 1/10: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf
+
+[2/3] Using 2 pre-cropped figure(s) from 'gold_figures/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha' (--figures-dir).
+[+] Found 2 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/2 ---
+
+[~] Analyzing figure: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_1_fig1.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_1_fig1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 + x0)*3.3816643*(exp((0.90424055 - x0/0.2048681)*2.9268665) + exp(x0*x0/(-0.31596103))) - 0.17933747
+    -> Complexity: 23 | R^2 (fit): 0.9802 | R^2 (holdout): 0.9804
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(1.3337246/(x0 + 0.24387681))*x0*0.5430569
+    -> Complexity: 10 | R^2 (fit): 0.9830 | R^2 (holdout): 0.9652
+
+--- Figure 2/2 ---
+
+[~] Analyzing figure: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_2_fig2.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha_page7_crop_2_fig2.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -18.789245802304*x0*log(x0) + 0.6885077
+    -> Complexity: 8 | R^2 (fit): 0.9996 | R^2 (holdout): 0.9993
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -log(x0) + 0.49458578 + 0.04989044/x0
+    -> Complexity: 8 | R^2 (fit): 0.9986 | R^2 (holdout): 0.9798
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -log(x0) + 0.60743165 - 0.05170169/x0
+    -> Complexity: 8 | R^2 (fit): 0.9323 | R^2 (holdout): 0.4325
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+[+] Enriched paper content with analysis of 2/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=0, guided JSON=True, thinking=False, via server)...
+[+] Wrote training example (local, 39839 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/10: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Using 1 pre-cropped figure(s) from 'gold_figures/1482468_Flux tube in turbulent flow and quantum chromodyna' (--figures-dir).
+[+] Found 1 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/1 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_1_fig1.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_1_fig1.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 6.2371836/exp(x0*0.58796036)
+    -> Complexity: 6 | R^2 (fit): 0.9918 | R^2 (holdout): 0.9903
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-0.5066965))
+    -> Complexity: 6 | R^2 (fit): 0.9762 | R^2 (holdout): 0.9924
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=0, guided JSON=True, thinking=False, via server)...
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_ctx32k_s0.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/10: 1519859_Out-of-time-order correlators in quantum mechanics.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf
+
+[2/3] Using 18 pre-cropped figure(s) from 'gold_figures/1519859_Out-of-time-order correlators in quantum mechanics' (--figures-dir).
+[+] Found 18 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_1_fig3a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_1_fig3a.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/exp(x0) + 2.1052952
+    -> Complexity: 6 | R^2 (fit): 0.0399 | R^2 (holdout): -0.0338
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + 9.473872
+    -> Complexity: 3 | R^2 (fit): 0.0023 | R^2 (holdout): -0.0947
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 + x0)*(exp(x0*(-3.0786164) + x0 - 1*(-5.31335)) - 1*(-17.215946))
+    -> Complexity: 14 | R^2 (fit): 0.5098 | R^2 (holdout): -0.0982
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 + 3.4237828)*20.128782
+    -> Complexity: 5 | R^2 (fit): 0.1687 | R^2 (holdout): 0.2026
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 2/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_2_fig3b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page10_crop_2_fig3b.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + 20.343588
+    -> Complexity: 3 | R^2 (fit): 0.1140 | R^2 (holdout): 0.0946
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + x0 + exp(x0*(-4.032166))*(-34.579155) + exp(x0*(x0*(-x0 - 2.43426) - x0) - 1*(-3.0608745)) + 2.8982139 + 10.3906355
+    -> Complexity: 27 | R^2 (fit): 0.5998 | R^2 (holdout): 0.2428
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + 7.9956822
+    -> Complexity: 3 | R^2 (fit): 0.1409 | R^2 (holdout): 0.0944
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 + exp(x0 - 1*1.0238863) + 4.697732
+    -> Complexity: 8 | R^2 (fit): 0.2574 | R^2 (holdout): 0.4622
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.15214540000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0021
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 3/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page11_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page11_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -3.3347833*x0/(x0 + exp(x0*(1.8020303 - x0)) + 7.871281) + 0.5805412*log(x0) + 1.3806347
+    -> Complexity: 25 | R^2 (fit): 0.9940 | R^2 (holdout): 0.9707
+
+--- Figure 4/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page12_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page12_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*15.726335
+    -> Complexity: 3 | R^2 (fit): 0.9959 | R^2 (holdout): 0.9824
+
+--- Figure 5/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page13_crop_1_fig7.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page13_crop_1_fig7.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 - 0.031935006)*(-72.837166)/(exp(x0*x0/(-0.50367063) + x0)*0.3876882 - 1*0.4851377) + 94.93038 - (x0 + x0 - 0.7420535)/(1.0948727 - x0)
+    -> Complexity: 30 | R^2 (fit): 0.3672 | R^2 (holdout): 0.1179
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*22.706583 - 1*(-100.26564) - (-1)*3.899367/(x0 - 1*0.2720532)
+    -> Complexity: 11 | R^2 (fit): 0.2560 | R^2 (holdout): -0.1158
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 24.3920900000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1909
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.56507500000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0042
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/(x0 + 0.1367628/(x0*(-x0 - 0.37256607) + 2.7791972)) - 1*(-0.42269513) + 0.81115896
+    -> Complexity: 17 | R^2 (fit): 0.1400 | R^2 (holdout): -0.0786
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 6/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_1_fig8_a_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_1_fig8_a_.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[!] Skipping curve 'T = 400': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 100': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 20': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 7/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_2_fig8_b_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page14_crop_2_fig8_b_.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 12.547211 - (0.06206039 - x0)*exp(5.277612 + x0*(-4.1109967))
+    -> Complexity: 12 | R^2 (fit): 0.9967 | R^2 (holdout): 0.9855
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (-x0/0.03211064 + x0)/(0.86842114 - exp(x0))
+    -> Complexity: 10 | R^2 (fit): 0.9948 | R^2 (holdout): 0.9795
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-x0 + 0.39413744 + 2.8351226 - 3.2231088/((x0 + 0.02203441)*38.318943 - 1*(-0.13542579)))/1.3290585
+    -> Complexity: 18 | R^2 (fit): 0.9963 | R^2 (holdout): 0.9800
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0*(x0 + exp(3.199283 - 7.395533*x0)) + x0)*2.6292326 + 1.0135139
+    -> Complexity: 16 | R^2 (fit): 0.9896 | R^2 (holdout): 0.9725
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*exp((x0*3.6461957 - 2.2972171)*(-1.4575628)) - 1.1250197 - 1*(-2.0651002)
+    -> Complexity: 14 | R^2 (fit): 0.9943 | R^2 (holdout): 0.9683
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + x0 + exp(x0 + x0/(x0*(x0 + (x0 + x0 + x0)/0.14275439 - 1.0582144) - x0 - x0 - 0.34425005 + 0.5483926))
+    -> Complexity: 30 | R^2 (fit): 0.8720 | R^2 (holdout): 0.9054
+
+--- Figure 8/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[!] Skipping curve 'a/R = 2.0': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'a/R = 1.6': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'a/R = 1.2': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'a/R = 0.8': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'a/R = 0.4': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'a/R = 0': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 9/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page15_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.08226428 - (-0.08474833)*x0
+    -> Complexity: 5 | R^2 (fit): 0.9979 | R^2 (holdout): 0.9923
+
+--- Figure 10/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_1_fig10a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_1_fig10a.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*x0*(-184.07304) - 1*(-105.00662) - 39.993904/x0
+    -> Complexity: 13 | R^2 (fit): 0.5352 | R^2 (holdout): -0.1576
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-0.0010998176/(x0 - 0.6012093))
+    -> Complexity: 6 | R^2 (fit): 0.0818 | R^2 (holdout): -1.2518
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.854538860000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -1.3173
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.888815932466489 + 0.00822027/(log(x0) + 0.22954853)
+    -> Complexity: 9 | R^2 (fit): 0.1005 | R^2 (holdout): -0.9414
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 11/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_2_fig10b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_2_fig10b.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((x0 + x0 + 0.23947728/(-x0/0.78650016 + x0))*(-x0 + 0.20785636/x0)*(-1.0602744)/(-0.12801892/(x0 + x0 + 0.26329)))
+    -> Complexity: 28 | R^2 (fit): 0.9982 | R^2 (holdout): 0.9711
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((0.31517503 - x0*x0)*(x0*x0 - 1*0.5921345)*8.383037*(-1.0379143 - 0.5613493 - 1*(-8.3268)))
+    -> Complexity: 20 | R^2 (fit): 0.9907 | R^2 (holdout): 0.9820
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(3.2677925 - exp(x0))
+    -> Complexity: 6 | R^2 (fit): 0.1144 | R^2 (holdout): -0.2433
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0**2*(5.82556843966298e-17*exp(x0*(91.31709 - 54.0005*x0) + 0.16777566/x0) - log(x0 + 0.9018503))
+    -> Complexity: 27 | R^2 (fit): 0.9863 | R^2 (holdout): 0.8658
+
+--- Figure 12/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_3_fig10c.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page17_crop_3_fig10c.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*1.3719009 + exp(-0.1408408/(x0 + x0 - (x0 - 0.12977673)*(x0 + x0) - 0.7512691))
+    -> Complexity: 18 | R^2 (fit): 0.9944 | R^2 (holdout): 0.9813
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((0.5451294 - (x0 + x0 - 1.086808))*(x0 - 0.4454189/(x0 + 0.4882532))/0.11471706)
+    -> Complexity: 18 | R^2 (fit): 0.9955 | R^2 (holdout): 0.9860
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*x0*(-8.955053) + x0*14.145817 - 1*6.1562877)
+    -> Complexity: 14 | R^2 (fit): 0.9872 | R^2 (holdout): 0.9980
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -26.076286*x0**3*(x0 - 1.0365677)*log(2*x0 + 0.24876477)
+    -> Complexity: 18 | R^2 (fit): 0.9959 | R^2 (holdout): 0.9536
+
+--- Figure 13/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (2.0918236 - x0)*(-0.7131925)/(3.6177049 - 0.39012587*exp(x0)) + exp(x0*(x0 - 0.7980915)*(x0 - 1*1.2012498)/(-0.0036937566))
+    -> Complexity: 25 | R^2 (fit): 0.2959 | R^2 (holdout): -0.0765
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 14/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page19_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*0.13822992 + 0.9531074
+    -> Complexity: 7 | R^2 (fit): 0.1764 | R^2 (holdout): -0.1991
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -2.53060225676579*x0 + (x0**2 + log(3.2561896 - 0.9633295*x0) + 0.378911528325331)*log(x0)
+    -> Complexity: 20 | R^2 (fit): 0.1041 | R^2 (holdout): -0.3069
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 15/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page22_crop_1_fig13.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page22_crop_1_fig13.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*241.06264*(x0*(-22.426107) - 1*(-15.118777))
+    -> Complexity: 9 | R^2 (fit): 0.8907 | R^2 (holdout): 0.9809
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*417.90088/(x0 + x0/((0.4297129/(x0 - 0.762715))) + 0.2035317) - 1*46.83849
+    -> Complexity: 17 | R^2 (fit): 0.9573 | R^2 (holdout): 0.9611
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 364.54236/(x0 - (-1)*0.11368905/x0)
+    -> Complexity: 7 | R^2 (fit): 0.8386 | R^2 (holdout): 0.9501
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0*(-(-1)*6685.8784*x0 - 4405.1177) - 125.13855
+    -> Complexity: 9 | R^2 (fit): 0.9210 | R^2 (holdout): 0.9089
+
+--- Figure 16/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_1_fig1a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_1_fig1a.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(x0 + 0.000660453) + 18.651018
+    -> Complexity: 6 | R^2 (fit): 0.0696 | R^2 (holdout): 0.0410
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 9.66668700000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0002
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 5.00044500000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0000
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(x0/(x0 - 0.37211564) + 21.183788)
+    -> Complexity: 8 | R^2 (fit): 0.0505 | R^2 (holdout): 0.1472
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.20833400000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0087
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 17/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_2_fig1b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page4_crop_2_fig1b.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0*(x0 + 72.07748) + 3.348585/((x0 + 2.117832/(x0/0.06349796 + exp(x0)))*exp(x0)))/(x0 + 2.117832/exp(x0/0.06349796))
+    -> Complexity: 30 | R^2 (fit): 0.9871 | R^2 (holdout): 0.2724
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[!] Skipping curve 'T = 200': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 - exp(x0*x0*(-71.53464) + 2.9710429) + 20.273985
+    -> Complexity: 12 | R^2 (fit): 0.8485 | R^2 (holdout): -0.0495
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[!] Skipping curve 'T = 40': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 20': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'T = 1': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 18/18 ---
+
+[~] Analyzing figure: 1519859_Out-of-time-order correlators in quantum mechanics_page8_crop_1_fig2.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1519859_Out-of-time-order correlators in quantum mechanics_page8_crop_1_fig2.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 156.745900000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.2605
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 38.8350330000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1489
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 5.95820760000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1463
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.02499720000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.2918
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+[+] Enriched paper content with analysis of 18/18 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=0, guided JSON=True, thinking=False, via server)...
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_ctx32k_s0.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 4/10: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf
+
+[2/3] Using 10 pre-cropped figure(s) from 'gold_figures/1751397_SU(4) Heisenberg model on the honeycomb lattice wi' (--figures-dir).
+[+] Found 10 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page2_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page2_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-1.3488932) - 1.8008789/x0) - 1*(-0.173637)
+    -> Complexity: 10 | R^2 (fit): 0.9844 | R^2 (holdout): 0.9563
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(1.4999986 - x0) - 0.25999957
+    -> Complexity: 7 | Score: 0.6293 | R^2: 0.9957
+    -> [!] Only 5 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 2/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page5_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page5_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.29300904/(1.8586829 - log(x0)/x0)
+    -> Complexity: 8 | R^2 (fit): 0.9990 | R^2 (holdout): 0.9994
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.037436094 + 0.32128558/exp(x0)
+    -> Complexity: 6 | Score: 0.4179 | R^2: 0.9967
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+
+--- Figure 3/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_1_fig4_a_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_1_fig4_a_.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -3.4953487*x0 + 3.4953487*log(4.075024*x0*(x0 - 1.4929197)*(2*x0 + 0.65931857) + 6.600283) + 2.15971563201144
+    -> Complexity: 24 | R^2 (fit): 0.9699 | R^2 (holdout): 0.9869
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*0.2561655 - 0.7586839) + 4.605713
+    -> Complexity: 9 | R^2 (fit): 0.6476 | R^2 (holdout): 0.6924
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 - (x0*((x0*x0 + 0.80657405)*(-0.52928245) - 1*0.49753693) + x0) - exp(x0) - 1*(-0.16636173) - 1*(-5.162742)
+    -> Complexity: 22 | R^2 (fit): 0.8812 | R^2 (holdout): 0.9354
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -2.0451877/(-x0 - 0.7052985)
+    -> Complexity: 5 | R^2 (fit): 0.6926 | R^2 (holdout): -0.2798
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*(-0.8146165) - 1*(-4.032018))
+    -> Complexity: 7 | R^2 (fit): 0.9082 | R^2 (holdout): 0.9363
+
+--- Figure 4/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_2_fig4_b_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_2_fig4_b_.png
+[+] Success: detected 'continuous' plot with 7 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 + x0*x0 + 7.0908995
+    -> Complexity: 7 | R^2 (fit): 0.2266 | R^2 (holdout): -0.3290
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (16.492104 + (x0 + 0.13851056)/((-x0 + exp(x0 + x0 - 1.6409148))*(x0 - (x0*0.34724793 + x0) - 2.671543)))*0.3743481 - 1*(-1.4902316)
+    -> Complexity: 28 | R^2 (fit): 0.9504 | R^2 (holdout): 0.7512
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 8.520319 - 1.2109151/((0.35823506 - exp(x0))*(0.74803036 - x0) + 0.6158102/(x0 - (0.793043 - exp(x0))))
+    -> Complexity: 21 | R^2 (fit): 0.9469 | R^2 (holdout): 0.8649
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 4.374214 + 0.1647422/exp(x0)
+    -> Complexity: 6 | R^2 (fit): 0.0816 | R^2 (holdout): 0.0893
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0 - 1.360808)*(-0.33076978) + 4.1162443
+    -> Complexity: 9 | R^2 (fit): 0.2750 | R^2 (holdout): -0.8395
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/exp(x0*x0) + 2.083629
+    -> Complexity: 8 | R^2 (fit): 0.3607 | R^2 (holdout): 0.1852
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-5.6900907)) + 0.95771486
+    -> Complexity: 6 | R^2 (fit): 0.5726 | R^2 (holdout): 0.3236
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 5/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_3_fig4_c_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_3_fig4_c_.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 - 1*(-0.2845695))*(x0 - (x0*(x0*x0*x0*(x0 + x0) - 0.04907288) - x0))*(-0.097340696) + 0.23586969
+    -> Complexity: 25 | R^2 (fit): 0.9581 | R^2 (holdout): 0.8668
+
+--- Figure 6/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_4_fig4_d_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page6_crop_4_fig4_d_.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1.1351724/(0.3486293 - x0)
+    -> Complexity: 5 | R^2 (fit): 0.9999 | R^2 (holdout): 0.9936
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1.2830234/(0.34067464 - x0)
+    -> Complexity: 5 | R^2 (fit): 0.9959 | R^2 (holdout): 0.9753
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 1.2866342/(x0 - 0.34182927)
+    -> Complexity: 5 | R^2 (fit): 0.9956 | R^2 (holdout): 0.9792
+
+--- Figure 7/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -exp(x0*9.054549) - 2.4521198
+    -> Complexity: 6 | R^2 (fit): 0.9996 | R^2 (holdout): 0.9993
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.0676043/(x0 - 1*0.43655646)
+    -> Complexity: 5 | R^2 (fit): 0.9994 | R^2 (holdout): 0.9970
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.8398042/(x0 - 0.6082436)
+    -> Complexity: 5 | R^2 (fit): 0.9991 | R^2 (holdout): 0.9941
+
+--- Figure 8/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page8_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*5.1647754)*(-3.3543777)
+    -> Complexity: 6 | R^2 (fit): 0.9978 | R^2 (holdout): 0.9923
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -2.1063368/(0.43877864 - x0)
+    -> Complexity: 5 | R^2 (fit): 0.9998 | R^2 (holdout): 0.9982
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 3.217408/(x0 - 0.63817304)
+    -> Complexity: 5 | R^2 (fit): 0.9995 | R^2 (holdout): 0.9948
+
+--- Figure 9/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_1_fig8_a_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_1_fig8_a_.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(-1.9417118)*x0*(0.48361704 - x0*(x0/2.6895537 + x0 - exp(x0 - 1*0.38621405))) - x0 - 4.6037364 - 1.3495417
+    -> Complexity: 24 | R^2 (fit): 0.9971 | R^2 (holdout): 0.9972
+
+--- Figure 10/10 ---
+
+[~] Analyzing figure: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_2_fig8_b_.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1751397_SU(4) Heisenberg model on the honeycomb lattice wi_page9_crop_2_fig8_b_.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0 + x0 + 1.2004839) - exp(x0*1.2000751) - 4.1737614
+    -> Complexity: 14 | R^2 (fit): 0.9951 | R^2 (holdout): 0.9971
+
+[+] Enriched paper content with analysis of 10/10 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=0, guided JSON=True, thinking=False, via server)...
+[+] Wrote training example (local, 50574 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 5/10: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Using 12 pre-cropped figure(s) from 'gold_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe' (--figures-dir).
+[+] Found 12 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 45 data points.
+
+--- Figure 2/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 3/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 9 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-0.022624843)/((-1.4292468*x0 + x0*(-0.022639388)*x0/(-x0 - (-0.041346803)*x0 + x0 - 1.7279924) - 1*0.5910576 + 30.527521)*(-0.4961832))
+    -> Complexity: 29 | R^2 (fit): 0.9547 | R^2 (holdout): 0.9630
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-0.003692272))*x0*x0*0.0008464182
+    -> Complexity: 12 | R^2 (fit): 0.8078 | R^2 (holdout): 0.9788
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (33.630337 - x0)*(x0 + 2.5241914)/4858.927
+    -> Complexity: 9 | R^2 (fit): 0.7049 | R^2 (holdout): -0.0786
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(38.034035 - x0)/5827.8984
+    -> Complexity: 7 | R^2 (fit): 0.3898 | R^2 (holdout): 0.2613
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.00100297750635331*x0*(1.6139269 - 0.052611206*x0)*(-0.053359434*x0**2 + x0 + 1.08725825408066) + 0.00200595501270663*x0
+    -> Complexity: 28 | R^2 (fit): 0.9426 | R^2 (holdout): 0.7147
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0585000030000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.4401
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.06351049 - 9.243946e-10*exp(x0)
+    -> Complexity: 6 | R^2 (fit): 0.2730 | R^2 (holdout): -0.0002
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.035149515/exp(x0*(0.21687827 - 0.28857917*(x0*(-0.12001014) - 1*(-2.0885649))))
+    -> Complexity: 14 | R^2 (fit): 0.9915 | R^2 (holdout): 0.9732
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(x0*(-0.0366804) - 1*(-0.24321043)))*0.06984017
+    -> Complexity: 10 | R^2 (fit): 0.9823 | R^2 (holdout): 0.9903
+
+--- Figure 4/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page4_crop_2_plot.png
+[+] Success: detected 'discrete' plot with 8 data points.
+
+--- Figure 5/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.01980061))
+    -> Complexity: 4 | R^2 (fit): 0.9768 | R^2 (holdout): 0.8208
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.025525512)) + 0.16903484
+    -> Complexity: 6 | R^2 (fit): 0.9981 | R^2 (holdout): 0.9786
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 15.354813/x0
+    -> Complexity: 3 | R^2 (fit): 0.5063 | R^2 (holdout): 0.1990
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 6/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (2.0501826*log(x0) - 1.03429752195434)*log(x0)/x0
+    -> Complexity: 11 | R^2 (fit): 0.9980 | R^2 (holdout): 0.9480
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (exp(x0/(-45.78025)) + 0.119363464)*1.0224413
+    -> Complexity: 8 | R^2 (fit): 0.9961 | R^2 (holdout): 0.5242
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-0.01939828))
+    -> Complexity: 4 | R^2 (fit): 0.9567 | R^2 (holdout): 0.8996
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -23.974783/(-x0 - 37.615852/log(x0))
+    -> Complexity: 8 | R^2 (fit): 1.0000 | R^2 (holdout): 0.5992
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 7/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_2_fig6.png
+[+] Success: detected 'discrete' plot with 18 data points.
+
+--- Figure 8/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 6 data points.
+
+--- Figure 9/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page8_crop_2_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((4.502349 - x0*x0*x0*x0*x0*x0*(x0 - (x0 - 3.5958753)))/4.501102) + 0.2797824
+    -> Complexity: 24 | R^2 (fit): 0.9988 | R^2 (holdout): 0.9869
+
+--- Figure 10/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_1_fig5.png
+[+] Success: detected 'discrete' plot with 20 data points.
+
+--- Figure 11/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_2_fig6.png
+[+] Success: detected 'discrete' plot with 18 data points.
+
+--- Figure 12/12 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_3_fig7.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page9_crop_3_fig7.png
+[+] Success: detected 'discrete' plot with 40 data points.
+
+[+] Enriched paper content with analysis of 12/12 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=0, guided JSON=True, thinking=False, via server)...
+Traceback (most recent call last):
+  File "/leonardo_work/IscrC_MultLLM/paper_analyzer/main.py", line 799, in <module>
+    out_f.write(json.dumps(record, ensure_ascii=False) + "\n")
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud8ee' in position 81688: surrogates not allowed

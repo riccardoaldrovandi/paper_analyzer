@@ -1,0 +1,3339 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Family: mistral | text: mistral-nemo-12b | vision: pixtral-12b | temperature: 0.3
+[~] Checkpoints: full_analyze_checkpoints/v7_mistral | output: training_data_mistral_v7.jsonl | vision port: 24451
+GPU 0: NVIDIA A100-SXM-64GB (UUID: GPU-7b2870f7-2ea2-7a7f-0343-3dfdaff794ef)
+GPU 1: NVIDIA A100-SXM-64GB (UUID: GPU-b7a74313-a296-b1ff-a15c-b285dc763bf0)
+[~] GPUs assigned by SLURM: '0,1' -> text: 0, vision: 1
+[~] Starting vision server: pixtral-12b on GPU 1, port 24451 (--tokenizer-mode mistral --config-format mistral --load-format mistral --max-model-len 16384)
+[+] Vision server ready after 305s.
+[~] Pipeline CUDA_VISIBLE_DEVICES=0
+[+] 3 paper(s) found, 0 already in 'training_data_mistral_v7.jsonl', 3 pending.
+
+========== Paper 1/3: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+
+[2/3] Using 1 pre-cropped figure(s) from 'comparison_figures/1482468_Flux tube in turbulent flow and quantum chromodyna' (--figures-dir).
+[+] Found 1 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/1 ---
+
+[~] Analyzing figure: 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+  }
+[!] Skipping 1482468_Flux tube in turbulent flow and quantum chromodyna_page5_crop_plot1.png: could not extract data from this image.
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b (first call only, max_model_len=32768)...
+INFO 10-09 17:04:44 __init__.py:207] Automatically detected platform cuda.
+INFO 10-09 17:04:56 config.py:549] This model supports multiple tasks: {'generate', 'embed', 'classify', 'score', 'reward'}. Defaulting to 'generate'.
+INFO 10-09 17:04:56 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-09 17:04:57 cuda.py:229] Using Flash Attention backend.
+INFO 10-09 17:04:58 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/mistral-nemo-12b...
+INFO 10-09 17:06:01 model_runner.py:1115] Loading model weights took 22.8446 GB
+INFO 10-09 17:06:06 worker.py:267] Memory profiling takes 5.19 seconds
+INFO 10-09 17:06:06 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-09 17:06:06 worker.py:267] model weights take 22.84GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.57GiB; the rest of the memory reserved for KV Cache is 30.56GiB.
+INFO 10-09 17:06:06 executor_base.py:111] # cuda blocks: 12517, # CPU blocks: 1638
+INFO 10-09 17:06:06 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 6.11x
+INFO 10-09 17:06:08 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-09 17:06:25 model_runner.py:1562] Graph capturing finished in 17 secs, took 1.08 GiB
+INFO 10-09 17:06:25 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 23.94 seconds
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3, seed=0, guided JSON=True)...
+INFO 10-09 17:06:25 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[+] Wrote training example (local, 22440 chars input).
+
+========== Paper 2/3: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf
+
+[2/3] Using 5 pre-cropped figure(s) from 'comparison_figures/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe' (--figures-dir).
+[+] Found 5 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_tio" 
+  }
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page10_crop_fig8.png: could not extract data from this image.
+
+--- Figure 2/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ benefitse" 
+  }
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page11_crop_fig9.png: could not extract data from this image.
+
+--- Figure 3/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_tio" 
+  }
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_left_Ssigma.png: could not extract data from this image.
+
+--- Figure 4/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+  }
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page5_crop_fig3_top_right_kappa_sigma2.png: could not extract data from this image.
+
+--- Figure 5/5 ---
+
+[~] Analyzing figure: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ 
+ 	"p wet_tio" 
+ 	: 
+ 	"continuous" 
+ 	, 
+ 	"s�ies" 
+ 	: 
+ 	[ 
+ 	{ 
+ 	"label" 
+ 	: 
+ 	"UrQMD 0%-5%" 
+
+ 	, 
+
+ 	" 
+ 	, 
+ 	"poinold" 
+ 	: 
+ 	[ 
+ 	[ 
+ 	5.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	10.0 
+ 	, 
+ 	0.7 
+ 	] 
+ 	, 
+ 	[ 
+ 	15.0 
+ 	, 
+ 	0.6 
+ 	] 
+ 	, 
+ 	[ 
+ 	20.0 
+ 	, 
+ 	0.5 
+ 	] 
+ 	, 
+ 	[ 
+ 	25.0 
+ 	, 
+ 	0.4 
+ 	] 
+ 	, 
+ 	[ 
+ 	30.0 
+ 	, 
+ 	0.3 
+ 	] 
+ 	, 
+ 	[ 
+ 	35.0 
+ 	, 
+ 	0.2 
+ 	] 
+ 	, 
+ 	[ 
+ 	40.0 
+ 	, 
+ 	0.1 
+ 	] 
+ 	, 
+ 	[ 
+ 	45.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	50.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	55.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	60.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	65.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	70.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	75.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	80.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	85.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	90.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	95.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	100.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	105.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	110.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	115.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	120.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	125.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	130.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	135.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	140.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	145.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	150.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	155.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	160.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	165.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	170.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	175.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	180.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	185.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	190.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	195.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	, 
+ 	[ 
+ 	200.0 
+ 	, 
+ 	0.0 
+ 	] 
+ 	] 
+ 	} 
+ 	, 
+ 	{ 
+ 	"label" 
+ 	: 
+ 	"HRG GCE" 
+ 	, 
+ 	"poinold" 
+ 	: 
+ 	[ 
+ 	[ 
+ 	5.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	10.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	15.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	20.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	25.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	30.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	35.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	40.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	45.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	50.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	55.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	60.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	65.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	70.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	75.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	80.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	85.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	90.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	95.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	100.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	105.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	110.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	115.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	120.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	125.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	130.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	135.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	140.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	145.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	150.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	155.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	160.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	165.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	170.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	175.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	180.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	185.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	190.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	195.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	, 
+ 	[ 
+ 	200.0 
+ 	, 
+ 	0.9 
+ 	] 
+ 	] 
+ 	} 
+ 	, 
+ 	{ 
+ 	"label" 
+ 	: 
+ 	"HRG CE" 
+ 	, 
+ 	"poinold" 
+ 	: 
+ 	[ 
+ 	[ 
+ 	5.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	10.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	15.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	20.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	25.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	30.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	35.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	40.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	45.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	50.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	55.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	60.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	65.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	70.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	75.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	80.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	85.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	90.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	95.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	100.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	105.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	110.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	115.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	120.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	125.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	130.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	135.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	140.0 
+ 	, 
+ 	0.8 
+ 	] 
+ 	, 
+ 	[ 
+ 	145
+[!] Skipping 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe_page6_crop_plot1.png: could not extract data from this image.
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3, seed=0, guided JSON=True)...
+[+] Wrote training example (local, 58736 chars input).
+
+========== Paper 3/3: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: comparison_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Using 4 pre-cropped figure(s) from 'comparison_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M' (--figures-dir).
+[+] Found 4 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+  }
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_plot1.png: could not extract data from this image.
+
+--- Figure 2/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+  }
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot1.png: could not extract data from this image.
+
+--- Figure 3/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+  }
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot2.png: could not extract data from this image.
+
+--- Figure 4/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[~] Computer vision analysis in progress (local pixtral-12b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png
+[-] Error: local model returned a non-JSON output. Raw response:
+{ 
+ "p wet_ollowpe" 
+: 
+"continuous" 
+, 
+"s�ies" 
+: 
+[ 
+{ 
+"label" 
+: 
+"MHA" 
+, 
+"poinold" 
+: 
+[ 
+[0.0, 57.0] 
+, 
+[0.02, 57.0] 
+, 
+[0.04, 57.0] 
+, 
+[0.06, 57.0] 
+, 
+[0.08, 57.0] 
+, 
+[0.1, 57.0] 
+] 
+} 
+, 
+{ 
+"label" 
+: 
+"GQA" 
+, 
+"poinold" 
+: 
+[ 
+[0.0, 56.8] 
+, 
+[0.02, 56.9] 
+, 
+[0.04, 57.0] 
+, 
+[0.06, 57.1] 
+, 
+[0.08, 57.1] 
+, 
+[0.1, 57.2] 
+] 
+} 
+, 
+{ 
+"label" 
+: 
+"MQA" 
+, 
+"poinold" 
+: 
+[ 
+[0.0, 54.0] 
+, 
+[0.02, 55.0] 
+, 
+[0.04, 56.0] 
+, 
+[0.06, 56.5] 
+, 
+[0.08, 56.8] 
+, 
+[0.1, 57.0] 
+] 
+} 
+] 
+, 
+"summaary" 
+: 
+""
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+} 
+
+}
+[!] Skipping 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_plot3.png: could not extract data from this image.
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local mistral-nemo-12b (local/vLLM) (temperature=0.3, seed=0, guided JSON=True)...
+[+] Wrote training example (local, 23726 chars input).
+
+[+] Done. 3 training example(s) appended to 'training_data_mistral_v7.jsonl'.
+[~] Stopping vision server (process group 1033021)...

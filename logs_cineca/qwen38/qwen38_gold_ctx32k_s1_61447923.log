@@ -1,0 +1,39 @@
+[+] 10 paper(s) found, 0 already in 'qwen38_gold_ctx32k_s1.jsonl', 10 pending.
+
+========== Paper 1/10: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf ==========
+[~] Resuming '1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' from checkpoint: figure 3/2.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 2/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[+] Wrote training example (local, 39839 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/10: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+[~] Resuming '1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' from checkpoint: figure 2/1.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+[+] Wrote training example (local, 23016 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/10: 1519859_Out-of-time-order correlators in quantum mechanics.pdf ==========
+[~] Resuming '1519859_Out-of-time-order correlators in quantum mechanics.pdf' from checkpoint: figure 19/18.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 18/18 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [ctx32k] (local/vLLM) (temperature=0.2, seed=1, guided JSON=True, thinking=False, via server)...
+Traceback (most recent call last):
+  File "/leonardo_work/IscrC_MultLLM/paper_analyzer/main.py", line 799, in <module>
+    out_f.write(json.dumps(record, ensure_ascii=False) + "\n")
+UnicodeEncodeError: 'utf-8' codec can't encode characters in position 2104-2105: surrogates not allowed

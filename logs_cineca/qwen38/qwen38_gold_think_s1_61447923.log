@@ -1,0 +1,1105 @@
+[+] 10 paper(s) found, 0 already in 'qwen38_gold_think_s1.jsonl', 10 pending.
+
+========== Paper 1/10: 1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf ==========
+[~] Resuming '1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' from checkpoint: figure 3/2.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 2/2 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 18757 characters (not part of the answer).
+[+] Wrote training example (local, 39839 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1473712_Sachdev–Ye–Kitaev model as Liouville quantum mecha.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 2/10: 1482468_Flux tube in turbulent flow and quantum chromodyna.pdf ==========
+[~] Resuming '1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' from checkpoint: figure 2/1.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 1/1 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 11900 characters (not part of the answer).
+[+] Wrote training example (local, 23016 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 3/10: 1519859_Out-of-time-order correlators in quantum mechanics.pdf ==========
+[~] Resuming '1519859_Out-of-time-order correlators in quantum mechanics.pdf' from checkpoint: figure 19/18.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 18/18 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 39967 characters (not part of the answer).
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_think_s1.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/1519859_Out-of-time-order correlators in quantum mechanics.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 4/10: 1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf ==========
+[~] Resuming '1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' from checkpoint: figure 11/10.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 10/10 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 19418 characters (not part of the answer).
+[+] Wrote training example (local, 50574 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1751397_SU(4) Heisenberg model on the honeycomb lattice wi.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 5/10: 1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf ==========
+[~] Resuming '1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' from checkpoint: figure 13/12.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[+] Enriched paper content with analysis of 12/12 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 39584 characters (not part of the answer).
+[+] Wrote training example (local, 69479 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/1850675_Nonmonotonic Energy Dependence of Net-Proton Numbe.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 6/10: 3056128_Simulating twistronics without a twist.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/3056128_Simulating twistronics without a twist.pdf
+
+[2/3] Using 9 pre-cropped figure(s) from 'gold_figures/3056128_Simulating twistronics without a twist' (--figures-dir).
+[+] Found 9 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page3_crop_1_fig2a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page3_crop_1_fig2a.png
+[+] Success: detected 'continuous' plot with 8 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -exp(x0 - 4.660342) - 4.2944527
+    -> Complexity: 6 | R^2 (fit): 0.2346 | R^2 (holdout): 0.4273
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (-x0 + x0 + x0 - 1*2.2155662 - 1*(-0.07321683) + 0.3069788/(((x0 + x0 - 3.7370136)*(-0.18757002))))*0.12091159 - 5.747542 - 1*0.2792875
+    -> Complexity: 25 | R^2 (fit): 0.9689 | R^2 (holdout): 0.7311
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -6.86667500000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -2.0000
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -7.40000000000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): 0.9024
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -8.86667200000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): 0.9187
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -9.20000000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.1633
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -10.0000000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): 0.9474
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -11.4666630000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -18.0003
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 2/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page3_crop_2_fig2b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page3_crop_2_fig2b.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-18.449312)) - 1*78.14071
+    -> Complexity: 8 | R^2 (fit): 0.4205 | R^2 (holdout): -3.1856
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0*(3.7671757 - (x0 + x0)/(x0 + exp(x0) - 1*4.595161 + 0.031387974)) + x0/1.0961359)*0.040484726 - 78.52975
+    -> Complexity: 24 | R^2 (fit): 0.7458 | R^2 (holdout): -6.9801
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -79.9000100000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1251
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -80.1000000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.1250
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -81.6000060000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -7.2201
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-0.46655253) + x0 + exp((x0*(-2.8068044)*x0 + x0)*0.28677148) - 83.05922
+    -> Complexity: 18 | R^2 (fit): 0.3379 | R^2 (holdout): -7.0460
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 3/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page8_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 8 distinct curve(s).
+[!] Skipping curve 'Top cyan line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Upper blue line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Upper red line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Upper brown line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Lower cyan line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Lower blue line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Lower red line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Bottom brown line': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page8_crop_2_plot.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-0.21829358) - 77.68183
+    -> Complexity: 5 | R^2 (fit): 0.1535 | R^2 (holdout): 0.0568
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -exp(x0*(x0 + (-x0*x0 + x0)*9.006117)*(x0 + x0 - 1*2.695412)) - 78.33812
+    -> Complexity: 20 | R^2 (fit): 0.8458 | R^2 (holdout): 0.8956
+[!] Skipping curve 'Flat blue curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -80.2437500000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.3444
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0*(2.0918047 - x0) - 80.70577
+    -> Complexity: 7 | R^2 (fit): 0.6491 | R^2 (holdout): -0.0195
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 5/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_3_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page8_crop_3_plot.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0 - (-x0*(x0 - 4.9750524) - x0 + x0 + 0.26667893)) - 1*79.01233 + 1.0525854
+    -> Complexity: 18 | R^2 (fit): 0.5068 | R^2 (holdout): 0.2060
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -78.333244 + (x0 + x0 - 2.7369635)*exp(x0)*(x0*exp(x0) - 1.3347244)*1.2018654/((-x0 - 1.765937)*(exp(x0*x0) + 0.68810105))
+    -> Complexity: 30 | R^2 (fit): 0.7719 | R^2 (holdout): 0.1307
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -79.9666700000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0000
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -80.1333300000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0000
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.46218595*x0*(exp(x0*x0*(-0.2935213)*x0*x0 + 1.521426) + 0.9239759) - 79.99535
+    -> Complexity: 20 | R^2 (fit): 0.7340 | R^2 (holdout): -0.0224
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -82.0500000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.0823
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 6/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_4_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page8_crop_4_plot.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 - (-x0 - x0 + x0*(-0.43490875)/(-1.8687079) + x0*3.3943958 + exp(x0*(1.044399 - x0*x0)) + 5.342837) - 70.89685
+    -> Complexity: 28 | R^2 (fit): 0.7441 | R^2 (holdout): 0.6805
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.20136742 - 78.81702
+    -> Complexity: 5 | R^2 (fit): 0.0708 | R^2 (holdout): -0.1600
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.17793211/exp(x0) - 79.91289
+    -> Complexity: 8 | Score: 0.1007 | R^2: 0.2149
+    -> [!] Only 7 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'Green curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.038255673*exp(x0) - 81.228775
+    -> Complexity: 6 | R^2 (fit): 0.0950 | R^2 (holdout): -0.2838
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -81.93809 - 3175.1116/(exp(x0*x0*x0) - 1*(-18817.008))
+    -> Complexity: 12 | R^2 (fit): 0.1057 | R^2 (holdout): -0.9891
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 7/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page8_crop_5_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page8_crop_5_plot.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 12400702.0000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -2.7320
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 10860792.0000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -1.4459
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + (-x0 - x0 - 106178.41 + 3223.8606/(x0*x0/409.31427 + 1257.5293/x0))*(-78.212234)
+    -> Complexity: 21 | R^2 (fit): 0.2054 | R^2 (holdout): 0.0614
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 8/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page9_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page9_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(0.13297321*(-69.85658)/x0) - 1*39.861813 - 39.71696
+    -> Complexity: 10 | R^2 (fit): 0.6249 | R^2 (holdout): -0.0226
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -82.29338 + exp(-1.538591/x0)/exp(x0)
+    -> Complexity: 9 | R^2 (fit): 0.4819 | R^2 (holdout): 0.8646
+
+--- Figure 9/9 ---
+
+[~] Analyzing figure: 3056128_Simulating twistronics without a twist_page9_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3056128_Simulating twistronics without a twist_page9_crop_2_fig5.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 - (exp((x0*x0 - 1*0.7879854)*(-0.7845851)) + 71.861046) - 6.5272584 - 1*(-0.7502409)
+    -> Complexity: 16 | R^2 (fit): 0.4601 | R^2 (holdout): -2.7744
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.035071373 - 79.66752
+    -> Complexity: 5 | R^2 (fit): 0.0118 | R^2 (holdout): -4.0635
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 + (-(x0*(-7.05284) + x0*0.27203414) - 26.435905)*(-(x0*(exp(x0) + 2.359779) + x0*3.4099157) - 26.001562)/(-8.800008) - 2.5809803 + 0.97444403
+    -> Complexity: 30 | R^2 (fit): 0.6338 | R^2 (holdout): 0.6786
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*0.6964447 - (x0*2.001585 + 1.9902651/(x0*1.9584918 + exp(x0) + 0.15184279)) - 1*78.55413
+    -> Complexity: 22 | R^2 (fit): 0.5120 | R^2 (holdout): 0.8228
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*(-(x0 - 1.6165134) - 0.6899119) + 0.015153973)*((x0 - 1.7974975)*(x0 - 1.5161161) - 0.20184283*(x0 - 1.3336118)) - 80.50545
+    -> Complexity: 27 | R^2 (fit): 0.6765 | R^2 (holdout): -0.1668
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -80.4874950000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -2.1904
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+[+] Enriched paper content with analysis of 9/9 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 34808 characters (not part of the answer).
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_think_s1.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/3056128_Simulating twistronics without a twist.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 7/10: 3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf
+
+[2/3] Using 21 pre-cropped figure(s) from 'gold_figures/3057253_Quantum anomalous Hall phase in synthetic bilayers' (--figures-dir).
+[+] Found 21 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_1_fig2a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_1_fig2a.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (-(-0.14516692)*(-x0 - 23.355782) - exp(-11.062436*(-(-0.08764775)*x0*x0 - 0.7970292) - 10.382755) - 10.478835)*11.174132 - 0.83838356
+    -> Complexity: 24 | R^2 (fit): 0.5286 | R^2 (holdout): 0.3287
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.20370641*(-(x0 + x0)*(x0*x0*0.6535431 + exp((x0 - 1.1297692)*(-2.617355)) - 0.5332561) - 1.042974) - 159.90936
+    -> Complexity: 24 | R^2 (fit): 0.6211 | R^2 (holdout): 0.2711
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[!] Skipping curve 'Middle blue curve': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -12.845151*x0*(x0 + x0)*exp(x0*x0*(-5.69232)) + x0*(-1.1179204) - 144.35716 - 15.014875
+    -> Complexity: 22 | R^2 (fit): 0.7193 | R^2 (holdout): 0.4513
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.14433649 - 161.65118
+    -> Complexity: 5 | R^2 (fit): 0.1396 | R^2 (holdout): 0.1051
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 2/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_2_fig2b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_2_fig2b.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(x0 + x0 + 0.71305513) + exp(((-x0*x0 + x0/3.2647927)*x0*x0*(-1.6999121) - 1*1.0300933)*(-2.5763545))/(-7.3071237) - 155.24565
+    -> Complexity: 28 | R^2 (fit): 0.8971 | R^2 (holdout): 0.5547
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(-x0 + x0/exp(x0*x0 - 0.73225963))*(x0 + x0 - 2.2503495) - 159.06473 - 0.13733922
+    -> Complexity: 20 | R^2 (fit): 0.7059 | R^2 (holdout): 0.6482
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -159.783340000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): 0.9999
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -159.816670000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): 0.9999
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 + 144.96164)*(-1.1091756) + exp((x0 + x0 - 1*3.6595244 + 1.3031424)*(-4.852401)*(0.81791526 - x0)*(x0 + x0 - 2.910822))
+    -> Complexity: 26 | R^2 (fit): 0.8619 | R^2 (holdout): 0.9072
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(-2.5636284)*(x0 + exp(x0*(-0.06328071)*(x0 - 1*0.060721286)) + exp(x0*(-2.6805212)*x0*x0) + 1.7703121 + 1.7703328) - 176.16331
+    -> Complexity: 27 | R^2 (fit): 0.8799 | R^2 (holdout): -0.0147
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 3/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_3_fig2c.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_3_fig2c.png
+[+] Success: detected 'continuous' plot with 5 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/(-(-x0 + x0 + exp(x0/(-2.413755))/(((-(x0 - 0.78012645) + 0.50687253/((-2.4393725)*(x0 - 0.8272655)))/(-1.7412323)))) - 2.343389) - 157.78345
+    -> Complexity: 28 | R^2 (fit): 0.7785 | R^2 (holdout): 0.5351
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0 + exp((x0 + x0)*(-3.3760464*x0*x0*x0*x0 + x0)) - 160.1599
+    -> Complexity: 20 | R^2 (fit): 0.8220 | R^2 (holdout): 0.7297
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.6028462*x0/1.1481237 + x0*x0/(0.67227113*exp(x0)) - 1*159.58122
+    -> Complexity: 16 | R^2 (fit): 0.3174 | R^2 (holdout): 0.2546
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0 - exp(x0*x0*(x0 - 0.6087728)/(-0.14286456) - 0.010419252) - 159.56032
+    -> Complexity: 16 | R^2 (fit): 0.7602 | R^2 (holdout): 0.5127
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(-x0 + 1.2283617/((((x0 + 1.4556191)*(-0.6155862)))*exp(-x0 + x0*0.00046551414 + x0*x0/0.680886))) - 163.0329
+    -> Complexity: 24 | R^2 (fit): 0.5130 | R^2 (holdout): 0.3471
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 4/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_4_fig2d.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page4_crop_4_fig2d.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(0.741857699038223*x0 + 0.741857699038223*exp(x0*x0*x0*x0*(-x0 - (x0 + 1.3084012) - 0.9407169) + x0) + 156.785170529747)
+    -> Complexity: 26 | R^2 (fit): 0.8862 | R^2 (holdout): 0.7290
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*0.21245034 + x0/(((x0 - 1*(-0.15762413))/exp(x0*x0/(-0.5221328)))) - 1*158.8167
+    -> Complexity: 20 | R^2 (fit): 0.6007 | R^2 (holdout): 0.4624
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -(x0 + x0/(x0*(-0.58339894) + (-x0 + x0 + 0.30496335)*1.1482828/(0.34583896 - x0))) - 159.59328
+    -> Complexity: 21 | R^2 (fit): 0.7636 | R^2 (holdout): 0.4890
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[!] Skipping curve 'Middle blue curve (lower branch)': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-0.64189225*x0*(104.00968*x0 - ((x0 + x0)*104.00968*x0 - 104.00968*x0*x0*x0)) - 0.80256516) - 160.87967
+    -> Complexity: 28 | R^2 (fit): 0.7451 | R^2 (holdout): 0.7453
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.80967873 + exp(x0*x0*x0*x0*(-x0 - 1.7414464)/1.0452211) - 162.37556
+    -> Complexity: 20 | R^2 (fit): 0.6468 | R^2 (holdout): 0.5187
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 5/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_1_plot.png
+[+] Success: detected 'discrete' plot with 2 data points.
+
+--- Figure 6/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page5_crop_2_plot.png
+[+] Success: detected 'discrete' plot with 2 data points.
+
+--- Figure 7/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0*(x0 - 1*1.5611302) - 159.61667
+    -> Complexity: 7 | R^2 (fit): 0.9202 | R^2 (holdout): 0.9558
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*159.93564 + 0.013491127/exp(x0 - 1.6250308*(x0*(-0.9257033)*(x0 - 0.859138) + x0*1.2895036 + 1.1871779) - 0.2724304)
+    -> Complexity: 24 | R^2 (fit): 0.9646 | R^2 (holdout): 0.9704
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -x0/exp(x0*(x0 - 1*(-0.06655714))) - 160.34091
+    -> Complexity: 10 | R^2 (fit): 0.8657 | R^2 (holdout): 0.8763
+[!] Skipping curve 'Blue curve (flat)': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 8/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_2_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_2_fig5.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-0.2503195) - 160.09941
+    -> Complexity: 5 | R^2 (fit): 0.9994 | R^2 (holdout): 0.9993
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (-x0 - 617.4781)/3.8450315
+    -> Complexity: 5 | R^2 (fit): 0.9979 | R^2 (holdout): 0.9947
+
+--- Figure 9/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_3_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_3_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*0.003404403 - 1*162.31868
+    -> Complexity: 5 | R^2 (fit): 0.9233 | R^2 (holdout): 0.9471
+
+--- Figure 10/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_4_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page6_crop_4_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*(x0*(-0.26202512) + x0*(-0.2620251) + 0.0024094163)*(-2.2491404e-9) + x0*0.0012685213 - 161.36067
+    -> Complexity: 21 | R^2 (fit): 0.9809 | R^2 (holdout): 0.9448
+
+--- Figure 11/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.0849999900000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1603
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 12/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.218421550000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1525
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 13/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_3_fig7.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_3_fig7.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.00324999980000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0322
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*2.5426493e-7 + 0.0014452842
+    -> Complexity: 7 | R^2 (fit): 0.1676 | R^2 (holdout): -0.1632
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 14/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_4_fig8.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page7_crop_4_fig8.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(0.0001767975 + x0*(-2.054517e-6))
+    -> Complexity: 7 | R^2 (fit): 0.7116 | R^2 (holdout): 0.5194
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 15/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_1_plot.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 2.3894806*x0 + log(2.7174883 - x0)
+    -> Complexity: 8 | Score: 0.8227 | R^2: 1.0000
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-13.976653))
+    -> Complexity: 6 | R^2 (fit): 0.9517 | R^2 (holdout): 0.9986
+
+--- Figure 16/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page8_crop_2_plot.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(-0.042819522/x0)
+    -> Complexity: 4 | R^2 (fit): 0.0271 | R^2 (holdout): 0.9876
+
+--- Figure 17/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_1_fig9a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_1_fig9a.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -158.681230000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -1.4555
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -159.043800000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -4.3136
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -159.99081 - 0.0011630887/(x0 - 1*0.829026)
+    -> Complexity: 7 | Score: 0.0866 | R^2: 0.4055
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -1*160.01868 + 0.0031384788/(exp(x0) - 1.3068386)
+    -> Complexity: 8 | Score: 0.1426 | R^2: 0.2488
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*(-9.725796)) - 161.08725
+    -> Complexity: 6 | R^2 (fit): 0.0997 | R^2 (holdout): -3.4648
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -161.299990000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -12.5008
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 18/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_2_fig9b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_2_fig9b.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -158.550000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): 0.0000
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*(-19.14791)/exp(x0) + 7.7351727) - 159.88086
+    -> Complexity: 12 | R^2 (fit): 0.5840 | R^2 (holdout): 0.0031
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0*0.070393816 - 0.00020153544*(exp(x0*(x0*(x0 + x0) + x0)) - 1.001122) - 160.00821
+    -> Complexity: 22 | R^2 (fit): 0.2691 | R^2 (holdout): 0.6474
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -160.010000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.3600
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -161.030000000000
+    -> Complexity: 1 | R^2 (fit): 0.0000 | R^2 (holdout): -0.2197
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*36.971523/(-28.98317) + x0*4.2786694/exp(-x0*x0 + x0 + x0) - 161.8932
+    -> Complexity: 20 | R^2 (fit): 0.5757 | R^2 (holdout): -0.4048
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 19/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_3_fig9c.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_3_fig9c.png
+[+] Success: detected 'continuous' plot with 6 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -158.484380000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.2901
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -exp(x0/(-0.076752245)) - 159.08565
+    -> Complexity: 6 | R^2 (fit): 0.1018 | R^2 (holdout): -0.0814
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -159.915620000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.0042
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/((-0.887816)*((exp(x0 + x0/0.60259056)/exp(x0*x0/(-0.887816))))) + exp(x0)*(-0.019201253) - 1*159.98715
+    -> Complexity: 24 | R^2 (fit): 0.4703 | R^2 (holdout): -0.4178
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -160.790620000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.2021
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -161.409380000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.2670
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 20/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_4_fig10a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_4_fig10a.png
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[!] Skipping curve 'Upper boundary': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[!] Skipping curve 'Lower boundary': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 21/21 ---
+
+[~] Analyzing figure: 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_5_fig10b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 3057253_Quantum anomalous Hall phase in synthetic bilayers_page9_crop_5_fig10b.png
+[+] Success: detected 'continuous' plot with 1 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*1.884286*(1.1227338 - x0)
+    -> Complexity: 7 | R^2 (fit): 0.1362 | R^2 (holdout): 0.2827
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+[+] Enriched paper content with analysis of 21/21 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 44032 characters (not part of the answer).
+[!] Skipping local: empty or invalid JSON output (raw output saved to 'qwen38_gold_think_s1.rejected.jsonl').
+[~] Keeping checkpoint for 'gold_pdfs/3057253_Quantum anomalous Hall phase in synthetic bilayers.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 8/10: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf
+
+[2/3] Using 4 pre-cropped figure(s) from 'gold_figures/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M' (--figures-dir).
+[+] Found 4 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_1_fig3.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page3_crop_1_fig3.png
+[+] Success: detected 'discrete' plot with 4 data points.
+
+--- Figure 2/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_1_fig4.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_1_fig4.png
+[+] Success: detected 'discrete' plot with 3 data points.
+
+--- Figure 3/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_2_fig6.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_2_fig6.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(x0*0.0005862824 - 0.0074972585) + 0.47296903
+    -> Complexity: 9 | Score: 0.5005 | R^2: 0.9988
+    -> [!] Only 6 points: too few for a holdout check, result is not cross-validated.
+[!] Skipping curve 'MQA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+
+--- Figure 4/4 ---
+
+[~] Analyzing figure: 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_3_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 5ae6fb6b_GQA Training Generalized Multi-Query Transformer M_page4_crop_3_fig5.png
+[+] Success: detected 'continuous' plot with 3 distinct curve(s).
+[!] Skipping curve 'MHA': digitized points are exactly constant or perfectly regular (likely vision-model placeholders), no formula fitted.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((2.193303 + x0*(-1.0534275))*(x0 + 1.8405585))
+    -> Complexity: 10 | Score: 0.5268 | R^2: 0.9689
+    -> [!] Only 7 points: too few for a holdout check, result is not cross-validated.
+[~] Starting PySR (Symbolic Regression) with 20 iterations (max complexity 10: too few points)...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 57.36969 + exp(x0*(-32.541355))*(-3.558408)
+    -> Complexity: 8 | Score: 2.3387 | R^2: 0.9781
+    -> [!] Only 7 points: too few for a holdout check, result is not cross-validated.
+
+[+] Enriched paper content with analysis of 4/4 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 24292 characters (not part of the answer).
+[+] Wrote training example (local, 25719 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/5ae6fb6b_GQA Training Generalized Multi-Query Transformer M.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 9/10: 779080_The anti-$k_t$ jet clustering algorithm.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/779080_The anti-$k_t$ jet clustering algorithm.pdf
+
+[2/3] Using 9 pre-cropped figure(s) from 'gold_figures/779080_The anti-$k_t$ jet clustering algorithm' (--figures-dir).
+[+] Found 9 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+--- Figure 1/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_1_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_1_plot.png
+[+] Success: detected 'discrete' plot with 12 data points.
+
+--- Figure 2/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_2_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_2_plot.png
+[+] Success: detected 'discrete' plot with 11 data points.
+
+--- Figure 3/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_3_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_3_plot.png
+[+] Success: detected 'discrete' plot with 13 data points.
+
+--- Figure 4/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_4_plot.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_4_plot.png
+[-] qwen3.8-27b (local, guided) did not find any data points in the graph.
+[!] Guided vision output had no usable data; retrying without the schema constraint.
+[-] qwen3.8-27b (local) did not find any data points in the graph.
+[!] Skipping 779080_The anti-$k_t$ jet clustering algorithm_page4_crop_4_plot.png: could not extract data from this image.
+
+--- Figure 5/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_1_fig2a.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_1_fig2a.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((4.3235846 - x0*(x0 + 3.1714942))*(x0*6.4015045*x0*x0 - 2.9635234))
+    -> Complexity: 18 | R^2 (fit): 0.9872 | R^2 (holdout): -0.0380
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(3.1343338 - x0)
+    -> Complexity: 4 | R^2 (fit): 0.1407 | R^2 (holdout): 0.3308
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*exp(-x0*(x0 - 0.5874983))*log((x0 + 0.1609035)*(x0 + 0.9240942))
+    -> Complexity: 17 | R^2 (fit): 0.9351 | R^2 (holdout): 0.9336
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 9.4/(x0 + 5.025263e+17*log(x0))
+    -> Complexity: 8 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+
+--- Figure 6/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_2_fig2b.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_2_fig2b.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp((-x0 + (1.9799523 - (x0 + x0))*(-608.02386)*2.0457907/0.6503558)*(-x0 - x0 + 2.0601501))
+    -> Complexity: 20 | R^2 (fit): 1.0000 | R^2 (holdout): 1.0000
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 - 0.27859405)*(x0 + 0.1360166)*exp((x0 - 0.9037983)*x0*(-13.352008))/1.5087825
+    -> Complexity: 18 | R^2 (fit): 0.9897 | R^2 (holdout): 0.9962
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0/exp(x0*(x0*x0 - 1.0048693))
+    -> Complexity: 10 | R^2 (fit): 0.9186 | R^2 (holdout): 0.9949
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*x0/(((-x0/0.63796115 + exp(x0*x0) + 0.36525196)*0.7053167))
+    -> Complexity: 16 | R^2 (fit): 0.9923 | R^2 (holdout): 0.9985
+
+--- Figure 7/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_3_fig3.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page6_crop_3_fig3.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: log(x0)/(log(x0) + 1.5314554)
+    -> Complexity: 7 | R^2 (fit): 0.9895 | R^2 (holdout): 0.9903
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.036037505*log(x0) + 0.86404806
+    -> Complexity: 6 | R^2 (fit): 0.9843 | R^2 (holdout): 0.9660
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 0.13581201*log(x0 + 6.226527) + 0.76519203
+    -> Complexity: 8 | R^2 (fit): 0.9988 | R^2 (holdout): 0.9989
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 1.00999990000000
+    -> Complexity: 1 | R^2 (fit): -0.0000 | R^2 (holdout): -0.1250
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+--- Figure 8/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page7_crop_1_fig4.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page7_crop_1_fig4.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.19864544/(x0 - exp(x0))
+    -> Complexity: 6 | R^2 (fit): 0.9760 | R^2 (holdout): 0.9057
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.7093922/(-x0*x0 + x0*(-0.076512136) - 1*4.736388)
+    -> Complexity: 11 | R^2 (fit): 0.9977 | R^2 (holdout): 0.9572
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: 1.0749195/(x0*x0 + exp(x0*0.5417067) + 6.242533)
+    -> Complexity: 12 | R^2 (fit): 0.9994 | R^2 (holdout): 0.9467
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: exp(x0*x0*(-4.0516253)) - 1*(-0.0026011993)
+    -> Complexity: 8 | R^2 (fit): 1.0000 | R^2 (holdout): 0.9872
+
+--- Figure 9/9 ---
+
+[~] Analyzing figure: 779080_The anti-$k_t$ jet clustering algorithm_page9_crop_1_fig5.png
+[~] Computer vision analysis in progress (local qwen3.8-27b): 779080_The anti-$k_t$ jet clustering algorithm_page9_crop_1_fig5.png
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-x0 + x0 - 1*(-2.0867566e-5) + 0.0022353576/(x0*0.54395425 + x0))
+    -> Complexity: 15 | R^2 (fit): -0.2796 | R^2 (holdout): -2.1270
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: -0.0017191230400087*x0 + 0.291497436631677*log(x0) - 1.19682019838873
+    -> Complexity: 20 | R^2 (fit): 0.7929 | R^2 (holdout): 0.3600
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: (x0 - (-x0 - 4.6179852))*(-x0 - 1.5094228)*(0.011256913 - 4.8282247e-5*x0)*(-3.1138294e-5)
+    -> Complexity: 17 | R^2 (fit): 0.3492 | R^2 (holdout): -1.5971
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+[~] Starting PySR (Symbolic Regression) with 20 iterations...
+
+[+] Mathematical formula discovered with success!
+    -> Expression: x0*(-x0*(1.0001851 + (-0.04111602 - 1.1830369/x0)/((x0*(-0.25990874)))) + x0 + 0.2220442)/x0
+    -> Complexity: 21 | R^2 (fit): 0.3967 | R^2 (holdout): -1.5249
+    -> [!] Large fit/holdout gap: this equation may not generalize well, treat with caution.
+
+[+] Enriched paper content with analysis of 8/9 figure(s).
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 21652 characters (not part of the answer).
+[+] Wrote training example (local, 39397 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/779080_The anti-$k_t$ jet clustering algorithm.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+========== Paper 10/10: c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf ==========
+
+[1/3] Extracting text from PDF: gold_pdfs/c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf
+
+[2/3] Using 0 pre-cropped figure(s) from 'gold_figures/c4744a7c_Transformer-XL Attentive Language Models beyond a' (--figures-dir).
+[!] No figures found in 'gold_figures/c4744a7c_Transformer-XL Attentive Language Models beyond a': this paper will be analyzed as text only.
+[+] Found 0 figure(s) to analyze.
+
+[3/3] Running visuo-mathematical analysis on each figure...
+
+[!] No usable figure analysis produced; proceeding with text-only content.
+
+[~] Generating training label with LOCAL...
+[~] Generating with local qwen3.8-27b [think] (local/vLLM) (temperature=1.0, seed=1, guided JSON=True, thinking=True, via server)...
+[~] Model reasoning: 11011 characters (not part of the answer).
+[+] Wrote training example (local, 44462 chars input).
+[~] Keeping checkpoint for 'gold_pdfs/c4744a7c_Transformer-XL Attentive Language Models beyond a.pdf' (some provider(s) failed) -- figures won't be redone on the next run.
+
+[+] Done. 7 training example(s) appended to 'qwen38_gold_think_s1.jsonl'.

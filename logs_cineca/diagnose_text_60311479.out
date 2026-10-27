@@ -1,0 +1,48 @@
+Loading gcc/12.2.0
+  Loading requirement: zlib-ng/2.1.6-jkgunjc zstd/1.5.6-uq5yyux binutils/2.42
+[~] Loading local model from /leonardo_work/IscrC_MultLLM/models/velvet-14b (first call only, max_model_len=32768)...
+INFO 10-13 13:40:31 __init__.py:207] Automatically detected platform cuda.
+INFO 10-13 13:40:54 config.py:549] This model supports multiple tasks: {'embed', 'reward', 'score', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 10-13 13:40:54 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/leonardo_work/IscrC_MultLLM/models/velvet-14b', speculative_config=None, tokenizer='/leonardo_work/IscrC_MultLLM/models/velvet-14b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/leonardo_work/IscrC_MultLLM/models/velvet-14b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+INFO 10-13 13:40:57 cuda.py:229] Using Flash Attention backend.
+INFO 10-13 13:40:59 model_runner.py:1110] Starting to load model /leonardo_work/IscrC_MultLLM/models/velvet-14b...
+INFO 10-13 13:42:07 model_runner.py:1115] Loading model weights took 26.3067 GB
+INFO 10-13 13:42:15 worker.py:267] Memory profiling takes 7.39 seconds
+INFO 10-13 13:42:15 worker.py:267] the current vLLM instance can use total_gpu_memory (63.42GiB) x gpu_memory_utilization (0.90) = 57.08GiB
+INFO 10-13 13:42:15 worker.py:267] model weights take 26.31GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 3.24GiB; the rest of the memory reserved for KV Cache is 27.43GiB.
+INFO 10-13 13:42:15 executor_base.py:111] # cuda blocks: 8987, # CPU blocks: 1310
+INFO 10-13 13:42:15 executor_base.py:116] Maximum concurrency for 32768 tokens per request: 4.39x
+INFO 10-13 13:42:17 model_runner.py:1434] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 10-13 13:42:33 model_runner.py:1562] Graph capturing finished in 16 secs, took 1.32 GiB
+INFO 10-13 13:42:33 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 26.09 seconds
+[~] Model velvet-14b (local/vLLM) | paper: comparison_pdfs/1482468_Flux tube in turbulent flow and quantum chromodyna.pdf
+[~] bos_token_id=1 eos_token_id=2
+INFO 10-13 13:42:34 chat_utils.py:332] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+
+===== SANITY, penalties off =====
+prompt: 22 tokens, first 4 ids [1, 1, 4, 52309] -> double BOS: True
+output: 12 tokens, finish=stop, first ids [618, 529, 108813, 3256, 590, 86853, 22238, 1009]
+text start: '{"capital_of_italy": "Rome"}'
+text end:   '{"capital_of_italy": "Rome"}'
+VALID JSON, keys: ['capital_of_italy']
+
+===== E: no reminder, guided =====
+prompt: 9123 tokens, first 4 ids [1, 1, 4, 726] -> double BOS: True
+output: 4096 tokens, finish=length, first ids [618, 726, 748, 1009, 65886, 32495, 833, 22238]
+text start: '{\n  "problem_addressed": "Brief description of the main problem the paper tries to solve",\n  "methodology": "Summary of the proposed method or architecture",\n  "experiments": "Summary of how the models were evaluated",\n  "results": "Key quantitative and qualitative results, using ONLY what the paper itself explicitly states",\n  "limitations": "Any limits acknowledged by the authors",\n  "future_wor'
+text end:   'on of y = 3.2467086/(x0*(x0 - 0.7346525) + 0.5415728), R^2=1.000",\n    "AI curve-fit approximation of y = 2.5141056 - 1.1347588*log(x0 + 4.4895549), R^2=0.995",\n    "AI curve-fit approximation of y = 3.2467086/(x0*(x0 - 0.7346525) + 0.5415728), R^2=1.000",\n    "AI curve-fit approximation of y = 2.51'
+NOT valid JSON (Unterminated string starting at: line 83 column 5 (char 7217))
+
+===== F: reminder, free =====
+prompt: 9204 tokens, first 4 ids [1, 1, 4, 726] -> double BOS: True
+output: 4096 tokens, finish=length, first ids [618, 726, 748, 1009, 65886, 32495, 833, 22238]
+text start: '{\n  "problem_addressed": "Brief description of the main problem the paper tries to solve",\n  "main_contributions": "Contribution 1: Advanced plot analysis of the turbulent ﬂow and quantum chromodynamics. Contribution 2: Connection between turbulence and quantum chromodynamics.",\n  "methodology": "Analysis of the paper\'s content and data, with advanced AI tools for plot analysis and structured data'
+text end:   ' approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit approximation of AI curve-fit'
+NOT valid JSON (Unterminated string starting at: line 12 column 5 (char 581))
+
+===== G: reminder, guided =====
+prompt: 9204 tokens, first 4 ids [1, 1, 4, 726] -> double BOS: True
+output: 4096 tokens, finish=length, first ids [618, 726, 748, 1009, 65886, 32495, 833, 22238]
+text start: '{\n  "problem_addressed": "Brief description of the main problem the paper tries to solve",\n  "methodology": "Summary of the proposed method or architecture",\n  "experiments": "Summary of how the models were evaluated",\n  "results": "Key quantitative and qualitative results, using ONLY what the paper itself explicitly states",\n  "limitations": "Any limits acknowledged by the authors",\n  "future_wor'
+text end:   'color electric field E3z", "color magnetic field B3z", "color electric field E1ρ", "color magnetic field B1ρ", "color electric field E2ρ", "color magnetic field B2ρ", "color electric field E3ρ", "color magnetic field B3ρ", "color electric field E1z", "color magnetic field B1z", "color electric field'
+NOT valid JSON (Unterminated string starting at: line 12 column 13437 (char 14243))

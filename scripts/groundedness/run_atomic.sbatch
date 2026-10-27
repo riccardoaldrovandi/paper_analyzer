@@ -16,23 +16,31 @@
 # TP=2) and scores the atomic claims with Bespoke-MiniCheck-7B (stage B, 1 GPU).
 # Submitted from the repo root:  sbatch scripts/groundedness/run_atomic.sbatch
 # Overrides (--export=ALL,VAR=...):
-#   RUNS         space-separated run names (default: Qwen3.8 think + Qwen2.5 baseline, 3 seeds each)
+#   RUNS         space-separated run names (default: Qwen3.8 think + Qwen2.5 baseline, 3 seeds each);
+#                'all' = every run found in CLAIMS (e.g. the 9 Gemma 4 runs)
 #   CLAIMS       sentence-level claims (default logs/groundedness/claims.jsonl)
 #   RECORDS_DIR  folder with the <run>.jsonl files (default logs_cineca/qwen38)
+#   OUTDIR       folder for atoms.jsonl, atomic_claims.jsonl, atomic_scores.jsonl (default logs/groundedness)
+# Gemma 4 example:
+#   sbatch --export=ALL,RUNS=all,CLAIMS=logs/groundedness_gemma4/claims.jsonl,RECORDS_DIR=logs_cineca/gemma4,OUTDIR=logs/groundedness_gemma4 \
+#       scripts/groundedness/run_atomic.sbatch
 # Resumable: both stages skip what is already written, so after a timeout just
 # submit it again.
 
 module purge
 module load gcc/12.2.0
 cd "$SLURM_SUBMIT_DIR"
-mkdir -p logs logs/groundedness
+OUTDIR="${OUTDIR:-logs/groundedness}"
+mkdir -p logs "$OUTDIR"
 
 RUNS="${RUNS:-qwen38_gold_think_s0 qwen38_gold_think_s1 qwen38_gold_think_s2 qwen_baseline_gold_s0 qwen_baseline_gold_s1 qwen_baseline_gold_s2}"
 CLAIMS="${CLAIMS:-logs/groundedness/claims.jsonl}"
 RECORDS_DIR="${RECORDS_DIR:-logs_cineca/qwen38}"
-ATOMS=logs/groundedness/atoms.jsonl
-ATOMIC=logs/groundedness/atomic_claims.jsonl
-SCORES=logs/groundedness/atomic_scores.jsonl
+ATOMS="$OUTDIR/atoms.jsonl"
+ATOMIC="$OUTDIR/atomic_claims.jsonl"
+SCORES="$OUTDIR/atomic_scores.jsonl"
+RUNS_ARG=(--runs $RUNS)
+[ "$RUNS" = all ] && RUNS_ARG=()
 [ -f "$CLAIMS" ] || { echo "[!] $CLAIMS not found (rsync it from the PC)"; exit 1; }
 [ -d "$RECORDS_DIR" ] || { echo "[!] $RECORDS_DIR not found (rsync the run JSONL files)"; exit 1; }
 
@@ -46,7 +54,7 @@ export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1   # compute nodes have no interne
 echo "[~] Stage A: decomposition of the claims of: $RUNS"
 qwen38_start_and_wait 8192 || exit 1   # sentences are short: a small context is enough
 "${QWEN38_RUN[@]}" python3 scripts/groundedness/decompose_claims.py --claims "$CLAIMS" \
-    --url "http://localhost:$PORT/v1" --atoms "$ATOMS" --out "$ATOMIC" --runs $RUNS
+    --url "http://localhost:$PORT/v1" --atoms "$ATOMS" --out "$ATOMIC" "${RUNS_ARG[@]}"
 STATUS=$?
 stop_vision_server
 trap - EXIT

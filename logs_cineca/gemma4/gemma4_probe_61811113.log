@@ -1,0 +1,71 @@
+[~] Probing vision model: gemma4-31b
+
+===== flux_tube.png =====
+[+] Success: detected 'continuous' plot with 2 distinct curve(s).
+[digitization] 12.3s, type=continuous, error=None
+   curve '1': 26 pts, x [0.0, 5.0], y [0.7, 5.9]
+   curve '2': 26 pts, x [0.0, 5.0], y [0.0, 0.9]
+
+ Q: What are the minimum and maximum values shown on the x axis and on the y axis?
+   expected: x: 0 to ~5 (ticks 2, 4); y: 0 to 6
+   model:    x-axis: minimum 0, maximum 5 (approximate based on tick marks)
+y-axis: minimum 0, maximum 6
+
+ Q: How many curves are drawn in this plot, and how is each one labeled?
+   expected: 2 curves, labeled '1' (upper) and '2' (lower)
+   model:    There are 2 curves in the plot, labeled "1" and "2".
+
+ Q: What is the y value of the upper curve at x = 2?
+   expected: ~1.55
+   model:    The y value of the upper curve (1) at x = 2 is approximately 1.5.
+
+ Q: What value does the upper curve approach at the right end of the plot?
+   expected: ~0.6
+   model:    The upper curve (labeled 1) approaches a value of approximately 0.6 at the right end of the plot.
+
+===== gqa_bars.png =====
+[+] Success: detected 'discrete' plot with 3 data points.
+[digitization] 2.7s, type=discrete, error=None
+   point ['Mean', 55.56, 0.0]
+   point ['First', 55.46, 0.0]
+   point ['Random', 55.23, 0.0]
+
+ Q: List every bar label in this chart together with its numerical value.
+   expected: Mean ~55.55, First ~55.45, Random ~55.23
+   model:    - Mean: 55.6
+- First: 55.5
+- Random: 55.25
+
+ Q: What is the range of the numerical axis?
+   expected: ~54.3 to ~55.7 (ticks 54.4 ... 55.6)
+   model:    The range of the numerical axis is 54.4 to 55.6.
+
+===== net_proton.png =====
+[+] Success: detected 'continuous' plot with 4 distinct curve(s).
+[digitization] 12.5s, type=continuous, error=None
+   curve 'UrQMD 0%-5%': 13 pts, x [7.0, 200.0], y [0.32, 0.95]
+   curve 'HRG GCE': 13 pts, x [7.0, 200.0], y [0.18, 0.98]
+   curve 'HRG CE': 13 pts, x [7.0, 200.0], y [0.18, 0.98]
+   curve 'HRG EV (r=0.5fm)': 13 pts, x [7.0, 200.0], y [0.18, 0.98]
+
+ Q: How many panels does this figure have, and what is the y-axis label of the left panel?
+   expected: 2 panels; 'Net-proton High Moments'
+   model:    The figure has 2 panels, and the y-axis label of the left panel is "Net-proton High Moments".
+
+ Q: Is the x axis linear or logarithmic? What is its label?
+   expected: logarithmic; 'Collision Energy sqrt(s_NN) (GeV)'
+   model:    The x-axis is logarithmic. Its label is "Collision Energy $\sqrt{s_{NN}}$ (GeV)".
+
+ Q: In the left panel, what is the y value of the red circle at the highest collision energy (200 GeV)?
+   expected: ~0.12
+   model:    The y value of the red circle at 200 GeV in the left panel is approximately 0.1.
+
+ Q: List the legend entries of the left panel.
+   expected: UrQMD 0%-5%, HRG GCE, HRG CE, HRG EV (r=0.5fm)
+   model:    The legend entries of the left panel are:
+* UrQMD 0%-5%
+* HRG GCE
+* HRG CE
+* HRG EV (r=0.5fm)
+
+[+] Full report (incl. raw outputs) saved to logs/probe_gemma4-31b_61811113.json

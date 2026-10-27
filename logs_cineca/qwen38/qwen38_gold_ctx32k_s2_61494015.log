@@ -1,0 +1,5 @@
+[juliapkg] Waiting for lock on /leonardo_work/IscrC_MultLLM/venv_vllm/julia_env/lock.pid to be freed. This normally means that another process is resolving. If you know that no other process is resolving, delete this file to proceed.
+[~] EXPORT_SKIP_REJECTED=1: 3 paper(s) already rejected, not retried.
+[+] 10 paper(s) found, 10 already in 'qwen38_gold_ctx32k_s2.jsonl', 0 pending.
+
+[+] Done. 0 training example(s) appended to 'qwen38_gold_ctx32k_s2.jsonl'.

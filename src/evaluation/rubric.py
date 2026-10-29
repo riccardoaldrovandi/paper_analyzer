@@ -30,6 +30,7 @@ import json
 import unicodedata
 
 from src.evaluation.metrics import EXPECTED_KEYS, PAPER_FIELDS, _as_text
+from src.prompt_v2 import EXPECTED_KEYS_V2
 
 FACT_TYPES = ("name", "number", "text")
 DEFAULT_TOLERANCE = 0.01
@@ -38,7 +39,12 @@ _NUMBER_RE = re.compile(r"(?<![\w.])-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|(?<![\w.])-?\
 
 
 def _key(source_file: str) -> str:
-    return os.path.basename(source_file or "")
+    """The paper's name: the PDF and the LaTeX source (<name>_source.tar.gz) of a paper share one rubric."""
+    name = os.path.basename(source_file or "")
+    for ext in ("_source.tar.gz", ".tar.gz", ".pdf"):
+        if name.endswith(ext):
+            return name[:-len(ext)]
+    return name
 
 
 def _validate(rubric: dict, line_no: int) -> None:
@@ -60,7 +66,7 @@ def _validate(rubric: dict, line_no: int) -> None:
             raise ValueError(f"{where}, fact {fid}: weight must be a positive number")
         fields = fact.get("field")
         fields = [fields] if isinstance(fields, str) else (fields or [])
-        unknown = [f for f in fields if f not in EXPECTED_KEYS]
+        unknown = [f for f in fields if f not in EXPECTED_KEYS and f not in EXPECTED_KEYS_V2]
         if unknown:
             raise ValueError(f"{where}, fact {fid}: unknown field(s) {unknown}")
         if fact["type"] == "name" and not (isinstance(fact.get("aliases"), list) and fact["aliases"]):
@@ -146,15 +152,16 @@ def fact_found(fact: dict, text: str) -> bool:
     return all(any(_normalize(k).lower() in text_lower for k in group) for group in _keyword_groups(fact))
 
 
-def _search_text(parsed: dict, fact: dict) -> str:
+def _search_text(parsed: dict, fact: dict, paper_fields: list = PAPER_FIELDS) -> str:
     fields = fact.get("field")
-    fields = [fields] if isinstance(fields, str) else (fields or PAPER_FIELDS)
+    fields = [fields] if isinstance(fields, str) else (fields or paper_fields)
     return "\n".join(_as_text(parsed.get(k)) for k in fields)
 
 
 # ----------------------------------------------------------------- scoring --
 
-def score_rubric(parsed: dict, rubric: dict) -> dict:
+def score_rubric(parsed: dict, rubric: dict, paper_fields: list = PAPER_FIELDS) -> dict:
+    """paper_fields: the answer fields searched by default (v1 or v2 schema, see metrics.fields_for)."""
     found, missing, unscored = [], [], []
     total_w = found_w = 0.0
     by_type = {}
@@ -163,7 +170,7 @@ def score_rubric(parsed: dict, rubric: dict) -> dict:
             unscored.append(fact["id"])
             continue
         w = fact.get("weight", 1)
-        hit = fact_found(fact, _search_text(parsed, fact))
+        hit = fact_found(fact, _search_text(parsed, fact, paper_fields))
         total_w += w
         found_w += w * hit
         (found if hit else missing).append(fact["id"])

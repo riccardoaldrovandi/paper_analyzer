@@ -11,13 +11,19 @@ no GPU or API call is needed):
 - Level 2 (grounding score, 0-1): are the numbers, references and datasets it
   cites actually in the paper, and did it keep the PySR formulas out of the
   paper's own fields? Catches hallucinations a valid-looking JSON can hide.
+
+Both prompt versions are supported: each record is scored against the schema
+it was generated with (v1: SYSTEM_PROMPT_V1, v2: src/prompt_v2.py), read from
+the record itself, so runs of the two versions can be evaluated together.
 """
 import re
 import json
 import zlib
 from difflib import SequenceMatcher
 
-from src.config import ADVANCED_HEADER as ADVANCED_MARKER, SYSTEM_PROMPT
+from src.config import ADVANCED_HEADER as ADVANCED_MARKER, SYSTEM_PROMPT_V1
+from src.prompt_v2 import (EXPECTED_KEYS_V2, FIELDS_V2, FIELDS_V21, PAPER_FIELDS_V2, SYSTEM_PROMPT_V2,
+                           SYSTEM_PROMPT_V21, V2_VERSIONS, finding_text, record_version)
 from src.evaluation import formulas as formula_eq
 
 STRING_FIELDS = ["problem_addressed", "methodology", "experiments", "results", "limitations", "future_work"]
@@ -29,6 +35,11 @@ EXPECTED_KEYS = STRING_FIELDS + LIST_FIELDS + FLEXIBLE_FIELDS
 
 # Fields that describe the paper itself: everything except the PySR field.
 PAPER_FIELDS = [k for k in EXPECTED_KEYS if k != "visual_analysis_findings"]
+
+
+def fields_for(version: str) -> tuple:
+    """(expected keys, paper fields) of a prompt version."""
+    return (EXPECTED_KEYS_V2, PAPER_FIELDS_V2) if version in V2_VERSIONS else (EXPECTED_KEYS, PAPER_FIELDS)
 
 EMPTY_VALUES = {"", "not specified", "n/a", "none", "not specified."}
 # Placeholder answers meaning "nothing here". With guided JSON a list field
@@ -68,32 +79,42 @@ MAX_EMPTY_FIELD_RATIO = 0.5
 ECHO_SIMILARITY = 0.85
 
 
-def _schema_examples() -> list:
-    """The example texts of SYSTEM_PROMPT's JSON schema, normalized."""
-    start = SYSTEM_PROMPT.find("{", SYSTEM_PROMPT.find("JSON Schema"))
-    end = SYSTEM_PROMPT.find("\n}", start) + 2
-    examples = []
-    for value in json.loads(SYSTEM_PROMPT[start:end]).values():
-        examples.extend(value if isinstance(value, list) else [value])
-    return [" ".join(e.lower().split()) for e in examples]
+def _leaves(value) -> list:
+    """Every string (or scalar) inside a value, however deeply nested (v2 has objects and lists of objects)."""
+    if isinstance(value, dict):
+        return [leaf for v in value.values() for leaf in _leaves(v)]
+    if isinstance(value, list):
+        return [leaf for v in value for leaf in _leaves(v)]
+    return [] if value is None else [value]
 
 
-SCHEMA_EXAMPLES = _schema_examples()
+def _schema_examples(prompt: str) -> list:
+    """The example texts of a prompt's JSON schema, normalized."""
+    start = prompt.find("{", prompt.find("JSON Schema"))
+    end = prompt.find("\n}", start) + 2
+    return [" ".join(str(e).lower().split()) for e in _leaves(json.loads(prompt[start:end]))]
 
 
-def schema_echo(parsed: dict) -> tuple[list, list]:
+SCHEMA_EXAMPLES = _schema_examples(SYSTEM_PROMPT_V1)
+SCHEMA_EXAMPLES_V2 = _schema_examples(SYSTEM_PROMPT_V2)
+SCHEMA_EXAMPLES_V21 = _schema_examples(SYSTEM_PROMPT_V21)
+
+
+def schema_echo(parsed: dict, version: str = "v1") -> tuple[list, list]:
     """Fields with an item copied from the schema examples, and fields with a filler item (no letter or digit)."""
     echoed, filler = set(), set()
-    for k in EXPECTED_KEYS:
-        value = parsed.get(k)
-        items = value if isinstance(value, list) else [] if value is None else [value]
-        for item in items:
+    examples = {"v2": SCHEMA_EXAMPLES_V2, "v2.1": SCHEMA_EXAMPLES_V21}.get(version, SCHEMA_EXAMPLES)
+    # v2's PySR field is rebuilt by main.build_visual_findings with the exact
+    # note its example asks for, which is close enough to that example to read as an echo.
+    keys = [k for k in EXPECTED_KEYS_V2 if k != "visual_analysis_findings"] if version in V2_VERSIONS else EXPECTED_KEYS
+    for k in keys:
+        for item in _leaves(parsed.get(k)):
             text = " ".join(str(item).lower().split())
             if not text:
                 continue
             if not re.search(r"[a-z0-9]", text):
                 filler.add(k)
-            elif any(SequenceMatcher(None, text, ex).ratio() >= ECHO_SIMILARITY for ex in SCHEMA_EXAMPLES):
+            elif any(SequenceMatcher(None, text, ex).ratio() >= ECHO_SIMILARITY for ex in examples):
                 echoed.add(k)
     return sorted(echoed), sorted(filler)
 
@@ -108,7 +129,10 @@ def split_source(user_content: str) -> tuple[str, str]:
 
 def _as_text(value) -> str:
     if isinstance(value, list):
-        return "\n".join(str(v) for v in value)
+        return "\n".join(_as_text(v) for v in value)
+    if isinstance(value, dict):
+        # v2 objects: only the values, the key names are not part of the answer.
+        return "\n".join(_as_text(v) for v in value.values())
     return "" if value is None else str(value)
 
 
@@ -120,6 +144,8 @@ def is_empty_value(value) -> bool:
 def _is_empty(value) -> bool:
     if isinstance(value, list):
         return all(_is_empty(v) for v in value)
+    if isinstance(value, dict):
+        return all(_is_empty(v) for v in value.values())
     text = _as_text(value).strip().lower()
     return text in EMPTY_VALUES or _is_placeholder(text)
 
@@ -143,7 +169,37 @@ def compression_ratio(text: str) -> float:
     return len(zlib.compress(raw)) / len(raw)
 
 
-def level1(raw_answer: str) -> dict:
+def _check_v2(value, spec, path: str, result: dict) -> None:
+    """Type and key checks of one v2 field against its FIELDS_V2 spec, recursively."""
+    if spec == "string":
+        if isinstance(value, str):
+            return
+        if isinstance(value, list) and all(isinstance(v, str) for v in value):
+            result["list_for_string"].append(path)
+        else:
+            result["type_errors"].append(path)
+    elif spec == "list":
+        if not isinstance(value, list) or not all(isinstance(v, str) for v in value):
+            result["type_errors"].append(path)
+    elif isinstance(spec, list):
+        if not isinstance(value, list):
+            result["type_errors"].append(path)
+            return
+        for item in value:
+            _check_v2(item, spec[0], f"{path}[]", result)
+    else:
+        if not isinstance(value, dict):
+            result["type_errors"].append(path)
+            return
+        for sub, sub_spec in spec.items():
+            if sub not in value:
+                result["missing_keys"].append(f"{path}.{sub}")
+            else:
+                _check_v2(value[sub], sub_spec, f"{path}.{sub}", result)
+        result["extra_keys"].extend(f"{path}.{k}" for k in value if k not in spec)
+
+
+def level1(raw_answer: str, version: str = "v1") -> dict:
     result = {"json_ok": False, "missing_keys": [], "extra_keys": [], "type_errors": [], "list_for_string": [],
               "schema_echo": [], "filler_fields": [],
               "empty_field_ratio": None, "repeated_ngram_ratio": None, "compression_ratio": None,
@@ -157,10 +213,18 @@ def level1(raw_answer: str) -> dict:
         result["reasons"].append("JSON is not an object")
         return result
     result["json_ok"] = True
+    expected_keys, paper_fields = fields_for(version)
 
-    result["missing_keys"] = [k for k in EXPECTED_KEYS if k not in parsed]
-    result["extra_keys"] = [k for k in parsed if k not in EXPECTED_KEYS]
-    for k in STRING_FIELDS:
+    result["missing_keys"] = [k for k in expected_keys if k not in parsed]
+    result["extra_keys"] = [k for k in parsed if k not in expected_keys]
+    if version in V2_VERSIONS:
+        for k, spec in (FIELDS_V21 if version == "v2.1" else FIELDS_V2).items():
+            if k in parsed:
+                _check_v2(parsed[k], spec, k, result)
+        # One problem per field path, not one per list item.
+        for key in ("missing_keys", "extra_keys", "type_errors", "list_for_string"):
+            result[key] = list(dict.fromkeys(result[key]))
+    for k in STRING_FIELDS if version == "v1" else []:
         if k not in parsed or isinstance(parsed[k], str):
             continue
         # Several free models answer with a list of strings where the schema
@@ -169,25 +233,25 @@ def level1(raw_answer: str) -> dict:
             result["list_for_string"].append(k)
         else:
             result["type_errors"].append(k)
-    for k in LIST_FIELDS:
+    for k in LIST_FIELDS if version == "v1" else []:
         if k in parsed and not isinstance(parsed[k], list):
             result["type_errors"].append(k)
-    for k in FLEXIBLE_FIELDS:
+    for k in FLEXIBLE_FIELDS if version == "v1" else []:
         if k in parsed and not isinstance(parsed[k], (str, list)):
             result["type_errors"].append(k)
 
     # visual_analysis_findings is legitimately empty for papers without plots.
-    present = [k for k in PAPER_FIELDS if k in parsed]
+    present = [k for k in paper_fields if k in parsed]
     empty = [k for k in present if _is_empty(parsed[k])]
     result["empty_field_ratio"] = round(len(empty) / len(present), 3) if present else 1.0
 
     # visual_analysis_findings is excluded: its entries share the same framing
     # sentence by design, which would read as repetition.
-    all_text = "\n".join(_as_text(parsed.get(k)) for k in PAPER_FIELDS)
+    all_text = "\n".join(_as_text(parsed.get(k)) for k in paper_fields)
     result["repeated_ngram_ratio"] = round(repeated_ngram_ratio(all_text), 3)
     result["compression_ratio"] = round(compression_ratio(all_text), 3)
 
-    result["schema_echo"], result["filler_fields"] = schema_echo(parsed)
+    result["schema_echo"], result["filler_fields"] = schema_echo(parsed, version)
 
     if result["missing_keys"]:
         result["reasons"].append(f"missing keys: {result['missing_keys']}")
@@ -224,19 +288,36 @@ def _numbers(text: str) -> set:
     return out
 
 
-def number_grounding(parsed: dict, paper_text: str) -> dict:
+# Values read off a plot are not in the paper's text by construction: the v2.1
+# figures[].curves slots and any clause marked "approx., read from the figure"
+# (the marking every prompt asks for). They are left out of the number check
+# and checked against the figures by gold/figure_checks.jsonl instead.
+_READ_FROM_FIGURE_RE = re.compile(r"(?:[^.;()]|\.(?=\d))*\(\s*approx[^)]*\)", re.IGNORECASE)
+
+
+def _without_figure_readings(value) -> str:
+    if isinstance(value, list):
+        value = [{k: v for k, v in item.items() if k != "curves"} if isinstance(item, dict) else item for item in value]
+    return _READ_FROM_FIGURE_RE.sub(" ", _as_text(value))
+
+
+def number_grounding(parsed: dict, paper_text: str, paper_fields: list = PAPER_FIELDS) -> dict:
     """
     Every number the answer states about the paper should appear in the paper.
     Single digits are skipped: they show up everywhere (section numbers, list
     items), so they'd count as "grounded" without proving anything.
     """
+    latex = _is_latex(paper_text)
     cited = set()
-    for k in PAPER_FIELDS:
-        cited |= _numbers(_as_text(parsed.get(k)))
+    for k in paper_fields:
+        text = _without_figure_readings(parsed.get(k))
+        cited |= _numbers(_drop_latex_structural_refs(text, paper_text) if latex else text)
     cited = {n for n in cited if len(n.replace(".", "")) > 1}
     if not cited:
         return {"score": None, "ungrounded": []}
-    available = _numbers(paper_text)
+    # In LaTeX a number is often glued to a macro or a citation key
+    # ("\sim0.14", "\citep{Smerald2014}"): split them so it can be found.
+    available = _numbers(re.sub(r"(?<=[A-Za-z])(?=\d)", " ", paper_text) if latex else paper_text)
     ungrounded = sorted(n for n in cited if n not in available)
     return {"score": round(1 - len(ungrounded) / len(cited), 3), "ungrounded": ungrounded}
 
@@ -260,17 +341,76 @@ def _ref_found(kind: str, num: int, paper_lower: str) -> bool:
     return any(re.search(rf"{re.escape(n)}\s*{v}\b", paper_lower) for n in names for v in variants)
 
 
-def reference_grounding(parsed: dict, paper_text: str) -> dict:
+# A LaTeX source never prints "Figure 3": it has \\begin{figure} environments
+# referenced by \\ref{label}. There a cited number counts as grounded if the
+# source has at least that many environments of the kind (numbering follows
+# their order), so PDF and LaTeX inputs are scored on equal terms.
+_LATEX_ENVS = {
+    "fig": r"\\begin\{figure\*?\}",
+    "tab": r"\\begin\{table\*?\}",
+    "alg": r"\\begin\{algorithm\*?\}",
+    "eq": r"\\begin\{(?:equation|align|eqnarray|multline|gather)\}|\\\[",
+}
+
+
+def _is_latex(paper_text: str) -> bool:
+    return "--- SOURCE FILE:" in paper_text or "\\begin{document}" in paper_text
+
+
+def _latex_ref_found(kind: str, num: int, paper_text: str) -> bool:
+    key = next((k for k in _LATEX_ENVS if kind.lower().startswith(k)), "alg")
+    return len(re.findall(_LATEX_ENVS[key], paper_text)) >= num
+
+
+# Section / equation / figure / table / reference numbers ("Sec. 3.2", "Eq. (11)")
+# are printed by the PDF but only generated when LaTeX compiles: in a source
+# they are \section and \label/\ref. In a LaTeX input a structural reference is
+# dropped from the number check when the source has enough objects of its kind;
+# one pointing past them stays and is checked like any other number.
+_STRUCT_REF_RE = re.compile(
+    r"(?<!\w)(sections?|secs?\.|§|appendix|app\.|eqs?\.|equations?|figs?\.|figures?|tables?|tabs?\.|refs?\.|references?)"
+    r"\s*\(?(\d+)(?:\.(\d+))?\)?((?:\s*(?:-|–|,|and|to)\s*\(?\d+(?:\.\d+)?\)?)*)", re.IGNORECASE)
+_LATEX_SECTION_RE = re.compile(r"\\section\*?\{")
+_LATEX_SUBSECTION_RE = re.compile(r"\\subsection\*?\{")
+_LATEX_BIB_RE = re.compile(r"\\bibitem\b")
+
+
+def _latex_structure_count(kind: str, paper_text: str) -> int:
+    kind = kind.lower()
+    if kind.startswith(("sec", "§", "app")):
+        return len(_LATEX_SECTION_RE.findall(paper_text))
+    if kind.startswith("ref"):
+        # Without a compiled .bbl the bibliography size is unknown: trust the citation.
+        return len(_LATEX_BIB_RE.findall(paper_text)) or 10**6
+    key = next((k for k in _LATEX_ENVS if kind.startswith(k)), None)
+    return len(re.findall(_LATEX_ENVS[key], paper_text)) if key else 0
+
+
+def _drop_latex_structural_refs(text: str, paper_text: str) -> str:
+    """text without the structural references a LaTeX source can back (see above)."""
+    def keep_or_drop(m):
+        kind, first, sub, rest = m.groups()
+        available = _latex_structure_count(kind, paper_text)
+        nums = [int(first)] + [int(float(n)) for n in re.findall(r"\d+(?:\.\d+)?", rest)]
+        if sub and kind.lower().startswith(("sec", "§", "app")) and int(sub) > max(len(_LATEX_SUBSECTION_RE.findall(paper_text)), 1):
+            return m.group(0)
+        return " " if all(n <= available for n in nums) else m.group(0)
+    return _STRUCT_REF_RE.sub(keep_or_drop, text)
+
+
+def reference_grounding(parsed: dict, paper_text: str, paper_fields: list = PAPER_FIELDS) -> dict:
     """Tables / figures / algorithms / equations the answer cites must exist in the paper."""
     paper_lower = paper_text.lower()
+    latex = _is_latex(paper_text)
     refs = set()
-    for k in PAPER_FIELDS:
+    for k in paper_fields:
         for kind, first, rest in _REF_RE.findall(_as_text(parsed.get(k))):
             for num in [first] + re.findall(r"\d+", rest):
                 refs.add((kind.lower().rstrip("s."), int(num)))
     if not refs:
         return {"score": None, "ungrounded": []}
-    ungrounded = sorted(f"{kind} {num}" for kind, num in refs if not _ref_found(kind, num, paper_lower))
+    ungrounded = sorted(f"{kind} {num}" for kind, num in refs
+                        if not (_ref_found(kind, num, paper_lower) or latex and _latex_ref_found(kind, num, paper_text)))
     return {"score": round(1 - len(ungrounded) / len(refs), 3), "ungrounded": ungrounded}
 
 
@@ -280,6 +420,8 @@ def dataset_grounding(parsed: dict, paper_text: str) -> dict:
     the full name, an acronym in parentheses, or most of its significant words.
     """
     items = parsed.get("datasets_used")
+    if items is None and isinstance(parsed.get("data_and_setup"), dict):
+        items = parsed["data_and_setup"].get("datasets")  # v2
     if not isinstance(items, list):
         return {"score": None, "ungrounded": []}
     items = [str(i) for i in items if not _is_empty(i)]
@@ -319,7 +461,7 @@ def _fingerprints(equation: str) -> list:
     return out
 
 
-def visual_separation(parsed: dict, advanced_text: str) -> dict:
+def visual_separation(parsed: dict, advanced_text: str, paper_fields: list = PAPER_FIELDS) -> dict:
     """
     The SYSTEM_PROMPT rule, checked mechanically: PySR formulas belong only in
     visual_analysis_findings (coverage), framed as AI approximations (framing),
@@ -327,7 +469,9 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
     """
     findings = parsed.get("visual_analysis_findings")
     findings = findings if isinstance(findings, list) else []
-    findings = [str(f) for f in findings if not _is_empty(f)]
+    # v2 findings are objects: checked as the equivalent v1 sentence.
+    # The empty check is on that text, so v1 records score exactly as before.
+    findings = [t for t in (finding_text(f) for f in findings) if not _is_empty(t)]
 
     if not advanced_text:
         # No plot analysis was given: any finding is invented.
@@ -337,7 +481,7 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
 
     formulas = _CURVE_RE.findall(advanced_text)
     low_conf = len(re.findall(r"low confidence|not cross-validated", advanced_text))
-    paper_fields_text = "\n".join(_as_text(parsed.get(k)) for k in PAPER_FIELDS)
+    paper_fields_text = "\n".join(_as_text(parsed.get(k)) for k in paper_fields)
     findings_text = "\n".join(findings)
 
     covered, by_equivalence, leaked = 0, 0, []
@@ -375,7 +519,7 @@ def visual_separation(parsed: dict, advanced_text: str) -> dict:
             "leaked": leaked, "unframed": unframed, "low_confidence_formulas": low_conf, "note": ""}
 
 
-def level2(raw_answer: str, user_content: str) -> dict:
+def level2(raw_answer: str, user_content: str, version: str = "v1") -> dict:
     try:
         parsed = json.loads(raw_answer)
     except (json.JSONDecodeError, TypeError):
@@ -384,11 +528,12 @@ def level2(raw_answer: str, user_content: str) -> dict:
         return {"score": None}
 
     paper_text, advanced_text = split_source(user_content)
+    paper_fields = fields_for(version)[1]
     parts = {
-        "numbers": number_grounding(parsed, paper_text),
-        "references": reference_grounding(parsed, paper_text),
+        "numbers": number_grounding(parsed, paper_text, paper_fields),
+        "references": reference_grounding(parsed, paper_text, paper_fields),
         "datasets": dataset_grounding(parsed, paper_text),
-        "visual": visual_separation(parsed, advanced_text),
+        "visual": visual_separation(parsed, advanced_text, paper_fields),
     }
     # Components with nothing to check (score None) don't count either way.
     scores = [p["score"] for p in parts.values() if p["score"] is not None]
@@ -400,13 +545,14 @@ def level2(raw_answer: str, user_content: str) -> dict:
     return parts
 
 
-def normalize_answer(raw_answer: str) -> str:
+def normalize_answer(raw_answer: str, version: str = "v1") -> str:
     """
     Rewrites an answer so every STRING_FIELDS value is a single string (a list
     of strings gets joined), giving the student one consistent schema to learn.
     """
     parsed = json.loads(raw_answer)
-    for k in STRING_FIELDS:
+    string_fields = [k for k, spec in FIELDS_V2.items() if spec == "string"] if version in V2_VERSIONS else STRING_FIELDS
+    for k in string_fields:
         if isinstance(parsed.get(k), list):
             parsed[k] = " ".join(str(v).strip() for v in parsed[k])
     return json.dumps(parsed, ensure_ascii=False, indent=2)
@@ -432,7 +578,7 @@ def _with_llm_findings(raw_answer: str, llm_findings) -> str:
 _FIGURE_RE = re.compile(r"^\[Figure: .+?\] \(", re.MULTILINE)
 
 
-def coverage(parsed: dict, user_content: str, visual: dict) -> dict:
+def coverage(parsed: dict, user_content: str, visual: dict, paper_fields: list = PAPER_FIELDS) -> dict:
     """
     How much of what the model was given it actually reports. Level 2 measures
     precision only: a terse answer that cites little scores high (Llama +
@@ -443,7 +589,7 @@ def coverage(parsed: dict, user_content: str, visual: dict) -> dict:
         "figures_with_data": len(_FIGURE_RE.findall(advanced_text)),
         "formulas_available": visual.get("formulas", 0),
         "formulas_reported": visual.get("covered", 0),
-        "empty_fields": [k for k in PAPER_FIELDS if k in parsed and _is_empty(parsed[k])],
+        "empty_fields": [k for k in paper_fields if k in parsed and _is_empty(parsed[k])],
     }
 
 
@@ -452,18 +598,22 @@ def evaluate_record(record: dict, rubric: dict = None) -> dict:
     user_content = next((m["content"] for m in messages if m.get("role") == "user"), "")
     raw_answer = next((m["content"] for m in messages if m.get("role") == "assistant"), "")
     l2_answer = raw_answer
-    if record.get("llm_visual_analysis_findings") is not None:
+    version = record_version(record)
+    # v2.1 asks the model to leave the PySR field empty (the code fills it), so
+    # there is no "teacher's own version" to score: the code-built one is kept.
+    if record.get("llm_visual_analysis_findings") is not None and version != "v2.1":
         l2_answer = _with_llm_findings(raw_answer, record["llm_visual_analysis_findings"])
-    l2 = level2(l2_answer, user_content)
+    l2 = level2(l2_answer, user_content, version)
     try:
         parsed = json.loads(l2_answer)
     except (json.JSONDecodeError, TypeError):
         parsed = None
-    cov = coverage(parsed, user_content, l2.get("visual", {})) if isinstance(parsed, dict) else None
+    cov = coverage(parsed, user_content, l2.get("visual", {}), fields_for(version)[1]) if isinstance(parsed, dict) else None
     result = {
         "source_file": record.get("source_file"),
         "provider": record.get("provider"),
-        "level1": level1(raw_answer),
+        "prompt_version": version,
+        "level1": level1(raw_answer, version),
         "level2": l2,
         "coverage": cov,
     }
@@ -471,5 +621,5 @@ def evaluate_record(record: dict, rubric: dict = None) -> dict:
         # Imported here: rubric.py builds on this module's helpers.
         from src.evaluation.rubric import score_rubric
         # An unparsable answer contains none of the facts.
-        result["rubric"] = score_rubric(parsed if isinstance(parsed, dict) else {}, rubric)
+        result["rubric"] = score_rubric(parsed if isinstance(parsed, dict) else {}, rubric, fields_for(version)[1])
     return result

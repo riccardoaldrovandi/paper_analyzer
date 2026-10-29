@@ -27,6 +27,7 @@ import random
 
 from src.evaluation.judges import split_sentences
 from src.evaluation.metrics import _as_text, _is_empty, _numbers
+from src.prompt_v2 import CLAIM_PATHS_V2
 
 # Fields that state something about the paper. Not included: datasets_used
 # (names, checked by dataset_grounding), relevant_elements (references, checked
@@ -40,11 +41,27 @@ MIN_CLAIM_CHARS = 25
 STATUSES = ("VERIFIED", "DOUBTFUL", "NUMBER_MISMATCH", "UNSUPPORTED")
 
 
+def _claim_sources(parsed: dict) -> list:
+    """(field name, list of values) per claim field; v2 answers (they have "summary") use CLAIM_PATHS_V2."""
+    if "summary" not in parsed:
+        return [(f, parsed.get(f)) for f in CLAIM_FIELDS]
+    out = []
+    for field, sub in CLAIM_PATHS_V2:
+        value = parsed.get(field)
+        if sub is None:
+            out.append((field, value))
+        elif isinstance(value, dict):
+            out.append((f"{field}.{sub}", value.get(sub)))
+        elif isinstance(value, list):
+            # A list of objects (key_results, tables, figures): that subfield of each.
+            out.append((f"{field}.{sub}", [v.get(sub) for v in value if isinstance(v, dict)]))
+    return out
+
+
 def extract_claims(parsed: dict) -> list:
     """[{"field", "claim"}]: one claim per sentence of a text field, one per list item (split into sentences)."""
     out = []
-    for field in CLAIM_FIELDS:
-        value = parsed.get(field)
+    for field, value in _claim_sources(parsed):
         items = value if isinstance(value, list) else [value]
         for item in items:
             if item is None or _is_empty(item):

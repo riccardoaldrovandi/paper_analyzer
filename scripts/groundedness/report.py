@@ -174,10 +174,12 @@ def main() -> int:
         print(f"  {prov:<38} " + "  ".join(f"{s}={sum(c['status'] == s for c in cs)}" for s in STATUSES) + f"  (n={len(cs)})")
 
     print("\nVERIFIED share by field (all claims):")
-    print(f"  {'provider':<38} " + " ".join(f"{f[:12]:>13}" for f in CLAIM_FIELDS))
+    # v1 fields first, then any v2 field (e.g. "key_results.statement") the claims use.
+    fields = list(CLAIM_FIELDS) + sorted({c["field"] for c in claims} - set(CLAIM_FIELDS))
+    print(f"  {'provider':<38} " + " ".join(f"{f[:12]:>13}" for f in fields))
     for prov in providers:
         cells = []
-        for f in CLAIM_FIELDS:
+        for f in fields:
             cs = [c for c in claims if c["provider"] == prov and c["field"] == f]
             cells.append(f"{sum(c['status'] == 'VERIFIED' for c in cs) / len(cs):>13.2f}" if cs else f"{'-':>13}")
         print(f"  {prov:<38} " + " ".join(cells))

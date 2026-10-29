@@ -20,8 +20,9 @@ os.makedirs(LATEX_DIR, exist_ok=True)
 # with the figure analysis; shared by main.py, the local client and the metrics.
 ADVANCED_HEADER = "--- ADVANCED PLOT ANALYSIS ---"
 
-# Common System Prompt for LLM Paper Analysis
-SYSTEM_PROMPT = """
+# Common System Prompt for LLM Paper Analysis (v1: the one every run up to
+# 2026-10-27 used; v2, structured, is in src/prompt_v2.py)
+SYSTEM_PROMPT_V1 = """
 You are an expert AI research assistant. Your task is to analyze the provided text extracted from a scientific paper (which may be raw PDF text or LaTeX source code) and extract specific structured information.
 
 You MUST return the output strictly as a valid JSON object with the following keys, and nothing else. All values must be strings or arrays of strings in English.
@@ -44,3 +45,14 @@ JSON Schema:
 
 If any information is completely missing from the text, use "Not specified" or an empty list []. The output must be strictly valid JSON: no comments, no "..." placeholders, no trailing text. Do not include markdown code block syntax (like ```json) in your response if possible, just return the raw JSON object string.
 """
+
+# Which prompt (and guided-decoding schema) the pipeline uses: v1 by default,
+# so earlier runs stay reproducible and the web app is unchanged; PROMPT_VERSION=v2
+# for the new model tests. `evaluate` reads the version from each record, so
+# v1 and v2 runs can be scored together.
+from src.prompt_v2 import SYSTEM_PROMPT_V2, SYSTEM_PROMPT_V21  # noqa: E402
+
+PROMPT_VERSION = os.environ.get("PROMPT_VERSION", "v1").strip().lower()
+if PROMPT_VERSION not in ("v1", "v2", "v2.1"):
+    raise ValueError(f"PROMPT_VERSION must be 'v1', 'v2' or 'v2.1', not {PROMPT_VERSION!r}")
+SYSTEM_PROMPT = {"v1": SYSTEM_PROMPT_V1, "v2": SYSTEM_PROMPT_V2, "v2.1": SYSTEM_PROMPT_V21}[PROMPT_VERSION]

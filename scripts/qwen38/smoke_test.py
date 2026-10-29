@@ -17,6 +17,7 @@ import time
 import urllib.request
 
 MODEL = None  # set in main() from the server's /v1/models (the model's path)
+LAST_REPLY = {}  # the last raw reply, saved with a failed check to see what the model wrote
 # Model card's recommended sampling for non-thinking (instruct) mode.
 NO_THINK = {
     "temperature": 0.7, "top_p": 0.8, "top_k": 20, "presence_penalty": 1.5,
@@ -31,7 +32,10 @@ def chat(base_url: str, messages: list, max_tokens: int, **extra) -> tuple[dict,
                                  headers={"Content-Type": "application/json"})
     start = time.time()
     with urllib.request.urlopen(req, timeout=600) as resp:
-        return json.load(resp), time.time() - start
+        reply = json.load(resp)
+    LAST_REPLY.clear()
+    LAST_REPLY.update(reply)
+    return reply, time.time() - start
 
 
 def reasoning_of(msg: dict) -> str:
@@ -44,6 +48,14 @@ def parse_json(text: str) -> dict:
     if text.startswith("```"):
         text = text.strip("`").removeprefix("json")
     return json.loads(text)
+
+
+def check_plain_text(url):
+    """No JSON at all: tells a model that writes nonsense apart from one that only formats badly."""
+    r, dt = chat(url, [{"role": "user", "content": "What is the capital of France? Answer in one short sentence."}], 64, **NO_THINK)
+    content = r["choices"][0]["message"].get("content") or ""
+    assert "paris" in content.lower(), f"unexpected answer: {content!r}"
+    return r, dt, {"answer": content}
 
 
 def check_text_no_think(url):
@@ -114,7 +126,8 @@ def main():
     with urllib.request.urlopen(f"{url}/models", timeout=30) as resp:
         MODEL = json.load(resp)["data"][0]["id"]
 
-    checks = [("text_no_think", lambda: check_text_no_think(url)),
+    checks = [("plain_text", lambda: check_plain_text(url)),
+              ("text_no_think", lambda: check_text_no_think(url)),
               ("text_think", lambda: check_text_think(url)),
               ("image", lambda: check_image(url, args.figure)),
               ("guided_json", lambda: check_guided_json(url))]
@@ -127,8 +140,17 @@ def main():
                              "completion_tokens": out_tok, "tok_per_s": round(out_tok / dt, 1), "result": data}
             print(f"[+] {name}: OK in {dt:.1f}s, {out_tok} tokens ({out_tok / dt:.1f} tok/s) -> {json.dumps(data)[:200]}")
         except Exception as e:
-            results[name] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
+            msg = (LAST_REPLY.get("choices") or [{}])[0].get("message", {})
+            results[name] = {"ok": False, "error": f"{type(e).__name__}: {e}",
+                             "raw_content": (msg.get("content") or "")[:3000],
+                             "raw_reasoning": reasoning_of(msg)[:1000],
+                             "finish_reason": (LAST_REPLY.get("choices") or [{}])[0].get("finish_reason"),
+                             "usage": LAST_REPLY.get("usage")}
             print(f"[!] {name}: FAILED -- {type(e).__name__}: {e}")
+            print(f"    raw content: {results[name]['raw_content'][:600]!r}")
+            if results[name]["raw_reasoning"]:
+                print(f"    raw reasoning: {results[name]['raw_reasoning'][:300]!r}")
+        LAST_REPLY.clear()
 
     with open(args.out, "w") as f:
         json.dump(results, f, indent=2)

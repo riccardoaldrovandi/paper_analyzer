@@ -18,10 +18,17 @@ from src.llm.local_client import analyze_with_local, fit_to_context, GENERATION_
 from src.processing.image_extractor import extract_images_from_pdf, extract_images_from_latex
 from src.advanced.digitizer import digitize_plot, digitize_plot_local, looks_synthetic, discrete_points_degenerate, VISION_MODEL_NAME, VISION_GUIDED_JSON
 from src.advanced.pysr import discover_formula
-from src.config import SYSTEM_PROMPT, PDF_DIR, LATEX_DIR, ADVANCED_HEADER
+from src.config import SYSTEM_PROMPT, PROMPT_VERSION, PDF_DIR, LATEX_DIR, ADVANCED_HEADER
 from src.utils.retry import QuotaExceededError
 from src.evaluation.report import run_evaluation
-from src.evaluation.metrics import PAPER_FIELDS, is_empty_value
+from src.evaluation.metrics import fields_for, is_empty_value
+from src.prompt_v2 import (FINDING_NOTE, SINGLE_CALL_INSTRUCTIONS, SINGLE_CALL_INSTRUCTIONS_V21, V2_VERSIONS,
+                            VERIFY_FIGURES_PROMPT, VERIFY_FIGURES_SCHEMA)
+from src.processing import library_extract
+from src.processing.page_images import pdf_figure_pages, latex_figure_files
+
+# Fields describing the paper in the prompt this run sends (v1 or v2).
+PAPER_FIELDS = fields_for(PROMPT_VERSION)[1]
 
 # Directory holding per-paper resume state for `full-analyze`/`export-dataset`
 # (see build_enriched_paper_text / QuotaCheckpointSaved below). Overridable via
@@ -124,6 +131,10 @@ def build_visual_findings(text_content: str) -> list:
         curve = _FITTED_CURVE_RE.match(line)
         if curve:
             label, equation, quality = curve.groups()
+            if PROMPT_VERSION in V2_VERSIONS:
+                findings.append({"figure": figure, "curve": label, "formula": equation,
+                                 "fit_quality": quality or "Not specified", "note": FINDING_NOTE})
+                continue
             quality = f"{quality}; " if quality else ""
             findings.append(
                 f"AI curve-fit approximation of figure '{figure}', curve '{label}': y = {equation} "
@@ -141,11 +152,20 @@ def _drop_placeholders(parsed: dict) -> None:
     so a real name ("No Language Left Behind") is never touched.
     """
     for key in PAPER_FIELDS:
-        value = parsed.get(key)
-        if isinstance(value, list):
-            parsed[key] = [v for v in value if not is_empty_value(v)]
-        elif isinstance(value, str) and value.strip() and is_empty_value(value):
-            parsed[key] = "Not specified"
+        if key in parsed:
+            parsed[key] = _without_placeholders(parsed[key])
+
+
+def _without_placeholders(value):
+    """_drop_placeholders on one value; recurses into v2 objects, and drops list items left all empty."""
+    if isinstance(value, dict):
+        return {k: _without_placeholders(v) for k, v in value.items()}
+    if isinstance(value, list):
+        cleaned = [_without_placeholders(v) for v in value]
+        return [v for v in cleaned if not is_empty_value(v)]
+    if isinstance(value, str) and value.strip() and is_empty_value(value):
+        return "Not specified"
+    return value
 
 
 def finalize_answer(raw_res: str, text_content: str) -> tuple:
@@ -181,6 +201,9 @@ def finalize_answer(raw_res: str, text_content: str) -> tuple:
     _drop_placeholders(parsed)
 
     if ADVANCED_HEADER not in text_content:
+        if PROMPT_VERSION == "v2.1":
+            # The field belongs to the code in v2.1: with no curve fits it is empty.
+            parsed["visual_analysis_findings"] = []
         return json.dumps(parsed, ensure_ascii=False, indent=2), None
     parsed["visual_analysis_findings"] = build_visual_findings(text_content)
     return json.dumps(parsed, ensure_ascii=False, indent=2), llm_findings
@@ -266,9 +289,32 @@ def analyze_figure(image_path: str, iterations: int, use_local_vision: bool = Fa
     if plot_data is None:
         print(f"[!] Skipping {os.path.basename(image_path)}: could not extract data from this image.")
         return None
+    return figure_block(os.path.basename(image_path), plot_data, iterations)
 
+
+def _curve_readings(X, y) -> str:
+    """
+    The digitized points of one curve in a line (prompt v2.1): range, values at
+    both ends, extremes. A formula alone hides what a reader needs most (where a
+    curve starts, where it levels off), and PySR can miss a plateau entirely.
+    """
+    pts = sorted(zip((float(v) for v in X), (float(v) for v in y)))
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    i_max, i_min = ys.index(max(ys)), ys.index(min(ys))
+    return (f"read points (approx.): x from {xs[0]:.3g} to {xs[-1]:.3g}; y = {ys[0]:.3g} at the left end, "
+            f"{ys[-1]:.3g} at the right end; max {ys[i_max]:.3g} at x = {xs[i_max]:.3g}, min {ys[i_min]:.3g} at x = {xs[i_min]:.3g}")
+
+
+def figure_block(figure_name: str, plot_data: dict, iterations: int) -> str:
+    """
+    The ADVANCED PLOT ANALYSIS block of one figure from its digitized data
+    (digitize_plot() format): PySR on each continuous curve, the points of a
+    discrete plot. Shared by the vision pipeline (analyze_figure) and by the
+    library-only mode (build_library_enriched_text), so both produce the same
+    block for the same data. None if nothing usable is left.
+    """
     plot_type = plot_data.get("plot_type", "continuous")
-    lines = [f"[Figure: {os.path.basename(image_path)}] ({plot_type} plot)"]
+    lines = [f"[Figure: {figure_name}] ({plot_type} plot)"]
 
     if plot_type == "continuous":
         for series in plot_data.get("series", []):
@@ -304,6 +350,8 @@ def analyze_figure(image_path: str, iterations: int, use_local_vision: bool = Fa
             else:
                 confidence = ""
             lines.append(f"  - Curve '{label}': y = {result['equation']}{confidence}")
+            if PROMPT_VERSION == "v2.1":
+                lines.append(f"    {_curve_readings(series['X'], series['y'])}")
     else:
         summary = plot_data.get("summary", "")
         if summary:
@@ -311,7 +359,7 @@ def analyze_figure(image_path: str, iterations: int, use_local_vision: bool = Fa
         labels = plot_data.get("labels", [])
         X, y = plot_data.get("X"), plot_data.get("y")
         if X is not None and y is not None and discrete_points_degenerate(X, y):
-            print(f"[!] Discarding the data points of {os.path.basename(image_path)}: all {len(X)} points are identical (likely vision-model placeholders).")
+            print(f"[!] Discarding the data points of {figure_name}: all {len(X)} points are identical (likely vision-model placeholders).")
             lines.append(f"  - Data points discarded: all {len(X)} extracted points were identical ({X[0]:g}, {y[0]:g}), not read from the chart.")
         elif X is not None and y is not None:
             for i, (px, py) in enumerate(zip(X, y)):
@@ -455,6 +503,129 @@ def build_enriched_paper_text(pdf: str = None, latex: str = None, iterations: in
     return text_content
 
 
+# ------------------------------------------------- comparison modes B and C --
+# export-dataset --mode: "pipeline" (A, build_enriched_paper_text: vision model
+# digitizes each figure, then PySR), "single" (B: one multimodal call with the
+# figure pages/files attached, no figure analysis of ours) and "libs" (C:
+# figure data read by libraries only, then PySR, then a text-only call).
+
+LIBS_DISCLAIMER = (
+    "(The formulas below were derived by an independent curve-fitting/symbolic-regression tool applied to "
+    "data points read from the vector graphics of each figure (or from the plot data in the LaTeX source). "
+    "They are NOT part of the original paper and were NOT derived or stated by its authors -- report them "
+    "separately, never as the paper's own results.)"
+)
+# Single call: images per request, and the tokens kept free for each of them
+# when fitting the text (a 1540 px page is ~1.6k tokens for Qwen3.8, ~2.2k for
+# Pixtral/Mistral; Gemma 4 uses fewer).
+SINGLE_CALL_MAX_IMAGES = int(os.environ.get("SINGLE_CALL_MAX_IMAGES", "12"))
+SINGLE_CALL_IMAGE_TOKENS = int(os.environ.get("SINGLE_CALL_IMAGE_TOKENS", "2500"))
+
+
+def build_library_enriched_text(pdf: str = None, latex: str = None, iterations: int = 20, vector_dir: str = None) -> str:
+    """
+    Mode C: the paper text, the tables PyMuPDF finds in the PDF, and an
+    ADVANCED PLOT ANALYSIS block built from figure data read by
+    src/processing/library_extract.py (no model call). Same block format as
+    the pipeline, so the final call and the metrics are unchanged. Cached in
+    CHECKPOINT_DIR (<file>.libs.json): PySR is not deterministic, and every
+    seed of a comparison must see the same input.
+    """
+    source = pdf or latex
+    if not source or not os.path.exists(source):
+        print(f"[!] File not found: {source}")
+        return None
+    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+    cache = os.path.join(CHECKPOINT_DIR, os.path.basename(source) + ".libs.json")
+    if os.path.exists(cache):
+        with open(cache, encoding="utf-8") as f:
+            cached = json.load(f)
+        if cached.get("source") == source:
+            print(f"[~] Library-only analysis of '{os.path.basename(source)}' reused from {cache}.")
+            return cached["text"]
+
+    print(f"\n[1/3] Extracting text from {'PDF' if pdf else 'LaTeX tarball'}: {source}")
+    text = extract_text_from_pdf(pdf) if pdf else extract_text_from_latex_tarball(latex)
+    print("\n[2/3] Reading figure data and tables with libraries only (no model)...")
+    plots, tables, notes = library_extract.extract(pdf=pdf, latex=latex, vector_dir=vector_dir)
+    for note in notes:
+        print(f"[-] {note}")
+    print(f"[+] {len(plots)} plot panel(s) read from vector data, {len(tables)} table(s) found.")
+    if tables:
+        text += "\n\n--- TABLES (extracted from the PDF pages with PyMuPDF) ---\n\n" + "\n\n".join(tables)
+
+    print("\n[3/3] Symbolic regression on the curves read...")
+    blocks = []
+    for name, plot_data in plots:
+        print(f"\n--- {name} ---")
+        block = figure_block(name, plot_data, iterations)
+        if block:
+            blocks.append(block)
+    if blocks:
+        text += "\n\n" + ADVANCED_HEADER + "\n" + LIBS_DISCLAIMER + "\n\n" + "\n\n".join(blocks)
+    with open(cache, "w", encoding="utf-8") as f:
+        json.dump({"source": source, "text": text, "panels": len(plots), "tables": len(tables), "notes": notes}, f, ensure_ascii=False)
+    return text
+
+
+def single_call_inputs(pdf: str = None, latex: str = None, figures_dir: str = None) -> tuple:
+    """Mode B: (paper text, image paths) for one multimodal call. PDF: figure crops in figures_dir/<paper>/ if any, then rendered figure pages; LaTeX: its figure files."""
+    source = pdf or latex
+    if not source or not os.path.exists(source):
+        print(f"[!] File not found: {source}")
+        return None, []
+    base = _paper_base_name(source)
+    if pdf:
+        text = extract_text_from_pdf(pdf)
+        images = pdf_figure_pages(pdf, os.path.join(CHECKPOINT_DIR, "pages", base), SINGLE_CALL_MAX_IMAGES)
+        crop_dir = os.path.join(figures_dir, base) if figures_dir else None
+        if crop_dir and os.path.isdir(crop_dir):
+            # Prompt v2.1: the cropped figures first (a plot is small on a whole
+            # page), then the pages for tables and context, within the same cap.
+            crops = sorted(p for p in glob.glob(os.path.join(crop_dir, "*")) if p.lower().endswith((".png", ".jpg", ".jpeg")))
+            images = (crops + images)[:SINGLE_CALL_MAX_IMAGES]
+    else:
+        text = extract_text_from_latex_tarball(latex)
+        fig_dir = os.path.join(figures_dir, base) if figures_dir else None
+        if not fig_dir or not os.path.isdir(fig_dir):
+            images = extract_images_from_latex(latex)
+            fig_dir = os.path.dirname(images[0]) if images else None
+        images = latex_figure_files(text, fig_dir, SINGLE_CALL_MAX_IMAGES) if fig_dir else []
+    print(f"[+] Single multimodal call: {len(images)} image(s) attached to the text.")
+    return text, images
+
+
+# Second pass on the figures (prompt v2.1, modes with images): the model checks
+# its own "figures" entries against the attached images. Off by default.
+VERIFY_FIGURES = os.environ.get("VERIFY_FIGURES", "0") == "1"
+
+
+def verify_figures(answer: str, images: list) -> tuple:
+    """
+    (answer with the corrected "figures" list, the list before the check).
+    Any failure keeps the answer unchanged: the pass can only fix, not cost, a paper.
+    """
+    parsed = json.loads(answer)
+    before = parsed.get("figures") or []
+    if not before:
+        return answer, None
+    print(f"\n[~] Verifying {len(before)} figure description(s) against {len(images)} image(s)...")
+    try:
+        _, raw = analyze_with_local("FIGURES TO CHECK:\n" + json.dumps({"figures": before}, ensure_ascii=False), images=images,
+                                    system_prompt=VERIFY_FIGURES_PROMPT, schema=VERIFY_FIGURES_SCHEMA)
+        after = json.loads(raw).get("figures")
+    except Exception as e:
+        print(f"[!] Figure verification failed ({type(e).__name__}: {e}); answer kept unchanged.")
+        return answer, None
+    if not isinstance(after, list) or len(after) != len(before):
+        print(f"[!] Figure verification returned {len(after) if isinstance(after, list) else 'no'} entries for {len(before)}; answer kept unchanged.")
+        return answer, None
+    changed = sum(a != b for a, b in zip(after, before))
+    print(f"[+] Figure verification: {changed}/{len(before)} entr{'y' if changed == 1 else 'ies'} corrected.")
+    parsed["figures"] = after
+    return json.dumps(parsed, ensure_ascii=False, indent=2), before
+
+
 def _log_rejected(rejected_path: str, source_path: str, provider, model_name, raw_output: str = None, error: str = None, input_chars: int = None) -> None:
     """
     Appends one failed paper/provider attempt to <output>.rejected.jsonl: the
@@ -563,6 +734,9 @@ if __name__ == "__main__":
     export_dataset_parser.add_argument("--limit", type=int, default=0, help="Max number of new papers to process this run (0 = no limit)")
     export_dataset_parser.add_argument("--max-figures", type=int, default=0, help="Max number of figures to analyze per paper (0 = no limit)")
     export_dataset_parser.add_argument("--figures-dir", type=str, default=None, help="Use pre-cropped figures from <dir>/<paper name>/ instead of extracting them (same figures for every model in a comparison)")
+    export_dataset_parser.add_argument("--mode", type=str, default="pipeline", choices=["pipeline", "single", "libs", "hybrid"],
+                                       help="pipeline: vision model digitizes each figure + PySR; single: one multimodal call with the figure pages/files attached (local model only); libs: figure data read by libraries only + PySR")
+    export_dataset_parser.add_argument("--vector-dir", type=str, default=None, help="--mode libs, LaTeX: figure files already converted to PDF in <dir>/<paper name>/ (scripts/matrix/prepare_latex_figures.py)")
 
     # Subcommand: evaluate
     evaluate_parser = subparsers.add_parser("evaluate", help="Score an export-dataset JSONL (structural + grounding metrics) and optionally write a filtered copy.")
@@ -571,6 +745,7 @@ if __name__ == "__main__":
     evaluate_parser.add_argument("--filtered-output", type=str, default=None, help="If set, write records that pass both levels here")
     evaluate_parser.add_argument("--min-l2", type=float, default=0.8, help="Minimum Level 2 grounding score to keep a record")
     evaluate_parser.add_argument("--rubrics", type=str, default=None, help="Gold rubric JSONL: adds rubric recall (completeness) and holds those papers out of the filtered output")
+    evaluate_parser.add_argument("--figure-checks", type=str, default=None, help="Gold figure checks JSONL (gold/figure_checks.jsonl): adds the share of figure-reading checks passed (v2 answers)")
     evaluate_parser.add_argument("--bootstrap", type=int, default=10000, help="Bootstrap resamples for the confidence intervals")
 
     args = parser.parse_args()
@@ -721,22 +896,49 @@ if __name__ == "__main__":
             print(f"[+] Limiting this run to {len(pending)} paper(s) (--limit {args.limit}).")
 
         providers = ["gemini", "groq", "openrouter"] if args.model.lower() == "all" else [args.model.lower()]
+        multimodal = args.mode in ("single", "hybrid")
+        if multimodal and PROMPT_VERSION not in V2_VERSIONS:
+            print(f"[!] --mode {args.mode} is written for the v2 schema: set PROMPT_VERSION=v2 or v2.1.")
+            exit(1)
+        if args.mode == "hybrid" and PROMPT_VERSION != "v2.1":
+            print("[!] --mode hybrid needs PROMPT_VERSION=v2.1 (its instructions mention both images and library data).")
+            exit(1)
+        if multimodal and providers != ["local"]:
+            print(f"[!] --mode {args.mode} needs --model local (images are sent to the local vLLM server).")
+            exit(1)
+        final_system_prompt = SYSTEM_PROMPT
+        if multimodal:
+            final_system_prompt += SINGLE_CALL_INSTRUCTIONS_V21 if PROMPT_VERSION == "v2.1" else SINGLE_CALL_INSTRUCTIONS
         written = 0
         # Same for every record of this run: enough to reproduce or compare runs.
         run_metadata = {
+            "prompt_version": PROMPT_VERSION,
             "prompt_sha256": hashlib.sha256(SYSTEM_PROMPT.encode("utf-8")).hexdigest()[:12],
             "code_version": _code_version(),
             "pysr_iterations": args.iterations,
             "max_figures": args.max_figures,
             "figures_dir": args.figures_dir,
+            "mode": args.mode,
+            "verify_figures": VERIFY_FIGURES and multimodal,
         }
 
         with open(args.output, "a", encoding="utf-8") as out_f:
             for i, (source_path, kind) in enumerate(pending, 1):
                 print(f"\n========== Paper {i}/{len(pending)}: {os.path.basename(source_path)} ==========")
                 checkpoint_path = _checkpoint_path(source_path)
+                images = []
                 try:
-                    if kind == "pdf":
+                    if args.mode == "libs":
+                        vdir = os.path.join(args.vector_dir, _paper_base_name(source_path)) if args.vector_dir else None
+                        text_content = build_library_enriched_text(**{kind: source_path}, iterations=args.iterations, vector_dir=vdir)
+                    elif args.mode == "single":
+                        text_content, images = single_call_inputs(**{kind: source_path}, figures_dir=args.figures_dir)
+                    elif args.mode == "hybrid":
+                        # B + C: the images of the single call, the text and library-read data of libs.
+                        vdir = os.path.join(args.vector_dir, _paper_base_name(source_path)) if args.vector_dir else None
+                        text_content = build_library_enriched_text(**{kind: source_path}, iterations=args.iterations, vector_dir=vdir)
+                        _, images = single_call_inputs(**{kind: source_path}, figures_dir=args.figures_dir)
+                    elif kind == "pdf":
                         text_content = build_enriched_paper_text(pdf=source_path, iterations=args.iterations, max_figures=args.max_figures, use_local_vision=(args.model.lower() == "local"), figures_dir=args.figures_dir)
                     else:
                         text_content = build_enriched_paper_text(latex=source_path, iterations=args.iterations, max_figures=args.max_figures, use_local_vision=(args.model.lower() == "local"), figures_dir=args.figures_dir)
@@ -768,8 +970,9 @@ if __name__ == "__main__":
                         elif provider == "openrouter":
                             m_name, raw_res = analyze_with_openrouter(model_input)
                         elif provider == "local":
-                            model_input, truncated = fit_to_context(text_content)
-                            m_name, raw_res = analyze_with_local(model_input)
+                            model_input, truncated = fit_to_context(text_content, reserve_tokens=len(images) * SINGLE_CALL_IMAGE_TOKENS,
+                                                                    system_prompt=final_system_prompt)
+                            m_name, raw_res = analyze_with_local(model_input, images=images, system_prompt=final_system_prompt)
                         else:
                             continue
                     except Exception as e:
@@ -789,6 +992,9 @@ if __name__ == "__main__":
                         continue
 
                     raw_res = final_res
+                    figures_before_check = None
+                    if provider == "local" and VERIFY_FIGURES and images:
+                        raw_res, figures_before_check = verify_figures(raw_res, images)
                     record = {
                         "source_file": source_path,
                         "provider": m_name,
@@ -798,16 +1004,20 @@ if __name__ == "__main__":
                         # What the teacher itself wrote before build_visual_findings()
                         # replaced it: `evaluate` scores the separation rule on this.
                         "llm_visual_analysis_findings": llm_findings,
+                        # VERIFY_FIGURES=1: the "figures" list before the verification pass.
+                        **({"figures_before_check": figures_before_check} if figures_before_check is not None else {}),
                         # The paper body was cut to fit the context (see fit_to_context);
                         # the user message below is exactly what the teacher saw.
                         "input_truncated": truncated,
+                        # --mode single: the images attached before the text (same order).
+                        **({"images": [os.path.basename(p) for p in images]} if images else {}),
                         "generation": dict(
                             run_metadata,
                             created_at=datetime.now().isoformat(timespec="seconds"),
                             **(dict(GENERATION_SETTINGS, vision_guided_json=VISION_GUIDED_JSON) if provider == "local" else {}),
                         ),
                         "messages": [
-                            {"role": "system", "content": SYSTEM_PROMPT},
+                            {"role": "system", "content": final_system_prompt if provider == "local" else SYSTEM_PROMPT},
                             {"role": "user", "content": model_input},
                             {"role": "assistant", "content": raw_res},
                         ],
@@ -824,6 +1034,7 @@ if __name__ == "__main__":
 
         print(f"\n[+] Done. {written} training example(s) appended to '{args.output}'.")
     elif args.command == "evaluate":
-        run_evaluation(args.input, args.report, args.filtered_output, args.min_l2, args.rubrics, args.bootstrap)
+        run_evaluation(args.input, args.report, args.filtered_output, args.min_l2, args.rubrics, args.bootstrap,
+                       args.figure_checks)
     else:
         parser.print_help()

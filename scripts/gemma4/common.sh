@@ -28,7 +28,7 @@ start_gemma4_server() {
         --gpu-memory-utilization "${GPU_MEM_UTIL:-0.85}" \
         --max-num-seqs "${MAX_NUM_SEQS:-32}" \
         --reasoning-parser gemma4 \
-        --limit-mm-per-prompt '{"image": 2}' \
+        --limit-mm-per-prompt "{\"image\": ${MAX_IMAGES:-2}}" \
         --port "$PORT" $extra ${GEMMA4_EXTRA_ARGS:-} \
         > "$SERVER_LOG" 2>&1 &
     VISION_PID=$!

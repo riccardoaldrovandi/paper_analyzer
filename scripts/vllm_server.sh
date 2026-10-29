@@ -34,11 +34,13 @@ start_vision_server() {
 }
 
 # wait_for_vision_server <port> -- startup takes 125-430s and varies a lot with
-# filesystem load, so poll for up to 15 min, but give up immediately if the
+# filesystem load, so poll for up to 15 min (SERVER_WAIT_STEPS x 5 s: Mistral
+# Small 4 sets 30 min), but give up immediately if the
 # server process died.
 wait_for_vision_server() {
     local port="$1"
-    for i in $(seq 1 180); do
+    local steps="${SERVER_WAIT_STEPS:-180}"
+    for i in $(seq 1 "$steps"); do
         if curl -s "http://localhost:$port/v1/models" > /dev/null 2>&1; then
             echo "[+] Vision server ready after $((i * 5))s."
             return 0
@@ -49,7 +51,7 @@ wait_for_vision_server() {
         fi
         sleep 5
     done
-    echo "[!] Vision server not ready after 900s."
+    echo "[!] Vision server not ready after $((steps * 5))s."
     return 1
 }
 

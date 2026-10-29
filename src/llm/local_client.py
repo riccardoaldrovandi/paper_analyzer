@@ -121,7 +121,7 @@ def _get_tokenizer():
     return _ServerTokenizer() if TEXT_SERVER_URL else _get_llm().get_tokenizer()
 
 
-def fit_to_context(text_content: str, tokenizer=None) -> tuple[str, bool]:
+def fit_to_context(text_content: str, tokenizer=None, reserve_tokens: int = 0, system_prompt: str = None) -> tuple[str, bool]:
     """
     Makes the paper text fit the model's context window. About half of the
     downloaded papers (46/98 on 2026-10-09) are longer than 32k tokens, and
@@ -130,15 +130,20 @@ def fit_to_context(text_content: str, tokenizer=None) -> tuple[str, bool]:
     the ADVANCED PLOT ANALYSIS block is always kept whole. Returns the text
     actually sent to the model and whether it was truncated; export-dataset
     stores that text, so each training example matches what the teacher saw.
+
+    reserve_tokens: room kept for what is sent besides the text (the images of
+    the single multimodal call); system_prompt: the one actually sent, if not
+    SYSTEM_PROMPT.
     """
     from src.config import SYSTEM_PROMPT
 
     tokenizer = tokenizer or _get_tokenizer()
+    system_prompt = system_prompt or SYSTEM_PROMPT
 
     def count(text: str) -> int:
         return len(tokenizer.encode(text, add_special_tokens=False))
 
-    budget = MAX_MODEL_LEN - MAX_NEW_TOKENS - count(SYSTEM_PROMPT) - count(USER_PREFIX) - _TEMPLATE_MARGIN
+    budget = MAX_MODEL_LEN - MAX_NEW_TOKENS - count(system_prompt) - count(USER_PREFIX) - _TEMPLATE_MARGIN - reserve_tokens
     if count(text_content) <= budget:
         return text_content, False
 
@@ -205,14 +210,34 @@ def _chat_via_server(messages: list, sampling_kwargs: dict, schema: dict = None)
     return message.get("content") or ""
 
 
-def analyze_with_local(text_content: str) -> tuple[str, str]:
+def _image_part(path: str) -> dict:
+    import base64
+    mime = "image/jpeg" if path.lower().endswith((".jpg", ".jpeg")) else "image/png"
+    with open(path, "rb") as f:
+        return {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{base64.b64encode(f.read()).decode()}"}}
+
+
+def analyze_with_local(text_content: str, images: list = None, system_prompt: str = None, schema: dict = None) -> tuple[str, str]:
+    """
+    The final analysis call. images (paths) and system_prompt are used by the
+    single multimodal call (export-dataset --mode single): the images go before
+    the text, as in the figure digitization requests. HTTP server mode only.
+    schema replaces ANSWER_SCHEMA for guided decoding (the figure verification
+    pass of export-dataset asks for the "figures" list only).
+    """
     from src.config import SYSTEM_PROMPT
 
+    system_prompt = system_prompt or SYSTEM_PROMPT
     # No-op when the caller already passed the text through fit_to_context().
-    text_content, _ = fit_to_context(text_content)
+    text_content, _ = fit_to_context(text_content, system_prompt=system_prompt)
+    user = f"{USER_PREFIX}{text_content}"
+    if images:
+        if not TEXT_SERVER_URL:
+            raise RuntimeError("Images in the final call need a vLLM server (LOCAL_TEXT_SERVER_URL).")
+        user = [_image_part(p) for p in images] + [{"type": "text", "text": user}]
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"{USER_PREFIX}{text_content}"},
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user},
     ]
     # repetition_penalty/frequency_penalty added after the 2026-10-06 bug: with
     # no penalty at all, the model occasionally spirals into repeating a single
@@ -229,13 +254,14 @@ def analyze_with_local(text_content: str) -> tuple[str, str]:
     )
 
     print(f"[~] Generating with local {MODEL_NAME} (temperature={TEMPERATURE}, seed={SEED}, guided JSON={GUIDED_JSON}"
+          f"{f', {len(images)} image(s)' if images else ''}"
           f"{f', thinking={ENABLE_THINKING}' if ENABLE_THINKING is not None else ''}{', via server' if TEXT_SERVER_URL else ''})...")
     if TEXT_SERVER_URL:
         raw_text = None
         if GUIDED_JSON:
             from src.llm.schemas import ANSWER_SCHEMA
             try:
-                raw_text = _chat_via_server(messages, sampling_kwargs, ANSWER_SCHEMA)
+                raw_text = _chat_via_server(messages, sampling_kwargs, schema or ANSWER_SCHEMA)
             except Exception as e:
                 # Same policy as in-process: a guided failure must not cost the paper.
                 print(f"[!] Guided JSON generation failed ({type(e).__name__}: {e}); retrying without the schema constraint.")

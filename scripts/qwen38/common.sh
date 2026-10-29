@@ -67,7 +67,7 @@ start_qwen38_server() {
         --gpu-memory-utilization "${GPU_MEM_UTIL:-0.85}" \
         --max-num-seqs "${MAX_NUM_SEQS:-32}" \
         --reasoning-parser qwen3 \
-        --limit-mm-per-prompt '{"image": 2, "video": 0}' \
+        --limit-mm-per-prompt "{\"image\": ${MAX_IMAGES:-2}, \"video\": 0}" \
         --port "$PORT" $extra \
         > "$SERVER_LOG" 2>&1 &
     VISION_PID=$!
